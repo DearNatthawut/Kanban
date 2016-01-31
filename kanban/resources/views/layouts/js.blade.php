@@ -38,6 +38,14 @@
 
         $('#undo_redo').multiselect();
     });
+
+</script>
+<script>
+$(function () {
+
+        //Date range picker
+        $('#reservation').daterangepicker();
+        });
 </script>
 
 

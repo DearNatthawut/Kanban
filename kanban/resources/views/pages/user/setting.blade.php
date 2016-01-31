@@ -17,7 +17,50 @@
 
 
                     </div>
+                    <div >
+                        <!-- form start -->
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="name" class="col-sm-2 control-label">Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="name" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="detail" class="col-sm-2 control-label">Detail</label>
+                                    <div class="col-sm-10">
+                                        <textarea id="detail" class="form-control" rows="5" placeholder="Detail"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="reservation" class="col-sm-2 control-label">Estimate Date</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="date" class="form-control  pull-right" id="reservation">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="manager" class="col-sm-2 control-label">Manager</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="manager" class="form-control" placeholder="manager name">
+                                    </div>
+                                </div>
 
+
+
+
+
+                            </div><!-- /.box-body -->
+                            <div class="box-footer">
+                                <a href="/index">
+                                    <button type="button" class="btn btn-default pull-right">Cancel</button>
+                                </a>
+
+                                <button type="submit" class="btn btn-primary pull-right">Submit</button>
+
+                            </div><!-- /.box-footer -->
+                        </form>
+                    </div><!-- /.box -->
                 </div>
 
             </div>
