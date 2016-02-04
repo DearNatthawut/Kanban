@@ -10,18 +10,31 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use App\Models\Member;
+use App\Models\Board;
+Route::get('/test', function () {
+    $member = Board::all();
+    return $member[0]['name'];
 
+});
 
 Route::get('/', function () {
     return view('pages.user.login');
+});
+//------------------------------------------------- Board
+Route::get('/createBoard', function () {
+return view('pages.user.createBoard');
+});
+Route::post('/createBoard','BoardController@createBoard');// สร้าง board
 
-});
-Route::get('/board', function () {
-    return view('pages.user.board');
-});
-Route::get('/index', function () {
-    return view('pages.index');
-});
+Route::get('/editBoard/{id}','BoardController@getEditBoard');// get ข้อมูล
+Route::post('/editBoard','BoardController@editBoard');// แก้ไข ข้อมูล
+
+
+Route::get('/index','BoardController@showAllBoard'); // แสดง ทุก board
+
+Route::get('/deleteBoard/{id}','BoardController@deleteBoard'); // ลบ board
+
 Route::get('/membersmanagement', function () {
     return view('pages.memberManagement');
 });
@@ -32,16 +45,6 @@ Route::get('/member', function () {
 
 Route::get('/showGantt', function () {
     return view('pages.user.gantt');
-});
-
-Route::get('/setting', function () {
-    return view('pages.user.setting');
-});
-Route::get('/profile', function () {
-    return view('pages.user.profile');
-});
-Route::get('/template', function () {
-    return view('pages.user.template');
 });
 
 

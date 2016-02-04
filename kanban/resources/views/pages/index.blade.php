@@ -17,7 +17,7 @@
                         <h2>Management</h2>
 
 
-                        <a href="/board">
+                        <a href="/createBoard">
                             <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-plus"> Create
                                     Board</i></button>
                         </a>
@@ -27,69 +27,40 @@
                         <tbody>
 
 
-                        <tr>
-                            <td style="width: 60%">
-                                <span>Name board : Test </span><br><span>Manager : Suphisit Khaika</span><br><span>Member : 2</span>
-                            </td>
-                            <td style="width: 40%">
-                                <a href="/board">
-                                    <button type="button" class="btn btn-default">Board</button>
-                                </a>
-                                <a href="/member">
-                                    <button type="button" class="btn btn-default">Member</button>
-                                </a>
-                                <a href="/showGantt">
-                                    <button type="button" class="btn btn-default">Gantt Chart</button>
-                                </a>
-                                <a href="/setting">
-                                    <button type="button" class="btn btn-default">Setting</button>
-                                </a>
-                                <a href="/board">
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </a></td>
-                        </tr>
-                        <tr>
-                            <td style="width: 60%">
-                                <span>Name board : DOTA</span><br><span>Manager : Pao </span><br><span>Team : 2</span>
-                            </td>
-                            <td style="width: 40%">
-                                <a href="/board">
-                                    <button type="button" class="btn btn-default">Board</button>
-                                </a>
-                                <a href="/member">
-                                    <button type="button" class="btn btn-default">Member</button>
-                                </a>
-                                <a href="/gantt">
-                                    <button type="button" class="btn btn-default">Gantt Chart</button>
-                                </a>
-                                <a href="/setting">
-                                    <button type="button" class="btn btn-default">Setting</button>
-                                </a>
-                                <a href="/board">
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </a></td>
-                        </tr>
-                        <tr>
-                            <td style="width: 60%">
-                                <span>Name board : Kanban</span><br><span>Manager : Suphisit Khaika</span><br><span>Member : 2</span>
-                            </td>
-                            <td style="width: 40%">
-                                <a href="/board">
-                                    <button type="button" class="btn btn-default">Board</button>
-                                </a>
-                                <a href="/member">
-                                    <button type="button" class="btn btn-default">Member</button>
-                                </a>
-                                <a href="/gantt">
-                                    <button type="button" class="btn btn-default">Gantt Chart</button>
-                                </a>
-                                <a href="/setting">
-                                    <button type="button" class="btn btn-default">Setting</button>
-                                </a>
-                                <a href="/board">
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </a></td>
-                        </tr>
+                        @foreach($allBoards as $Board)
+
+                            <tr>
+                                <td style="width: 60%">
+                                    <span>Name board : {{$Board->name}} </span><br><span>Manager : </span><br><span>Member : 2</span>
+                                </td>
+                                <td style="width: 40%">
+                                    <a href="/board/{{$Board->id}}">
+                                        <button type="button" class="btn btn-default">Board</button>
+                                    </a>
+                                    <a href="/member/{{$Board->id}}">
+                                        <button type="button" class="btn btn-default">Member</button>
+                                    </a>
+                                    <a href="/showGantt/{{$Board->id}}">
+                                        <button type="button" class="btn btn-default">Gantt Chart</button>
+                                    </a>
+                                    <a href="/editBoard/{{$Board->id}}">
+                                        <button type="button" class="btn btn-default">Edit</button>
+                                    </a>
+
+                                        <button type="button" class="btn btn-danger" onclick="deleteBoard()" >Delete</button>
+                                    <script>
+                                        function deleteBoard() {
+
+                                            if (confirm("Confirm Delete this Board!") == true) {
+                                                document.location.href = "/deleteBoard/{{$Board->id}}";
+                                            }
+                                        }
+                                    </script>
+                                   </td>
+                            </tr>
+
+                        @endforeach
+
 
 
                         </tbody>
