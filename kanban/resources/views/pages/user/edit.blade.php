@@ -2,7 +2,6 @@
     @include("layouts.header")
     @include("layouts.aside")
 
-
 <div class="content-wrapper">
 
     <section class="content">

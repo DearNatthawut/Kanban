@@ -37,8 +37,8 @@
             </li>
 
             <li>
-                <a href="/setting ">
-                    <i class="fa fa-cogs"></i> <span>Setting</span>
+                <a href="/editBoard{{$Board->id}} ">
+                    <i class="fa fa-cogs"></i> <span>Edit</span>
                 </a>
             </li>
 

@@ -13,21 +13,30 @@
 use App\Models\Member;
 use App\Models\Board;
 Route::get('/test', function () {
-    $member = Board::all();
-    return $member[0]['name'];
+    $data = DB::table('boards')
+        ->join('members', 'boards.manager_id', '=', 'members.id')
+        ->select( 'members.*','members.name as manager ','boards.*')
+        ->get();
 
+    return $data;
 });
 
 Route::get('/', function () {
     return view('pages.user.login');
 });
+Route::get('/board', function () {
+    return view('pages.user.board');
+});
+
+Route::get('/board{id}','BoardController@showBoard');// get ข้อมูล
 //------------------------------------------------- Board
 Route::get('/createBoard', function () {
 return view('pages.user.createBoard');
 });
+
 Route::post('/createBoard','BoardController@createBoard');// สร้าง board
 
-Route::get('/editBoard/{id}','BoardController@getEditBoard');// get ข้อมูล
+Route::get('/editBoard{id}','BoardController@getEditBoard');// get ข้อมูล
 Route::post('/editBoard','BoardController@editBoard');// แก้ไข ข้อมูล
 
 

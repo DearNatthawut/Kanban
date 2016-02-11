@@ -4,14 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Board;
 use App\Models\Member;
-
+use DB;
 class BoardController extends Controller
 {
     public function showAllBoard()
     {
         $data = Board::all();
+        $data = DB::table('boards')
+            ->join('members', 'boards.manager_id', '=', 'members.id')
+            ->select( 'members.*','members.name as manager ','boards.*')
+            ->get();
 
         return view('pages.index')->with('allBoards',$data);
+    }
+
+    public function showBoard($id)
+    {
+        $data = Board::find($id);
+        return view('pages.user.board')->with('Board',$data);
     }
 
     public function getEditBoard($id)

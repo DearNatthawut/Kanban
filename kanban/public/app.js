@@ -7,8 +7,8 @@ angular.module('kanban', [
     ])
     .config(['$compileProvider', function ($compileProvider) {
         $compileProvider.debugInfoEnabled(false); // testing issue #144
-    }]).
-config(['$routeProvider', function ($routeProvider) {
+    }])
+    .config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider.when('/', {templateUrl: 'views/kanban.html'});
 

@@ -31,10 +31,16 @@
 
                             <tr>
                                 <td style="width: 60%">
-                                    <span>Name board : {{$Board->name}} </span><br><span>Manager : </span><br><span>Member : 2</span>
+                                    <span>Name board : {{$Board->name}} </span>
+                                    <br>
+                                    <span>Detail : {{$Board->detail}} </span>
+                                    <br>
+                                    <span>Manager :{{$Board->manager}} </span>
+                                    <br>
+                                    <span>Member : 1</span>
                                 </td>
                                 <td style="width: 40%">
-                                    <a href="/board/{{$Board->id}}">
+                                    <a href="/board{{$Board->id}}">
                                         <button type="button" class="btn btn-default">Board</button>
                                     </a>
                                     <a href="/member/{{$Board->id}}">
@@ -43,7 +49,7 @@
                                     <a href="/showGantt/{{$Board->id}}">
                                         <button type="button" class="btn btn-default">Gantt Chart</button>
                                     </a>
-                                    <a href="/editBoard/{{$Board->id}}">
+                                    <a href="/editBoard{{$Board->id}}">
                                         <button type="button" class="btn btn-default">Edit</button>
                                     </a>
 

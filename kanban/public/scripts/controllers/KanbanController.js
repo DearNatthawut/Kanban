@@ -1,6 +1,5 @@
 /*jshint undef: false, unused: false, indent: 2*/
 /*global angular: false */
-
 'use strict';
 
 angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService', 'BoardDataFactory', function ($scope, BoardService, BoardDataFactory) {
