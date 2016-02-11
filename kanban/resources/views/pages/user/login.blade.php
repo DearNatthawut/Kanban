@@ -25,7 +25,7 @@
             </div>
             <div class="form-group has-feedback">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" placeholder="รหัสผ่าน" required>
+                <input type="password" name="password" class="form-control" placeholder="รหัสผ่าน" required>
 
             </div>
 
