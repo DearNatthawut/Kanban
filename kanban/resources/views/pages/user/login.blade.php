@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  >
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,13 +19,13 @@
             {!! csrf_field() !!}
 
             <div class="form-group has-feedback">
-                <label for="email">E-mail</label>
-                <input type="text" name="email" class="form-control" placeholder="อีเมล หรือรหัสนิสิต" required>
+                <label for="username">E-mail</label>
+                <input type="text" name="username" class="form-control" placeholder="อีเมล หรือรหัสนิสิต" required>
 
             </div>
             <div class="form-group has-feedback">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" placeholder="รหัสผ่าน" required>
+                <input type="password" name="password" class="form-control" placeholder="รหัสผ่าน" required>
 
             </div>
 
@@ -34,9 +34,7 @@
             <div class="form-group">
 
 
-
-
-                <button type="submit" class="btn btn-primary" style="margin-right: 15px;"> Login</button>
+                <button type="submit" class="btn btn-primary"> Login</button>
             </div>
 
         </form>

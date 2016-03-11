@@ -10,16 +10,35 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-use App\Models\Member;
 use App\Models\Board;
-Route::get('/test', function () {
-    $data = DB::table('boards')
-        ->join('members', 'boards.manager_id', '=', 'members.id')
-        ->select( 'members.*','members.name as manager ','boards.*')
-        ->get();
+use App\Models\Member;
+use App\Models\Membermanagement;
 
-    return $data;
+Route::get('/getdata', 'BoardController@testData');
+
+Route::get('/cards', 'BoardController@getCard');
+
+Route::get('/card', function () {
+    $board = Board::with(['members','cards'])->find(10);
+    $cards = $board->cards()->get();
+    $statusCout = \App\Models\Status::all()->toArray();
+    $status = \App\Models\Status::all('name')->toArray();
+    $kanban = [];
+    $kanban['columns'] = [];
+
+    foreach ($statusCout as $s){
+        $status['cards'] = [];
+        foreach($cards as $card){
+            if ($card->statuses_id == $s['id']){
+                $s['cards'][] = $card;
+            }
+        }
+        $kanban['columns'][] = $s;
+    }
+
+    return $kanban;
 });
+
 
 Route::get('/', function () {
     return view('pages.user.login');
@@ -48,9 +67,8 @@ Route::get('/membersmanagement', function () {
     return view('pages.memberManagement');
 });
 
-Route::get('/member', function () {
-    return view('pages.user.member');
-});
+Route::get('/member{id}','MemberController@showMember');
+
 
 Route::get('/showGantt', function () {
     return view('pages.user.gantt');

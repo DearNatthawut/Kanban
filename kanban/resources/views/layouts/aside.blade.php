@@ -37,7 +37,7 @@
             </li>
 
             <li>
-                <a href="/editBoard{{$Board->id}} ">
+                <a href="/editBoard ">
                     <i class="fa fa-cogs"></i> <span>Edit</span>
                 </a>
             </li>

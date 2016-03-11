@@ -33,34 +33,22 @@
 
 
                         <tr>
-                            <th style="width: 10px">#</th>
                             <th>Name</th>
                             <th>E-mail</th>
                             <th style="width: 20%">Status</th>
                             <th style="width: 10px"></th>
                         </tr>
+                        @foreach($members as $member)
                         <tr>
-                            <td>1.</td>
-                            <td> Suphisit Khaika</td>
-                            <td> Suphisit@hotmail.com</td>
-                            <td>Manager</td>
+                            <td> {{$member->member}}</td>
+                            <td> {{$member->email}}</td>
+                            <td>{{$member->level}}</td>
                             <td>
                                 <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-remove"></i>
                                 </button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2.</td>
-                            <td>Natthawut Jantapoon</td>
-                            <td>
-                                davilbm_9@hotmail.com
-                            </td>
-                            <td> Member</td>
-                            <td>
-                                <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-remove"></i>
-                                </button>
-                            </td>
-                        </tr>
+                        @endforeach
 
 
                         </tbody>

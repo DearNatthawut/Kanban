@@ -1,35 +1,44 @@
-<!--styles -->
-<link rel="stylesheet" type="text/css" href="gantt/lib/jquery-ui-1.8.4.css" >
-<link rel="stylesheet" type="text/css" href="gantt/reset.css" >
-<link rel="stylesheet" type="text/css" href="gantt/jquery.ganttView.css" >
-
-<!--scripts-->
-<script type="text/javascript" src="gantt/lib/jquery-1.4.2.js"></script>
-<script type="text/javascript" src="gantt/lib/date.js"></script>
-<script type="text/javascript" src="gantt/lib/jquery-ui-1.8.4.js"></script>
-<script type="text/javascript" src="gantt/jquery.ganttView.js"></script>
-<script type="text/javascript" src="gantt/data.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-    $(function () {
-        $("#ganttChart").ganttView({
-            data: ganttData,
-            slideWidth: 900,
-            behavior: {
-                onClick: function (data) {
-                    var msg = "You clicked on an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
-                    $("#eventMessage").text(msg);
-                },
-                onResize: function (data) {
-                    var msg = "You resized an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
-                    $("#eventMessage").text(msg);
-                },
-                onDrag: function (data) {
-                    var msg = "You dragged an event: { start: " + data.start.toString("M/d/yyyy") + ", end: " + data.end.toString("M/d/yyyy") + " }";
-                    $("#eventMessage").text(msg);
-                }
+    google.charts.load('current', {'packages':['gantt']});
+    google.charts.setOnLoadCallback(drawChart);
+
+
+    function toMilliseconds(minutes) {
+        return minutes * 60 * 1000;
+    }
+
+    function drawChart() {
+
+        var otherData = new google.visualization.DataTable();
+        otherData.addColumn('string', 'Task ID');
+        otherData.addColumn('string', 'Task Name');
+        otherData.addColumn('string', 'Resource');
+        otherData.addColumn('date', 'Start');
+        otherData.addColumn('date', 'End');
+        otherData.addColumn('number', 'Duration');
+        otherData.addColumn('number', 'Percent Complete');
+        otherData.addColumn('string', 'Dependencies');
+
+        otherData.addRows([
+            ['toTrain', 'Walk to train stop', 'walk', null, null, toMilliseconds(5), 100, null],
+            ['music', 'Listen to music', 'music', null, null, toMilliseconds(70), 100, null],
+            ['wait', 'Wait for train', 'wait', null, null, toMilliseconds(10), 100, 'toTrain'],
+            ['train', 'Train ride', 'train', null, null, toMilliseconds(45), 75, 'wait'],
+            ['toWork', 'Walk to work', 'walk', null, null, toMilliseconds(10), 0, 'train'],
+            ['work', 'Sit down at desk', null, null, null, toMilliseconds(2), 0, 'toWork'],
+
+        ]);
+
+        var options = {
+            height: 275,
+            gantt: {
+                defaultStartDateMillis: new Date(2015, 3, 28)
             }
-        });
+        };
 
-    });
+        var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+        chart.draw(otherData, options);
+    }
 </script>
-

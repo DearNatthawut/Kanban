@@ -43,7 +43,7 @@
                                     <a href="/board{{$Board->id}}">
                                         <button type="button" class="btn btn-default">Board</button>
                                     </a>
-                                    <a href="/member/{{$Board->id}}">
+                                    <a href="/member{{$Board->id}}">
                                         <button type="button" class="btn btn-default">Member</button>
                                     </a>
                                     <a href="/showGantt/{{$Board->id}}">
