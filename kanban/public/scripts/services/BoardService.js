@@ -3,7 +3,7 @@
 
 'use strict';
 
-angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator','$http', function ($modal, BoardManipulator,$http) {
+angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator','$http', function ($modal, BoardManipulator,$http,$scope) {
 
     return {
         listUsers : function(){
@@ -40,8 +40,15 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator','
             });
             modalInstance.result.then(function (cardDetails) {
                 if (cardDetails) {
-                    BoardManipulator.addCardToColumn(board, cardDetails.column, cardDetails.title, cardDetails.details
+
+
+                   BoardManipulator.addCardToColumn(board, cardDetails.column, cardDetails.title, cardDetails.details
                         ,cardDetails.estimateStart,cardDetails.estimateEnd);
+
+                    /*$http.post("http://localhost:8000/insertCard",cardDetails).success(function(data, status, headers, config){
+                        console.log("inserted Successfully");
+                    });*/
+
                 }
             });
         },
@@ -52,8 +59,6 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator','
                 backdrop: 'static'
 
             });
-
-
         },
 
         kanbanBoard: function (board) {

@@ -21,6 +21,7 @@
                             <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-plus"> Create
                                     Board</i></button>
                         </a>
+                        
                     </div>
 
                     <table class="table table-striped table-hover">

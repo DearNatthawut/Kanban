@@ -14,7 +14,6 @@ class Board extends Model
     }
 
     public function cards(){
-
         return $this->hasMany(\App\Models\Card::class,"boards_id");
     }
 }

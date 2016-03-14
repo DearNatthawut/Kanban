@@ -9,6 +9,8 @@ use App\Models\Card;
 use App\Models\Status;
 use DB;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Session;
+
 
 class BoardController extends Controller
 {
@@ -25,6 +27,10 @@ class BoardController extends Controller
     public function showBoard($id)
     {
         $data = Board::find($id);
+
+        session::put("Board",$id);  //--------------------------------------- CreateSession
+        session::put("Manager",$data->manager_id);
+
         return view('pages.user.board')->with('Board', $data);
     }
 
@@ -87,7 +93,7 @@ class BoardController extends Controller
                 return $kanban;
             }
         */
-        $board = Board::with(['members', 'cards'])->find(10);
+        $board = Board::with(['members', 'cards'])->find(session()->get('Board'));
         $cards = $board->cards()->select('statuses_id','name as title','detail as details')->get();
         $status = \App\Models\Status::all('id','name')->toArray();
         $kanban = [];
@@ -109,4 +115,24 @@ class BoardController extends Controller
 
         return $kanban;
     }
+
+    public function createCard()
+    {
+        $BoardId = session()->get('Board');
+       $Card = new Card();
+        $Card->name = \Input::get('name');
+        $Card->detail = \Input::get('detail');
+        $Card->priorities_id = 1;
+        $Card->statuses_id = 1;
+        $Card->types_id = 1;
+        $Card->color_id = 1;
+        $Card->Boards_id = session()->get('Board');
+        $Card->MemberManagements_id	 = session()->get('Manager');
+        $Card->save();
+
+
+        return redirect("/board$BoardId");
+
+    }
+
 }

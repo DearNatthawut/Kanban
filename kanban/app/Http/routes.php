@@ -39,16 +39,25 @@ Route::get('/card', function () {
     return $kanban;
 });
 
+Route::post('/insertCard','BoardController@insertCard');
+
+Route::get('/createCard', function () {
+    return view('pages.user.createCard');
+});
+
+Route::post('/createCard','BoardController@createCard');// สร้าง board
 
 Route::get('/', function () {
     return view('pages.user.login');
 });
+
+//------------------------------------------------- Board
 Route::get('/board', function () {
     return view('pages.user.board');
 });
 
 Route::get('/board{id}','BoardController@showBoard');// get ข้อมูล
-//------------------------------------------------- Board
+
 Route::get('/createBoard', function () {
 return view('pages.user.createBoard');
 });
@@ -56,8 +65,8 @@ return view('pages.user.createBoard');
 Route::post('/createBoard','BoardController@createBoard');// สร้าง board
 
 Route::get('/editBoard{id}','BoardController@getEditBoard');// get ข้อมูล
-Route::post('/editBoard','BoardController@editBoard');// แก้ไข ข้อมูล
 
+Route::post('/editBoard','BoardController@editBoard');// แก้ไข ข้อมูล
 
 Route::get('/index','BoardController@showAllBoard'); // แสดง ทุก board
 
