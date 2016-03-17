@@ -16,7 +16,16 @@ use App\Models\Membermanagement;
 
 Route::get('/getdata', 'BoardController@testData');
 
-Route::get('/cards', 'BoardController@getCard');
+//-------------------------------------------------------Login
+
+Route::get('/', function () {
+    return view('pages.user.login');
+});
+
+
+//------------------------------------------------------------------ Card
+
+Route::get('/cards', 'BoardController@getCard'); // get card main
 
 Route::get('/card', function () {
     $board = Board::with(['members','cards'])->find(10);
@@ -37,7 +46,7 @@ Route::get('/card', function () {
     }
 
     return $kanban;
-});
+}); // get 2 test
 
 Route::post('/insertCard','BoardController@insertCard');
 
@@ -47,9 +56,9 @@ Route::get('/createCard', function () {
 
 Route::post('/createCard','BoardController@createCard');// สร้าง board
 
-Route::get('/', function () {
-    return view('pages.user.login');
-});
+Route::post('/moveCard','BoardController@moveCard');
+
+
 
 //------------------------------------------------- Board
 Route::get('/board', function () {

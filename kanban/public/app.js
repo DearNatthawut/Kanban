@@ -5,12 +5,7 @@ angular.module('kanban', [
         'ui.sortable',
         'ui.bootstrap'
     ])
-    .controller('x', function ($scope, $http) {
-        $http.get("http://localhost:8000/getdata")
-            .then(function (response) {
-                $scope.data = response.data.kanban;
-            });
-    })
+
     .config(['$compileProvider', function ($compileProvider) {
         $compileProvider.debugInfoEnabled(false); // testing issue #144
     }])

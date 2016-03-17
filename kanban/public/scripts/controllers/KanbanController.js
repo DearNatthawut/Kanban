@@ -2,18 +2,21 @@
 /*global angular: false */
 'use strict';
 var test;
-angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService', 'BoardDataFactory', function ($scope, BoardService, BoardDataFactory) {
-
+angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService', 'BoardDataFactory', function ($scope, BoardService, BoardDataFactory,CSRF_TOKEN) {
 
 
     var self = this;
+
+
+
     console.log("test");
 
     self.xxx = function () {
 
         var $userData = {
             id: 10,
-            name: "xxx"
+            name: "xxx",
+           // '_token':CSRF_TOKEN
         };
 
         BoardService.newUsers($userData)
@@ -26,7 +29,8 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
         console.log(r);
         self.kanbanBoard = BoardService.kanbanBoard(r);
 
-    })
+    });
+
 
 
     self.kanbanSortOptions = {
@@ -37,8 +41,24 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
          },*/
         itemMoved: function (event) {
             //event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
-            console.log(event);
-            test = event;
+            console.log(event.source.itemScope.modelValue.card_id);
+
+            var $MoveEvent = {
+                cardId: event.source.itemScope.modelValue.card_id,
+                columnName: event.dest.sortableScope.$parent.column.name
+            };
+
+            BoardService.cardMove($MoveEvent)
+                .success(function (r) {
+                   // console.log(r);
+                });
+
+           /* $http({
+                url : 'http://localhost:8000/moveCard',
+                method : 'POST',
+                data : $MoveEvent
+            })*/
+
         },
         orderChanged: function (event) {
         },

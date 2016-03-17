@@ -10,16 +10,31 @@ use App\Models\Status;
 use DB;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
+use Input;
+use Validator;
 
 
 class BoardController extends Controller
 {
+    public function  testData(){
+        $id = Board::where('name','=',"จัดติว")
+                ->select('id')
+            ->get();
+        $getID = $id->id;
+        return $getID;
+    }
     public function showAllBoard()
     {
-        $data = DB::table('boards')
+       /* $data = DB::table('boards')
             ->join('members', 'boards.manager_id', '=', 'members.id')
             ->select('members.*', 'members.name as manager ', 'boards.*')
+            ->get();*/
+
+        $data = Board::with(['members','manager'])
+            ->select('boards.*')
             ->get();
+
 
         return view('pages.index')->with('allBoards', $data);
     }
@@ -55,6 +70,14 @@ class BoardController extends Controller
         $Board->name = \Input::get('name');
         $Board->detail = \Input::get('detail');
         $Board->save();
+
+        $id = Board::find('name','=',\Input::get('name'))
+        ->select('id')
+        ->get();
+
+        $manager = new Membermanagement();
+
+
         return redirect('/index');
     }
 
@@ -62,15 +85,15 @@ class BoardController extends Controller
     public function deleteBoard($id)
     {
 
-        $membermana = Membermanagement::where('Boards_id', '=', $id)
-            ->delete();
+        $membermana = Membermanagement::where('Boards_id', '=', $id);
+        $membermana->delete();
 
         $board = \App\Models\Board::find($id);
         $board->delete();
         return redirect('/index');
     }
 
-
+//---------------------------------------------------------------------------------------------------------Card
     public function getCard()
     {
         /*
@@ -94,8 +117,11 @@ class BoardController extends Controller
             }
         */
         $board = Board::with(['members', 'cards'])->find(session()->get('Board'));
-        $cards = $board->cards()->select('statuses_id','name as title','detail as details')->get();
-        $status = \App\Models\Status::all('id','name')->toArray();
+        $cards = $board->cards()->select('id as card_id','statuses_id','name as title','detail as details')->get();
+        $status = \App\Models\Status::all('id','name')
+            ->sortBy('id')
+            ->toArray();
+
         $kanban = [];
         $kanban['columns'] = [];
 
@@ -133,6 +159,22 @@ class BoardController extends Controller
 
         return redirect("/board$BoardId");
 
+    }
+
+    public  function  moveCard(){
+
+        $cardId = Input::get('cardId');
+        $columnName = Input::get('columnName');
+        if(strcmp($columnName,"Backlog")==0) $column = 1;
+        else if(strcmp($columnName,"Ready")==0) $column = 2;
+        else if(strcmp($columnName,"Doing")==0) $column = 3;
+        else if(strcmp($columnName,"Done")==0) $column = 4;
+
+        $move = Card::find($cardId);
+        $move->statuses_id = $column;
+        $move->save();
+
+        return $column;
     }
 
 }

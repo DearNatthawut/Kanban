@@ -36,9 +36,9 @@
                                     <br>
                                     <span>Detail : {{$Board->detail}} </span>
                                     <br>
-                                    <span>Manager :{{$Board->manager}} </span>
+                                    <span>Manager :{{$Board->manager['name']}} </span>
                                     <br>
-                                    <span>Member : 1</span>
+                                    <span>Member : {{count($Board->members)}}</span>
                                 </td>
                                 <td style="width: 40%">
                                     <a href="/board{{$Board->id}}">

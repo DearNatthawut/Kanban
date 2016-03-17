@@ -3,16 +3,20 @@
 
 'use strict';
 
-angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator','$http', function ($modal, BoardManipulator,$http,$scope) {
+angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator','$http', function ($modal, BoardManipulator,$http,$scope,CSRF_TOKEN) {
 
     return {
-        listUsers : function(){
-
+        cardMove : function ($MoveEvent) {
             return $http({
-                'url' : '/api/users',
-                'method' : 'GET'
-            });
+                //crossDomain : true,
+                method : 'POST',
+                url : 'moveCard',
+                headers: { 'Content-Type' : 'application/x-www-form-urlencoded'},
+                data : $.param($MoveEvent)
+            }).
+            success(function(data, status, headers, config) {
 
+            });
         },
         newUsers : function ($user_data) {
             return $http({
@@ -42,8 +46,8 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator','
                 if (cardDetails) {
 
 
-                   BoardManipulator.addCardToColumn(board, cardDetails.column, cardDetails.title, cardDetails.details
-                        ,cardDetails.estimateStart,cardDetails.estimateEnd);
+                   BoardManipulator.addCardToColumn(board, cardDetails.column, cardDetails.title, cardDetails.details,cardDetails.card_id
+                        ,cardDetails.estimateStart);
 
                     /*$http.post("http://localhost:8000/insertCard",cardDetails).success(function(data, status, headers, config){
                         console.log("inserted Successfully");
@@ -66,7 +70,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator','
             angular.forEach(board.columns, function (column) {
                 BoardManipulator.addColumn(kanbanBoard, column.name);
                 angular.forEach(column.cards, function (card) {
-                    BoardManipulator.addCardToColumn(kanbanBoard, column, card.title,card.details,card.estimateStart);
+                    BoardManipulator.addCardToColumn(kanbanBoard, column, card.title,card.details,card.card_id,card.estimateStart);
                 });
             });
             return kanbanBoard;

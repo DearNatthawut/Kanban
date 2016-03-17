@@ -11,10 +11,11 @@ angular.module('kanban').factory('BoardManipulator', function () {
       board.columns.push(new Column(columnName));
     },
 
-    addCardToColumn: function (board, column, cardTitle, details, Start, End) {
+    addCardToColumn: function (board, column, cardTitle, details,card_id, Start) {
       angular.forEach(board.columns, function (col) {
         if (col.name === column.name) {
-          col.cards.push(new Card(cardTitle, column.name, details, Start, End));
+          col.cards.push(new Card(cardTitle, column.name, details,card_id, Start));
+
         }
       });
     },
@@ -42,7 +43,7 @@ angular.module('kanban').factory('BoardManipulator', function () {
         if (backlog.name === backlogName) {
           angular.forEach(backlog.phases, function (phase) {
             if (phase.name === phaseName) {
-              phase.cards.push(new Card(task.title, task.status, task.details,task.estimateStart,task.estimateEnd));
+              phase.cards.push(new Card(task.title, task.status, task.details,task.card_id,task.estimateStart));
             }
           });
         }
