@@ -32,7 +32,8 @@
 
                             <tr>
                                 <td style="width: 60%">
-                                    <span>Name board : {{$Board->name}} </span>
+
+                                    <span>Name : {{$Board->name}} </span>
                                     <br>
                                     <span>Detail : {{$Board->detail}} </span>
                                     <br>

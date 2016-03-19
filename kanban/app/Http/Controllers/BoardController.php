@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Board;
+use App\Models\Color;
 use App\Models\Member;
 use App\Models\Membermanagement;
 use App\Models\Card;
+use App\Models\Priority;
 use App\Models\Status;
 use DB;
 use Illuminate\Support\Collection;
@@ -17,21 +19,23 @@ use Validator;
 
 class BoardController extends Controller
 {
-    public function  testData(){
-        $id = Board::where('name','=',"จัดติว")
-                ->select('id')
+    public function testData()
+    {
+        $id = Board::where('name', '=', "จัดติว")
+            ->select('id')
             ->get();
         $getID = $id->id;
         return $getID;
     }
+
     public function showAllBoard()
     {
-       /* $data = DB::table('boards')
-            ->join('members', 'boards.manager_id', '=', 'members.id')
-            ->select('members.*', 'members.name as manager ', 'boards.*')
-            ->get();*/
+        /* $data = DB::table('boards')
+             ->join('members', 'boards.manager_id', '=', 'members.id')
+             ->select('members.*', 'members.name as manager ', 'boards.*')
+             ->get();*/
 
-        $data = Board::with(['members','manager'])
+        $data = Board::with(['members', 'manager'])
             ->select('boards.*')
             ->get();
 
@@ -43,8 +47,8 @@ class BoardController extends Controller
     {
         $data = Board::find($id);
 
-        session::put("Board",$id);  //--------------------------------------- CreateSession
-        session::put("Manager",$data->manager_id);
+        session::put("Board", $id);  //--------------------------------------- CreateSession
+        session::put("Manager", $data->manager_id);
 
         return view('pages.user.board')->with('Board', $data);
     }
@@ -71,9 +75,9 @@ class BoardController extends Controller
         $Board->detail = \Input::get('detail');
         $Board->save();
 
-        $id = Board::find('name','=',\Input::get('name'))
-        ->select('id')
-        ->get();
+        $id = Board::find('name', '=', \Input::get('name'))
+            ->select('id')
+            ->get();
 
         $manager = new Membermanagement();
 
@@ -117,8 +121,8 @@ class BoardController extends Controller
             }
         */
         $board = Board::with(['members', 'cards'])->find(session()->get('Board'));
-        $cards = $board->cards()->select('id as card_id','statuses_id','name as title','detail as details')->get();
-        $status = \App\Models\Status::all('id','name')
+        $cards = $board->cards()->select('id as card_id', 'statuses_id', 'name as title', 'detail as details')->get();
+        $status = \App\Models\Status::all('id', 'name')
             ->sortBy('id')
             ->toArray();
 
@@ -142,18 +146,40 @@ class BoardController extends Controller
         return $kanban;
     }
 
+    public function createNewCard()
+    {
+        $status = Status::all('id', 'name')
+            ->sortBy('id')
+            ->toArray();
+        $prior = Priority::all('id', 'name')
+            ->sortBy('id')
+            ->toArray();
+        $color = Color::all('id', 'name')
+            ->sortBy('id')
+            ->toArray();
+        $member = Member::all('id', 'name')
+            ->sortBy('id')
+            ->toArray();
+
+        return view('pages.user.createCard')
+            ->with('color', $color)
+            ->with('piority', $prior)
+            ->with('member', $member)
+            ->with('status', $status);
+    }
+
     public function createCard()
     {
         $BoardId = session()->get('Board');
-       $Card = new Card();
+        $Card = new Card();
         $Card->name = \Input::get('name');
         $Card->detail = \Input::get('detail');
         $Card->priorities_id = 1;
-        $Card->statuses_id = 1;
+        $Card->statuses_id = \Input::get('status');
         $Card->types_id = 1;
         $Card->color_id = 1;
         $Card->Boards_id = session()->get('Board');
-        $Card->MemberManagements_id	 = session()->get('Manager');
+        $Card->MemberManagements_id = session()->get('Manager');
         $Card->save();
 
 
@@ -161,14 +187,15 @@ class BoardController extends Controller
 
     }
 
-    public  function  moveCard(){
+    public function moveCard()
+    {
 
         $cardId = Input::get('cardId');
         $columnName = Input::get('columnName');
-        if(strcmp($columnName,"Backlog")==0) $column = 1;
-        else if(strcmp($columnName,"Ready")==0) $column = 2;
-        else if(strcmp($columnName,"Doing")==0) $column = 3;
-        else if(strcmp($columnName,"Done")==0) $column = 4;
+        if (strcmp($columnName, "Backlog") == 0) $column = 1;
+        else if (strcmp($columnName, "Ready") == 0) $column = 2;
+        else if (strcmp($columnName, "Doing") == 0) $column = 3;
+        else if (strcmp($columnName, "Done") == 0) $column = 4;
 
         $move = Card::find($cardId);
         $move->statuses_id = $column;

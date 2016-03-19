@@ -50,9 +50,8 @@ Route::get('/card', function () {
 
 Route::post('/insertCard','BoardController@insertCard');
 
-Route::get('/createCard', function () {
-    return view('pages.user.createCard');
-});
+Route::get('/createCard','BoardController@createNewCard');
+
 
 Route::post('/createCard','BoardController@createCard');// สร้าง board
 
