@@ -1,0 +1,45 @@
+
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="close()">&times;</button>
+        <h4 class="modal-title" ng-model="columnName">Name '{{title}}'</h4>
+    </div>
+    <div class="modal-body">
+        <!--                                                             Nav  Menu              -->
+        <ul class="nav nav-tabs" id="tabmenu">
+            <li class="active">
+                <a href="#card-detail" data-toggle="tab">General</a>
+            </li>
+            <li>
+                <a href="#card-date" data-toggle="tab">Date</a>
+            </li>
+
+            <li>
+                <a href="#card-checklist" data-toggle="tab">Checklist</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+
+        </div>
+
+
+
+        <!--                                                             Nav                -->
+
+            <div class="tab-pane fade in active" id="card-detail">
+                Detail: {{details}}
+            </div>
+            <div class="tab-pane fade" id="card-date">
+
+            </div>
+            <div class="tab-pane fade" id="card-checklist">
+
+            </div>
+
+    </div>
+
+    <script>
+        $('#myTabs a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+    </script>
