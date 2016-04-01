@@ -18,26 +18,26 @@
             <li class="header">MAIN NAVIGATION</li>
 
             <li>
-                <a href="/board#/">
+                <a href="/board{{session()->get('Board')}}#/">
                     <i class="glyphicon glyphicon-blackboard"></i> <span>Board</span>
                     <small class="label pull-right bg-red"></small>
                 </a>
             </li>
             <li>
-                <a href="/member">
+                <a href="/member{{session()->get('Board')}}">
                     <i class="fa  fa-user"></i> <span>Member</span>
                     <small class="label pull-right bg-red"></small>
                 </a>
             </li>
             <li>
-                <a href="/showGantt">
+                <a href="/showGantt{{session()->get('Board')}}">
                     <i class="fa  fa-bar-chart"></i> <span>Gantt</span>
                     <small class="label pull-right bg-red"></small>
                 </a>
             </li>
 
             <li>
-                <a href="/editBoard ">
+                <a href="/editBoard{{session()->get('Board')}}">
                     <i class="fa fa-cogs"></i> <span>Edit</span>
                 </a>
             </li>

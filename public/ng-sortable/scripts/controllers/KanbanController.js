@@ -8,7 +8,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
     var self = this;
 
     BoardDataFactory.getKanban().success(function (r) {  //------
-        console.log(r);
+       // console.log(r);
         self.kanbanBoard = BoardService.kanbanBoard(r);
 
     });
@@ -22,7 +22,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
          },*/
         itemMoved: function (event) {
             //event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
-            console.log(event.source.itemScope.modelValue.card_id);
+           // console.log(event.source.itemScope.modelValue.card_id);
 
             var $MoveEvent = {
                 cardId: event.source.itemScope.modelValue.card_id,

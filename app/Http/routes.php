@@ -16,7 +16,7 @@ use App\Models;
 
 //--------------------------------------------------------------------------------------Login
 Route::get('/', function () {
-    return view('pages.member.login');
+    return view('auth/login');
 });
 
 //------------------------------------------------------------------------------------- Board
@@ -33,7 +33,7 @@ Route::get('/editBoard{id}','BoardController@formEditBoard');// get ข้อม
 
 Route::post('/editBoard','BoardController@editBoard');// แก้ไข ข้อมูล
 
-Route::get('/index','BoardController@showAllBoard'); // แสดง ทุก board
+Route::get('/home','BoardController@showAllBoard'); // แสดง ทุก board
 
 Route::get('/deleteBoard/{id}','BoardController@deleteBoard'); // ลบ board
 
@@ -54,5 +54,10 @@ Route::post('/removeCard','CardController@removeCard');// ลบ card
 Route::get('/member{id}','MemberController@showMember');
 
 // Authentication routes...
-Route::post('auth/member','Login\LoginController@postLogin');
-Route::get('auth/logout','Login\LoginController@getLogout');
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');

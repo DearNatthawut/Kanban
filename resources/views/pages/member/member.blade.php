@@ -17,7 +17,13 @@
                         <div class="col-xs-5">
 
                         <div class="input-group ">
-                            <input name="add" type="text" class="form-control">
+                            <select class="form-control" name="member">
+                                @foreach($addmembers as $add)
+                                    <div class="col-sm-10">
+                                        <option value="{{$add->id}}">{{$add->name}} ( {{$add->email}} )</option>
+                                    </div>
+                                @endforeach
+                            </select>
                     <span class="input-group-btn">
                       <button class="btn btn-info btn-flat" type="button">add</button>
                     </span>

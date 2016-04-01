@@ -5,7 +5,7 @@
     </div>
     <div class="modal-body">
         <!--                                                             Nav  Menu              -->
-        <ul class="nav nav-tabs" id="tabmenu">
+        <ul class="nav nav-tabs" id="tab">
             <li class="active">
                 <a href="#card-detail" data-toggle="tab">General</a>
             </li>
@@ -18,15 +18,11 @@
             </li>
         </ul>
         <div class="tab-content">
-
-        </div>
-
-
-
-        <!--                                                             Nav                -->
-
             <div class="tab-pane fade in active" id="card-detail">
-                Detail: {{details}}
+                <b>Detail:</b>
+                 <p>{{details}}</p>
+                <b>Column:</b>
+                <p>{{column}}</p>
             </div>
             <div class="tab-pane fade" id="card-date">
 
@@ -34,12 +30,22 @@
             <div class="tab-pane fade" id="card-checklist">
 
             </div>
+        </div>
 
     </div>
 
     <script>
-        $('#myTabs a').click(function (e) {
-            e.preventDefault()
-            $(this).tab('show')
-        })
+        $(function() {
+            // for bootstrap 3 use 'shown.bs.tab', for bootstrap 2 use 'shown' in the next line
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                // save the latest tab; use cookies if you like 'em better:
+                localStorage.setItem('lastTab', $(this).attr('href'));
+            });
+
+            // go to the latest tab, if it exists:
+            var lastTab = localStorage.getItem('lastTab');
+            if (lastTab) {
+                $('[href="' + lastTab + '"]').tab('show');
+            }
+        });
     </script>

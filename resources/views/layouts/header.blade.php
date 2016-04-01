@@ -1,6 +1,8 @@
 @section("header")
+
         <!DOCTYPE html>
 <html ng-app="kanban">
+
 <head>
 
     @include('layouts.css')
@@ -14,7 +16,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <header class="main-header">
         <!-- Logo -->
-        <a href="/index" class="logo">
+        <a href="/home" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>K</b></span>
             <!-- logo for regular state and mobile devices -->
@@ -44,7 +46,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-right">
-                                    <a href="/" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="/auth/logout" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>

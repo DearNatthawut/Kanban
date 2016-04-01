@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers;
 use DB;
+use App\Models\Member;
 
 class MemberController extends Controller
 {
@@ -19,7 +20,17 @@ class MemberController extends Controller
             ->where('membermanagements.Boards_id','=',$id)
             ->get();
 
-        return view('pages.member.member')->with('members',$data);
+        $id=[];
+        foreach($data as $Adata){
+            $id[] = $Adata->id;
+        }
+
+        $member = DB::table('members')
+            ->whereNotIn('id', $id)->get();
+
+        return view('pages.member.member')
+            ->with('members',$data)
+            ->with('addmembers',$member);
 
     }
 

@@ -68,7 +68,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 backdrop: 'static',
                 resolve: {
                     card: function () {
-                        console.log(card);
+                        //console.log(card);
                         return card;
                     }
                 }
