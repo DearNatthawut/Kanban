@@ -29,8 +29,11 @@
 
 <script>
 
+    var i = 0;
+
     function createChecklist() {
 
+        console.log(i)
         var job = document.getElementById("appendedInputButton").value;
         var container = document.getElementById("containerChecklist");
         var container2 = document.getElementById("labelChecklist");
@@ -38,7 +41,11 @@
         //createChecklist
         var input = document.createElement("input");
         input.type = "hidden";
-        input.name = "sub[]";
+        var str1 = "sub[";
+        var str2 = "]";
+        var indexNum = i;
+        var res = str1.concat(indexNum,str2);
+        input.name = res;
         input.className = "form-control";
         input.placeholder = "name job";
         input.value = job;
@@ -47,7 +54,7 @@
 
         var Li = document.createElement("li");
 
-       var spanhand = document.createElement("span");
+        var spanhand = document.createElement("span");
         spanhand.class = "handle";
 
         var I = document.createElement("i");
@@ -56,12 +63,27 @@
         var I2 = document.createElement("i");
         I.class = "fa fa-ellipsis-v";
 
+        var hiCheck = document.createElement("input");
+        hiCheck.type = "hidden";
+        var str1 = "checkL[";
+        var str2 = "]";
+        var indexNum = i;
+        var res = str1.concat(indexNum,str2);
+        hiCheck.name = res;
+        hiCheck.value = 0;
+
+        console.log(hiCheck.name)
         var check = document.createElement("input");
         check.type = "checkbox";
-        check.name = "checkL";
+        var str1 = "checkL[";
+        var str2 = "]";
+        var indexNum = i;
+        var res = str1.concat(indexNum,str2);
+        check.name = res;
+        check.value = 1;
 
         var nameC = document.createElement("span");
-        nameC.class="text";
+        nameC.class = "text";
         nameC.innerHTML = job;
 
         var tools = document.createElement("div");
@@ -80,13 +102,14 @@
         tools.appendChild(Itrash);
 
         Li.appendChild(spanhand);
+        Li.appendChild(hiCheck);
         Li.appendChild(check);
         Li.appendChild(nameC);
         Li.appendChild(tools);
 
         container2.appendChild(Li);
 
-
+        i++;
 
     }
 

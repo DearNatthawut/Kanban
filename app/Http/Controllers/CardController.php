@@ -91,7 +91,7 @@ class CardController extends Controller
     // บันทึก card
     public function createCard()
     {
-
+        
         $BoardId = session()->get('Board');
         $Card = new Card();
         $Card->name = \Input::get('name');
@@ -111,11 +111,13 @@ class CardController extends Controller
 
         if(\Input::get('sub') != null){
         $sub = \Input::get('sub');
-        foreach ($sub as $sub) {
+        $check = \Input::get('checkL');
+        foreach ($sub as $index => $s ) {
+
             $CheckL = new Checklist();
             $CheckL->Cards_id = $getCard[0]->id;;
-            $CheckL->name = $sub;
-            $CheckL->status = 1;
+            $CheckL->name = $s;
+            $CheckL->status = $check[$index];
             $CheckL->save();
 
         }}
