@@ -52,6 +52,7 @@ Route::post('/removeCard','CardController@removeCard');// ลบ card
 
 //-----------------------------------------------------------------------------------------Member
 Route::get('/member{id}','MemberController@showMember');
+Route::post('/addMember{id}','MemberController@addMember');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
