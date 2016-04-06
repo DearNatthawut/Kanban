@@ -18,7 +18,7 @@
             <li class="header">MAIN NAVIGATION</li>
 
             <li>
-                <a href="/index">
+                <a href="/home">
                     <i class="glyphicon glyphicon-blackboard"></i> <span>Boards</span>
                     <small class="label pull-right bg-red"></small>
                 </a>

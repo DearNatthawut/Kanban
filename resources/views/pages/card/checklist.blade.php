@@ -10,7 +10,7 @@
 <br>
 <div class="input-append">
     <input class="span2" id="appendedInputButton" type="text">
-    <button class="btn" type="button" onclick="createChecklist()"> Add</button>
+    <button class="btn btn-primary" type="button" onclick="createChecklist()"> Add</button>
 </div>
 
 

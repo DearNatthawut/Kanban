@@ -1,6 +1,8 @@
 
     <div class="modal-header">
         <button type="button" class="close" ng-click="close()">&times;</button>
+        <a ng-href="http://localhost:8000/editCard{{id}}"><button type="button" class="glyphicon  glyphicon-cog close" > </button></a>
+
         <h4 class="modal-title" ng-model="columnName">Name '{{title}}'</h4>
     </div>
     <div class="modal-body">
@@ -23,11 +25,14 @@
                  <p>{{details}}</p>
                 <b>Column:</b>
                 <p>{{column}}</p>
+                <b>Member:</b>
+
             </div>
             <div class="tab-pane fade" id="card-date">
 
             </div>
             <div class="tab-pane fade" id="card-checklist">
+
 
             </div>
         </div>

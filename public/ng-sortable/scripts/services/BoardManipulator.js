@@ -11,10 +11,11 @@ angular.module('kanban').factory('BoardManipulator', function () {
       board.columns.push(new Column(columnName));
     },
 
-    addCardToColumn: function (board, column, cardTitle, details,card_id, Start) {
+    addCardToColumn: function (board, column, card) {
       angular.forEach(board.columns, function (col) {
         if (col.name === column.name) {
-          col.cards.push(new Card(cardTitle, column.name, details,card_id, Start));
+          card.status = column.name;
+          col.cards.push(card);
 
         }
       });

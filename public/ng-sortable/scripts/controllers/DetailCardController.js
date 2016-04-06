@@ -7,7 +7,7 @@
 angular.module('kanban').controller('DetailCardController', ['$scope', '$modalInstance', 'card', function ($scope, $modalInstance, card) {
 
     function initScope(scope) {
-        scope.columnName = card.card_id;
+        scope.id = card.card_id;
         scope.column = card.status;
         scope.title = card.title;
         scope.details = card.details;

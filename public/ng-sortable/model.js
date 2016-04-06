@@ -32,11 +32,7 @@ function Phase(name) {
   };
 }
 
-function Card(title, status, details,card_id,estimateStart) {
-  this.title = title;
-  this.status = status;
-  this.details = details;
-  this.card_id = card_id;
-  this.estimateStart = estimateStart;
-  return this;
+function Card(column,card) {
+  card.status = column.name;
+  return card;
 }

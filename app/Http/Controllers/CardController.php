@@ -33,14 +33,16 @@ class CardController extends Controller
         $board = Board::with(['members'])
             ->find(session()->get('Board'));
 
-        $cards = $board->cards()->select('id as card_id', 'statuses_id', 'name as title', 'detail as details'
+       /* $cards = $board->cards()->select('id as card_id', 'statuses_id', 'name as title', 'detail as details'
             , 'MemberManagements_id as managerCard')
+            ->with('checkList')
+            ->get();*/
+        $cards = Card::with('checklist')
             ->get();
 
         $status = \App\Models\Status::all('id', 'name')
-            ->sortBy('id')
+        ->sortBy('id')
             ->toArray();
-
 
 //-- สร้างรูปแบบ ข้อมูล
         $kanban = [];
@@ -88,25 +90,25 @@ class CardController extends Controller
             ->with('status', $status);
     }
 
-    // บันทึก card
-    public function createCard()
-    {
-        
-        $BoardId = session()->get('Board');
-        $Card = new Card();
-        $Card->name = \Input::get('name');
-        $Card->detail = \Input::get('detail');
-        $Card->priorities_id = 1;
-        $Card->statuses_id = \Input::get('status');
-        $Card->types_id = 1;
-        $Card->color_id = \Input::get('color');
-        $Card->Boards_id = session()->get('Board');
-        $Card->MemberManagements_id = \Input::get('member');
-        $Card->save();
+// บันทึก card
+public function createCard()
+{
+
+    $BoardId = session()->get('Board');
+    $Card = new Card();
+    $Card->name = \Input::get('name');
+    $Card->detail = \Input::get('detail');
+    $Card->priorities_id = 1;
+    $Card->statuses_id = \Input::get('status');
+    $Card->types_id = 1;
+    $Card->color_id = \Input::get('color');
+    $Card->Boards_id = session()->get('Board');
+    $Card->MemberManagements_id = \Input::get('member');
+    $Card->save();
 
 
-        $getCard = Card::where('id', '=', $Card->id)
-            ->select('id')
+    $getCard = Card::where('id', '=', $Card->id)
+        ->select('id')
             ->get();
 
         if(\Input::get('sub') != null){
@@ -126,6 +128,29 @@ class CardController extends Controller
         return redirect("/board$BoardId");
 
     }
+
+    // แก้ไข card
+    public function editCard($id)
+    {
+
+       $card = Card::find($id);
+        $id=$card->id;
+        $member = $card->MemberManagements_id;
+
+        $checklist = Checklist::where('Cards_id',$id)
+        ->get();
+
+        $mana = Membermanagement::where('id',$member)
+        ->select('Members_id')
+        ->get();
+        
+        return  view('pages.card.detailCard')
+            ->with('card',$card)
+            ->with('checklist',$checklist);
+
+    }
+
+
 
     //ย้าย Card
     public function moveCard()

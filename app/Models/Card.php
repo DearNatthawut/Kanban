@@ -15,13 +15,14 @@ class Card extends Model
 {
     protected $table = 'cards';
 
-    public function checkList(){
+    public function checklist(){
         return $this->hasMany(\App\Models\Checklist::class,"Cards_id");
     }
+    
 
     public function memberCard()
     {
-        return $this->belongsTo(\App\Models\Membermanagement::class,"id","MemberManagements_id");
+        return $this->belongsTo(\App\Models\Member::class,"MemberManagements_id","id");
     }
 
 

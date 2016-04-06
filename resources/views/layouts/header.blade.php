@@ -57,6 +57,6 @@
 
     </header>
 </head>
-<body class="hold-transition skin-purple sidebar-mini "> <!--  เปลี่ยน skin ตรงนี้-->
+<body class="hold-transition skin-purple  fixed sidebar-mini "> <!--  เปลี่ยน skin ตรงนี้-->
 <div class="overlay-wrapper">
 @show

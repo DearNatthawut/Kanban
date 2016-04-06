@@ -24,8 +24,14 @@ use Validator;
 
 class BoardController extends Controller
 {
+
+
     public function test()
     {
+
+    $data = Card::with(['checkList'])
+        ->get();
+            return $data;
     }
 
     //แสดงข้อมูลบอร์ดในหน้าแรก

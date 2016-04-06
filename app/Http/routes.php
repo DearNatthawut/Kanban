@@ -13,7 +13,7 @@
 
 use App\Models;
 
-
+Route::get('/test','BoardController@test');
 //--------------------------------------------------------------------------------------Login
 Route::get('/', function () {
     return view('auth/login');
@@ -45,6 +45,8 @@ Route::get('/cards', 'CardController@getCard'); // get card data main
 Route::get('/createCard','CardController@formNewCard');//สร้าง form card
 
 Route::post('/createCard','CardController@createCard');// สร้าง card
+
+Route::get('/editCard{id}','CardController@editCard');// สร้าง card
 
 Route::post('/moveCard','CardController@moveCard'); // ย้าย card
 

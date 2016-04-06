@@ -68,7 +68,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 backdrop: 'static',
                 resolve: {
                     card: function () {
-                        //console.log(card);
+                        console.log(card);
                         return card;
                     }
                 }
@@ -80,7 +80,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
             angular.forEach(board.columns, function (column) {
                 BoardManipulator.addColumn(kanbanBoard, column.name);
                 angular.forEach(column.cards, function (card) {
-                    BoardManipulator.addCardToColumn(kanbanBoard, column, card.title, card.details, card.card_id, card.estimateStart);
+                    BoardManipulator.addCardToColumn(kanbanBoard, column, card  );
                 });
             });
             return kanbanBoard;
