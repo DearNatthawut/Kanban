@@ -37,7 +37,7 @@ class CardController extends Controller
             , 'MemberManagements_id as managerCard')
             ->with('checkList')
             ->get();*/
-        $cards = Card::with('checklist')
+        $cards = Card::with(['checklist','memberCard'])
             ->get();
 
         $status = \App\Models\Status::all('id', 'name')

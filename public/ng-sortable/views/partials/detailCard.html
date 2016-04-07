@@ -1,56 +1,89 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="close()">&times;</button>
+    <!-- <a ng-href="http://localhost:8000/editCard{{cardData.id}}">
+         <button type="button" class="glyphicon  glyphicon-cog close"></button>
+     </a>-->
 
-    <div class="modal-header">
-        <button type="button" class="close" ng-click="close()">&times;</button>
-        <a ng-href="http://localhost:8000/editCard{{id}}"><button type="button" class="glyphicon  glyphicon-cog close" > </button></a>
+    <h4 class="modal-title" ng-model="columnName">Name '{{cardData.name}}'</h4>
+</div>
+<div class="modal-body">
+    <!--                                                             Nav  Menu              -->
+    <ul class="nav nav-tabs" id="tab">
+        <li class="active">
+            <a href="#card-detail" data-toggle="tab">General</a>
+        </li>
+        <li>
+            <a href="#card-date" data-toggle="tab">Date</a>
+        </li>
 
-        <h4 class="modal-title" ng-model="columnName">Name '{{title}}'</h4>
-    </div>
-    <div class="modal-body">
-        <!--                                                             Nav  Menu              -->
-        <ul class="nav nav-tabs" id="tab">
-            <li class="active">
-                <a href="#card-detail" data-toggle="tab">General</a>
-            </li>
-            <li>
-                <a href="#card-date" data-toggle="tab">Date</a>
-            </li>
-
-            <li>
-                <a href="#card-checklist" data-toggle="tab">Checklist</a>
-            </li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane fade in active" id="card-detail">
+        <li>
+            <a href="#card-checklist" data-toggle="tab">Checklist</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="card-detail">
+            <div class="box box-primary">
                 <b>Detail:</b>
-                 <p>{{details}}</p>
+                <p>{{cardData.detail}}</p>
                 <b>Column:</b>
-                <p>{{column}}</p>
+                <p>{{cardData.status}}</p>
                 <b>Member:</b>
-
-            </div>
-            <div class="tab-pane fade" id="card-date">
-
-            </div>
-            <div class="tab-pane fade" id="card-checklist">
-
+                <p>{{cardData.member_card.name}}</p>
 
             </div>
         </div>
+        <div class="tab-pane fade" id="card-date">
+
+        </div>
+        <div class="tab-pane fade" id="card-checklist">
+
+
+            <div class="box box-primary">
+                <div class="box-header">
+                    <i class="ion ion-clipboard"></i>
+                    <h3 class="box-title">Check List</h3>
+
+                </div><!-- /.box-header -->
+                <div class="box-body">
+
+
+                    <ul class="todo-list" ng-repeat="checklist in cardData.checklist">
+                        <li>
+                            <!--   <span class="handle">
+                              <i class="fa fa-ellipsis-v"></i>
+                              <i class="fa fa-ellipsis-v"></i>
+                            </span>-->
+                            <input type='checkbox' value='1' name=''>
+                            <span class="text">{{checklist.name}}</span>
+                            <div class="tools">
+                                <i class="fa fa-edit"></i>
+                                <i class="fa fa-trash-o"></i>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix no-border">
+                    <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
+                </div>
+            </div><!-- /.box -->
+        </div>
 
     </div>
+</div>
 
-    <script>
-        $(function() {
-            // for bootstrap 3 use 'shown.bs.tab', for bootstrap 2 use 'shown' in the next line
-            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-                // save the latest tab; use cookies if you like 'em better:
-                localStorage.setItem('lastTab', $(this).attr('href'));
-            });
-
-            // go to the latest tab, if it exists:
-            var lastTab = localStorage.getItem('lastTab');
-            if (lastTab) {
-                $('[href="' + lastTab + '"]').tab('show');
-            }
+<script>
+    $(function () {
+        // for bootstrap 3 use 'shown.bs.tab', for bootstrap 2 use 'shown' in the next line
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            // save the latest tab; use cookies if you like 'em better:
+            localStorage.setItem('lastTab', $(this).attr('href'));
         });
-    </script>
+
+        // go to the latest tab, if it exists:
+        var lastTab = localStorage.getItem('lastTab');
+        if (lastTab) {
+            $('[href="' + lastTab + '"]').tab('show');
+        }
+    });
+</script>

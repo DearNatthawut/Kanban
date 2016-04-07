@@ -14,8 +14,7 @@ angular.module('kanban').factory('BoardManipulator', function () {
     addCardToColumn: function (board, column, card) {
       angular.forEach(board.columns, function (col) {
         if (col.name === column.name) {
-          card.status = column.name;
-          col.cards.push(card);
+          col.cards.push(new Card(column,card));
 
         }
       });

@@ -6,14 +6,14 @@
 
 angular.module('kanban').controller('DetailCardController', ['$scope', '$modalInstance', 'card', function ($scope, $modalInstance, card) {
 
-    function initScope(scope) {
-        scope.id = card.card_id;
-        scope.column = card.status;
-        scope.title = card.title;
-        scope.details = card.details;
-        scope.estimateStart = '';
-        scope.estimateEnd = '';
-    }
+
+    
+    
+    function initScope(card) {
+        $scope.cardData = [];
+        $scope.cardData = card;
+       
+            }
 
     $scope.detailCard = function () {
         var buffer = [];
@@ -26,10 +26,11 @@ angular.module('kanban').controller('DetailCardController', ['$scope', '$modalIn
     };
 
 
+
     $scope.close = function () {
         $modalInstance.close();
     };
 
-    initScope($scope);
+    initScope(card);
 
 }]);

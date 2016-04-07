@@ -51,8 +51,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
             modalInstance.result.then(function (cardDetails) {
                 if (cardDetails) {
 
-                    BoardManipulator.addCardToColumn(board, cardDetails.column, cardDetails.title, cardDetails.details, cardDetails.card_id
-                        , cardDetails.estimateStart);
+                    BoardManipulator.addCardToColumn(board, cardDetails.column, cardDetails);
 
                     /*$http.post("http://localhost:8000/insertCard",cardDetails).success(function(data, status, headers, config){
                      console.log("inserted Successfully");
@@ -80,7 +79,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
             angular.forEach(board.columns, function (column) {
                 BoardManipulator.addColumn(kanbanBoard, column.name);
                 angular.forEach(column.cards, function (card) {
-                    BoardManipulator.addCardToColumn(kanbanBoard, column, card  );
+                    BoardManipulator.addCardToColumn(kanbanBoard, column, card );
                 });
             });
             return kanbanBoard;
