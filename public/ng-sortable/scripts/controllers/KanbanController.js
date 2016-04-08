@@ -25,7 +25,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
            // console.log(event.source.itemScope.modelValue.card_id);
 
             var $MoveEvent = {
-                cardId: event.source.itemScope.modelValue.card_id,
+                cardId: event.source.itemScope.modelValue.id,
                 columnName: event.dest.sortableScope.$parent.column.name
             };
 

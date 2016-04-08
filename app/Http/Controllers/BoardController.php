@@ -69,7 +69,7 @@ class BoardController extends Controller
         $edit->name = \Input::get('name');
         $edit->detail = \Input::get('detail');
         $edit->save();
-        return redirect('/index');
+        return redirect('/home');
     }
 
     //สร้าง Bord
@@ -79,7 +79,7 @@ class BoardController extends Controller
         $Board->name = \Input::get('name');
         $Board->detail = \Input::get('detail');
         $Board->save();
-        return redirect('/index');
+        return redirect('/home');
         /*$id = Board::find('name', '=', \Input::get('name'))
             ->select('id')
             ->get();
@@ -98,6 +98,6 @@ class BoardController extends Controller
 
         $board = \App\Models\Board::find($id);
         $board->delete();
-        return redirect('/index');
+        return redirect('/home');
     }
 }

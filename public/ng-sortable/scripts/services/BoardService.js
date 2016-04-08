@@ -22,17 +22,16 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
         removeCard: function (board, column, card) {
             if (confirm('Are You sure to Delete?')) {
                 var $DeCard = {
-                    card : card.card_id
+                    card : card.id
                 };
                 BoardManipulator.removeCardFromColumn(board, column, card);
-
                 return $http({
                     method: 'POST',
                     url: 'removeCard',
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     data: $.param($DeCard)
                 }).success(function (data, status, headers, config) {
-                          console.log(data);
+                          //console.log(data);
                 });
             }
         },
