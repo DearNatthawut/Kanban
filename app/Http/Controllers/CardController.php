@@ -30,6 +30,7 @@ class CardController extends Controller
     public function getCard()
     {
 
+
         $board = Board::with(['members'])
             ->find(session()->get('Board'));
 
@@ -38,6 +39,7 @@ class CardController extends Controller
             ->with('checkList')
             ->get();*/
         $cards = Card::with(['checklist','memberCard'])
+            ->where('Boards_id','=',session()->get('Board'))
             ->get();
 
         $status = \App\Models\Status::all('id', 'name')

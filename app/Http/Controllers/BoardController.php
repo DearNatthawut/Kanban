@@ -26,12 +26,11 @@ class BoardController extends Controller
 {
 
 
-    public function test()
+    public function test(Request $request)
     {
 
-    $data = Card::with(['checkList'])
-        ->get();
-            return $data;
+   
+            return $request;
     }
 
     //แสดงข้อมูลบอร์ดในหน้าแรก
@@ -49,7 +48,6 @@ class BoardController extends Controller
     public function showBoard($id)
     {
         $data = Board::find($id);
-
         session::put("Board", $id);  //--------------------------------------- CreateSession
         session::put("Manager", $data->manager_id);
 
@@ -78,26 +76,48 @@ class BoardController extends Controller
         $Board = new Board();
         $Board->name = \Input::get('name');
         $Board->detail = \Input::get('detail');
+        $Board->manager_id = 3;
         $Board->save();
+
+        $id =  $Board['id'];
+        $managerID = $Board['manager_id'];
+        
+        $Manager = new Membermanagement();
+        $Manager->Boards_id = $id;
+        $Manager->Members_id = $managerID;
+        $Manager->save();
+
         return redirect('/home');
         /*$id = Board::find('name', '=', \Input::get('name'))
             ->select('id')
             ->get();
         $manager = new Membermanagement();
         //***     ยังไม่ได้สร้าง manager ตอนสร้างบอร์ด*/
-
-
     }
 
     //ลบ Baord
     public function deleteBoard($id)
     {
 
-        $membermana = Membermanagement::where('Boards_id', '=', $id);
-        $membermana->delete();
+        $cards = Card::where('Boards_id', '=', $id)
+        ->get();
 
-        $board = \App\Models\Board::find($id);
-        $board->delete();
+        $ids = [];
+        foreach ($cards as $cards){
+            $ids[] = $cards['id'];
+        }
+
+        $checklist = Checklist::whereIn('Cards_id',$ids)
+            ->delete();
+
+        $cards = Card::where('Boards_id', '=', $id)
+            ->delete();
+
+        $membermana = Membermanagement::where('Boards_id', '=', $id)->delete();
+
+
+        $board = \App\Models\Board::find($id)->delete();
+
         return redirect('/home');
     }
 }

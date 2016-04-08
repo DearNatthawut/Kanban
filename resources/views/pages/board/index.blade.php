@@ -1,7 +1,5 @@
-
-
-    @include("layouts.header")
-    @include("layouts.adminside")
+@include("layouts.header")
+@include("layouts.adminside")
 
 
 <div class="content-wrapper">
@@ -21,7 +19,7 @@
                             <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-plus"> Create
                                     Board</i></button>
                         </a>
-                        
+
                     </div>
 
                     <table class="table table-striped table-hover">
@@ -54,7 +52,7 @@
                                         <button type="button" class="btn btn-default">Edit</button>
                                     </a>
 
-                                        <button type="button" class="btn btn-danger" onclick="deleteBoard()" >Delete</button>
+                                    <button type="button" class="btn btn-danger" onclick="deleteBoard()">Delete</button>
                                     <script>
                                         function deleteBoard() {
 
@@ -63,11 +61,10 @@
                                             }
                                         }
                                     </script>
-                                   </td>
+                                </td>
                             </tr>
 
                         @endforeach
-
 
 
                         </tbody>
@@ -86,5 +83,5 @@
 </div>
 
 </body>
-    @include('layouts.script')
+@include('layouts.script')
 </html>
