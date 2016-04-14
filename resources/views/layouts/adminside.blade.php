@@ -19,7 +19,7 @@
 
             <li>
                 <a href="/home">
-                    <i class="glyphicon glyphicon-blackboard"></i> <span>Boards</span>
+                    <i class="glyphicon glyphicon-blackboard"></i> <span>List of Boards </span>
                     <small class="label pull-right bg-red"></small>
                 </a>
             </li>

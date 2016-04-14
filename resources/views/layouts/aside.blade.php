@@ -18,6 +18,13 @@
             <li class="header">MAIN NAVIGATION</li>
 
             <li>
+                <a href="/home">
+                    <i class="glyphicon glyphicon-blackboard"></i> <span>List of Boards </span>
+                    <small class="label pull-right bg-red"></small>
+                </a>
+            </li>
+
+            <li>
                 <a href="/board{{session()->get('Board')}}#/">
                     <i class="glyphicon glyphicon-blackboard"></i> <span>Board</span>
                     <small class="label pull-right bg-red"></small>

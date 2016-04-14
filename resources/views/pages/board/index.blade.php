@@ -12,7 +12,7 @@
 
                 <div class="panel-body">
                     <div class="page-header">
-                        <h2>Management</h2>
+                        <h2>Management  <small> ( {{count($allBoards)}} Projects )</small></h2>
 
 
                         <a href="/createBoard">

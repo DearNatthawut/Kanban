@@ -41,6 +41,7 @@ class CardController extends Controller
         $cards = Card::with(['checklist','memberCard'])
             ->where('Boards_id','=',session()->get('Board'))
             ->get();
+        
 
         $status = \App\Models\Status::all('id', 'name')
         ->sortBy('id')
@@ -56,7 +57,7 @@ class CardController extends Controller
 
             foreach ($cards as $card) {
 
-                if ($card->statuses_id == $num) {
+                if ($card->status_id == $num) {
                     $s['cards'][] = $card;
                 }
             }
@@ -83,6 +84,7 @@ class CardController extends Controller
         $member = Membermanagement::with(['member'])
             ->where('Boards_id', '=', session()->get('Board'))
             ->get();
+        
 
 
         return view('pages.card.createCard')
@@ -95,17 +97,17 @@ class CardController extends Controller
 // บันทึก card
 public function createCard()
 {
-
     $BoardId = session()->get('Board');
+    //$member_id = Membermanagement::find(\Input::get('member'));
     $Card = new Card();
     $Card->name = \Input::get('name');
     $Card->detail = \Input::get('detail');
-    $Card->priorities_id = 1;
-    $Card->statuses_id = \Input::get('status');
+    $Card->priority_id = 1;
+    $Card->status_id = \Input::get('status');
     $Card->types_id = 1;
     $Card->color_id = \Input::get('color');
     $Card->Boards_id = session()->get('Board');
-    $Card->MemberManagements_id = \Input::get('member');
+    $Card->MemberManagement_id = \Input::get('member');
     $Card->save();
 
 
@@ -166,7 +168,7 @@ public function createCard()
         else if (strcmp($columnName, "Done") == 0) $column = 4;
 
         $move = Card::find($cardId);
-        $move->statuses_id = $column;
+        $move->status_id = $column;
         $move->save();
 
         return $column;

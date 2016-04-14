@@ -10,12 +10,12 @@ class Board extends Model
 
     public function members()
     {
-        return $this->belongsToMany(\App\Models\Member::class,"membermanagements","Boards_id","Members_id");
+        return $this->belongsToMany(\App\Models\User::class,"membermanagement","Boards_id","Members_id");
     }
 
     public function manager()
     {
-        return $this->hasOne(\App\Models\Member::class,"id","manager_id");
+        return $this->hasOne(\App\Models\User::class,"id","manager_id");
     }
 
     public function cards(){

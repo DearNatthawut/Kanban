@@ -41,18 +41,18 @@
                                         <input type="text" name="date" class="form-control  pull-right" id="reservation">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                               {{-- <div class="form-group">
                                     <label for="manager" class="col-sm-2 control-label">Manager</label>
                                     <div class="col-sm-10">
                                         <input type="text" id="manager" name="manager" class="form-control" placeholder="manager name">
                                     </div>
-                                </div>
+                                </div>--}}
 
 
 
                             </div><!-- /.box-body -->
                             <div class="box-footer">
-                                <a href="/index">
+                                <a href="/home">
                                     <button type="button" class="btn btn-default pull-right">Cancel</button>
                                 </a>
 

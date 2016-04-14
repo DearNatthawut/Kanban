@@ -11,6 +11,6 @@ class Member extends Model
 
     public function boards()
     {
-        return $this->hasMany(\App\Models\Member::class,"id","manager_id");
+        return $this->hasMany(\App\Models\User::class,"id","manager_id");
     }
 }

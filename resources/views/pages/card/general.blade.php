@@ -53,7 +53,7 @@
                 <div class="col-sm-10">
                 </div>
                 @foreach($member as $member)
-                    <div class="col-sm-10">
+                     <div class="col-sm-10">
                         <option value="{{$member->id}}">{{$member->member['name']}}</option>
                     </div>
                 @endforeach

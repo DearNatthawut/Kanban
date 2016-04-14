@@ -16,6 +16,7 @@ use App\Models;
 Route::get('/test','BoardController@test');
 //--------------------------------------------------------------------------------------Login
 Route::get('/', function () {
+ 
     return view('auth/login');
 });
 

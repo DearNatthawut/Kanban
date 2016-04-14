@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Membermanagement extends Model
 {
-    protected $table = 'membermanagements';
+    protected $table = 'membermanagement';
 
     public function member()
     {
-        return $this->hasOne(\App\Models\Member::class,"id","Members_id");
+        return $this->hasOne(\App\Models\User::class,"id","Members_id");
     }
 
 }

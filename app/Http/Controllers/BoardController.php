@@ -28,15 +28,12 @@ class BoardController extends Controller
 
     public function test(Request $request)
     {
-
-   
             return $request;
     }
 
     //แสดงข้อมูลบอร์ดในหน้าแรก
     public function showAllBoard()
     {
-
         $data = Board::with(['members', 'manager'])
             ->select('boards.*')
             ->get();
@@ -76,12 +73,12 @@ class BoardController extends Controller
         $Board = new Board();
         $Board->name = \Input::get('name');
         $Board->detail = \Input::get('detail');
-        $Board->manager_id = 3;
+        $Board->manager_id = 1;
         $Board->save();
 
         $id =  $Board['id'];
         $managerID = $Board['manager_id'];
-        
+
         $Manager = new Membermanagement();
         $Manager->Boards_id = $id;
         $Manager->Members_id = $managerID;

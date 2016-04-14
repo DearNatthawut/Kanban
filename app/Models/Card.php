@@ -22,7 +22,8 @@ class Card extends Model
 
     public function memberCard()
     {
-        return $this->belongsTo(\App\Models\Member::class,"MemberManagements_id","id");
+        /*$this->belongsTo(\App\Models\Membermanagement::class,"MemberManagements_id","Members_id");*/
+        return $this->belongsTo(\App\Models\Member::class,"MemberManagement_id","id");
     }
 
 

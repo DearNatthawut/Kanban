@@ -15,11 +15,11 @@ class MemberController extends Controller
     public function showMember($id)
     {
         $idMember = $id;
-        $data = DB::table('membermanagements')
-            ->join('members','membermanagements.Members_id','=','members.id')
-            ->join('level','members.Level_id','=','level.id')
-            ->select( 'members.*','members.name as member ','level.name as level')
-            ->where('membermanagements.Boards_id','=',$id)
+        $data = DB::table('membermanagement')
+            ->join('users','membermanagement.Members_id','=','users.id')
+            ->join('level','users.Level_id','=','level.id')
+            ->select( 'users.*','users.name as member ','level.name as level')
+            ->where('membermanagement.Boards_id','=',$id)
             ->get();
 
 
@@ -28,7 +28,7 @@ class MemberController extends Controller
             $id[] = $Adata->id;
         }
 
-        $member = DB::table('members')
+        $member = DB::table('users')
             ->whereNotIn('id', $id)->get();
 
         return view('pages.member.member')
