@@ -26,66 +26,36 @@
 
                     </div>
 
-                    <table class="table table-striped table-hover">
-                        <tbody>
+                    <ul class="nav nav-tabs " >
+                        <li role="presentation" class="active">
+                            <a href="#board-gen" data-toggle="tab">Board</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#board-done" data-toggle="tab">Done</a>
+                        </li>
+
+                        <li role="presentation">
+                            <a href="#board-bin" data-toggle="tab">Bin</a>
+                        </li>
+                    </ul>
+
+                    <!-------------------------------------------------------------------------------- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="board-gen">
+                            @include("pages.board.mainBoard")
+                        </div>
+
+                        <div class="tab-pane fade" id="board-done">
+                            @include("pages.board.boardDone")
+                        </div>
+
+                        <div class="tab-pane fade" id="board-bin">
+                            @include("pages.board.boardBin")
+                        </div>
+
+                    </div>
 
 
-                        @foreach($allBoards as $Board)
-                            @foreach($Board->members as $mem)
-                                @if($mem->id == Auth::user()->id || Auth::user()->Level_id == 1)
-
-                                    <tr>
-                                        <td style="width: 60%">
-                                            <span>Name board : {{$Board->name}} </span>
-                                            <br>
-                                            <span>Detail : {{$Board->detail}} </span>
-                                            <br>
-                                            <span>Manager :{{$Board->manager['name']}} </span>
-                                            <br>
-                                            <span>Member : {{count($Board->members)}}</span>
-                                        </td>
-                                        <td style="width: 40%">
-                                            <a href="/board{{$Board->id}}">
-                                                <button type="button" class="btn btn-default">Board</button>
-                                            </a>
-                                            <a href="/member{{$Board->id}}">
-                                                <button type="button" class="btn btn-default">Member</button>
-                                            </a>
-                                            <a href="/showGantt/{{$Board->id}}">
-                                                <button type="button" class="btn btn-default">Gantt Chart</button>
-                                            </a>
-
-                                            @if(Auth::user()->Level_id == 1) <!--            เงื่อนไข แก้ไข และ ลบ -->
-
-                                            <a href="/editBoard{{$Board->id}}">
-                                                <button type="button" class="btn btn-default">Edit</button>
-                                            </a>
-
-                                            <button type="button" class="btn btn-danger" onclick="deleteBoard()">
-                                                Delete
-                                            </button>
-
-                                            @endif
-
-                                            <script>
-                                                function deleteBoard() {
-
-                                                    if (confirm("Confirm Delete this Board!") == true) {
-                                                        document.location.href = "/deleteBoard/{{$Board->id}}";
-                                                    }
-                                                }
-                                            </script>
-                                        </td>
-                                    </tr>
-
-                                    @break
-                                @endif
-                            @endforeach
-                        @endforeach
-
-
-                        </tbody>
-                    </table>
                     <hr>
                 </div>
 

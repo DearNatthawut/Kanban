@@ -100,7 +100,7 @@ class BoardController extends Controller
     public function deleteBoard($id)
     {
 
-        $cards = Card::where('Boards_id', '=', $id)
+     /*   $cards = Card::where('Boards_id', '=', $id)
         ->get();
 
         $ids = [];
@@ -117,7 +117,10 @@ class BoardController extends Controller
         $membermana = Membermanagement::where('Boards_id', '=', $id)->delete();
 
 
-        $board = \App\Models\Board::find($id)->delete();
+        $board = \App\Models\Board::find($id)->delete();*/
+        $board= Board::find($id);
+        $board->board_hide = 1;
+        $board->save();
 
         return redirect('/home');
     }
