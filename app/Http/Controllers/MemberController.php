@@ -6,6 +6,7 @@
  * Time: 7:12 PM
  */
 namespace App\Http\Controllers;
+use App\Models\Board;
 use App\Models\Membermanagement;
 use DB;
 use App\Models\Member;
@@ -30,11 +31,14 @@ class MemberController extends Controller
 
         $member = DB::table('users')
             ->whereNotIn('id', $id)->get();
-
+        
+        $Board = Board::all()
+            ->find($idMember);
         return view('pages.member.member')
             ->with('id',$idMember)
             ->with('members',$data)
-            ->with('addmembers',$member);
+            ->with('addmembers',$member)
+            ->with('Board',$Board);
 
     }
 

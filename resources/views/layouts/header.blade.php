@@ -36,12 +36,12 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="hidden-xs">Suphisi Khaika</span>
+                            <span class="hidden-xs">{{Auth::user()->name}}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                Suphisit Khaika - Manager
+                                {{Auth::user()->name}} - @if(Auth::user()->Level_id == 1) Project Manager @elseif(Auth::user()->Level_id == 2) Member @endif
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">

@@ -9,7 +9,7 @@
                 <p>.</p>
             </div>
             <div class="pull-left info">
-                <p>Suphisit Khaika</p>
+                <p> {{Auth::user()->name}} </p>
             </div>
         </div>
 

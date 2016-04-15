@@ -69,7 +69,7 @@ class CardController extends Controller
     }
 
     // form สร้างการ์ด
-    public function formNewCard()
+    public function formNewCard($id)
     {
         $status = Status::all('id', 'name')
             ->sortBy('id')
@@ -84,14 +84,17 @@ class CardController extends Controller
         $member = Membermanagement::with(['member'])
             ->where('Boards_id', '=', session()->get('Board'))
             ->get();
-        
 
+
+        $Board = Board::all()
+            ->find($id);
 
         return view('pages.card.createCard')
             ->with('color', $color)
             ->with('piority', $prior)
             ->with('member', $member)
-            ->with('status', $status);
+            ->with('status', $status)
+            ->with('Board', $Board);
     }
 
 // บันทึก card
@@ -104,7 +107,7 @@ public function createCard()
     $Card->detail = \Input::get('detail');
     $Card->priority_id = 1;
     $Card->status_id = \Input::get('status');
-    $Card->types_id = 1;
+    $Card->type_id = 1;
     $Card->color_id = \Input::get('color');
     $Card->Boards_id = session()->get('Board');
     $Card->MemberManagement_id = \Input::get('member');

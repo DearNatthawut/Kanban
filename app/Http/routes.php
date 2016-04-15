@@ -43,7 +43,7 @@ Route::get('/deleteBoard/{id}','BoardController@deleteBoard'); // ลบ board
 
 Route::get('/cards', 'CardController@getCard'); // get card data main
 
-Route::get('/createCard','CardController@formNewCard');//สร้าง form card
+Route::get('/createCard{id}','CardController@formNewCard');//สร้าง form card
 
 Route::post('/createCard','CardController@createCard');// สร้าง card
 
@@ -65,3 +65,9 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+// use for @break in blade 
+Blade::extend(function($value)
+{
+    return preg_replace('/(\s*)@(break|continue)(\s*)/', '$1<?php $2; ?>$3', $value);
+});

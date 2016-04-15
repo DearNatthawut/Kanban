@@ -15,8 +15,10 @@ use App\Models\Card;
 use App\Models\Priority;
 use App\Models\Status;
 use App\Models\Checklist;
+
 use DB;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Input;
@@ -35,8 +37,10 @@ class BoardController extends Controller
     public function showAllBoard()
     {
         $data = Board::with(['members', 'manager'])
+          //->where('members.id','=',Auth::user()->id)
             ->select('boards.*')
             ->get();
+       
 
         return view('pages.board.index')->with('allBoards', $data);
     }
@@ -54,8 +58,8 @@ class BoardController extends Controller
     //แก้ไขบอร์ด
     public function formEditBoard($id)
     {
-        $data = Board::find($id);
-        return view('pages.board.edit')->with('getEdit', $data);
+        $data = Board::all()->find($id);
+        return view('pages.board.edit')->with('Board', $data);
     }
 
     public function editBoard()
