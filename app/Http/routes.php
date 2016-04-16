@@ -38,6 +38,7 @@ Route::get('/home','BoardController@showAllBoard'); // แสดง ทุก bo
 
 Route::get('/deleteBoard/{id}','BoardController@deleteBoard'); // ลบ board
 
+Route::get('/restoreBoard/{id}','BoardController@restoreBoard'); // กู้คืน board
 
 //---------------------------------------------------------------------------------------- Card
 

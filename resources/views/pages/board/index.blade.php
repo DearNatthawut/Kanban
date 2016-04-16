@@ -26,17 +26,18 @@
 
                     </div>
 
-                    <ul class="nav nav-tabs " >
+                    <ul class="nav nav-tabs ">
                         <li role="presentation" class="active">
                             <a href="#board-gen" data-toggle="tab">Board</a>
                         </li>
                         <li role="presentation">
                             <a href="#board-done" data-toggle="tab">Done</a>
                         </li>
-
-                        <li role="presentation">
-                            <a href="#board-bin" data-toggle="tab">Bin</a>
-                        </li>
+                        @if(Auth::user()->Level_id == 1)
+                            <li role="presentation">
+                                <a href="#board-bin" data-toggle="tab">Bin</a>
+                            </li>
+                        @endif
                     </ul>
 
                     <!-------------------------------------------------------------------------------- Tab panes -->
@@ -48,10 +49,11 @@
                         <div class="tab-pane fade" id="board-done">
                             @include("pages.board.boardDone")
                         </div>
-
-                        <div class="tab-pane fade" id="board-bin">
-                            @include("pages.board.boardBin")
-                        </div>
+                        @if(Auth::user()->Level_id == 1)
+                            <div class="tab-pane fade" id="board-bin">
+                                @include("pages.board.boardBin")
+                            </div>
+                        @endif
 
                     </div>
 

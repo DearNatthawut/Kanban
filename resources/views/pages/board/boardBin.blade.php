@@ -41,17 +41,17 @@
                             <button type="button" class="btn btn-default">Edit</button>
                         </a>
 
-                        <button type="button" class="btn btn-danger" onclick="deleteBoard()">
-                            Delete
+                        <button type="button" class="btn btn-info" onclick="restoreBoard()">
+                            Restore
                         </button>
 
                         @endif
 
                         <script>
-                            function deleteBoard() {
+                            function restoreBoard() {
 
-                                if (confirm("Confirm Delete this Board!") == true) {
-                                    document.location.href = "/deleteBoard/{{$Board->id}}";
+                                if (confirm("Confirm Restore this Board!") == true) {
+                                    document.location.href = "/restoreBoard/{{$Board->id}}";
                                 }
                             }
                         </script>

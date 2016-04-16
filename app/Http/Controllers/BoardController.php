@@ -124,4 +124,15 @@ class BoardController extends Controller
 
         return redirect('/home');
     }
+
+    public function restoreBoard($id)
+    {
+
+
+        $board= Board::find($id);
+        $board->board_hide = 0;
+        $board->save();
+
+        return redirect('/home');
+    }
 }
