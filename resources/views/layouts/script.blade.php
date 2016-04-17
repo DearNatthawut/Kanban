@@ -4,8 +4,9 @@
  * User: DNOJ
  * Date: 3/29/2016
  * Time: 9:41 PM
- */?>
-        <!-- jQuery -->
+ */ ?>
+
+<!-- jQuery -->
 <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <!-- djQueryUI -->
 <script src="plugins/jQueryUI/jquery-ui.min.js"></script>
@@ -28,5 +29,20 @@
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
 <script src="dist/js/pages/dashboard.js"></script>
+<script>
+    $(function () {
+
+        //Date range picker
+        $('#reservation').daterangepicker({format: 'YYYY/MM/DD'});
+
+
+        //Date picker
+        $('#datepicker').datepicker({
+            autoclose: true
+        });
+
+
+    });
+</script>
 
 

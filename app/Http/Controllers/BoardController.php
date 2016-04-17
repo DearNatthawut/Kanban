@@ -74,10 +74,15 @@ class BoardController extends Controller
     //สร้าง Bord
     public function createBoard()
     {
+        $dateEs = preg_split('[-]', \Input::get('date'));
+
         $Board = new Board();
         $Board->name = \Input::get('name');
         $Board->detail = \Input::get('detail');
-        $Board->manager_id = 1;
+        $Board->estimate_start = $dateEs[0];
+        $Board->estimate_end = $dateEs[1];
+        $Board->manager_id = Auth::user()->id;
+
         $Board->save();
 
         $id =  $Board['id'];

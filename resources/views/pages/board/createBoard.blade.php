@@ -36,16 +36,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="reservation" class="col-sm-2 control-label">Estimate Date</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="date" class="form-control  pull-right" id="reservation">
+                                    <div class="col-sm-10 ">
+                                        <input type="text" name="date" class="form-control " id="reservation" placeholder="Estimate Date">
                                     </div>
+                                    <!-- /.input group -->
+
                                 </div>
-                                {{--<div class="form-group">
+                                <div class="form-group">
                                     <label for="manager" class="col-sm-2 control-label">Manager</label>
                                     <div class="col-sm-10">
                                         <input type="text" name="manager" id="manager" class="form-control" placeholder="manager name">
                                     </div>
-                                </div>--}}
+                                </div>
 
 
 
