@@ -103,11 +103,15 @@ class CardController extends Controller
 // บันทึก card
 public function createCard()
 {
+    $dateEscard = preg_split('[-]', \Input::get('date'));
+
     $BoardId = session()->get('Board');
     //$member_id = Membermanagement::find(\Input::get('member'));
     $Card = new Card();
     $Card->name = \Input::get('name');
     $Card->detail = \Input::get('detail');
+    $Card->estimate_start = $dateEscard[0];
+    $Card->estimate_end = $dateEscard[1];
     $Card->priority_id = 1;
     $Card->status_id = \Input::get('status');
     $Card->type_id = 1;
@@ -183,6 +187,13 @@ public function createCard()
 
         $move = Card::find($cardId);
         $move->status_id = $column;
+        if ($move->date_start == null){
+            $move->date_start = date('Y-m-d');
+        }
+        if ($move->date_end == null && $column == 4){
+            $move->date_end = date('Y-m-d');
+        }
+
         $move->save();
 
         return $column;

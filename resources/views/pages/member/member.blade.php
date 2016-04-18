@@ -45,7 +45,7 @@
 
                     </div>
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered " id="memberTable" >
                         <tbody>
 
 
@@ -77,16 +77,7 @@
                         </tbody>
                     </table>
 
-                    <div class="box-footer clearfix">
-                        <ul class="pagination pagination-sm no-margin pull-right">
-                            <li><a href="#">&laquo;</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
-                    </div>
-                </div>
+
 
             </div>
 

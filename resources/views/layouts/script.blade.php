@@ -29,6 +29,10 @@
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
 <script src="dist/js/pages/dashboard.js"></script>
+<!-- DataTables -->
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+
 <script>
     $(function () {
 
@@ -40,6 +44,8 @@
         $('#datepicker').datepicker({
             autoclose: true
         });
+
+        $("#memberTable").DataTable();
 
 
     });
