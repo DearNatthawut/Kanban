@@ -23,6 +23,9 @@ use Illuminate\Http\Request;
 use Input;
 use Validator;
 
+date_default_timezone_set('Asia/Bangkok');
+
+
 class CardController extends Controller
 {
 
@@ -130,6 +133,14 @@ public function createCard()
             $CheckL->save();
 
         }}
+
+    $BoardCheckStart = Board::all()
+        ->find($BoardId);
+    if ($BoardCheckStart->start_date == null){
+
+        $BoardCheckStart->start_date = date('Y-m-d');
+        $BoardCheckStart->save();
+    }
 
 
         return redirect("/board$BoardId");

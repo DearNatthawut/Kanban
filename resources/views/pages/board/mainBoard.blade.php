@@ -22,6 +22,7 @@
                         <span>Manager :{{$Board->manager['name']}} </span>
                         <br>
                         <span>Member : {{count($Board->members)}}</span>
+
                     </td>
                     <td >
                         <a href="/board{{$Board->id}}">

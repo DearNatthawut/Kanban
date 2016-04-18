@@ -23,14 +23,15 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Input;
 use Validator;
+date_default_timezone_set('Asia/Bangkok');
 
 class BoardController extends Controller
 {
 
 
-    public function test(Request $request)
+    public function test()
     {
-            return $request;
+            return date('Y-m-d');
     }
 
     //แสดงข้อมูลบอร์ดในหน้าแรก
@@ -40,7 +41,7 @@ class BoardController extends Controller
           //->where('members.id','=',Auth::user()->id)
             ->select('boards.*')
             ->get();
-       
+
 
         return view('pages.board.index')->with('allBoards', $data);
     }
@@ -59,16 +60,33 @@ class BoardController extends Controller
     public function formEditBoard($id)
     {
         $data = Board::all()->find($id);
-        return view('pages.board.edit')->with('Board', $data);
+        $dateFormatStart = preg_split('[-]', $data->estimate_start);
+        $dateFormatStart =  $dateFormatStart[0]."/".$dateFormatStart[1]."/".$dateFormatStart[2];
+        $dateFormatEnd = preg_split('[-]', $data->estimate_end);
+        $dateFormatEnd =  $dateFormatEnd[0]."/".$dateFormatEnd[1]."/".$dateFormatEnd[2];
+        
+        return view('pages.board.edit')
+            ->with('Board', $data)
+            ->with('dateStart', $dateFormatStart)
+            ->with('dateEnd', $dateFormatEnd);
     }
 
     public function editBoard()
     {
+
+        $dateEs = preg_split('[-]', \Input::get('date'));
+        
         $edit = Board::find(\Input::get('id'));
         $edit->name = \Input::get('name');
         $edit->detail = \Input::get('detail');
+        $edit->estimate_start = $dateEs[0];
+        $edit->estimate_end = $dateEs[1];
         $edit->save();
         return redirect('/home');
+    }
+
+    public function formCreateBoard(){
+        return view('pages.board.createBoard');
     }
 
     //สร้าง Bord

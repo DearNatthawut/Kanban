@@ -38,15 +38,15 @@
                                 <div class="form-group">
                                     <label for="reservation" class="col-sm-2 control-label">Estimate Date</label>
                                     <div class="col-sm-10 ">
-                                        <input type="text" name="date" class="form-control " id="reservation" placeholder="Estimate Date" >
+                                        <input type="text" name="date" class="form-control " id="reservation" placeholder="Estimate Date" value="{{$dateStart}} - {{$dateEnd}}">
                                     </div>
                                 </div>
-                               {{-- <div class="form-group">
+                                <div class="form-group">
                                     <label for="manager" class="col-sm-2 control-label">Manager</label>
                                     <div class="col-sm-10">
                                         <input type="text" id="manager" name="manager" class="form-control" placeholder="manager name">
                                     </div>
-                                </div>--}}
+                                </div>
 
 
 
@@ -73,19 +73,6 @@
 </div>
 
 </body>
-    <script>
-        $(function () {
 
-            //Date range picker
-            $('#reservation').daterangepicker({format: 'YYYY/MM/DD'});
-
-            //Date picker
-            $('#datepicker').datepicker({
-                autoclose: true
-            });
-
-
-        });
-    </script>
     @include('layouts.script')
 </html>

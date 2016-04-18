@@ -24,9 +24,8 @@ Route::get('/', function () {
 
 Route::get('/board{id}','BoardController@showBoard');// get ข้อมูล
 
-Route::get('/createBoard', function () {// สร้าง board
-    return view('pages.board.createBoard');
-});
+Route::get('/createBoard', 'BoardController@formCreateBoard' );
+
 
 Route::post('/createBoard','BoardController@createBoard');//ส่งข้อมูล สร้าง board
 
