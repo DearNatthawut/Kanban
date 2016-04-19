@@ -10,7 +10,7 @@
 
                 <div class="panel-body">
                     <div class="page-header">
-                        <h2>Create Card</h2>
+                        <h2>Create Card <small>( {{$Board->name}} )</small></h2>
                         <br>
                     </div>
 

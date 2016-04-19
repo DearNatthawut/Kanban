@@ -53,6 +53,10 @@ Route::post('/moveCard','CardController@moveCard'); // ย้าย card
 
 Route::post('/removeCard','CardController@removeCard');// ลบ card
 
+//-----------------------------------------------------------------------------------------Gantt
+
+Route::get('/showGantt{id}','GanttController@getGantt');
+
 //-----------------------------------------------------------------------------------------Member
 Route::get('/member{id}','MemberController@showMember');
 Route::post('/addMember{id}','MemberController@addMember');
