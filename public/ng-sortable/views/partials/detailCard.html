@@ -28,7 +28,7 @@
                 <b>Column:</b>
                 <p>{{cardData.status}}</p>
                 <b>Member:</b>
-                <p>{{cardData.member_card.name}}</p>
+                <p>{{cardData.member_card.member.name}}</p>
 
             </div>
         </div>
@@ -75,8 +75,11 @@
                 </div>
             </div><!-- /.box -->
         </div>
-
     </div>
+</div>
+<div class="modal-footer">
+
+    <a href="editCard{{cardData.id}}"><button class="btn btn-default pull-right">Edit</button></a>
 </div>
 
 <script>

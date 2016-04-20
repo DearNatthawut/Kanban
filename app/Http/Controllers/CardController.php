@@ -90,30 +90,38 @@ class CardController extends Controller
 // บันทึก card
     public function createCard()
     {
+
+        //return \Input::get();
         $dateEscard = preg_split('[-]', \Input::get('date'));
         $BoardId = session()->get('Board');
+
         //$member_id = Membermanagement::find(\Input::get('member'));
         $Card = new Card();
         $Card->name = \Input::get('name');
         $Card->detail = \Input::get('detail');
+
         $Card->estimate_start = $dateEscard[0];
         $Card->estimate_end = $dateEscard[1];
         $Card->priority_id = 1;
+
         $Card->status_id = \Input::get('status');
         $Card->type_id = 1;
         $Card->color_id = \Input::get('color');
         $Card->Boards_id = session()->get('Board');
         $Card->MemberManagement_id = \Input::get('member');
+
         $Card->save();
+
         $getCard = Card::where('id', '=', $Card->id)
             ->select('id')
             ->get();
+        
         if(\Input::get('sub') != null){
             $sub = \Input::get('sub');
             $check = \Input::get('checkL');
             foreach ($sub as $index => $s ) {
                 $CheckL = new Checklist();
-                $CheckL->Cards_id = $getCard[0]->id;;
+                $CheckL->Cards_id = $getCard[0]->id;
                 $CheckL->name = $s;
                 $CheckL->status = $check[$index];
                 $CheckL->save();

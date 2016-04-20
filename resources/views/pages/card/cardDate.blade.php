@@ -14,7 +14,7 @@
         <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
         </div>
-        <input type="text" name="date" class="form-control " id="reservation" placeholder="Estimate Date">
+        <input type="text" name="date" class="form-control " id="reservation" placeholder="Estimate Date" required>
             </div>
     </div>
     <!-- /.input group -->

@@ -45,7 +45,7 @@
             autoclose: true
         });
 
-        $("#memberTable").DataTable();
+        $("#example1").DataTable();
 
 
     });

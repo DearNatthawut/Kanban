@@ -15,7 +15,7 @@ angular.module('kanban').factory('BoardManipulator', function () {
       angular.forEach(board.columns, function (col) {
         if (col.name === column.name) {
           col.cards.push(new Card(column,card));
-
+         col.cards.splice
         }
       });
     },

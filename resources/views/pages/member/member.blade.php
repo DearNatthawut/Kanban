@@ -44,44 +44,56 @@
 
 
                     </div>
-
-                    <table class="table table-bordered " id="memberTable" >
-                        <tbody>
-
-
-                        <tr>
-                            <th>Name</th>
-                            <th>E-mail</th>
-                            <th style="width: 20%">Status</th>
-                            @if(Auth::user()->Level_id == 1)
-                                <th style="width: 10px"></th>
-                            @endif
-                        </tr>
-                        @foreach($members as $member)
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
                             <tr>
-                                <td> {{$member->member}}</td>
-                                <td> {{$member->email}}</td>
-                                <td>{{$member->level}}</td>
-
-                                @if(Auth::user()->Level_id == 1) <!--    if  remove member -->
-                                <td>
-                                    <button type="button" class="btn btn-default"><i
-                                                class="glyphicon glyphicon-remove"></i>
-                                    </button>
-                                </td>
+                                <th>Name</th>
+                                <th>E-mail</th>
+                                <th>Position</th>
+                                @if(Auth::user()->Level_id == 1)
+                                    <th style="width: 10px"></th>
                                 @endif
                             </tr>
-                        @endforeach
+                            </thead>
+                            <tbody>
 
+                            @foreach($members as $member)
+                                <tr>
+                                    <td> {{$member->member}}</td>
+                                    <td> {{$member->email}}</td>
+                                    <td>{{$member->level}}</td>
 
-                        </tbody>
-                    </table>
+                                    @if(Auth::user()->Level_id == 1) <!--    if  remove member -->
+                                    <td>
+                                        <button type="button" class="btn btn-default"><i
+                                                    class="glyphicon glyphicon-remove"></i>
+                                        </button>
+                                    </td>
+                                    @endif
+                                </tr>
+                            @endforeach
 
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th>Rendering engine</th>
+                                <th>Browser</th>
+                                <th>Platform(s)</th>
+                                @if(Auth::user()->Level_id == 1)
+                                    <th style="width: 10px"></th>
+                                @endif
+
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div><!-- /.box-body -->
 
 
             </div>
 
         </div>
+            </div>
 
     </section>
 

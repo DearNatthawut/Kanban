@@ -31,7 +31,11 @@ class BoardController extends Controller
 
     public function test()
     {
-            return date('Y-m-d');
+        $data = Card::
+            where('Boards_id','=',session()->get('Board'))
+            ->select('id','name','estimate_start','estimate_end','date_start','date_end')
+        ->get();
+            return  $data;
     }
 
     //แสดงข้อมูลบอร์ดในหน้าแรก
