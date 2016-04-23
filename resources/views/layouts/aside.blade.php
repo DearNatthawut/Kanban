@@ -25,19 +25,19 @@
             </li>
 
             <li>
-                <a href="/board{{$Board->id}}#/">
+                <a href="/board/{{$Board->id}}#/">
                     <i class="glyphicon glyphicon-blackboard"></i> <span>Board</span>
                     <small class="label pull-right bg-red"></small>
                 </a>
             </li>
             <li>
-                <a href="/member{{$Board->id}}">
+                <a href="/member/{{$Board->id}}">
                     <i class="fa  fa-user"></i> <span>Member</span>
                     <small class="label pull-right bg-red"></small>
                 </a>
             </li>
             <li>
-                <a href="/showGantt{{$Board->id}}">
+                <a href="/showGantt/{{$Board->id}}">
                     <i class="fa  fa-bar-chart"></i> <span>Gantt</span>
                     <small class="label pull-right bg-red"></small>
                 </a>
@@ -45,7 +45,7 @@
 
             @if(Auth::user()->Level_id == 1) <!-- hide form Member -->
                 <li>
-                    <a href="/editBoard{{$Board->id}}">
+                    <a href="/editBoard/{{$Board->id}}">
                         <i class="fa fa-cogs"></i> <span>Edit</span>
                     </a>
                 </li>

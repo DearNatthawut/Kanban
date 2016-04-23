@@ -11,9 +11,9 @@ angular.module('kanban', [
     }])
     .config(['$routeProvider', function ($routeProvider) {
 
-        $routeProvider.when('/', {templateUrl: 'ng-sortable/views/kanban.html'});
+        $routeProvider.when('/', {templateUrl: '/ng-sortable/views/kanban.html'});
 
-        $routeProvider.when('/kanban', {templateUrl: 'ng-sortable/views/kanban.html', controller: 'KanbanController'});
+        $routeProvider.when('/kanban', {templateUrl: '/ng-sortable/views/kanban.html', controller: 'KanbanController'});
 
         $routeProvider.otherwise({redirectTo: '/'});
     }]);

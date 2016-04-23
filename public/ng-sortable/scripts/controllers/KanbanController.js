@@ -31,7 +31,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
             BoardService.cardMove($MoveEvent)
                 .success(function (r) {
-                    // console.log(r);
+                     
                 });
 
         },

@@ -24,10 +24,10 @@
                         <span>Member : {{count($Board->members)}}</span>
                     </td>
                     <td >
-                        <a href="/board{{$Board->id}}">
+                        <a href="/board/{{$Board->id}}">
                             <button type="button" class="btn btn-default">Board</button>
                         </a>
-                        <a href="/member{{$Board->id}}">
+                        <a href="/member/{{$Board->id}}">
                             <button type="button" class="btn btn-default">Member</button>
                         </a>
                         <a href="/showGantt/{{$Board->id}}">
@@ -36,7 +36,7 @@
 
                         @if(Auth::user()->Level_id == 1) <!--            เงื่อนไข แก้ไข และ ลบ -->
 
-                        <a href="/editBoard{{$Board->id}}">
+                        <a href="/editBoard/{{$Board->id}}">
                             <button type="button" class="btn btn-default">Edit</button>
                         </a>
 

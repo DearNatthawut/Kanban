@@ -11,5 +11,6 @@ use Illuminate\Database\Eloquent\Model;
 class Checklist extends Model
 {
     protected $table = 'checklists';
+    protected $fillable = ['name','status'];
 
 }

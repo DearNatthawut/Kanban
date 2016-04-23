@@ -14,8 +14,9 @@ use Illuminate\Database\Eloquent\Model;
 class Card extends Model
 {
     protected $table = 'cards';
+    protected $fillable = ['name','detail','MemberManagement_id','priority_id','color_id'];
 
-    public function checklist(){
+    public function checklists(){
         return $this->hasMany(\App\Models\Checklist::class,"Cards_id");
     }
     
@@ -23,6 +24,12 @@ class Card extends Model
     public function memberCard()
     {
        return $this->belongsTo(\App\Models\Membermanagement::class,"MemberManagement_id","id" );
+
+    }
+
+    public function color()
+    {
+        return $this->belongsTo(\App\Models\Color::class,"color_id","id" );
 
     }
     

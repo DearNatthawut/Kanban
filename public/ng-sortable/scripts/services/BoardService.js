@@ -8,13 +8,14 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
     return {
 
         cardMove: function ($MoveEvent) {
+
             return $http({
                 //crossDomain : true,
                 method: 'POST',
-                url: 'moveCard',
+                url: '/moveCard',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: $.param($MoveEvent)
-            }).success(function (data, status, headers, config) {
+            }).success(function (r) {
 
             });
         },
@@ -27,7 +28,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 BoardManipulator.removeCardFromColumn(board, column, card);
                 return $http({
                     method: 'POST',
-                    url: 'removeCard',
+                    url: '/removeCard',
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     data: $.param($DeCard)
                 }).success(function (data, status, headers, config) {
@@ -38,7 +39,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
 
         addNewCard: function (board, column) {
             var modalInstance = $modal.open({
-                templateUrl: 'ng-sortable/views/partials/newCard.html',
+                templateUrl: '/ng-sortable/views/partials/newCard.html',
                 controller: 'NewCardController',
                 backdrop: 'static',
                 resolve: {
@@ -61,7 +62,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
         },
         detailCard: function (card) {
             var show = $modal.open({
-                templateUrl: 'ng-sortable/views/partials/detailCard.html',
+                templateUrl: '/ng-sortable/views/partials/detailCard.html',
                 controller: 'DetailCardController',
                 backdrop: 'static',
                 resolve: {

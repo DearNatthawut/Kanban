@@ -4,33 +4,93 @@
 
 'use strict';
 
-angular.module('kanban').controller('DetailCardController', ['$scope', '$modalInstance', 'card', function ($scope, $modalInstance, card) {
+angular.module('kanban').controller('DetailCardController',
+    ['$scope', '$modalInstance', 'card', '$http', function ($scope, $modalInstance, card, $http) {
+
+        function initScope(card) {
+            $scope.cardData = [];
+            $scope.cardData = card;
 
 
-    
-    
-    function initScope(card) {
-        $scope.cardData = [];
-        $scope.cardData = card;
-       
-            }
 
-    $scope.detailCard = function () {
-        var buffer = [];
-        if (!this.newCardForm.$valid) {
-            return false;
         }
 
-       /* $modalInstance.close({title: this.title, column: card, details: this.details
-            ,estimateStart: this.estimateStart,estimateEnd: this.estimateEnd});*/
-    };
+        function getDataCard(){
+            $http({
+                method: 'GET',
+                url : "http://localhost:8000/getCardEditData",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+            }).success(function (r) {
+
+                $scope.DataEdit = r;
+
+            })
+        }
+
+        $scope.detailCard = function () {
+            var buffer = [];
+            if (!this.newCardForm.$valid) {
+                return false;
+            }
+
+            /* $modalInstance.close({title: this.title, column: card, details: this.details
+             ,estimateStart: this.estimateStart,estimateEnd: this.estimateEnd});*/
+        };
 
 
+        $scope.changeCheckStatus = function (checklist) {
+            console.log(checklist);
+            $http({
+                method: 'POST',
+                url: '/changeCheckStatus/' + checklist.id,
+                data : checklist
+            }).success(function (r) {
+                
+               if(r.status_id == 1){
+                    r.status = "Backlog"
+                }else if(r.status_id == 2){
+                    r.status = "Ready"
+                }else if(r.status_id == 3){
+                    r.status = "Doing"
+                }else if(r.status_id == 4){
+                    r.status = "Done"
+                }
+                $scope.cardData = r;
 
-    $scope.close = function () {
-        $modalInstance.close();
-    };
+            });
+            
+        };
 
-    initScope(card);
 
-}]);
+       /* edit card */
+        $scope.saveEditCard = function (cardData) {
+            $http({
+                method: 'POST',
+                url: '/editCard/' + cardData.id,
+                data : cardData
+            }).success(function (r) {
+                console.log(r);
+
+                if(r.status_id == 1){
+                    r.status = "Backlog"
+                }else if(r.status_id == 2){
+                    r.status = "Ready"
+                }else if(r.status_id == 3){
+                    r.status = "Doing"
+                }else if(r.status_id == 4){
+                    r.status = "Done"
+                }
+                $scope.cardData = r;
+            })
+        };
+
+
+        $scope.close = function () {
+            $modalInstance.close();
+        };
+
+        initScope(card);
+        getDataCard();
+
+    }]);

@@ -6,7 +6,7 @@
     <section class="content-header">
 
         @if(Auth::user()->Level_id == 1) <!--    hide member -->
-        <a href="/createCard{{$Board->id}}">
+        <a href="/createCard/{{$Board->id}}">
             <button type="button" class="btn btn-default "><i class="glyphicon glyphicon-plus"> Create Card</i></button>
         </a>
         @endif

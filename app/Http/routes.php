@@ -22,14 +22,14 @@ Route::get('/', function () {
 
 //------------------------------------------------------------------------------------- Board
 
-Route::get('/board{id}','BoardController@showBoard');// get ข้อมูล
+Route::get('/board/{id}','BoardController@showBoard');// get ข้อมูล
 
 Route::get('/createBoard', 'BoardController@formCreateBoard' );
 
 
 Route::post('/createBoard','BoardController@createBoard');//ส่งข้อมูล สร้าง board
 
-Route::get('/editBoard{id}','BoardController@formEditBoard');// get ข้อมูล
+Route::get('/editBoard/{id}','BoardController@formEditBoard');// get ข้อมูล
 
 Route::post('/editBoard','BoardController@editBoard');// แก้ไข ข้อมูล
 
@@ -43,23 +43,30 @@ Route::get('/restoreBoard/{id}','BoardController@restoreBoard'); // กู้ค
 
 Route::get('/cards', 'CardController@getCard'); // get card data main
 
-Route::get('/createCard{id}','CardController@formNewCard');//สร้าง form card
+Route::get('/getCardEditData', 'CardController@getCardEditData');
+
+Route::get('/createCard/{id}','CardController@formNewCard');//สร้าง form card
 
 Route::post('/createCard','CardController@createCard');// สร้าง card
 
-Route::get('/editCard{id}','CardController@editCard');// สร้าง card
+Route::get('/editCard/{idBoard}/{id}','CardController@editFormCard');// แก้ไขform card
+
+Route::post('/editCard/{id}','CardController@editCard');// แก้ไข card
+
+Route::post('/changeCheckStatus/{id}','CardController@changeCheckStatus');// แก้ไข checklist
 
 Route::post('/moveCard','CardController@moveCard'); // ย้าย card
+
 
 Route::post('/removeCard','CardController@removeCard');// ลบ card
 
 //-----------------------------------------------------------------------------------------Gantt
 
-Route::get('/showGantt{id}','GanttController@getGantt');
+Route::get('/showGantt/{id}','GanttController@getGantt');
 
 //-----------------------------------------------------------------------------------------Member
-Route::get('/member{id}','MemberController@showMember');
-Route::post('/addMember{id}','MemberController@addMember');
+Route::get('/member/{id}','MemberController@showMember');
+Route::post('/addMember/{id}','MemberController@addMember');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

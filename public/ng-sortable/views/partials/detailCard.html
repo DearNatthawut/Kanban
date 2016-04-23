@@ -5,8 +5,11 @@
      </a>-->
 
     <h4 class="modal-title" ng-model="columnName">Name '{{cardData.name}}'</h4>
+
+
 </div>
 <div class="modal-body">
+
     <!--                                                             Nav  Menu              -->
     <ul class="nav nav-tabs" id="tab">
         <li class="active">
@@ -23,12 +26,56 @@
     <div class="tab-content">
         <div class="tab-pane fade in active" id="card-detail">
             <div class="box box-primary">
-                <b>Detail:</b>
-                <p>{{cardData.detail}}</p>
-                <b>Column:</b>
-                <p>{{cardData.status}}</p>
-                <b>Member:</b>
-                <p>{{cardData.member_card.member.name}}</p>
+                <br>
+                <div class="form-horizontal">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="Name" class="col-sm-2 control-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Name" placeholder="Card Name"
+                                       ng-model="cardData.name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Detail" class="col-sm-2 control-label">Detail</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Detail" placeholder="Detail"
+                                       ng-model="cardData.detail">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="member" class="col-sm-2 control-label">Member</label>
+                            <div class="col-sm-10">
+                                <select id="member" ng-model="cardData.MemberManagement_id" class="form-control">
+                                    <option ng-repeat="memberData in DataEdit.manager" value="{{memberData.id}}"
+                                            ng-model="cardData.MemberManagement_id" ng-selected="cardData.MemberManagement_id == memberData.id">{{memberData.member.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="color" class="col-sm-2 control-label">Color</label>
+                            <div class="col-sm-10">
+                                <select id="color" ng-model="cardData.color_id" class="form-control">
+                                    <option ng-repeat="colorData in DataEdit.color" value="{{colorData.id}}"
+                                            ng-model="cardData.color_id" ng-selected="cardData.color_id == colorData.id">{{colorData.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="priority" class="col-sm-2 control-label">Priority</label>
+                            <div class="col-sm-10">
+                                <select id="priority" ng-model="cardData.priority_id" class="form-control">
+                                    <option ng-repeat="priorityData in DataEdit.priority" value="{{priorityData.id}}"
+                                            ng-model="cardData.priority_id" ng-selected="cardData.priority_id == priorityData.id">{{priorityData.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -54,13 +101,13 @@
                 <div class="box-body">
 
 
-                    <ul class="todo-list" ng-repeat="checklist in cardData.checklist">
-                        <li>
-                            <!--   <span class="handle">
+                    <ul class="todo-list" >
+                        <li ng-repeat="checklist in cardData.checklists">
+                              <!-- <span class="handle">
                               <i class="fa fa-ellipsis-v"></i>
                               <i class="fa fa-ellipsis-v"></i>
                             </span>-->
-                            <input type='checkbox' value='1' name=''>
+                            <input type='checkbox'  ng-model="checklist.status" ng-true-value="1" ng-false-value="0" ng-click="changeCheckStatus(checklist)">
                             <span class="text">{{checklist.name}}</span>
                             <div class="tools">
                                 <i class="fa fa-edit"></i>
@@ -79,21 +126,15 @@
 </div>
 <div class="modal-footer">
 
-    <a href="editCard{{cardData.id}}"><button class="btn btn-default pull-right">Edit</button></a>
+    <button ng-click="saveEditCard(cardData)" class="btn btn-default pull-right">Edit</button>
 </div>
 
 <script>
-    $(function () {
-        // for bootstrap 3 use 'shown.bs.tab', for bootstrap 2 use 'shown' in the next line
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-            // save the latest tab; use cookies if you like 'em better:
-            localStorage.setItem('lastTab', $(this).attr('href'));
-        });
 
-        // go to the latest tab, if it exists:
-        var lastTab = localStorage.getItem('lastTab');
-        if (lastTab) {
-            $('[href="' + lastTab + '"]').tab('show');
-        }
+    $(document).ready(function () {
+        $("#tab").click(function () {
+            $(this).tab('show');
+        });
     });
+
 </script>

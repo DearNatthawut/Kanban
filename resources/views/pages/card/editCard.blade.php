@@ -2,10 +2,9 @@
 /**
  * Created by PhpStorm.
  * User: DNOJ
- * Date: 4/5/2016
- * Time: 12:48 AM
- */
-      ?>
+ * Date: 4/21/2016
+ * Time: 1:01 AM
+ */?>
 @include("layouts.header")
 @include("layouts.aside")
 
@@ -18,7 +17,7 @@
 
                 <div class="panel-body">
                     <div class="page-header">
-                        <h2>Detail Card</h2>
+                        <h2>Edit Card <small>( {{$Board->name}} - {{$Card[0]['name']}} )</small></h2>
                         <br>
                     </div>
 
@@ -34,6 +33,9 @@
                                     <li role="presentation" class="active">
                                         <a href="#card-detail" data-toggle="tab">General</a>
                                     </li>
+                                    <li role="presentation">
+                                        <a href="#card-date" data-toggle="tab">Date</a>
+                                    </li>
 
                                     <li role="presentation">
                                         <a href="#card-checklist" data-toggle="tab">Checklist</a>
@@ -43,19 +45,22 @@
                                 <!-------------------------------------------------------------------------------- Tab panes -->
                                 <div class="tab-content">
                                     <div class="tab-pane fade in active" id="card-detail">
+                                        @include("pages.card.editGeneral")
+                                    </div>
 
-                                        @include("pages.card.detailGeneral")
+                                    <div class="tab-pane fade" id="card-date">
+                                        @include("pages.card.editDate")
                                     </div>
 
                                     <div class="tab-pane fade" id="card-checklist">
-                                        @include("pages.card.detailChecklist")
+                                        @include("pages.card.editChecklist")
                                     </div>
 
                                 </div>
                             </div>
                             <!--     ---------------------------------------------------------------------------------- Foot -->
                             <div class="box-footer">
-                                <a href="/board">
+                                <a href="/board{{$Board->id}}#/">
                                     <button type="button" class="btn btn-default pull-right">Cancel</button>
                                 </a>
 

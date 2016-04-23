@@ -53,7 +53,7 @@
                             </div>
                             <!--     ---------------------------------------------------------------------------------- Foot -->
                             <div class="box-footer">
-                                <a href="/board{{session()->get('Board')}}#/">
+                                <a href="/board/{{session()->get('Board')}}#/">
                                     <button type="button" class="btn btn-default pull-right">Cancel</button>
                                 </a>
 
