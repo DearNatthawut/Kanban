@@ -53,12 +53,17 @@ Route::get('/editCard/{idBoard}/{id}','CardController@editFormCard');// แก�
 
 Route::post('/editCard/{id}','CardController@editCard');// แก้ไข card
 
-Route::post('/changeCheckStatus/{id}','CardController@changeCheckStatus');// แก้ไข checklist
-
 Route::post('/moveCard','CardController@moveCard'); // ย้าย card
 
-
 Route::post('/removeCard','CardController@removeCard');// ลบ card
+
+//------------------------------------------------------------------- Checklist
+
+Route::post('/changeCheckStatus/{id}','CardController@changeCheckStatus');// แก้ไข checklist
+
+Route::post('/addNewChecklist/{id}','CardController@addNewChecklist');// เพิ่ม checklist
+
+Route::post('/removeChecklist/{cardID}/{checklistID}','CardController@removeChecklist');// ลบ checklist
 
 //-----------------------------------------------------------------------------------------Gantt
 

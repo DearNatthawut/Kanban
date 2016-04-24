@@ -2,35 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b74d2af-41df-4bba-b0b4-7ba9eeb68fce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/pages/card/editCard.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/pages/card/editChecklist.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/pages/card/editDate.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/pages/card/editGeneral.blade.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/pages/card/detailCard.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/pages/card/detailChecklist.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/pages/card/detailGeneral.blade.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CardController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CardController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Card.php" afterPath="$PROJECT_DIR$/app/Models/Card.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Checklist.php" afterPath="$PROJECT_DIR$/app/Models/Checklist.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/ng-sortable/app.js" afterPath="$PROJECT_DIR$/public/ng-sortable/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/ng-sortable/scripts/controllers/DetailCardController.js" afterPath="$PROJECT_DIR$/public/ng-sortable/scripts/controllers/DetailCardController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/ng-sortable/scripts/controllers/KanbanController.js" afterPath="$PROJECT_DIR$/public/ng-sortable/scripts/controllers/KanbanController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/ng-sortable/scripts/services/BoardManipulator.js" afterPath="$PROJECT_DIR$/public/ng-sortable/scripts/services/BoardManipulator.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/ng-sortable/scripts/services/BoardService.js" afterPath="$PROJECT_DIR$/public/ng-sortable/scripts/services/BoardService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/ng-sortable/views/kanban.html" afterPath="$PROJECT_DIR$/public/ng-sortable/views/kanban.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/ng-sortable/views/partials/card.html" afterPath="$PROJECT_DIR$/public/ng-sortable/views/partials/card.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/ng-sortable/views/partials/detailCard.html" afterPath="$PROJECT_DIR$/public/ng-sortable/views/partials/detailCard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/aside.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/aside.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/css.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/css.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/script.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/script.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/scriptNG.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/scriptNG.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/board/board.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/board/board.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/board/boardBin.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/board/boardBin.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/board/boardDone.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/board/boardDone.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/board/mainBoard.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/board/mainBoard.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/card/createCard.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/card/createCard.blade.php" />
     </list>
     <ignored path="kanban.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,28 +32,33 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="55" column="54" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
+            <state relative-caret-position="159">
+              <caret line="65" column="85" selection-start-line="65" selection-start-column="70" selection-end-line="65" selection-end-column="85" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detailCard.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/ng-sortable/views/partials/detailCard.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="109" column="75" selection-start-line="109" selection-start-column="75" selection-end-line="109" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DetailCardController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DetailCardController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/ng-sortable/scripts/controllers/DetailCardController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+            <state relative-caret-position="124">
+              <caret line="121" column="16" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="16" />
+              <folding>
+                <element signature="e#1349#1409#0" expanded="false" />
+                <element signature="e#1434#1492#0" expanded="false" />
+                <element signature="e#1517#1575#0" expanded="false" />
+                <element signature="e#1600#1657#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detailCard.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/ng-sortable/views/partials/detailCard.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="134" column="109" selection-start-line="134" selection-start-column="70" selection-end-line="134" selection-end-column="109" />
               <folding />
             </state>
           </provider>
@@ -85,8 +67,8 @@
       <file leaf-file-name="CardController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CardController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="233" column="32" selection-start-line="233" selection-start-column="32" selection-end-line="233" selection-end-column="32" />
+            <state relative-caret-position="338">
+              <caret line="264" column="0" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -117,7 +99,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/pages/card/general.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Status.php" />
         <option value="$PROJECT_DIR$/app/Models/Priority.php" />
         <option value="$PROJECT_DIR$/app/Models/Member.php" />
@@ -159,15 +140,16 @@
         <option value="$PROJECT_DIR$/public/ng-sortable/views/kanban.html" />
         <option value="$PROJECT_DIR$/public/ng-sortable/views/partials/card.html" />
         <option value="$PROJECT_DIR$/public/ng-sortable/scripts/services/BoardManipulator.js" />
-        <option value="$PROJECT_DIR$/public/ng-sortable/scripts/services/BoardService.js" />
         <option value="$PROJECT_DIR$/public/ng-sortable/scripts/controllers/KanbanController.js" />
         <option value="$PROJECT_DIR$/resources/views/pages/card/createCard.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Card.php" />
         <option value="$PROJECT_DIR$/app/Models/Checklist.php" />
-        <option value="$PROJECT_DIR$/public/ng-sortable/views/partials/detailCard.html" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CardController.php" />
+        <option value="$PROJECT_DIR$/public/ng-sortable/scripts/controllers/CardController.js" />
+        <option value="$PROJECT_DIR$/public/ng-sortable/scripts/services/BoardService.js" />
+        <option value="$PROJECT_DIR$/public/ng-sortable/views/partials/detailCard.html" />
         <option value="$PROJECT_DIR$/public/ng-sortable/scripts/controllers/DetailCardController.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CardController.php" />
       </list>
     </option>
   </component>
@@ -216,6 +198,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -678,8 +662,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -774,12 +756,13 @@
       <workItem from="1461246019827" duration="15598000" />
       <workItem from="1461291033621" duration="8147000" />
       <workItem from="1461379957160" duration="7515000" />
-      <workItem from="1461418298575" duration="17908000" />
+      <workItem from="1461418298575" duration="18438000" />
+      <workItem from="1461493373049" duration="8244000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202386000" />
+    <option name="totallyTimeSpent" value="211160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
@@ -790,6 +773,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32747602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -800,7 +784,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -818,7 +801,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -922,7 +905,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1258">
           <caret line="79" column="17" selection-start-line="79" selection-start-column="17" selection-end-line="79" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -930,9 +912,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
-          <folding>
-            <marker date="1461301677996" expanded="true" signature="2750:3537" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -954,7 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="45" column="45" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -976,7 +954,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
           <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1012,17 +989,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-138">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/ng-sortable/views/kanban.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="101" selection-start-line="19" selection-start-column="101" selection-end-line="19" selection-end-column="101" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1044,15 +1010,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-221">
           <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/ng-sortable/views/partials/newCard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1068,7 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="831">
           <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1076,7 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="519">
           <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1084,15 +1039,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="16" column="115" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="115" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/ng-sortable/scripts/services/BoardService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-628">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1100,23 +1046,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="15" column="36" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/ng-sortable/scripts/services/BoardDataFactory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/ng-sortable/scripts/controllers/KanbanController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1128,19 +1057,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/ng-sortable/views/partials/card.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pages/card/createCard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="56" column="92" selection-start-line="56" selection-start-column="92" selection-end-line="56" selection-end-column="92" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1148,30 +1068,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="19" column="71" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="55" column="54" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/ng-sortable/views/partials/detailCard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="109" column="75" selection-start-line="109" selection-start-column="75" selection-end-line="109" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CardController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="233" column="32" selection-start-line="233" selection-start-column="32" selection-end-line="233" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1184,10 +1080,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/ng-sortable/views/partials/newCard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/ng-sortable/views/kanban.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="79" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/ng-sortable/views/partials/card.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/ng-sortable/scripts/controllers/KanbanController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/ng-sortable/scripts/services/BoardDataFactory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/ng-sortable/scripts/services/BoardService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="65" column="85" selection-start-line="65" selection-start-column="70" selection-end-line="65" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/ng-sortable/scripts/controllers/DetailCardController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+        <state relative-caret-position="124">
+          <caret line="121" column="16" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="16" />
+          <folding>
+            <element signature="e#1349#1409#0" expanded="false" />
+            <element signature="e#1434#1492#0" expanded="false" />
+            <element signature="e#1517#1575#0" expanded="false" />
+            <element signature="e#1600#1657#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="264" column="0" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/ng-sortable/views/partials/detailCard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="134" column="109" selection-start-line="134" selection-start-column="70" selection-end-line="134" selection-end-column="109" />
           <folding />
         </state>
       </provider>

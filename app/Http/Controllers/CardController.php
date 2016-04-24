@@ -32,10 +32,10 @@ class CardController extends Controller
         $board = Board::with(['members'])
             ->find(session()->get('Board'));
 
-        $cards = Card::with(['checklists', 'memberCard.member','color'])
+        $cards = Card::with(['checklists', 'memberCard.member', 'color'])
             ->where('Boards_id', '=', session()->get('Board'))
             ->get();
-      
+
 
         $status = \App\Models\Status::all('id', 'name')
             ->sortBy('id')
@@ -165,13 +165,13 @@ class CardController extends Controller
     public function editCard($id)
     {
         /*$card = Card::find($id);*/
-        $card = Card::with(['checklists', 'memberCard.member','color'])
+        $card = Card::with(['checklists', 'memberCard.member', 'color'])
             ->find($id);
         $card->fill(Input::all());
         $card->save();
 
 
-        $card = Card::with(['checklists', 'memberCard.member','color'])
+        $card = Card::with(['checklists', 'memberCard.member', 'color'])
             ->find($id);
 
         return $card;
@@ -212,8 +212,8 @@ class CardController extends Controller
 
 
         $data['priority'] = $prior;
-        $data['color'] =  $color;
-        $data['manager'] =  $member;
+        $data['color'] = $color;
+        $data['manager'] = $member;
         return $data;
     }
 
@@ -229,15 +229,45 @@ class CardController extends Controller
         return $cardId;
     }
 
-    public function changeCheckStatus($id){
+//-------------------------------------------------------------------Checklist
+    public function changeCheckStatus($id)
+    {
         $check = Checklist::find($id);
         $check->fill(Input::all());
         $check->save();
-        $card = Card::with(['checklists', 'memberCard.member','color'])
+        $card = Card::with(['checklists', 'memberCard.member', 'color'])
             ->find($check['Cards_id']);
 
         return $card;
-        
+
+    }
+
+    public function addNewChecklist($id)
+    {
+
+        $newChecklist = new Checklist();
+        $newChecklist->name = Input::get('name');
+        $newChecklist->Cards_id = $id;
+        $newChecklist->save();
+
+        $card = Card::with(['checklists', 'memberCard.member', 'color'])
+            ->find($id);
+
+        return $card;
+
+    }
+
+    public function removeChecklist($cardID, $checklistID)
+    {
+
+        $delChecklist = Checklist::where('id','=',$checklistID);
+        $delChecklist->delete();
+
+        $card = Card::with(['checklists', 'memberCard.member', 'color'])
+            ->find($cardID);
+
+        return $card;
+
     }
 
 }

@@ -60,6 +60,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 }
             });
         },
+        
         detailCard: function (card) {
             var show = $modal.open({
                 templateUrl: '/ng-sortable/views/partials/detailCard.html',
@@ -67,7 +68,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 backdrop: 'static',
                 resolve: {
                     card: function () {
-                        console.log(card);
+                        //console.log(card);
                         return card;
                     }
                 }
