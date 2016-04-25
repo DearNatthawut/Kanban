@@ -11,6 +11,7 @@ angular.module('kanban').controller('DetailCardController',
         function initScope(card) {
             $scope.cardData = [];
             $scope.cardData = card;
+           // console.log($scope.cardData)
 
         }
 
@@ -23,9 +24,24 @@ angular.module('kanban').controller('DetailCardController',
             }).success(function (r) {
 
                 $scope.DataEdit = r;
+                console.log($scope.DataEdit)
 
             })
         }
+
+     /*   $scope.getDataCardKanban = function () {
+            $http({
+                method: 'GET',
+                url : "http://localhost:8000/getCardEditData",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+            }).success(function (r) {
+
+                $scope.DataEdit = r;
+                console.log($scope.DataEdit)
+
+            })
+        };*/    //เก็บไว้สำหรับดึกหลังย้าย
 
         $scope.detailCard = function () {
             var buffer = [];
@@ -113,13 +129,42 @@ angular.module('kanban').controller('DetailCardController',
         };
 
         $scope.removeChecklist = function (cardID,checklistID) {
-           
+            if (confirm('Are You sure to Delete Checklist?')) {
+                $http({
+                    method: 'POST',
+                    url: '/removeChecklist/' + cardID + '/' + checklistID
+
+                }).success(function (r) {
+
+                    if (r.status_id == 1) {
+                        r.status = "Backlog"
+                    } else if (r.status_id == 2) {
+                        r.status = "Ready"
+                    } else if (r.status_id == 3) {
+                        r.status = "Doing"
+                    } else if (r.status_id == 4) {
+                        r.status = "Done"
+                    }
+                    $scope.cardData = r;
+
+                });
+            }
+        };
+
+
+        //--------------------------------------------------------------------------------Comment
+        $scope.addComment = function (addcomment,cardID) {
+
+            var $addCom = {
+                detail : addcomment
+            };
             $http({
                 method: 'POST',
-                url: '/removeChecklist/' + cardID + '/' + checklistID
-                
+                url: '/addNewComment/'+ cardID,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data : $.param($addCom)
             }).success(function (r) {
-                
+
                 if(r.status_id == 1){
                     r.status = "Backlog"
                 }else if(r.status_id == 2){
@@ -130,7 +175,7 @@ angular.module('kanban').controller('DetailCardController',
                     r.status = "Done"
                 }
                 $scope.cardData = r;
-
+                $scope.newComment = "";
             });
 
         };

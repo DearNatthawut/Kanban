@@ -2,7 +2,7 @@
 /*global angular: false */
 'use strict';
 
-angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService', 'BoardDataFactory', function ($scope, BoardService, BoardDataFactory, CSRF_TOKEN) {
+angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService', 'BoardDataFactory', function ($scope, BoardService, BoardDataFactory) {
 
 
     var self = this;
@@ -31,14 +31,14 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
             BoardService.cardMove($MoveEvent)
                 .success(function (r) {
-                     
+                    
                 });
 
         },
         orderChanged: function (event) {
         },
         dragStart: function (event) {
-            //  console.log(event)
+             console.log(event)
         },
         containment: '#board'
     };

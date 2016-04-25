@@ -16,8 +16,13 @@ use App\Models;
 Route::get('/test','BoardController@test');
 //--------------------------------------------------------------------------------------Login
 Route::get('/', function () {
- 
-    return view('auth/login');
+
+    if (Auth::check()) {
+        return redirect('/home');
+    } else {
+        return view('auth/login');
+    }
+
 });
 
 //------------------------------------------------------------------------------------- Board
@@ -49,7 +54,7 @@ Route::get('/createCard/{id}','CardController@formNewCard');//สร้าง fo
 
 Route::post('/createCard','CardController@createCard');// สร้าง card
 
-Route::get('/editCard/{idBoard}/{id}','CardController@editFormCard');// แก้ไขform card
+Route::get('/editCard/{idBoard}/{id}','CardController@editFormCard');// แก้ไขform card อาจไม่จำเป็น
 
 Route::post('/editCard/{id}','CardController@editCard');// แก้ไข card
 
@@ -64,6 +69,10 @@ Route::post('/changeCheckStatus/{id}','CardController@changeCheckStatus');// แ
 Route::post('/addNewChecklist/{id}','CardController@addNewChecklist');// เพิ่ม checklist
 
 Route::post('/removeChecklist/{cardID}/{checklistID}','CardController@removeChecklist');// ลบ checklist
+
+//-------------------------------------------------------------------- Comment
+
+Route::post('/addNewComment/{id}','CardController@addNewComment');// เพิ่ม comment
 
 //-----------------------------------------------------------------------------------------Gantt
 

@@ -1,7 +1,6 @@
 @include("layouts.header")
 @include("layouts.adminside")
 
-
 <div class="content-wrapper">
 
     <section class="content">
@@ -12,8 +11,8 @@
 
                 <div class="panel-body">
                     <div class="page-header">
-                        <h2>Management
-                            {{--<small> ( {{count($allBoards)}} Projects )</small>--}}
+                        <h2>Project List
+                            {{--<small> ( {{$countProject}} Projects )</small>--}}
                         </h2>
 
                         @if(Auth::user()->Level_id == 1)
@@ -25,6 +24,7 @@
                         @endif
 
                     </div>
+
 
                     <ul class="nav nav-tabs ">
                         <li role="presentation" class="active">

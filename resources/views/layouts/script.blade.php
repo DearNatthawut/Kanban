@@ -34,7 +34,7 @@
 <script src="/plugins/datatables/dataTables.bootstrap.min.js"></script>
 
 <script>
-    $(function () {
+    $(document).ready(function(){
 
         //Date range picker
         $('#reservation').daterangepicker({format: 'YYYY/MM/DD'});

@@ -22,9 +22,12 @@
         <li>
             <a href="#card-checklist" data-toggle="tab">Checklist</a>
         </li>
+        <li>
+            <a href="#card-comment" data-toggle="tab">Comment</a>
+        </li>
     </ul>
     <div class="tab-content">
-        <div class="tab-pane fade in active" id="card-detail">
+        <div class="tab-pane fade in active" id="card-detail"> <!--                                      General-->
             <div class="box box-primary">
                 <br>
                 <div class="form-horizontal">
@@ -81,25 +84,38 @@
                             </div>
                         </div>
 
-                        <button ng-click="saveEditCard(cardData)" class="btn btn-default pull-right">SAVE</button>
+                        <button ng-click="saveEditCard(cardData)" ng-show="DataEdit.user.Level_id == 1 || DataEdit.user.id == cardData.member_card.Members_id" class="btn btn-default pull-right">SAVE</button>
 
                     </div>
 
                 </div>
             </div>
         </div>
-        <div class="tab-pane fade" id="card-date">
+
+        <div class="tab-pane fade" id="card-date"> <!--                         -------------------------     Date-->
 
             <div class="box box-primary">
                 <b>Estimate Start:</b>
                 <p>{{cardData.estimate_start}}</p>
                 <b>Estimate End:</b>
                 <p>{{cardData.estimate_end}}</p>
+
+                <label for="xxx" class="col-sm-2 control-label">Estimate Date</label>
+                <div class="col-sm-10 ">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" name="date" class="form-control " id="xxx" placeholder="Estimate Date" required>
+                    </div>
+                </div>
             </div>
 
         </div>
-        <div class="tab-pane fade" id="card-checklist">
 
+
+
+        <div class="tab-pane fade" id="card-checklist"> <!--                                                 Checklist-->
 
             <div class="box box-primary">
                 <div class="box-header">
@@ -117,7 +133,7 @@
                             <i class="fa fa-ellipsis-v"></i>
                           </span>-->
                             <input type='checkbox' ng-model="checklist.status" ng-true-value="1" ng-false-value="0"
-                                   ng-click="changeCheckStatus(checklist)">
+                                   ng-click="changeCheckStatus(checklist)"  >
                             <span class="text">{{checklist.name}}</span>
                             <div class="tools">
                                 <i class="fa fa-edit"></i>
@@ -130,21 +146,62 @@
                 <div class="box-footer clearfix no-border">
 
                     <div class="input-group">
-                        <input class="form-control" placeholder="Checklist name..." ng-model="newChecklist" >
+                        <input class="form-control" placeholder="Checklist name..." ng-model="newChecklist"  ng-show="DataEdit.user.Level_id == 1 || DataEdit.user.id == cardData.member_card.Members_id">
                         <div class="input-group-btn">
-                            <button class="btn btn-success" ng-click="addChecklist(newChecklist,cardData.id)"><i class="fa fa-plus"></i></button>
+                            <button class="btn btn-success" ng-click="addChecklist(newChecklist,cardData.id)"  ng-show="DataEdit.user.Level_id == 1 || DataEdit.user.id == cardData.member_card.Members_id"><i class="fa fa-plus"></i></button>
                         </div>
                     </div>
 
                 </div>
             </div><!-- /.box -->
         </div>
+
+        <div class="tab-pane fade" id="card-comment"> <!--                                                 Comment-->
+
+
+            <!-- Chat box -->
+            <div class="box box-success">
+                <div class="box-header">
+                    <i class="fa fa-comments-o"></i>
+                    <h3 class="box-title">Comment</h3>
+
+                </div>
+                <div class="box-body chat" id="chat-box">
+                    <!-- chat item -->
+                    <div class="item" ng-repeat="comment in cardData.comments">
+                        <img >
+                        <p class="message">
+                            <a class="name">
+                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{comment.created_at}} </small>
+                                {{comment.member_comment.name}}
+                            </a>
+                            {{comment.detail}}
+                        </p>
+                        <hr>
+                    </div><!-- /.item -->
+
+                    <div class="box-footer clearfix no-border">
+
+                        <div class="input-group">
+                            <input class="form-control" placeholder="..." ng-model="newComment" >
+                            <div class="input-group-btn">
+                                <button class="btn btn-success" ng-click="addComment(newComment,cardData.id)">
+                                    <i class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+            </div><!-- /.box (chat box) -->
+
+        </div>
+
     </div>
 </div>
 <div class="modal-footer">
 
 
 </div>
+    </div>
 
 <script>
 
@@ -152,6 +209,7 @@
         $("#tab").click(function () {
             $(this).tab('show');
         });
+        $('#xxx').daterangepicker({format: 'YYYY/MM/DD'});
     });
 
 </script>
