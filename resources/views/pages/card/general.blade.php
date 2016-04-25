@@ -53,13 +53,26 @@
                 <div class="col-sm-10">
                 </div>
                 @foreach($member as $member)
-                     <div class="col-sm-10">
+                    <div class="col-sm-10">
                         <option value="{{$member->id}}">{{$member->member['name']}}</option>
                     </div>
                 @endforeach
 
             </select>
         </div>
+    </div>
+    <div class="form-group">
+        <label for="reservation" class="col-sm-2 control-label">Estimate Date</label>
+        <div class="col-sm-10 ">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                <input type="text" name="date" class="form-control " id="reservation" placeholder="Estimate Date"
+                       required>
+            </div>
+        </div>
+        <!-- /.input group -->
     </div>
 
 

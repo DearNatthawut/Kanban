@@ -6,12 +6,24 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
 
     var self = this;
+   /* function getDataMember(){
+        $http({
+            method: 'GET',
+            url : "http://localhost:8000/getDataMember",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+        }).success(function (r) {
+            $scope.DataMember = r;
+        })
+    }
+    getDataMember();*/
 
     BoardDataFactory.getKanban().success(function (r) {  //------
        // console.log(r);
         self.kanbanBoard = BoardService.kanbanBoard(r);
 
     });
+
 
 
     self.kanbanSortOptions = {

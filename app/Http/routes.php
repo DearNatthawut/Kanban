@@ -52,6 +52,8 @@ Route::get('/getCardEditData', 'CardController@getCardEditData');
 
 Route::get('/createCard/{id}','CardController@formNewCard');//สร้าง form card
 
+Route::get('/delCard/{id}','CardController@delCard');//สร้าง ลบ card Detail
+
 Route::post('/createCard','CardController@createCard');// สร้าง card
 
 Route::get('/editCard/{idBoard}/{id}','CardController@editFormCard');// แก้ไขform card อาจไม่จำเป็น

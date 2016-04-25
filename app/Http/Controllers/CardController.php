@@ -114,6 +114,31 @@ class CardController extends Controller
     }
 
 
+    // form สร้างการ์ด
+    public function formNewCard($id)
+    {
+        $status = Status::all('id', 'name')
+            ->sortBy('id')
+            ->toArray();
+        $prior = Priority::all('id', 'name')
+            ->sortBy('id')
+            ->toArray();
+        $color = Color::all('id', 'name')
+            ->sortBy('id')
+            ->toArray();
+        $member = Membermanagement::with(['member'])
+            ->where('Boards_id', '=', session()->get('Board'))
+            ->get();
+        $Board = Board::all()
+            ->find($id);
+        return view('pages.card.createCard')
+            ->with('color', $color)
+            ->with('piority', $prior)
+            ->with('member', $member)
+            ->with('status', $status)
+            ->with('Board', $Board);
+    }
+
     // แก้ไข card
     public function editFormCard($id, $card)
     {
@@ -210,9 +235,27 @@ class CardController extends Controller
         $cardId = Input::get('card');
         $check = Checklist::where('Cards_id', '=', $cardId);
         $check->delete();
+        $com = Comment::where('Cards_id', '=', $cardId);
+        $com->delete();
         $reCard = Card::find($cardId);
         $reCard->delete();
         return $cardId;
+    }
+
+    //  ลบ Card
+    public function delCard($id)
+    {
+
+        $check = Checklist::where('Cards_id', '=', $id);
+        $check->delete();
+        $com = Comment::where('Cards_id', '=', $id);
+        $com->delete();
+        $reCard = Card::find($id);
+        $reCard->delete();
+        $card = Card::with(['checklists', 'memberCard.member', 'color','comments.memberComment','preCards.preCard'])
+            ->find($id);
+
+        return $card;
     }
 
 //-------------------------------------------------------------------Checklist

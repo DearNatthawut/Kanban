@@ -11,23 +11,45 @@ angular.module('kanban').controller('DetailCardController',
         function initScope(card) {
             $scope.cardData = [];
             $scope.cardData = card;
-           // console.log($scope.cardData)
+          // console.log($scope.cardData.id)
 
         }
 
         function getDataCard(){
             $http({
                 method: 'GET',
-                url : "http://localhost:8000/getCardEditData",
+                url : "/getCardEditData",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
             }).success(function (r) {
 
                 $scope.DataEdit = r;
-                console.log($scope.DataEdit)
+               // console.log($scope.DataEdit)
 
             })
         }
+
+        $scope.delCard = function (cardID) {
+            $http({
+                method: 'GET',
+                url : '/delCard/'+cardID
+                ,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            }).success(function (r) {
+                if(r.status_id == 1){
+                    r.status = "Backlog"
+                }else if(r.status_id == 2){
+                    r.status = "Ready"
+                }else if(r.status_id == 3){
+                    r.status = "Doing"
+                }else if(r.status_id == 4){
+                    r.status = "Done"
+                }
+                $scope.cardData = r;
+                $modalInstance.close();
+
+            })
+        };
 
      /*   $scope.getDataCardKanban = function () {
             $http({

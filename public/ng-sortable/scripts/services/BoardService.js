@@ -81,6 +81,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 BoardManipulator.addColumn(kanbanBoard, column.name);
                 angular.forEach(column.cards, function (card) {
                     BoardManipulator.addCardToColumn(kanbanBoard, column, card );
+                    //console.log(card)
                 });
             });
             return kanbanBoard;
