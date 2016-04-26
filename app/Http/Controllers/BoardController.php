@@ -15,6 +15,7 @@ use App\Models\Card;
 use App\Models\Priority;
 use App\Models\Status;
 use App\Models\Checklist;
+use App\Models\User;
 
 use DB;
 use Illuminate\Support\Collection;
@@ -90,6 +91,7 @@ class BoardController extends Controller
     }
 
     public function formCreateBoard(){
+        
         return view('pages.board.createBoard');
     }
 
@@ -155,11 +157,23 @@ class BoardController extends Controller
     public function restoreBoard($id)
     {
 
-
         $board= Board::find($id);
         $board->board_hide = 0;
         $board->save();
 
         return redirect('/home');
+    }
+
+    public function getDataMember()
+    {
+
+        $user = User::find(Auth::user()->id);
+        $board = Board::with([])
+        ->find(session()->get('Board'));
+            
+        $data['user'] = $user;
+        $data['board'] = $board;
+        return $data;
+
     }
 }

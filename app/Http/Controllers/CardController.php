@@ -36,7 +36,7 @@ class CardController extends Controller
         $board = Board::with(['members'])
             ->find(session()->get('Board'));
 
-        $cards = Card::with(['checklists', 'memberCard.member','comments.memberComment','color','preCards.preCard'])
+        $cards = Card::with(['checklists', 'memberCard.member', 'comments.memberComment', 'color', 'preCards.preCard'])
             ->where('Boards_id', '=', session()->get('Board'))
             ->get();
 
@@ -62,7 +62,6 @@ class CardController extends Controller
     }
 
     
-
 
 // บันทึก card
     public function createCard()
@@ -170,13 +169,13 @@ class CardController extends Controller
     public function editCard($id)
     {
         /*$card = Card::find($id);*/
-        $card = Card::with(['checklists', 'memberCard.member', 'color','comments.memberComment','preCards.preCard'])
+        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment', 'preCards.preCard'])
             ->find($id);
         $card->fill(Input::all());
         $card->save();
 
 
-        $card = Card::with(['checklists', 'memberCard.member', 'color','comments.memberComment','preCards.preCard'])
+        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment', 'preCards.preCard'])
             ->find($id);
 
         return $card;
@@ -202,8 +201,8 @@ class CardController extends Controller
             $move->date_end = date('Y-m-d');
         }
         $move->save();
-        
-        $card = Card::with(['checklists', 'memberCard.member', 'color','comments.memberComment','preCards.preCard'])
+
+        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment', 'preCards.preCard'])
             ->find($cardId);
 
         return $card;
@@ -252,7 +251,7 @@ class CardController extends Controller
         $com->delete();
         $reCard = Card::find($id);
         $reCard->delete();
-        $card = Card::with(['checklists', 'memberCard.member', 'color','comments.memberComment','preCards.preCard'])
+        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment', 'preCards.preCard'])
             ->find($id);
 
         return $card;
@@ -264,7 +263,7 @@ class CardController extends Controller
         $check = Checklist::find($id);
         $check->fill(Input::all());
         $check->save();
-        $card = Card::with(['checklists', 'memberCard.member', 'color','comments.memberComment'])
+        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment'])
             ->find($check['Cards_id']);
 
         return $card;
@@ -279,7 +278,7 @@ class CardController extends Controller
         $newChecklist->Cards_id = $id;
         $newChecklist->save();
 
-        $card = Card::with(['checklists', 'memberCard.member', 'color','comments.memberComment'])
+        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment'])
             ->find($id);
 
         return $card;
@@ -289,10 +288,10 @@ class CardController extends Controller
     public function removeChecklist($cardID, $checklistID)
     {
 
-        $delChecklist = Checklist::where('id','=',$checklistID);
+        $delChecklist = Checklist::where('id', '=', $checklistID);
         $delChecklist->delete();
 
-        $card = Card::with(['checklists', 'memberCard.member', 'color','comments.memberComment'])
+        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment'])
             ->find($cardID);
 
         return $card;
@@ -309,8 +308,8 @@ class CardController extends Controller
         $newComment->Cards_id = $id;
         $newComment->Members_id = Auth::user()->id;
         $newComment->save();
-       
-        $card = Card::with(['checklists', 'memberCard.member', 'color','comments.memberComment'])
+
+        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment'])
             ->find($id);
 
         return $card;

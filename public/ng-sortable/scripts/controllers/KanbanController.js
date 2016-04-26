@@ -2,25 +2,28 @@
 /*global angular: false */
 'use strict';
 
-angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService', 'BoardDataFactory', function ($scope, BoardService, BoardDataFactory) {
+angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService', 'BoardDataFactory','$http',
+    function ($scope, BoardService, BoardDataFactory,$http) {
 
 
     var self = this;
-   /* function getDataMember(){
+    function getDataMember(){
         $http({
             method: 'GET',
             url : "http://localhost:8000/getDataMember",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
         }).success(function (r) {
-            $scope.DataMember = r;
+            self.DataMember = r;
+            console.log(self.DataMember);
         })
     }
-    getDataMember();*/
+    getDataMember();
 
     BoardDataFactory.getKanban().success(function (r) {  //------
        // console.log(r);
         self.kanbanBoard = BoardService.kanbanBoard(r);
+        //console.log(self.kanbanBoard)
 
     });
 

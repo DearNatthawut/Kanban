@@ -44,6 +44,8 @@ Route::get('/deleteBoard/{id}','BoardController@deleteBoard'); // ลบ board
 
 Route::get('/restoreBoard/{id}','BoardController@restoreBoard'); // กู้คืน board
 
+Route::get('/getDataMember', 'BoardController@getDataMember' );
+
 //---------------------------------------------------------------------------------------- Card
 
 Route::get('/cards', 'CardController@getCard'); // get card data main
