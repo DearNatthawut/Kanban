@@ -16,26 +16,25 @@
             @if(($mem->id == Auth::user()->id || Auth::user()->Level_id == 1) && $Board->status_complete == 0 && $Board->board_hide == 0)
 
                 <tr>
-                    <td >
+                    <td width="70%">
                         <span>Name board : {{$Board->name}} </span>
                         <br>
                         <span>Detail : {{$Board->detail}} </span>
                         <br>
-                        <span>Manager :{{$Board->manager['name']}} </span>
+                        <span>Manager : {{$Board->manager['name']}} </span>
                         <br>
                         <span>Member : {{count($Board->members)}}</span>
-
                     </td>
                     <td >
                         <a href="/board/{{$Board->id}}">
-                            <button type="button" class="btn btn-default">Board</button>
+                            <button type="button" class="btn btn-default">View</button>
                         </a>
                         <a href="/member/{{$Board->id}}">
                             <button type="button" class="btn btn-default">Member</button>
                         </a>
-                        <a href="/showGantt/{{$Board->id}}">
+                     {{--   <a href="/showGantt/{{$Board->id}}">
                             <button type="button" class="btn btn-default">Gantt Chart</button>
-                        </a>
+                        </a>--}}
 
                         @if(Auth::user()->Level_id == 1) <!--            เงื่อนไข แก้ไข และ ลบ -->
 

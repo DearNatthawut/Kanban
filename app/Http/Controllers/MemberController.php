@@ -45,11 +45,13 @@ class MemberController extends Controller
     public function addMember($id){
 
 
+        if (\Input::get('member')){
         $member = new Membermanagement();
         $member->Members_id = \Input::get('member');
         $member->Boards_id = $id;
         $member->save();
-        return redirect("member$id");
+        }
+        return redirect("member/$id");
 
     }
 

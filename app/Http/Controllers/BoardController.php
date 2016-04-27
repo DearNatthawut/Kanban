@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Input;
 use Validator;
+
 date_default_timezone_set('Asia/Bangkok');
 
 class BoardController extends Controller
@@ -33,17 +34,18 @@ class BoardController extends Controller
     public function test()
     {
         $data = Card::
-            where('Boards_id','=',session()->get('Board'))
-            ->select('id','name','estimate_start','estimate_end','date_start','date_end')
-        ->get();
-            return  $data;
+        where('Boards_id', '=', session()->get('Board'))
+            ->select('id', 'name', 'estimate_start', 'estimate_end', 'date_start', 'date_end')
+            ->get();
+        return $data;
     }
 
     //แสดงข้อมูลบอร์ดในหน้าแรก
     public function showAllBoard()
     {
+        if (!Auth::check()) return view('auth/login');
         $data = Board::with(['members', 'manager'])
-          //->where('members.id','=',Auth::user()->id)
+            //->where('members.id','=',Auth::user()->id)
             ->select('boards.*')
             ->get();
 
@@ -54,6 +56,7 @@ class BoardController extends Controller
     //แสดงบอร์ด
     public function showBoard($id)
     {
+        if (!Auth::check()) return view('auth/login');
         $data = Board::find($id);
         session::put("Board", $id);  //--------------------------------------- CreateSession
         session::put("Manager", $data->manager_id);
@@ -64,40 +67,54 @@ class BoardController extends Controller
     //แก้ไขบอร์ด
     public function formEditBoard($id)
     {
+        if (!Auth::check()) return view('auth/login');
         $data = Board::all()->find($id);
         $dateFormatStart = preg_split('[-]', $data->estimate_start);
-        $dateFormatStart =  $dateFormatStart[0]."/".$dateFormatStart[1]."/".$dateFormatStart[2];
+        $dateFormatStart = $dateFormatStart[0] . "/" . $dateFormatStart[1] . "/" . $dateFormatStart[2];
         $dateFormatEnd = preg_split('[-]', $data->estimate_end);
-        $dateFormatEnd =  $dateFormatEnd[0]."/".$dateFormatEnd[1]."/".$dateFormatEnd[2];
-        
+        $dateFormatEnd = $dateFormatEnd[0] . "/" . $dateFormatEnd[1] . "/" . $dateFormatEnd[2];
+
+        $manager = Membermanagement::with(['member'])
+            ->where('Boards_id', '=', $id)
+            ->get();
+
         return view('pages.board.edit')
             ->with('Board', $data)
             ->with('dateStart', $dateFormatStart)
-            ->with('dateEnd', $dateFormatEnd);
+            ->with('dateEnd', $dateFormatEnd)
+            ->with('members', $manager);
     }
 
     public function editBoard()
     {
 
-        $dateEs = preg_split('[-]', \Input::get('date'));
+        if (!Auth::check()) return view('auth/login');
         
+        $dateEs = preg_split('[-]', \Input::get('date'));
+
         $edit = Board::find(\Input::get('id'));
         $edit->name = \Input::get('name');
         $edit->detail = \Input::get('detail');
+        $edit->manager_id = \Input::get('manager');
         $edit->estimate_start = $dateEs[0];
         $edit->estimate_end = $dateEs[1];
         $edit->save();
         return redirect('/home');
     }
 
-    public function formCreateBoard(){
-        
-        return view('pages.board.createBoard');
+    public function formCreateBoard()
+    {
+
+        if (!Auth::check()) return view('auth/login');
+        $members = User::all();
+        return view('pages.board.createBoard')
+            ->with('members', $members);
     }
 
     //สร้าง Bord
     public function createBoard()
     {
+        if (!Auth::check()) return view('auth/login');
         $dateEs = preg_split('[-]', \Input::get('date'));
 
         $Board = new Board();
@@ -105,17 +122,29 @@ class BoardController extends Controller
         $Board->detail = \Input::get('detail');
         $Board->estimate_start = $dateEs[0];
         $Board->estimate_end = $dateEs[1];
-        $Board->manager_id = Auth::user()->id;
-
+        $Board->manager_id = \Input::get('manager');
         $Board->save();
 
-        $id =  $Board['id'];
-        $managerID = $Board['manager_id'];
 
-        $Manager = new Membermanagement();
-        $Manager->Boards_id = $id;
-        $Manager->Members_id = $managerID;
-        $Manager->save();
+        $id = $Board['id'];
+        $managerID = $Board['manager_id'];
+        if (Auth::user()->id == $managerID) {
+            $Manager = new Membermanagement();
+            $Manager->Boards_id = $id;
+            $Manager->Members_id = $managerID;
+            $Manager->save();
+        } else {
+            $Manager = new Membermanagement();
+            $Manager->Boards_id = $id;
+            $Manager->Members_id = $managerID;
+            $Manager->save();
+
+            $Manager = new Membermanagement();
+            $Manager->Boards_id = $id;
+            $Manager->Members_id = Auth::user()->id;
+            $Manager->save();
+        }
+
 
         return redirect('/home');
         /*$id = Board::find('name', '=', \Input::get('name'))
@@ -129,25 +158,26 @@ class BoardController extends Controller
     public function deleteBoard($id)
     {
 
-     /*   $cards = Card::where('Boards_id', '=', $id)
-        ->get();
+        if (!Auth::check()) return view('auth/login');
+        /*   $cards = Card::where('Boards_id', '=', $id)
+           ->get();
 
-        $ids = [];
-        foreach ($cards as $cards){
-            $ids[] = $cards['id'];
-        }
+           $ids = [];
+           foreach ($cards as $cards){
+               $ids[] = $cards['id'];
+           }
 
-        $checklist = Checklist::whereIn('Cards_id',$ids)
-            ->delete();
+           $checklist = Checklist::whereIn('Cards_id',$ids)
+               ->delete();
 
-        $cards = Card::where('Boards_id', '=', $id)
-            ->delete();
+           $cards = Card::where('Boards_id', '=', $id)
+               ->delete();
 
-        $membermana = Membermanagement::where('Boards_id', '=', $id)->delete();
+           $membermana = Membermanagement::where('Boards_id', '=', $id)->delete();
 
 
-        $board = \App\Models\Board::find($id)->delete();*/
-        $board= Board::find($id);
+           $board = \App\Models\Board::find($id)->delete();*/
+        $board = Board::find($id);
         $board->board_hide = 1;
         $board->save();
 
@@ -156,8 +186,9 @@ class BoardController extends Controller
 
     public function restoreBoard($id)
     {
+        if (!Auth::check()) return view('auth/login');
 
-        $board= Board::find($id);
+        $board = Board::find($id);
         $board->board_hide = 0;
         $board->save();
 
@@ -166,11 +197,11 @@ class BoardController extends Controller
 
     public function getDataMember()
     {
-
+        if (!Auth::check()) return view('auth/login');
         $user = User::find(Auth::user()->id);
         $board = Board::with([])
-        ->find(session()->get('Board'));
-            
+            ->find(session()->get('Board'));
+
         $data['user'] = $user;
         $data['board'] = $board;
         return $data;

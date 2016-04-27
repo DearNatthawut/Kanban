@@ -8,7 +8,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
     return {
 
         cardMove: function ($MoveEvent) {
-
+            
             return $http({
                 //crossDomain : true,
                 method: 'POST',

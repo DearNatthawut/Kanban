@@ -15,7 +15,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
         }).success(function (r) {
             self.DataMember = r;
-            console.log(self.DataMember);
+           // console.log(self.DataMember);
         })
     }
     getDataMember();
@@ -45,15 +45,16 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
             };
 
             BoardService.cardMove($MoveEvent)
-                .success(function (r) {
-                    
-                });
+                .success(function (r) {});
 
         },
+       
         orderChanged: function (event) {
+
         },
         dragStart: function (event) {
              console.log(event)
+
         },
         containment: '#board'
     };

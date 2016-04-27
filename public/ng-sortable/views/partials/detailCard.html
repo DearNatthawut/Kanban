@@ -36,9 +36,12 @@
                             <label for="Name" class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="Name" placeholder="Card Name"
-                                       ng-model="cardData.name" ng-show="DataEdit.user.Level_id == 1 ">
+                                       ng-model="cardData.name"
+                                       ng-show="DataEdit.user.Level_id == 1 || DataEdit.boardManager.manager_id == DataEdit.user.id ">
                                 <input type="text" class="form-control" id="Name" placeholder="Card Name"
-                                       ng-model="cardData.name" ng-show="DataEdit.user.Level_id != 1 " disabled>
+                                       ng-model="cardData.name"
+                                       ng-show="DataEdit.user.Level_id != 1 && DataEdit.boardManager.manager_id != DataEdit.user.id "
+                                       disabled>
                             </div>
                         </div>
 
@@ -46,9 +49,11 @@
                             <label for="Detail" class="col-sm-2 control-label">Detail</label>
                             <div class="col-sm-10">
                                <textarea type="text" class="form-control" id="Detail" placeholder="Detail" rows="5"
-                                         ng-model="cardData.detail" ng-show="DataEdit.user.Level_id == 1 "></textarea>
+                                         ng-model="cardData.detail"
+                                         ng-show="DataEdit.user.Level_id == 1 || DataEdit.boardManager.manager_id == DataEdit.user.id "></textarea>
                                 <textarea type="text" class="form-control" id="Detail" placeholder="Detail" rows="5"
-                                          ng-model="cardData.detail" ng-show="DataEdit.user.Level_id != 1 "
+                                          ng-model="cardData.detail"
+                                          ng-show="DataEdit.user.Level_id != 1 && DataEdit.boardManager.manager_id != DataEdit.user.id "
                                           disabled></textarea>
                             </div>
                         </div>
@@ -57,7 +62,7 @@
                             <label for="member" class="col-sm-2 control-label">Member</label>
                             <div class="col-sm-10">
                                 <select id="member" class="form-control" ng-model="cardData.MemberManagement_id"
-                                        ng-show="DataEdit.user.Level_id == 1 ">
+                                        ng-show="DataEdit.user.Level_id == 1 || DataEdit.boardManager.manager_id == DataEdit.user.id ">
                                     <option ng-repeat="memberData in DataEdit.manager" value="{{memberData.id}}"
                                             ng-model="cardData.MemberManagement_id"
                                             ng-selected="cardData.MemberManagement_id == memberData.id">
@@ -66,7 +71,8 @@
                                 </select>
 
                                 <select id="member" class="form-control" ng-model="cardData.MemberManagement_id"
-                                        ng-show="DataEdit.user.Level_id != 1 " disabled>
+                                        ng-show="DataEdit.user.Level_id != 1 && DataEdit.boardManager.manager_id != DataEdit.user.id "
+                                        disabled>
                                     <option ng-repeat="memberData in DataEdit.manager" value="{{memberData.id}}"
                                             ng-model="cardData.MemberManagement_id"
                                             ng-selected="cardData.MemberManagement_id == memberData.id">
@@ -80,14 +86,15 @@
                             <label for="color" class="col-sm-2 control-label">Color</label>
                             <div class="col-sm-10">
                                 <select id="color" ng-model="cardData.color_id" class="form-control"
-                                        ng-show="DataEdit.user.Level_id == 1 ">
+                                        ng-show="DataEdit.user.Level_id == 1 || DataEdit.boardManager.manager_id == DataEdit.user.id ">
                                     <option ng-repeat="colorData in DataEdit.color" value="{{colorData.id}}"
                                             ng-model="cardData.color_id"
                                             ng-selected="cardData.color_id == colorData.id">{{colorData.name}}
                                     </option>
                                 </select>
                                 <select id="color" ng-model="cardData.color_id" class="form-control"
-                                        ng-show="DataEdit.user.Level_id != 1 " disabled>
+                                        ng-show="DataEdit.user.Level_id != 1 && DataEdit.boardManager.manager_id != DataEdit.user.id "
+                                        disabled>
                                     <option ng-repeat="colorData in DataEdit.color" value="{{colorData.id}}"
                                             ng-model="cardData.color_id"
                                             ng-selected="cardData.color_id == colorData.id">{{colorData.name}}
@@ -100,14 +107,15 @@
                             <label for="priority" class="col-sm-2 control-label">Priority</label>
                             <div class="col-sm-10">
                                 <select id="priority" ng-model="cardData.priority_id" class="form-control"
-                                        ng-show="DataEdit.user.Level_id == 1 ">
+                                        ng-show="DataEdit.user.Level_id == 1 || DataEdit.boardManager.manager_id == DataEdit.user.id ">
                                     <option ng-repeat="priorityData in DataEdit.priority" value="{{priorityData.id}}"
                                             ng-model="cardData.priority_id"
                                             ng-selected="cardData.priority_id == priorityData.id">{{priorityData.name}}
                                     </option>
                                 </select>
                                 <select id="priority" ng-model="cardData.priority_id" class="form-control"
-                                        ng-show="DataEdit.user.Level_id != 1 " disabled>
+                                        ng-show="DataEdit.user.Level_id != 1 && DataEdit.boardManager.manager_id != DataEdit.user.id "
+                                        disabled>
                                     <option ng-repeat="priorityData in DataEdit.priority" value="{{priorityData.id}}"
                                             ng-model="cardData.priority_id"
                                             ng-selected="cardData.priority_id == priorityData.id">{{priorityData.name}}
@@ -117,7 +125,7 @@
                         </div>
 
                         <button ng-click="saveEditCard(cardData)"
-                                ng-show="DataEdit.user.Level_id == 1 "
+                                ng-show="DataEdit.user.Level_id == 1 || DataEdit.boardManager.manager_id == DataEdit.user.id "
                                 class="btn btn-default pull-right">SAVE
                         </button>
 
@@ -133,13 +141,13 @@
             <div class="box box-primary">
 
                 <div class="box-body">
-
+                    <br>
                     <p><b>Estimate Start:</b> {{cardData.estimate_start}}</p>
 
                     <p><b>Estimate End:</b> {{cardData.estimate_end}}</p>
-
+                    <br>
                     <hr>
-
+                    <br>
                     <p><b>Start:</b> {{cardData.date_start}}</p>
 
                     <p><b>End:</b> {{cardData.date_end}}</p>

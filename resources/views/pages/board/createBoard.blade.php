@@ -1,6 +1,5 @@
-
-    @include("layouts.header")
-    @include("layouts.adminside")
+@include("layouts.header")
+@include("layouts.adminside")
 
 
 <div class="content-wrapper">
@@ -15,7 +14,7 @@
                         <h2>Create Project</h2>
                         <br>
                     </div>
-                    <div >
+                    <div>
                         <!-- form start -->
                         <form class="form-horizontal" method="post" action="/createBoard">
 
@@ -25,32 +24,40 @@
                                 <div class="form-group">
                                     <label for="name" class="col-sm-2 control-label">Name</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name"
+                                               required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="detail" class="col-sm-2 control-label">Detail</label>
                                     <div class="col-sm-10">
-                                        <textarea id="detail" name="detail" class="form-control" rows="5" placeholder="Detail"></textarea>
+                                        <textarea id="detail" name="detail" class="form-control" rows="5"
+                                                  placeholder="Detail"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="reservation" class="col-sm-2 control-label">Estimate Date</label>
                                     <div class="col-sm-10 ">
-                                        <input type="text" name="date" class="form-control " id="reservation" placeholder="Estimate Date">
+                                        <input type="text" name="date" class="form-control " id="reservation"
+                                               placeholder="Estimate Date">
                                     </div>
                                     <!-- /.input group -->
 
                                 </div>
-                               {{-- <div class="form-group">
-                                    <label for="manager" class="col-sm-2 control-label">Manager</label>
+                                <div class="form-group">
+                                    <label for="manager" class="col-sm-2 control-label">Manager Board</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="manager" id="manager" class="form-control" placeholder="manager name">
+                                        <select class="form-control" name="manager">
+                                            @foreach($members as $member)
+                                                <div class="col-sm-10">
+                                                    <option value="{{$member->id}}">{{$member->name}}
+                                                        ( {{$member->email}})
+                                                    </option>
+                                                </div>
+                                        @endforeach
+                                        </select>
                                     </div>
-                                </div>--}}
-
-
-
+                                </div>
 
 
                             </div><!-- /.box-body -->
@@ -76,5 +83,5 @@
 </div>
 
 </body>
-    @include('layouts.script')
+@include('layouts.script')
 </html>

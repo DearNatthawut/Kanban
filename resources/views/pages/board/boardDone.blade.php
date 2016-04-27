@@ -25,7 +25,7 @@
                     </td>
                     <td >
                         <a href="/board/{{$Board->id}}">
-                            <button type="button" class="btn btn-default">Board</button>
+                            <button type="button" class="btn btn-default">View</button>
                         </a>
                         <a href="/member/{{$Board->id}}">
                             <button type="button" class="btn btn-default">Member</button>

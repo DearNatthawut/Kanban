@@ -17,11 +17,10 @@ Route::get('/test','BoardController@test');
 //--------------------------------------------------------------------------------------Login
 Route::get('/', function () {
 
-    if (Auth::check()) {
+    if (!Auth::check()) return view('auth/login');
+    
         return redirect('/home');
-    } else {
-        return view('auth/login');
-    }
+
 
 });
 

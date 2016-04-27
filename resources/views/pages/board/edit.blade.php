@@ -1,6 +1,5 @@
-
-    @include("layouts.header")
-    @include("layouts.aside")
+@include("layouts.header")
+@include("layouts.aside")
 
 <div class="content-wrapper">
 
@@ -11,12 +10,14 @@
 
                 <div class="panel-body">
                     <div class="page-header">
-                        <h2>Setting <small>( {{$Board->name}} )</small></h2>
+                        <h2>Edit
+                            <small>( {{$Board->name}} )</small>
+                        </h2>
                         <br>
 
 
                     </div>
-                    <div >
+                    <div>
                         <!-- form start -->
                         <form class="form-horizontal" method="post" action="/editBoard">
 
@@ -26,28 +27,39 @@
                                 <div class="form-group">
                                     <label for="name" class="col-sm-2 control-label">Name</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="{{$Board->name}}">
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Name"
+                                               value="{{$Board->name}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="detail" class="col-sm-2 control-label">Detail</label>
                                     <div class="col-sm-10">
-                                        <textarea id="detail" name="detail" class="form-control" rows="5" placeholder="Detail">{{$Board->detail}}</textarea>
+                                        <textarea id="detail" name="detail" class="form-control" rows="5"
+                                                  placeholder="Detail">{{$Board->detail}}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="reservation" class="col-sm-2 control-label">Estimate Date</label>
                                     <div class="col-sm-10 ">
-                                        <input type="text" name="date" class="form-control " id="reservation" placeholder="Estimate Date" value="{{$dateStart}} - {{$dateEnd}}">
+                                        <input type="text" name="date" class="form-control " id="reservation"
+                                               placeholder="Estimate Date" value="{{$dateStart}} - {{$dateEnd}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="manager" class="col-sm-2 control-label">Manager</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" id="manager" name="manager" class="form-control" placeholder="manager name">
+                                    <div class="col-sm-10 ">
+                                        <select class="form-control" name="manager">
+                                            @foreach($members as $member)
+                                                <div class="col-sm-10">
+                                                    <option value="{{$member['member']->id}}"
+                                                            @if($Board->manager_id == $member['member']->id) selected @endif >
+                                                        {{$member['member']->name}}( {{$member['member']->email}})
+                                                    </option>
+                                                </div>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-
 
 
                             </div><!-- /.box-body -->
@@ -74,5 +86,5 @@
 
 </body>
 
-    @include('layouts.script')
+@include('layouts.script')
 </html>

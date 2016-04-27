@@ -18,7 +18,7 @@
                         @if(Auth::user()->Level_id == 1) <!--    if  Add member -->
                         <div class="col-xs-5">
 
-                            <form class="form-horizontal" method="post" action="/addMember{{$id}}">
+                            <form class="form-horizontal" method="post" action="/addMember/{{$id}}">
 
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -51,9 +51,9 @@
                                 <th>Name</th>
                                 <th>E-mail</th>
                                 <th>Position</th>
-                                @if(Auth::user()->Level_id == 1)
+                               {{-- @if(Auth::user()->Level_id == 1)
                                     <th style="width: 10px"></th>
-                                @endif
+                                @endif--}}
                             </tr>
                             </thead>
                             <tbody>
@@ -64,22 +64,22 @@
                                     <td> {{$member->email}}</td>
                                     <td>{{$member->level}}</td>
 
-                                    @if(Auth::user()->Level_id == 1) <!--    if  remove member -->
+                                 {{--   @if(Auth::user()->Level_id == 1) <!--    if  remove member -->
                                     <td>
                                         <button type="button" class="btn btn-default"><i
                                                     class="glyphicon glyphicon-remove"></i>
                                         </button>
                                     </td>
-                                    @endif
+                                    @endif--}}
                                 </tr>
                             @endforeach
 
                             </tbody>
                             <tfoot>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
+                                <th>Name</th>
+                                <th>E-mail</th>
+                                <th>Position</th>
                                 @if(Auth::user()->Level_id == 1)
                                     <th style="width: 10px"></th>
                                 @endif
