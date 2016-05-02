@@ -24,6 +24,7 @@ angular.module('kanban').controller('DetailCardController',
             }).success(function (r) {
 
                 $scope.DataEdit = r;
+
                // console.log($scope.DataEdit)
 
             })
@@ -75,6 +76,7 @@ angular.module('kanban').controller('DetailCardController',
                     r.status = "Done"
                 }
                 $scope.cardData = r;
+                card = $scope.cardData;
             })
         };
 
@@ -91,7 +93,7 @@ angular.module('kanban').controller('DetailCardController',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data : $.param($addCheck)
             }).success(function (r) {
-                // console.log(r);
+                console.log(r);
                 if(r.status_id == 1){
                     r.status = "Backlog"
                 }else if(r.status_id == 2){
@@ -102,6 +104,7 @@ angular.module('kanban').controller('DetailCardController',
                     r.status = "Done"
                 }
                 $scope.cardData = r;
+                card = $scope.cardData;
                 $scope.newChecklist = "";
             });
 
@@ -125,7 +128,7 @@ angular.module('kanban').controller('DetailCardController',
                     r.status = "Done"
                 }
                 $scope.cardData = r;
-
+                card = $scope.cardData;
             });
 
         };
@@ -177,9 +180,33 @@ angular.module('kanban').controller('DetailCardController',
                     r.status = "Done"
                 }
                 $scope.cardData = r;
+                card = $scope.cardData;
                 $scope.newComment = "";
             });
 
+        };
+
+        $scope.removeComment = function (commentID,cardID) {
+            if (confirm('Are You sure to Delete Comment?')) {
+                $http({
+                    method: 'POST',
+                    url: '/removeComment/' + commentID +'/'+cardID
+
+                }).success(function (r) {
+
+                       if (r.status_id == 1) {
+                     r.status = "Backlog"
+                     } else if (r.status_id == 2) {
+                     r.status = "Ready"
+                     } else if (r.status_id == 3) {
+                     r.status = "Doing"
+                     } else if (r.status_id == 4) {
+                     r.status = "Done"
+                     }
+                     $scope.cardData = r;
+                     card = $scope.cardData;
+                });
+            }
         };
 
 

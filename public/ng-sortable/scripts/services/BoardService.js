@@ -8,6 +8,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
     return {
 
         cardMove: function ($MoveEvent) {
+
             
             return $http({
                 //crossDomain : true,
@@ -31,7 +32,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                     url: '/removeCard',
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     data: $.param($DeCard)
-                }).success(function (data, status, headers, config) {
+                }).success(function (t) {
                           //console.log(data);
                 });
             }

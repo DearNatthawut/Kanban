@@ -20,9 +20,9 @@ class Card extends Model
         return $this->hasMany(\App\Models\Checklist::class,"Cards_id");
     }
 
-    public function preCards(){
+   /* public function preCards(){
         return $this->hasMany(\App\Models\PreCard::class,"Cards_id");
-    }
+    }*/
 
     public function comments(){
         return $this->hasMany(\App\Models\Comment::class,"Cards_id");

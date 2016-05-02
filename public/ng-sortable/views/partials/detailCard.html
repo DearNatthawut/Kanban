@@ -188,14 +188,18 @@
                           </span>-->
                             <input type='checkbox' ng-model="checklist.status" ng-true-value="1" ng-false-value="0"
                                    ng-click="changeCheckStatus(checklist)"
-                                   ng-show="DataEdit.user.Level_id == 1 || DataEdit.user.id == cardData.member_card.Members_id">
+                                   ng-show="DataEdit.user.Level_id == 1
+                                   || DataEdit.user.id == cardData.member_card.Members_id
+                                   || DataEdit.boardManager.manager_id == DataEdit.user.id ">
                             <span class="text">{{checklist.name}}</span>
 
                             <div class="tools">
                                 <i class="fa fa-edit"></i>
                                 <i class="fa fa-trash-o"
                                    ng-click="removeChecklist(cardData.id,checklist.id)"
-                                   ng-show="DataEdit.user.Level_id == 1 || DataEdit.user.id == cardData.member_card.Members_id">
+                                   ng-show="DataEdit.user.Level_id == 1
+                                   || DataEdit.user.id == cardData.member_card.Members_id
+                                   || DataEdit.boardManager.manager_id == DataEdit.user.id ">
                                 </i>
                             </div>
 
@@ -210,7 +214,9 @@
                                ng-show="DataEdit.user.Level_id == 1 || DataEdit.user.id == cardData.member_card.Members_id">
                         <div class="input-group-btn">
                             <button class="btn btn-success" ng-click="addChecklist(newChecklist,cardData.id)"
-                                    ng-show="DataEdit.user.Level_id == 1 || DataEdit.user.id == cardData.member_card.Members_id ">
+                                    ng-show="DataEdit.user.Level_id == 1
+                                    || DataEdit.boardManager.manager_id == DataEdit.user.id
+                                    || DataEdit.user.id == cardData.member_card.Members_id">
                                 <i class="fa fa-plus"></i></button>
                         </div>
                     </div>
@@ -237,6 +243,15 @@
                             <a class="name">
                                 <small class="text-muted pull-right"><i class="fa fa-clock-o"></i>
                                     {{comment.created_at}}
+
+                                    <i class="glyphicon glyphicon-remove"  style="color:red"
+                                       ng-click="removeComment(comment.id,cardData.id)"
+                                       ng-show="DataEdit.user.Level_id == 1
+                                       || DataEdit.boardManager.manager_id == DataEdit.user.id
+                                       || DataEdit.user.id == comment.Members_id
+                                      ">
+                                    </i>
+
                                 </small>
                                 {{comment.member_comment.name}}
                             </a>

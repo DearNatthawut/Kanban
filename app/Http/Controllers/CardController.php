@@ -38,7 +38,7 @@ class CardController extends Controller
         $board = Board::with(['members'])
             ->find(session()->get('Board'));
 
-        $cards = Card::with(['checklists', 'memberCard.member', 'comments.memberComment', 'color', 'preCards.preCard'])
+        $cards = Card::with(['checklists', 'memberCard.member', 'comments.memberComment', 'color'])
             ->where('Boards_id', '=', session()->get('Board'))
             ->get();
 
@@ -339,4 +339,20 @@ class CardController extends Controller
         return $card;
 
     }
+
+    public function removeComment($commentID,$cardID)
+    {
+
+        if (!Auth::check()) return view('auth/login');
+
+        $delChecklist = Comment::where('id', '=', $commentID);
+        $delChecklist->delete();
+
+       $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment'])
+            ->find($cardID);
+
+        return $card;
+
+    }
+
 }
