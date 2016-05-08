@@ -30,6 +30,14 @@ date_default_timezone_set('Asia/Bangkok');
 
 class CardController extends Controller
 {
+    public function getCurrentBoardCards()
+    {
+        $board = Board::with(['members'])
+            ->find(session()->get('Board'));
+        
+        return $board->cards()->with([])->get();
+    }
+    
 // get ข้อมูลการ์ดทั้งหมด ของ Board
     public function getCard()
     {
@@ -38,10 +46,9 @@ class CardController extends Controller
         $board = Board::with(['members'])
             ->find(session()->get('Board'));
 
-        $cards = Card::with(['checklists', 'memberCard.member', 'comments.memberComment', 'color'])
-            ->where('Boards_id', '=', session()->get('Board'))
+        $cards = Card::with(['checklists', 'memberCard.member', 'comments.memberComment', 'color','preCard'])
+            ->where('Board_id', '=', session()->get('Board'))
             ->get();
-
 
         $status = \App\Models\Status::all('id', 'name')
             ->sortBy('id')
@@ -73,20 +80,22 @@ class CardController extends Controller
         //return \Input::get();
         $dateEscard = preg_split('[-]', \Input::get('date'));
         $BoardId = session()->get('Board');
-
-        //$member_id = Membermanagement::find(\Input::get('member'));
+        
         $Card = new Card();
         $Card->name = \Input::get('name');
         $Card->detail = \Input::get('detail');
 
         $Card->estimate_start = $dateEscard[0];
         $Card->estimate_end = $dateEscard[1];
+        if (!empty( \Input::get('preCard'))) {
+            $Card->child_id = \Input::get('preCard');
+        }
         $Card->priority_id = 1;
 
         $Card->status_id = \Input::get('status');
         $Card->type_id = 1;
         $Card->color_id = \Input::get('color');
-        $Card->Boards_id = session()->get('Board');
+        $Card->Board_id = session()->get('Board');
         $Card->MemberManagement_id = \Input::get('member');
 
         $Card->save();
@@ -100,7 +109,7 @@ class CardController extends Controller
             $check = \Input::get('checkL');
             foreach ($sub as $index => $s) {
                 $CheckL = new Checklist();
-                $CheckL->Cards_id = $getCard[0]->id;
+                $CheckL->Card_id = $getCard[0]->id;
                 $CheckL->name = $s;
                 $CheckL->status = $check[$index];
                 $CheckL->save();
@@ -131,16 +140,21 @@ class CardController extends Controller
             ->sortBy('id')
             ->toArray();
         $member = Membermanagement::with(['member'])
-            ->where('Boards_id', '=', session()->get('Board'))
+            ->where('Board_id', '=', session()->get('Board'))
             ->get();
         $Board = Board::all()
             ->find($id);
+        $getcard = Card::
+            where('Board_id', '=', session()->get('Board'))
+            ->get();
+        
         return view('pages.card.createCard')
             ->with('color', $color)
             ->with('piority', $prior)
             ->with('member', $member)
             ->with('status', $status)
-            ->with('Board', $Board);
+            ->with('Board', $Board)
+            ->with('Card', $getcard);
     }
 
     // แก้ไข card
@@ -148,23 +162,29 @@ class CardController extends Controller
     {
 
         if (!Auth::check()) return view('auth/login');
+        
         $Board = Board::all()
             ->find($id);
 
         $prior = Priority::all('id', 'name')
             ->sortBy('id')
             ->toArray();
+        
         $color = Color::all('id', 'name')
             ->sortBy('id')
             ->toArray();
+        
         $member = Membermanagement::with(['member'])
-            ->where('Boards_id', '=', $id)
+            ->where('Board_id', '=', $id)
             ->get();
 
         $getcard = Card::with(['checklist', 'memberCard.member'])
             ->where('id', '=', $card)
             ->get();
+        
+        
 //return dd($getcard[0]);
+        
         return view('pages.card.editCard')
             ->with('Board', $Board)
             ->with('color', $color)
@@ -178,13 +198,13 @@ class CardController extends Controller
 
         if (!Auth::check()) return view('auth/login');
         /*$card = Card::find($id);*/
-        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment', 'preCards.preCard'])
+        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment'])
             ->find($id);
         $card->fill(Input::all());
         $card->save();
 
 
-        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment', 'preCards.preCard'])
+        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment'])
             ->find($id);
 
         return $card;
@@ -197,14 +217,18 @@ class CardController extends Controller
     {
 
         if (!Auth::check()) return view('auth/login');
+        
         $cardId = Input::get('cardId');
         $columnName = Input::get('columnName');
+        
         if (strcmp($columnName, "Backlog") == 0) $column = 1;
         else if (strcmp($columnName, "Ready") == 0) $column = 2;
         else if (strcmp($columnName, "Doing") == 0) $column = 3;
         else if (strcmp($columnName, "Done") == 0) $column = 4;
+        
         $move = Card::find($cardId);
         $move->status_id = $column;
+        
         if ($move->date_start == null) {
             $move->date_start = date('Y-m-d');
         }
@@ -213,7 +237,7 @@ class CardController extends Controller
         }
         $move->save();
 
-        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment', 'preCards.preCard'])
+        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment', 'preCard'])
             ->find($cardId);
 
         return $card;
@@ -226,7 +250,7 @@ class CardController extends Controller
         $prior = Priority::all('id', 'name');
         $color = Color::all('id', 'name');
         $member = Membermanagement::with(['member'])
-            ->where('Boards_id', '=', session()->get('Board'))
+            ->where('Board_id', '=', session()->get('Board'))
             ->get();
         $user = User::find(Auth::user()->id);
 
@@ -246,10 +270,11 @@ class CardController extends Controller
     {
 
         if (!Auth::check()) return view('auth/login');
+        
         $cardId = Input::get('card');
-        $check = Checklist::where('Cards_id', '=', $cardId);
+        $check = Checklist::where('Card_id', '=', $cardId);
         $check->delete();
-        $com = Comment::where('Cards_id', '=', $cardId);
+        $com = Comment::where('Card_id', '=', $cardId);
         $com->delete();
         $reCard = Card::find($cardId);
         $reCard->delete();
@@ -261,9 +286,10 @@ class CardController extends Controller
     {
 
         if (!Auth::check()) return view('auth/login');
-        $check = Checklist::where('Cards_id', '=', $id);
+        
+        $check = Checklist::where('Card_id', '=', $id);
         $check->delete();
-        $com = Comment::where('Cards_id', '=', $id);
+        $com = Comment::where('Card_id', '=', $id);
         $com->delete();
         $reCard = Card::find($id);
         $reCard->delete();
@@ -282,7 +308,7 @@ class CardController extends Controller
         $check->fill(Input::all());
         $check->save();
         $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment'])
-            ->find($check['Cards_id']);
+            ->find($check['Card_id']);
 
         return $card;
 
@@ -295,7 +321,7 @@ class CardController extends Controller
 
         $newChecklist = new Checklist();
         $newChecklist->name = Input::get('name');
-        $newChecklist->Cards_id = $id;
+        $newChecklist->Card_id = $id;
         $newChecklist->save();
 
         $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment'])
@@ -329,8 +355,8 @@ class CardController extends Controller
         
         $newComment = new Comment();
         $newComment->detail = Input::get('detail');
-        $newComment->Cards_id = $id;
-        $newComment->Members_id = Auth::user()->id;
+        $newComment->Card_id = $id;
+        $newComment->User_id = Auth::user()->id;
         $newComment->save();
 
         $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment'])

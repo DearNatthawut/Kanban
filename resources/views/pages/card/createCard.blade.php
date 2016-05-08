@@ -109,6 +109,22 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="preCard" class="col-sm-2 control-label">Pre Card</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" name="preCard">
+                                            <div class="col-sm-10">
+                                                <option value=></option>
+                                            </div>
+                                            @foreach($Card as $Card)
+                                                <div class="col-sm-10">
+                                                    <option value="{{$Card->id}}">{{$Card->name}}</option>
+                                                </div>
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="reservation" class="col-sm-2 control-label">Estimate Date</label>
                                     <div class="col-sm-10 ">
                                         <div class="input-group">

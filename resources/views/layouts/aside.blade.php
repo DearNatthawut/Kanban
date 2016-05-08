@@ -36,12 +36,12 @@
                     <small class="label pull-right bg-red"></small>
                 </a>
             </li>
-          {{--  <li>
+            <li>
                 <a href="/showGantt/{{$Board->id}}">
                     <i class="fa  fa-bar-chart"></i> <span>Gantt</span>
                     <small class="label pull-right bg-red"></small>
                 </a>
-            </li>--}}
+            </li>
 
             @if(Auth::user()->Level_id == 1) <!-- hide form Member -->
                 <li>

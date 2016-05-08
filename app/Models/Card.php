@@ -17,7 +17,7 @@ class Card extends Model
     protected $fillable = ['name','detail','MemberManagement_id','priority_id','color_id'];
 
     public function checklists(){
-        return $this->hasMany(\App\Models\Checklist::class,"Cards_id");
+        return $this->hasMany(\App\Models\Checklist::class,"Card_id");
     }
 
    /* public function preCards(){
@@ -25,7 +25,7 @@ class Card extends Model
     }*/
 
     public function comments(){
-        return $this->hasMany(\App\Models\Comment::class,"Cards_id");
+        return $this->hasMany(\App\Models\Comment::class,"Card_id");
     }
     
 
@@ -38,6 +38,12 @@ class Card extends Model
     public function color()
     {
         return $this->belongsTo(\App\Models\Color::class,"color_id","id" );
+
+    }
+
+    public function preCard()
+    {
+        return $this->belongsTo(\App\Models\Card::class,"child_id","id" );
 
     }
     

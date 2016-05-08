@@ -30,10 +30,10 @@
                         </a>
                         <a href="/member/{{$Board->id}}">
                             <button type="button" class="btn btn-default">Member</button>
-                    {{--    </a>
+                        </a>
                         <a href="/showGantt/{{$Board->id}}">
                             <button type="button" class="btn btn-default">Gantt Chart</button>
-                        </a>--}}
+                        </a>
 
                         @if(Auth::user()->Level_id == 1) <!--            เงื่อนไข แก้ไข และ ลบ -->
 

@@ -3,10 +3,10 @@
 <head>
     <title>Project Management With Kanban Borad</title>
     <meta charset="utf-8">
-    <link href="../TemLogin/css/style.css" rel='stylesheet' type='text/css'/>
+    <link href="../packages/TemLogin/css/style.css" rel='stylesheet' type='text/css'/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script type="text/javascript" src="../captcha/jquery-1.2.6.min.js"></script>
+    <script type="text/javascript" src="../packages/captcha/jquery-1.2.6.min.js"></script>
     <script type="application/x-javascript"> addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
@@ -87,7 +87,7 @@
             });
 
             function change_captcha() {
-                document.getElementById('captcha').src = "../captcha/get_captcha.php?rnd=" + Math.random();
+                document.getElementById('captcha').src = "../packages/captcha/get_captcha.php?rnd=" + Math.random();
             }
 
             function clear_form() {
@@ -255,11 +255,11 @@
             </div>
 
             <div id="wrap" align="left">
-                <img src="../captcha/get_captcha.php" alt="" id="captcha"/>
+                <img src="../packages/captcha/get_captcha.php" alt="" id="captcha"/>
                 <br clear="all"/>
                 <input name="code" type="text"  id="code">
             </div>
-            <img src="../captcha/refresh.jpg" width="25" alt="" id="refresh"/>
+            <img src="../packages/captcha/refresh.jpg" width="25" alt="" id="refresh"/>
             <br clear="all"/><br clear="all"/>
             <label>&nbsp;</label>
 

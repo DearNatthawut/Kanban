@@ -17,12 +17,11 @@ class MemberController extends Controller
     {
         $idMember = $id;
         $data = DB::table('membermanagement')
-            ->join('users','membermanagement.Members_id','=','users.id')
+            ->join('users','membermanagement.User_id','=','users.id')
             ->join('level','users.Level_id','=','level.id')
             ->select( 'users.*','users.name as member ','level.name as level')
-            ->where('membermanagement.Boards_id','=',$id)
+            ->where('membermanagement.Board_id','=',$id)
             ->get();
-
 
         $id=[];
         foreach($data as $Adata){
@@ -34,6 +33,7 @@ class MemberController extends Controller
         
         $Board = Board::all()
             ->find($idMember);
+        
         return view('pages.member.member')
             ->with('id',$idMember)
             ->with('members',$data)
@@ -43,14 +43,14 @@ class MemberController extends Controller
     }
 
     public function addMember($id){
-
-
+        
         if (\Input::get('member')){
         $member = new Membermanagement();
-        $member->Members_id = \Input::get('member');
-        $member->Boards_id = $id;
+        $member->Member_id = \Input::get('member');
+        $member->Board_id = $id;
         $member->save();
         }
+        
         return redirect("member/$id");
 
     }

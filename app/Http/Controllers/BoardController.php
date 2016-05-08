@@ -34,7 +34,7 @@ class BoardController extends Controller
     public function test()
     {
         $data = Card::
-        where('Boards_id', '=', session()->get('Board'))
+        where('Board_id', '=', session()->get('Board'))
             ->select('id', 'name', 'estimate_start', 'estimate_end', 'date_start', 'date_end')
             ->get();
         return $data;
@@ -44,6 +44,7 @@ class BoardController extends Controller
     public function showAllBoard()
     {
         if (!Auth::check()) return view('auth/login');
+        
         $data = Board::with(['members', 'manager'])
             //->where('members.id','=',Auth::user()->id)
             ->select('boards.*')
@@ -57,6 +58,7 @@ class BoardController extends Controller
     public function showBoard($id)
     {
         if (!Auth::check()) return view('auth/login');
+        
         $data = Board::find($id);
         session::put("Board", $id);  //--------------------------------------- CreateSession
         session::put("Manager", $data->manager_id);
@@ -75,7 +77,7 @@ class BoardController extends Controller
         $dateFormatEnd = $dateFormatEnd[0] . "/" . $dateFormatEnd[1] . "/" . $dateFormatEnd[2];
 
         $manager = Membermanagement::with(['member'])
-            ->where('Boards_id', '=', $id)
+            ->where('Board_id', '=', $id)
             ->get();
 
         return view('pages.board.edit')
@@ -130,28 +132,24 @@ class BoardController extends Controller
         $managerID = $Board['manager_id'];
         if (Auth::user()->id == $managerID) {
             $Manager = new Membermanagement();
-            $Manager->Boards_id = $id;
-            $Manager->Members_id = $managerID;
+            $Manager->Board_id = $id;
+            $Manager->User_id = $managerID;
             $Manager->save();
         } else {
             $Manager = new Membermanagement();
-            $Manager->Boards_id = $id;
-            $Manager->Members_id = $managerID;
+            $Manager->Board_id = $id;
+            $Manager->User_id = $managerID;
             $Manager->save();
 
             $Manager = new Membermanagement();
-            $Manager->Boards_id = $id;
-            $Manager->Members_id = Auth::user()->id;
+            $Manager->Board_id = $id;
+            $Manager->User_id = Auth::user()->id;
             $Manager->save();
         }
 
 
         return redirect('/home');
-        /*$id = Board::find('name', '=', \Input::get('name'))
-            ->select('id')
-            ->get();
-        $manager = new Membermanagement();
-        //***     ยังไม่ได้สร้าง manager ตอนสร้างบอร์ด*/
+       
     }
 
     //ลบ Baord

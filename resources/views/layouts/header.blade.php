@@ -1,7 +1,7 @@
 @section("header")
 
         <!DOCTYPE html>
-<html ng-app="kanban">
+<html ng-app="kanban"  class="no-js">
 
 <head>
 

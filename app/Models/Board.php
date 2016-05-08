@@ -11,7 +11,7 @@ class Board extends Model
 
     public function members()
     {
-        return $this->belongsToMany(\App\Models\User::class,"membermanagement","Boards_id","Members_id");
+        return $this->belongsToMany(\App\Models\User::class,"membermanagement","Board_id","User_id");
            // ->wherePivot('Members_id','=',Auth::user()->id);
     }
 
@@ -21,6 +21,6 @@ class Board extends Model
     }
 
     public function cards(){
-        return $this->hasMany(\App\Models\Card::class,"Boards_id");
+        return $this->hasMany(\App\Models\Card::class,"Board_id");
     }
 }

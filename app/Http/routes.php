@@ -14,14 +14,15 @@
 use App\Models;
 
 Route::get('/test','BoardController@test');
+
+Route::get('/ganttGet', 'CardController@getCard');
 //--------------------------------------------------------------------------------------Login
 Route::get('/', function () {
 
     if (!Auth::check()) return view('auth/login');
     
         return redirect('/home');
-
-
+    
 });
 
 //------------------------------------------------------------------------------------- Board
@@ -29,7 +30,6 @@ Route::get('/', function () {
 Route::get('/board/{id}','BoardController@showBoard');// get ข้อมูล
 
 Route::get('/createBoard', 'BoardController@formCreateBoard' );
-
 
 Route::post('/createBoard','BoardController@createBoard');//ส่งข้อมูล สร้าง board
 
@@ -82,6 +82,8 @@ Route::post('/removeComment/{commentID}/{cardID}','CardController@removeComment'
 //-----------------------------------------------------------------------------------------Gantt
 
 Route::get('/showGantt/{id}','GanttController@getGantt');
+
+Route::get('/current-board/cards','CardController@getCurrentBoardCards');
 
 //-----------------------------------------------------------------------------------------Member
 Route::get('/member/{id}','MemberController@showMember');

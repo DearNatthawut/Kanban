@@ -11,7 +11,7 @@ class Membermanagement extends Model
 
     public function member()
     {
-        return $this->hasOne(\App\Models\User::class,"id","Members_id");
+        return $this->hasOne(\App\Models\User::class,"id","User_id");
     }
 
 }
