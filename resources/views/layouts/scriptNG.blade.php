@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="/packages/angular-gantt/assets/angular-gantt.css"/>
 <link rel="stylesheet" href="/packages/angular-gantt/assets/angular-gantt-plugins.css"/>
 
+<link href="/packages/angular-xeditable/css/xeditable.css" rel="stylesheet">
+
 
 <!--library scripts-->
 <script type="text/javascript" src="/js/moments.js"></script>
@@ -21,6 +23,7 @@
 
 <script type="text/javascript" src="/packages/ng-sortable/js/ng-sortable.js"></script>
 
+<script src="/packages/angular-xeditable/js/xeditable.js"></script>
 
 
 <!-- application scripts  -->

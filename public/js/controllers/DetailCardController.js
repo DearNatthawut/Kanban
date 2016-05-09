@@ -7,10 +7,12 @@
 angular.module('kanban').controller('DetailCardController',
     ['$scope', '$modalInstance', 'card', '$http', function ($scope, $modalInstance, card, $http) {
 
+
+        //console.log(card)
         /* กำหนดค่า */
         function initScope(card) {
             $scope.cardData = [];
-            $scope.cardData = card;
+            $scope.cardData = card.data;
            //console.log($scope.cardData)
 
         }
@@ -30,6 +32,10 @@ angular.module('kanban').controller('DetailCardController',
             })
         }
 
+        $scope.close = function () {
+            $modalInstance.close();
+        };
+        
         initScope(card);
         getDataCard();
 
@@ -115,7 +121,7 @@ angular.module('kanban').controller('DetailCardController',
         };
 
         $scope.changeCheckStatus = function (checklist) {
-            //console.log(checklist);
+            console.log(checklist);
             $http({
                 method: 'POST',
                 url: '/changeCheckStatus/' + checklist.id,
@@ -135,6 +141,10 @@ angular.module('kanban').controller('DetailCardController',
                 card = $scope.cardData;
             });
 
+        };
+
+        $scope.updateChacklist = function (checklist) {
+            console.log(checklist);
         };
 
         $scope.removeChecklist = function (cardID,checklistID) {
@@ -173,7 +183,7 @@ angular.module('kanban').controller('DetailCardController',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data : $.param($addCom)
             }).success(function (r) {
-
+                
                 if(r.status_id == 1){
                     r.status = "Backlog"
                 }else if(r.status_id == 2){
@@ -184,7 +194,7 @@ angular.module('kanban').controller('DetailCardController',
                     r.status = "Done"
                 }
                 $scope.cardData = r;
-                card = $scope.cardData;
+
                 $scope.newComment = "";
             });
 
@@ -214,9 +224,7 @@ angular.module('kanban').controller('DetailCardController',
         };
 
 
-        $scope.close = function () {
-            $modalInstance.close();
-        };
+        
 
 
     }]);

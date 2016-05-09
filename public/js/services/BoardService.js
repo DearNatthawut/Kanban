@@ -61,7 +61,10 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 }
             });
         },
-        
+
+
+
+
         detailCard: function (card) {
             var show = $modal.open({
                 templateUrl: '/views/partials/detailCard.html',
@@ -69,8 +72,18 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 backdrop: 'static',
                 resolve: {
                     card: function () {
-                        //console.log(card);
-                        return card;
+
+                        var $cardId = {
+                            cardId: card.id
+                        };
+
+                        return $http({
+                            method: 'POST',
+                            url : "/getOneCard",
+                            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                            data: $.param($cardId)
+                        })
+
                     }
                 }
             });

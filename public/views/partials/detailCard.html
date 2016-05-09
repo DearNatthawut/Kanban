@@ -152,15 +152,7 @@
 
                     <p><b>End:</b> {{cardData.date_end}}</p>
 
-                    <!--    <label for="xxx" class="col-sm-2 control-label">Estimate Date</label>
-                        <div class="col-sm-10 ">
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
-                                </div>
-                                <input type="text" name="date" class="form-control " id="xxx" placeholder="Estimate Date" required>
-                            </div>
-                        </div>--> <!--input datepicker-->
+
 
                 </div>
             </div>
@@ -191,10 +183,12 @@
                                    ng-show="DataEdit.user.Level_id == 1
                                    || DataEdit.user.id == cardData.member_card.Members_id
                                    || DataEdit.boardManager.manager_id == DataEdit.user.id ">
-                            <span class="text">{{checklist.name}}</span>
+
+
+                            <a href="#" editable-text="checklist.name" >{{checklist.name}}</a>
 
                             <div class="tools">
-                                <i class="fa fa-edit"></i>
+
                                 <i class="fa fa-trash-o"
                                    ng-click="removeChecklist(cardData.id,checklist.id)"
                                    ng-show="DataEdit.user.Level_id == 1
@@ -255,6 +249,7 @@
                                 </small>
                                 {{comment.member_comment.name}}
                             </a>
+
                             {{comment.detail}}
                         </p>
                         <hr>

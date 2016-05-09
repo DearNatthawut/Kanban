@@ -65,6 +65,8 @@ Route::post('/moveCard','CardController@moveCard'); // ย้าย card
 
 Route::post('/removeCard','CardController@removeCard');// ลบ card
 
+Route::post('/getOneCard', 'CardController@getOneCard');//get One Card
+
 //------------------------------------------------------------------- Checklist
 
 Route::post('/changeCheckStatus/{id}','CardController@changeCheckStatus');// แก้ไข checklist

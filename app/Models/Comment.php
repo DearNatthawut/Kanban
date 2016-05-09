@@ -15,7 +15,7 @@ class Comment extends Model
 
     public function memberComment()
     {
-        return $this->hasOne(\App\Models\User::class,"id","Members_id");
+        return $this->hasOne(\App\Models\User::class,"id","User_id");
     }
 
 }

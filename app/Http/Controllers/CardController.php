@@ -70,6 +70,16 @@ class CardController extends Controller
         return $kanban;
     }
 
+
+    
+    public function getOneCard()
+    {
+        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment', 'preCard'])
+            ->find(Input::get('cardId'));
+        return $card;
+    }
+
+
     
 
 // บันทึก card

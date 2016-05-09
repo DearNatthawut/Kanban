@@ -24,7 +24,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
     BoardDataFactory.getKanban().success(function (r) {  //------
        // console.log(r);
         self.kanbanBoard = BoardService.kanbanBoard(r);
-       // console.log(self.kanbanBoard)
+       //console.log(self.kanbanBoard)
 
     });
 

@@ -5,7 +5,8 @@ angular.module('kanban', [
         'ui.sortable',
         'ui.bootstrap',
         'gantt', 'gantt.table',
-        'gantt.tooltips'
+        'gantt.tooltips',
+        'xeditable'
     ])
 
     .config(['$compileProvider', function ($compileProvider) {
@@ -18,4 +19,8 @@ angular.module('kanban', [
         $routeProvider.when('/kanban', {templateUrl: '/views/kanban.html', controller: 'KanbanController'});
 
         $routeProvider.otherwise({redirectTo: '/'});
-    }]);
+    }])
+
+    .run(function (editableOptions) {
+        editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+    });
