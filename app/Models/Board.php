@@ -20,6 +20,10 @@ class Board extends Model
         return $this->hasOne(\App\Models\User::class,"id","manager_id");
     }
 
+    public function membersManager(){
+        return $this->hasMany(\App\Models\Membermanagement::class,"Board_id");
+    }
+
     public function cards(){
         return $this->hasMany(\App\Models\Card::class,"Board_id");
     }

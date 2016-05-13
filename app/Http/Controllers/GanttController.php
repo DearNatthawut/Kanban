@@ -17,6 +17,7 @@ use App\Models\Checklist;
 use DB;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Input;
 use Validator;
@@ -26,11 +27,22 @@ class GanttController extends Controller
 {
 
    public function getGantt($id){
+       
+       if (!Auth::check()) return redirect("/");
 
        $Board = Board::all()
            ->find($id);
+       session::put("idForGantt", $id);
 
        return  view('pages.gantt.ganttChart')
            ->with('Board', $Board);
    }
+    
+    public function getCurrentBoardCards()
+    {
+        $board = Board::with(['members'])
+            ->find(session()->get('idForGantt'));
+
+        return $board->cards()->with([])->get();
+    }
 }

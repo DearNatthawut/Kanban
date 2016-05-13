@@ -31,12 +31,12 @@ date_default_timezone_set('Asia/Bangkok');
 class CardController extends Controller
 {
     public function getCurrentBoardCards()
-    {
-        $board = Board::with(['members'])
-            ->find(session()->get('Board'));
-        
-        return $board->cards()->with([])->get();
-    }
+{
+    $board = Board::with(['members'])
+        ->find(session()->get('Board'));
+
+    return $board->cards()->with([])->get();
+}
     
 // get ข้อมูลการ์ดทั้งหมด ของ Board
     public function getCard()

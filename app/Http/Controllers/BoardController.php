@@ -43,13 +43,11 @@ class BoardController extends Controller
     //แสดงข้อมูลบอร์ดในหน้าแรก
     public function showAllBoard()
     {
-        if (!Auth::check()) return view('auth/login');
-        
-        $data = Board::with(['members', 'manager'])
-            //->where('members.id','=',Auth::user()->id)
+        if (!Auth::check()) return redirect("/");
+
+        $data = Board::with(['members', 'manager','membersManager'])
             ->select('boards.*')
             ->get();
-
 
         return view('pages.board.index')->with('allBoards', $data);
     }
@@ -58,7 +56,7 @@ class BoardController extends Controller
     public function showBoard($id)
     {
         if (!Auth::check()) return view('auth/login');
-        
+
         $data = Board::find($id);
         session::put("Board", $id);  //--------------------------------------- CreateSession
         session::put("Manager", $data->manager_id);
@@ -91,7 +89,7 @@ class BoardController extends Controller
     {
 
         if (!Auth::check()) return view('auth/login');
-        
+
         $dateEs = preg_split('[-]', \Input::get('date'));
 
         $edit = Board::find(\Input::get('id'));
@@ -149,7 +147,7 @@ class BoardController extends Controller
 
 
         return redirect('/home');
-       
+
     }
 
     //ลบ Baord

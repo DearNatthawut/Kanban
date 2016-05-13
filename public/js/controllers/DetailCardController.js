@@ -13,7 +13,7 @@ angular.module('kanban').controller('DetailCardController',
         function initScope(card) {
             $scope.cardData = [];
             $scope.cardData = card.data;
-           //console.log($scope.cardData)
+           console.log($scope.cardData)
 
         }
 

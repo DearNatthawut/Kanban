@@ -12,8 +12,9 @@
     <tbody>
 
     @foreach($allBoards as $Board)
-        @foreach($Board->members as $mem)
-            @if(($mem->id == Auth::user()->id || Auth::user()->Level_id == 1) && $Board->status_complete == 0 && $Board->board_hide == 0)
+        @foreach($Board->members as $memManager => $mem  )
+            @if(($mem->id == Auth::user()->id || Auth::user()->Level_id == 1 ) &&  $Board->membersManager[$memManager]->active == 0
+            && $Board->status_complete == 0 && $Board->board_hide == 0)
 
                 <tr>
                     <td >

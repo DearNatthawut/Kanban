@@ -12,7 +12,7 @@
 
 <div class="content-wrapper">
 
-    <section class="content" ng-controller="GanttCtrl as vm">
+    <section class="content">
 
         <div class="col-md-12 col-sm-4">
             <div class="panel panel-default">
@@ -23,9 +23,11 @@
                             <small>( {{$Board->name}} )</small>
                         </h2>
 
+                        <h2>Plan</h2>
+
                     </div>
-                    <div>
-                        <div gantt data=vm.data>
+                    <div  ng-controller="GanttCtrlEstimate as vmEstimate">
+                        <div gantt data=vmEstimate.dataEstimate>
 
                             <gantt-table></gantt-table>
                             {{--<gantt-movable></gantt-movable>
@@ -33,6 +35,24 @@
                         </div>
 
                     </div>
+
+                </div>
+            </div>
+
+        </div><div class="col-md-12 col-sm-4">
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <h2>Actual</h2>
+                    <div  ng-controller="GanttCtrlActual as vmActual">
+                        <div gantt data=vmActual.dataActual>
+                            <gantt-table></gantt-table>
+                            {{--<gantt-movable></gantt-movable>
+                            <gantt-tooltips></gantt-tooltips>--}}
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -48,10 +68,9 @@
 
 
 <script type="text/javascript">
-
+    // dataEstimate
     var myApp = angular.module('kanban');
-
-    myApp.controller('GanttCtrl', ['$scope', '$http', function ($scope, $http) {
+    myApp.controller('GanttCtrlEstimate', ['$scope', '$http', function ($scope, $http) {
         var self = this;
 
         $http({
@@ -59,26 +78,73 @@
             url: '/current-board/cards'
         }).success(function (r) {
             console.log(r);
-            var row = [];
-            for (i = 0; i < r.length; i++) {
-                var rownew = [];
-                rownew.name = r[i].name;
-                if (r[i].date_start != null) {
-                    r[i].from = r[i].date_start
-                } else {
-                    r[i].from = r[i].estimate_start
-                }
-                if (r[i].date_end != null) {
-                    r[i].to = r[i].date_end
-                } else {
-                    r[i].to = r[i].estimate_end
-                }
-                rownew.tasks = [r[i]];
 
-                row.push(rownew)
+            { // data estimate
+                var row = [];
+                for (i = 0; i < r.length; i++) {
+                    var rownew = [];
+                    rownew.name = r[i].name;
+                    if (r[i].estimate_start != null) {
+                        r[i].from = r[i].estimate_start;
+                        r[i].color = '#45607D'
+                    }
+                    if (r[i].estimate_end != null) {
+                        r[i].to = r[i].estimate_end;
+                        r[i].color = '#45607D'
+                    }
+                    rownew.tasks = [r[i]];
+
+                    row.push(rownew)
+                }
+
+                self.dataEstimate = row;
             }
-            self.data = row;
 
+
+        })
+
+    }]);
+    //dataActual
+    myApp.controller('GanttCtrlActual', ['$scope', '$http', function ($scope, $http) {
+        var self = this;
+
+        $http({
+            method: 'GET',
+            url: '/current-board/cards'
+        }).success(function (r) {
+            console.log(r);
+
+
+            { // data actual
+                var row = [];
+                for (i = 0; i < r.length; i++) {
+                    var rownewA = [];
+                    rownewA.name = r[i].name;
+                    if (r[i].date_start != null) {
+                        r[i].from = r[i].date_start
+                    } else {
+
+                    }
+                    if (r[i].date_end != null) {
+                        r[i].to = r[i].date_end;
+                        if (r[i].date_end > r[i].estimate_end){
+                            r[i].color = '#FFA500'
+                        }else  r[i].color = '#008000';
+
+                    } else {
+
+                        r[i].to = Date.now();
+                        if (Date.now() > r[i].estimate_end){
+                            r[i].color = '	#FF0000';
+                        }else  r[i].color = '#4169E1';
+
+
+                    }
+                    rownewA.tasks = [r[i]];
+                    row.push(rownewA)
+                }
+                self.dataActual = row;
+            }
         })
 
     }]);

@@ -85,11 +85,15 @@ Route::post('/removeComment/{commentID}/{cardID}','CardController@removeComment'
 
 Route::get('/showGantt/{id}','GanttController@getGantt');
 
-Route::get('/current-board/cards','CardController@getCurrentBoardCards');
+Route::get('/current-board/cards','GanttController@getCurrentBoardCards');
 
 //-----------------------------------------------------------------------------------------Member
 Route::get('/member/{id}','MemberController@showMember');
 Route::post('/addMember/{id}','MemberController@addMember');
+
+//del Member
+Route::post('/delMember/{id}','MemberController@delMember');
+Route::post('/getBackMember/{id}','MemberController@getbackMember');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
