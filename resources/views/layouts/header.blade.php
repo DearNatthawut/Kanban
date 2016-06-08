@@ -35,22 +35,13 @@
 
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="hidden-xs">{{Auth::user()->name}}</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <!-- User image -->
-                            <li class="user-header">
-                                {{Auth::user()->name}} - @if(Auth::user()->Level_id == 1) Project Manager @elseif(Auth::user()->Level_id == 2) Member @endif
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-right">
-                                    <a href="/auth/logout" class="btn btn-default btn-flat">Sign out</a>
-                                </div>
-                            </li>
-                        </ul>
+                           <a><span class="hidden-xs">{{Auth::user()->name}} ( @if(Auth::user()->Level_id == 1) Project Manager ) @elseif(Auth::user()->Level_id == 2) Member ) @endif</span></a>
                     </li>
+
+                    <li class="dropdown user user-menu">
+                        <a href="/auth/logout"  ><span class="glyphicon glyphicon-log-out"></span></a>
+                    </li>
+
                 </ul>
             </div>
         </nav>

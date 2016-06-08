@@ -28,7 +28,7 @@
                                     <label for="name" class="col-sm-2 control-label">Name</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" name="name" id="name" placeholder="Name"
-                                               value="{{$Board->name}}">
+                                               value="{{$Board->name}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -42,7 +42,7 @@
                                     <label for="reservation" class="col-sm-2 control-label">Estimate Date</label>
                                     <div class="col-sm-10 ">
                                         <input type="text" name="date" class="form-control " id="reservation"
-                                               placeholder="Estimate Date" value="{{$dateStart}} - {{$dateEnd}}">
+                                               placeholder="Estimate Date" value="{{$dateStart}} - {{$dateEnd}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">

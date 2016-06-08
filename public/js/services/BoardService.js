@@ -16,9 +16,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 url: '/moveCard',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: $.param($MoveEvent)
-            }).success(function (r) {
-
-            });
+            }).success(function (r) {});
         },
 
         removeCard: function (board, column, card) {
@@ -62,9 +60,6 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
             });
         },
 
-
-
-
         detailCard: function (card) {
             var show = $modal.open({
                 templateUrl: '/views/partials/detailCard.html',
@@ -87,6 +82,26 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                     }
                 }
             });
+        },
+        afterMove: function () {
+            var show = $modal.open({
+                templateUrl: '/views/partials/afterMove.html'
+            });
+        },afterMoveBack: function (cardID) {
+
+            var show = $modal.open({
+                templateUrl: '/views/partials/afterMoveBack.html',
+                controller: 'MoveBackCardController',
+                backdrop: 'static',
+                resolve: {
+                    card: function () {
+
+                      return  cardID;
+
+                    }
+                }
+            });
+
         },
 
         kanbanBoard: function (board) {

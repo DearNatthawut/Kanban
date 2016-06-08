@@ -1,21 +1,54 @@
 <!-- Item template -->
 
 <!--                                       Admin-->
-<div as-sortable-item-handle ng-style="{color: card.color.name}"
+<div as-sortable-item-handle
      ng-show="self.DataMember.user.Level_id == 1 || self.DataMember.user.id == self.DataMember.board.manager_id">
 
 
     <div class="row">
         <div class="col-sm-10">
             <!--<span class="btn-link"><a data-no-drag target=_top href="https://github.com/a5hik/ng-sortable">test no-drag href</a></span>-->
-            <span class="card-title">Name :{{card.name}}</span>
+
+            <!--  Color -->
+            <span class="label" style="background-color: whitesmoke; border: solid"
+                  ng-show="card.color.name == 'whitesmoke'">   </span>
+
+            <span class="label" style="background-color: red;border: solid"
+                  ng-show="card.color.name == 'red'">   </span>
+
+            <span class="label" style="background-color: yellow;border: solid"
+                  ng-show="card.color.name == 'yellow'">   </span>
+
+            <span class="label" style="background-color: green;border: solid"
+                  ng-show="card.color.name == 'green'">   </span>
+
+            <span class="label" style="background-color: blue;border: solid"
+                  ng-show="card.color.name == 'blue'">   </span>
+
+            <span class="label" style="background-color: orange;border: solid"
+                  ng-show="card.color.name == 'orange'">   </span>
+
+
+            <!-- High Priority -->
+             <span class="glyphicon glyphicon-star" ng-show="card.priority_id == 2"></span>
+
+            <!-- edit -->
+            <span class="glyphicon glyphicon-edit" ng-show="card.type_id == 2"></span>
+
+            <!-- Time -->
+             <span class="label label-danger"   ng-show="card.estimate_end < self.date"> <span class="glyphicon glyphicon-time"></span> Over time  </span>
+
+            <span class="card-title">Name : {{card.name }}</span>
             <hr>
-            <span class="card-title">Detail : {{card.detail}} </span>
+            <span class="card-title" ng-show="card.pre_card.name != null">Pre Card :  {{card.pre_card.name}} </span>
+
         </div>
+
         <div class="col-sm-2">
             <a data-no-drag class=" removeCard pull-right btn btn-xs" ng-click="self.detailCard(card)">
                 <span class="glyphicon  glyphicon-cog"></span></a>
         </div>
+
         <div class="col-sm-2">
             <a data-no-drag class=" removeCard pull-right btn btn-xs" ng-click="self.removeCard(column, card)"
                ng-show="self.DataMember.user.Level_id == 1 || self.DataMember.user.id == self.DataMember.board.manager_id">
@@ -27,40 +60,100 @@
 </div>
 
 
-<!--                                       manager Card-->
-<div as-sortable-item-handle ng-style="{color: card.color.name}"
-     ng-show="self.DataMember.user.Level_id == 2 && self.DataMember.user.id == card.member_card.Members_id
+<!--  manager Card-->
+<div as-sortable-item-handle ng-show="self.DataMember.user.Level_id == 2 && self.DataMember.user.id == card.member_card.Members_id
      && self.DataMember.user.id != self.DataMember.board.manager_id">
 
 
     <div class="row">
+
         <div class="col-sm-10">
             <!--<span class="btn-link"><a data-no-drag target=_top href="https://github.com/a5hik/ng-sortable">test no-drag href</a></span>-->
+            <!--  Color -->
+            <span class="label" style="background-color: whitesmoke; border: solid"
+                  ng-show="card.color.name == 'whitesmoke'">   </span>
+
+            <span class="label" style="background-color: red;border: solid"
+                  ng-show="card.color.name == 'red'">   </span>
+
+            <span class="label" style="background-color: yellow;border: solid"
+                  ng-show="card.color.name == 'yellow'">   </span>
+
+            <span class="label" style="background-color: green;border: solid"
+                  ng-show="card.color.name == 'green'">   </span>
+
+            <span class="label" style="background-color: blue;border: solid"
+                  ng-show="card.color.name == 'blue'">   </span>
+
+            <span class="label" style="background-color: orange;border: solid"
+                  ng-show="card.color.name == 'orange'">   </span>
+
+
+            <!-- High Priority -->
+            <span class="glyphicon glyphicon-star" ng-show="card.priority_id == 2"></span>
+
+            <!-- edit -->
+            <span class="glyphicon glyphicon-edit" ng-show="card.type_id == 2"></span>
+
+
             <span class="card-title">Name :{{card.name}}</span>
             <hr>
             <span class="card-title">Detail : {{card.detail}} </span>
 
         </div>
+
         <div class="col-sm-2">
             <a data-no-drag class=" removeCard pull-right btn btn-xs" ng-click="self.detailCard(card)">
                 <span class="glyphicon  glyphicon-cog"></span></a>
         </div>
+
         <div class="col-sm-2">
             <a data-no-drag class=" removeCard pull-right btn btn-xs" ng-click="self.removeCard(column, card)"
                ng-show="self.DataMember.user.Level_id == 1 || self.DataMember.user.id == self.DataMember.board.manager_id">
                 <span class="glyphicon glyphicon-remove"></span></a>
+
         </div>
+
     </div>
 
 
 </div>
 
-<div ng-style="{color: card.color.name}"
-     ng-show="self.DataMember.user.Level_id == 2 && self.DataMember.user.id != card.member_card.Members_id  &&  self.DataMember.user.id != self.DataMember.board.manager_id">
+
+<!--  member -->
+<div ng-show="self.DataMember.user.Level_id == 2 && self.DataMember.user.id != card.member_card.Members_id  &&  self.DataMember.user.id != self.DataMember.board.manager_id">
 
 
     <div class="row">
         <div class="col-sm-10">
+
+            <!--  Color -->
+            <span class="label" style="background-color: whitesmoke; border: solid"
+                  ng-show="card.color.name == 'whitesmoke'">   </span>
+
+            <span class="label" style="background-color: red;border: solid"
+                  ng-show="card.color.name == 'red'">   </span>
+
+            <span class="label" style="background-color: yellow;border: solid"
+                  ng-show="card.color.name == 'yellow'">   </span>
+
+            <span class="label" style="background-color: green;border: solid"
+                  ng-show="card.color.name == 'green'">   </span>
+
+            <span class="label" style="background-color: blue;border: solid"
+                  ng-show="card.color.name == 'blue'">   </span>
+
+            <span class="label" style="background-color: orange;border: solid"
+                  ng-show="card.color.name == 'orange'">   </span>
+
+
+            <!-- High Priority -->
+            <span class="glyphicon glyphicon-star" ng-show="card.priority_id == 2"></span>
+
+            <!-- edit -->
+            <span class="glyphicon glyphicon-edit" ng-show="card.type_id == 2"></span>
+
+
             <!--<span class="btn-link"><a data-no-drag target=_top href="https://github.com/a5hik/ng-sortable">test no-drag href</a></span>-->
             <span class="card-title">Name :{{card.name}}</span>
             <hr>

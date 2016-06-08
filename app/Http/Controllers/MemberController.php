@@ -26,7 +26,7 @@ class MemberController extends Controller
             ->get();
         $id = [];
         foreach ($data as $Adata) {
-            $id[] = $Adata->id;
+            $id[] = $Adata->User_id;
         }
 
         $member = DB::table('users')

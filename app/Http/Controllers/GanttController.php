@@ -27,16 +27,23 @@ class GanttController extends Controller
 {
 
    public function getGantt($id){
-       
-       if (!Auth::check()) return redirect("/");
 
-       $Board = Board::all()
-           ->find($id);
-       session::put("idForGantt", $id);
+    if (!Auth::check()) return redirect("/");
 
-       return  view('pages.gantt.ganttChart')
-           ->with('Board', $Board);
-   }
+    $Board = Board::all()
+        ->find($id);
+    session::put("idForGantt", $id);
+
+    $boardCards = Board::with(['members'])
+        ->find(session()->get('idForGantt'));
+
+    $cards = $boardCards->cards()->with(['memberCard.member'])->get();
+
+
+    return  view('pages.gantt.ganttChart')
+        ->with('Board', $Board)
+        ->with('Card', $cards);
+}
     
     public function getCurrentBoardCards()
     {

@@ -5,7 +5,8 @@
 'use strict';
 
 angular.module('kanban').controller('DetailCardController',
-    ['$scope', '$modalInstance', 'card', '$http', function ($scope, $modalInstance, card, $http) {
+    ['$scope', '$modalInstance', 'card', '$http', 
+        function ($scope, $modalInstance, card, $http) {
 
 
         //console.log(card)
@@ -13,7 +14,7 @@ angular.module('kanban').controller('DetailCardController',
         function initScope(card) {
             $scope.cardData = [];
             $scope.cardData = card.data;
-           console.log($scope.cardData)
+           //console.log($scope.cardData)
 
         }
 
@@ -34,6 +35,7 @@ angular.module('kanban').controller('DetailCardController',
 
         $scope.close = function () {
             $modalInstance.close();
+            
         };
         
         initScope(card);

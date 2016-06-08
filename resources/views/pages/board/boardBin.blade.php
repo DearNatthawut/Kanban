@@ -15,7 +15,7 @@
             @if(($mem->id == Auth::user()->id || Auth::user()->Level_id == 1) &&  $Board->board_hide == 1)
 
                 <tr>
-                    <td width="70%">
+                    <td >
                         <span>Name board : {{$Board->name}} </span>
                         <br>
                         <span>Detail : {{$Board->detail}} </span>
@@ -41,17 +41,17 @@
                             <button type="button" class="btn btn-default">Edit</button>
                         </a>
 
-                        <button type="button" class="btn btn-info" onclick="restoreBoard()">
+                        <button type="button" class="btn btn-info" onclick="restoreBoard(<?php echo(json_encode($Board->id)); ?>)">
                             Restore
                         </button>
 
                         @endif
 
                         <script>
-                            function restoreBoard() {
+                            function restoreBoard(id) {
 
                                 if (confirm("Confirm Restore this Board!") == true) {
-                                    document.location.href = "/restoreBoard/{{$Board->id}}";
+                                    document.location.href = "/restoreBoard/"+id;
                                 }
                             }
                         </script>

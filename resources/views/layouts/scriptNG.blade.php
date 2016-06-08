@@ -36,7 +36,7 @@
 <script type="text/javascript" src="/js/controllers/KanbanController.js"></script>
 {{--<script type="text/javascript" src="/js/controllers/NewCardController.js"></script>--}}
 <script type="text/javascript" src="/js/controllers/DetailCardController.js"></script>
-
+<script type="text/javascript" src="/js/controllers/MoveBackCardController.js"></script>
 
 
 

@@ -62,7 +62,7 @@
 
                             @foreach($members as $member)
 
-                                @if(Auth::user()->Level_id == 1 ||  $member->active == 1)
+                                @if(Auth::user()->Level_id == 1 ||  $member->active == 0)
 
                                 <tr>
                                     <td> {{$member->member}}</td>

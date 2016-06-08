@@ -79,6 +79,8 @@ Route::post('/removeChecklist/{cardID}/{checklistID}','CardController@removeChec
 
 Route::post('/addNewComment/{id}','CardController@addNewComment');// เพิ่ม comment
 
+Route::post('/commentMoveBack/{id}','CardController@addNewCommentMoveBack');// เพิ่ม comment Move Back
+
 Route::post('/removeComment/{commentID}/{cardID}','CardController@removeComment');// ลบ comment
 
 //-----------------------------------------------------------------------------------------Gantt

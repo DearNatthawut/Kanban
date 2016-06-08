@@ -57,6 +57,30 @@
             </div>
         </div>
 
+        <div class="col-md-12 col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="box-body">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>NameCard</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($Card as $Card)
+                                <tr>
+                                    <td>{{$Card['memberCard']['member']->name}}</td>
+                                    <td> {{$Card->name}}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
 
@@ -150,5 +174,9 @@
     }]);
 
 </script>
+
+
+
+
 
 </html>

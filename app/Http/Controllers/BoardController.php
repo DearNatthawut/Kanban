@@ -47,6 +47,7 @@ class BoardController extends Controller
 
         $data = Board::with(['members', 'manager','membersManager'])
             ->select('boards.*')
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('pages.board.index')->with('allBoards', $data);
@@ -55,7 +56,7 @@ class BoardController extends Controller
     //แสดงบอร์ด
     public function showBoard($id)
     {
-        if (!Auth::check()) return view('auth/login');
+        if (!Auth::check()) return redirect("/");
 
         $data = Board::find($id);
         session::put("Board", $id);  //--------------------------------------- CreateSession
@@ -67,7 +68,8 @@ class BoardController extends Controller
     //แก้ไขบอร์ด
     public function formEditBoard($id)
     {
-        if (!Auth::check()) return view('auth/login');
+        if (!Auth::check()) return redirect("/");
+
         $data = Board::all()->find($id);
         $dateFormatStart = preg_split('[-]', $data->estimate_start);
         $dateFormatStart = $dateFormatStart[0] . "/" . $dateFormatStart[1] . "/" . $dateFormatStart[2];
@@ -88,7 +90,7 @@ class BoardController extends Controller
     public function editBoard()
     {
 
-        if (!Auth::check()) return view('auth/login');
+        if (!Auth::check()) return redirect("/");
 
         $dateEs = preg_split('[-]', \Input::get('date'));
 
@@ -105,7 +107,8 @@ class BoardController extends Controller
     public function formCreateBoard()
     {
 
-        if (!Auth::check()) return view('auth/login');
+        if (!Auth::check()) return redirect("/");
+
         $members = User::all();
         return view('pages.board.createBoard')
             ->with('members', $members);
@@ -114,7 +117,8 @@ class BoardController extends Controller
     //สร้าง Bord
     public function createBoard()
     {
-        if (!Auth::check()) return view('auth/login');
+        if (!Auth::check()) return redirect("/");
+
         $dateEs = preg_split('[-]', \Input::get('date'));
 
         $Board = new Board();
@@ -154,7 +158,7 @@ class BoardController extends Controller
     public function deleteBoard($id)
     {
 
-        if (!Auth::check()) return view('auth/login');
+        if (!Auth::check()) return redirect("/");
         /*   $cards = Card::where('Boards_id', '=', $id)
            ->get();
 
@@ -182,7 +186,7 @@ class BoardController extends Controller
 
     public function restoreBoard($id)
     {
-        if (!Auth::check()) return view('auth/login');
+        if (!Auth::check()) return redirect("/");
 
         $board = Board::find($id);
         $board->board_hide = 0;
@@ -193,7 +197,7 @@ class BoardController extends Controller
 
     public function getDataMember()
     {
-        if (!Auth::check()) return view('auth/login');
+        if (!Auth::check()) return redirect("/");
         $user = User::find(Auth::user()->id);
         $board = Board::with([])
             ->find(session()->get('Board'));

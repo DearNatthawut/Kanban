@@ -9,16 +9,13 @@
              data-columnindex="{{$index}}" id="column{{$index}}">
 
             <div class="column">
-                <div class="columnHeader" ng-show="column.name != 'Doing'" >
+                <div class="columnHeader"  >
                     <!--<a title="Add card to column" ng-click="self.addNewCard(column)">
                     <i class="glyphicon glyphicon-plus addNewCard"></i></a>-->
                     <span>{{column.name}} ({{column.cards.length}})</span>
                 </div>
 
-                <div class="columnHeader" ng-show="column.name == 'Doing'" >
 
-                    <span>{{column.name}} ({{column.cards.length}}/5)</span>
-                </div>
 
                   <!-- loob show card -->
                 <ul class="cards card-list" as-sortable="self.kanbanSortOptions" ng-model="column.cards" >
