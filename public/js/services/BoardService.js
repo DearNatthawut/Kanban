@@ -24,14 +24,19 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 var $DeCard = {
                     card : card.id
                 };
-                BoardManipulator.removeCardFromColumn(board, column, card);
+
                 return $http({
                     method: 'POST',
                     url: '/removeCard',
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     data: $.param($DeCard)
                 }).success(function (t) {
-                          //console.log(data);
+                    
+                    BoardManipulator.removeCardFromColumn(board, column, card);
+                }).error(function () {
+                     $modal.open({
+                        templateUrl: '/views/partials/errorDel.html'
+                    });
                 });
             }
         },

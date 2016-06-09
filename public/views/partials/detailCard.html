@@ -26,6 +26,7 @@
             <a href="#card-comment" data-toggle="tab">Comment</a>
         </li>
     </ul>
+
     <div class="tab-content">
         <div class="tab-pane fade in active" id="card-detail"> <!--                                      General-->
             <div class="box box-primary">
@@ -195,7 +196,8 @@
                                    || DataEdit.boardManager.manager_id == DataEdit.user.id " required>
 
 
-                            <a href="#" editable-text="checklist.name" >{{checklist.name}}</a>
+                            <!-- function update checklist by  "onaftersave"  in libary xeditable-->
+                            <a href="#" editable-text="checklist.name"  onaftersave="updateChecklist(checklist)">{{checklist.name}}</a>
 
                             <div class="tools">
 
@@ -260,7 +262,8 @@
                                 </small>
                                 {{comment.member_comment.name}}
                             </div>
-                        <a href="#" editable-text="comment.detail" > {{comment.detail}}</a>
+
+                        <a href="#" editable-text="comment.detail" onaftersave="updateComment(comment)"> {{comment.detail}}</a>
                         </p>
                         <hr>
                     </div><!-- /.item -->

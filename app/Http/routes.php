@@ -69,9 +69,11 @@ Route::post('/getOneCard', 'CardController@getOneCard');//get One Card
 
 //------------------------------------------------------------------- Checklist
 
-Route::post('/changeCheckStatus/{id}','CardController@changeCheckStatus');// แก้ไข checklist
+Route::post('/changeCheckStatus/{id}','CardController@changeCheckStatus');// แก้ไขสถานะ checklist
 
 Route::post('/addNewChecklist/{id}','CardController@addNewChecklist');// เพิ่ม checklist
+
+Route::post('/updateChecklist/{id}','CardController@updateChecklist');// แก้ไข checklist
 
 Route::post('/removeChecklist/{cardID}/{checklistID}','CardController@removeChecklist');// ลบ checklist
 
@@ -80,6 +82,8 @@ Route::post('/removeChecklist/{cardID}/{checklistID}','CardController@removeChec
 Route::post('/addNewComment/{id}','CardController@addNewComment');// เพิ่ม comment
 
 Route::post('/commentMoveBack/{id}','CardController@addNewCommentMoveBack');// เพิ่ม comment Move Back
+
+Route::post('/updateComment/{id}','CardController@updateComment');// แก้ไข comment
 
 Route::post('/removeComment/{commentID}/{cardID}','CardController@removeComment');// ลบ comment
 

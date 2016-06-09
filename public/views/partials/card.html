@@ -30,7 +30,7 @@
 
 
             <!-- High Priority -->
-             <span class="glyphicon glyphicon-star" ng-show="card.priority_id == 2"></span>
+             <span class="glyphicon glyphicon-star" style="color: gold;" ng-show="card.priority_id == 2" ></span>
 
             <!-- edit -->
             <span class="glyphicon glyphicon-edit" ng-show="card.type_id == 2"></span>
@@ -38,8 +38,9 @@
             <!-- Time -->
              <span class="label label-danger"   ng-show="card.estimate_end < self.date"> <span class="glyphicon glyphicon-time"></span> Over time  </span>
 
+            <!--General -->
             <span class="card-title">Name : {{card.name }}</span>
-            <hr>
+            <hr ng-show="card.pre_card.name != null">
             <span class="card-title" ng-show="card.pre_card.name != null">Pre Card :  {{card.pre_card.name}} </span>
 
         </div>
@@ -61,7 +62,7 @@
 
 
 <!--  manager Card-->
-<div as-sortable-item-handle ng-show="self.DataMember.user.Level_id == 2 && self.DataMember.user.id == card.member_card.Members_id
+<div as-sortable-item-handle ng-show="self.DataMember.user.Level_id == 2 && self.DataMember.user.id == card.member_card.member.id
      && self.DataMember.user.id != self.DataMember.board.manager_id">
 
 
@@ -90,15 +91,19 @@
 
 
             <!-- High Priority -->
-            <span class="glyphicon glyphicon-star" ng-show="card.priority_id == 2"></span>
+            <span class="glyphicon glyphicon-star" style="color: gold;" ng-show="card.priority_id == 2" ></span>
 
             <!-- edit -->
             <span class="glyphicon glyphicon-edit" ng-show="card.type_id == 2"></span>
 
+            <!-- Time -->
+            <span class="label label-danger"   ng-show="card.estimate_end < self.date"> <span class="glyphicon glyphicon-time"></span> Over time  </span>
 
-            <span class="card-title">Name :{{card.name}}</span>
-            <hr>
-            <span class="card-title">Detail : {{card.detail}} </span>
+            <!--General -->
+            <span class="card-title">Name : {{card.name }}</span>
+            <hr ng-show="card.pre_card.name != null">
+            <span class="card-title" ng-show="card.pre_card.name != null">Pre Card :  {{card.pre_card.name}} </span>
+
 
         </div>
 
@@ -121,7 +126,7 @@
 
 
 <!--  member -->
-<div ng-show="self.DataMember.user.Level_id == 2 && self.DataMember.user.id != card.member_card.Members_id  &&  self.DataMember.user.id != self.DataMember.board.manager_id">
+<div ng-show="self.DataMember.user.Level_id == 2 && self.DataMember.user.id != card.member_card.member.id &&  self.DataMember.user.id != self.DataMember.board.manager_id">
 
 
     <div class="row">
@@ -148,16 +153,19 @@
 
 
             <!-- High Priority -->
-            <span class="glyphicon glyphicon-star" ng-show="card.priority_id == 2"></span>
+            <span class="glyphicon glyphicon-star" style="color: gold;" ng-show="card.priority_id == 2" ></span>
 
             <!-- edit -->
             <span class="glyphicon glyphicon-edit" ng-show="card.type_id == 2"></span>
 
+            <!-- Time -->
+            <span class="label label-danger"   ng-show="card.estimate_end < self.date"> <span class="glyphicon glyphicon-time"></span> Over time  </span>
 
-            <!--<span class="btn-link"><a data-no-drag target=_top href="https://github.com/a5hik/ng-sortable">test no-drag href</a></span>-->
-            <span class="card-title">Name :{{card.name}}</span>
-            <hr>
-            <span class="card-title">Detail : {{card.detail}} </span>
+            <!--General -->
+            <span class="card-title">Name : {{card.name }}</span>
+            <hr ng-show="card.pre_card.name != null">
+            <span class="card-title" ng-show="card.pre_card.name != null">Pre Card :  {{card.pre_card.name}} </span>
+
 
         </div>
         <div class="col-sm-2">

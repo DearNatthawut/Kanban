@@ -46,6 +46,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="Actual" class="col-sm-2 control-label">Actual Date</label>
+                                    <div class="col-sm-10 ">
+                                        <input type="text" name="dateAC" class="form-control " id="Actual"
+                                               placeholder="Actual Date" value="{{$dateStartAC}} - {{$dateEndAC}}" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label for="manager" class="col-sm-2 control-label">Manager</label>
                                     <div class="col-sm-10 ">
                                         <select class="form-control" name="manager">

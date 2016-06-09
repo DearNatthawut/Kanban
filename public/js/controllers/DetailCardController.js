@@ -5,8 +5,8 @@
 'use strict';
 
 angular.module('kanban').controller('DetailCardController',
-    ['$scope', '$modalInstance', 'card', '$http', 
-        function ($scope, $modalInstance, card, $http) {
+    ['$scope', '$modalInstance', 'card', '$http','$route',
+        function ($scope, $modalInstance, card, $http,$route) {
 
 
         //console.log(card)
@@ -34,7 +34,9 @@ angular.module('kanban').controller('DetailCardController',
         }
 
         $scope.close = function () {
+
             $modalInstance.close();
+            $route.reload();
             
         };
         
@@ -123,7 +125,7 @@ angular.module('kanban').controller('DetailCardController',
         };
 
         $scope.changeCheckStatus = function (checklist) {
-            console.log(checklist);
+            //console.log(checklist);
             $http({
                 method: 'POST',
                 url: '/changeCheckStatus/' + checklist.id,
@@ -145,8 +147,25 @@ angular.module('kanban').controller('DetailCardController',
 
         };
 
-        $scope.updateChacklist = function (checklist) {
-            console.log(checklist);
+        $scope.updateChecklist = function (checklist) {
+            $http({
+                method: 'POST',
+                url: '/updateChecklist/' + checklist.id,
+                data : checklist
+            }).success(function (r) {
+
+                if(r.status_id == 1){
+                    r.status = "Backlog"
+                }else if(r.status_id == 2){
+                    r.status = "Ready"
+                }else if(r.status_id == 3){
+                    r.status = "Doing"
+                }else if(r.status_id == 4){
+                    r.status = "Done"
+                }
+                $scope.cardData = r;
+                card = $scope.cardData;
+            });
         };
 
         $scope.removeChecklist = function (cardID,checklistID) {
@@ -201,6 +220,28 @@ angular.module('kanban').controller('DetailCardController',
             });
 
         };
+
+            // UPDATE COMMENT
+            $scope.updateComment = function (comment) {
+                $http({
+                    method: 'POST',
+                    url: '/updateComment/' + comment.id,
+                    data : comment
+                }).success(function (r) {
+
+                    if(r.status_id == 1){
+                        r.status = "Backlog"
+                    }else if(r.status_id == 2){
+                        r.status = "Ready"
+                    }else if(r.status_id == 3){
+                        r.status = "Doing"
+                    }else if(r.status_id == 4){
+                        r.status = "Done"
+                    }
+                    $scope.cardData = r;
+                    card = $scope.cardData;
+                });
+            };
 
         $scope.removeComment = function (commentID,cardID) {
             if (confirm('Are You sure to Delete Comment?')) {

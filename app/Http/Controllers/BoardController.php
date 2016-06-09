@@ -45,7 +45,7 @@ class BoardController extends Controller
     {
         if (!Auth::check()) return redirect("/");
 
-        $data = Board::with(['members', 'manager','membersManager'])
+        $data = Board::with(['members', 'manager', 'membersManager'])
             ->select('boards.*')
             ->orderBy('created_at', 'desc')
             ->get();
@@ -76,6 +76,17 @@ class BoardController extends Controller
         $dateFormatEnd = preg_split('[-]', $data->estimate_end);
         $dateFormatEnd = $dateFormatEnd[0] . "/" . $dateFormatEnd[1] . "/" . $dateFormatEnd[2];
 
+        if ($data->start_date != null) {
+            $dateFormatStartAC = preg_split('[-]', $data->start_date);
+            $dateFormatStartAC = $dateFormatStartAC[0] . "/" . $dateFormatStartAC[1] . "/" . $dateFormatStartAC[2];
+        } else $dateFormatStartAC = "  ";
+
+
+        if ($data->end_date != null) {
+            $dateFormatEndAC = preg_split('[-]', $data->end_date);
+            $dateFormatEndAC = $dateFormatEndAC[0] . "/" . $dateFormatEndAC[1] . "/" . $dateFormatEndAC[2];
+        } else $dateFormatEndAC = "  ";
+
         $manager = Membermanagement::with(['member'])
             ->where('Board_id', '=', $id)
             ->get();
@@ -84,6 +95,8 @@ class BoardController extends Controller
             ->with('Board', $data)
             ->with('dateStart', $dateFormatStart)
             ->with('dateEnd', $dateFormatEnd)
+            ->with('dateStartAC', $dateFormatStartAC)
+            ->with('dateEndAC', $dateFormatEndAC)
             ->with('members', $manager);
     }
 

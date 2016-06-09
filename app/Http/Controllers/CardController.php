@@ -347,7 +347,20 @@ class CardController extends Controller
 
     }
 
+    public function updateChecklist($id)
+    {
 
+        if (!Auth::check()) return redirect("/");
+
+        $check = Checklist::find($id);
+        $check->fill(Input::all());
+        $check->save();
+        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment','preCard'])
+            ->find($check['Card_id']);
+
+        return $card;
+
+    }
 
     public function removeChecklist($cardID, $checklistID)
     {
@@ -399,6 +412,21 @@ class CardController extends Controller
         $card->type_id = 2 ;
         $card->status_complete = 0;
         $card->save();
+
+    }
+
+    public function updateComment($id)
+    {
+
+        if (!Auth::check()) return redirect("/");
+
+        $com = Comment::find($id);
+        $com->fill(Input::all());
+        $com->save();
+        $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment','preCard'])
+            ->find($com['Card_id']);
+
+        return $card;
 
     }
 
