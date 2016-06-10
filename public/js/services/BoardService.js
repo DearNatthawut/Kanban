@@ -7,22 +7,34 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
 
     return {
 
-        cardMove: function ($MoveEvent) {
+        kanbanBoard: function (board) {
+            var kanbanBoard = new Board(board.name, board.numberOfColumns);
+            angular.forEach(board.columns, function (column) {
+                BoardManipulator.addColumn(kanbanBoard, column.name);
+                angular.forEach(column.cards, function (card) {
+                    BoardManipulator.addCardToColumn(kanbanBoard, column, card);
+                    //console.log(card)
+                });
+            });
+            return kanbanBoard;
+        },
 
-          
+        cardMove: function ($MoveEvent) {
+            
             return $http({
                 //crossDomain : true,
                 method: 'POST',
                 url: '/moveCard',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: $.param($MoveEvent)
-            }).success(function (r) {});
+            }).success(function (r) {
+            });
         },
 
         removeCard: function (board, column, card) {
             if (confirm('Are You sure to Delete?')) {
                 var $DeCard = {
-                    card : card.id
+                    card: card.id
                 };
 
                 return $http({
@@ -31,10 +43,10 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     data: $.param($DeCard)
                 }).success(function (t) {
-                    
+
                     BoardManipulator.removeCardFromColumn(board, column, card);
                 }).error(function () {
-                     $modal.open({
+                    $modal.open({
                         templateUrl: '/views/partials/errorDel.html'
                     });
                 });
@@ -79,7 +91,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
 
                         return $http({
                             method: 'POST',
-                            url : "/getOneCard",
+                            url: "/getOneCard",
                             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                             data: $.param($cardId)
                         })
@@ -92,7 +104,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
             var show = $modal.open({
                 templateUrl: '/views/partials/afterMove.html'
             });
-        },afterMoveBack: function (cardID) {
+        }, afterMoveBack: function (cardID) {
 
             var show = $modal.open({
                 templateUrl: '/views/partials/afterMoveBack.html',
@@ -101,24 +113,23 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 resolve: {
                     card: function () {
 
-                      return  cardID;
+                        return cardID;
 
                     }
                 }
             });
 
         },
+        boardComplete: function () {
+            var show = $modal.open({
+                templateUrl: '/views/partials/boardComplete.html',
+                controller: 'BoardCompleteController',
+                backdrop: 'static'
 
-        kanbanBoard: function (board) {
-            var kanbanBoard = new Board(board.name, board.numberOfColumns);
-            angular.forEach(board.columns, function (column) {
-                BoardManipulator.addColumn(kanbanBoard, column.name);
-                angular.forEach(column.cards, function (card) {
-                    BoardManipulator.addCardToColumn(kanbanBoard, column, card );
-                    //console.log(card)
-                });
             });
-            return kanbanBoard;
         }
+
+
+       
     };
 }]);

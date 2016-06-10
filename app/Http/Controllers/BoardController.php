@@ -208,6 +208,17 @@ class BoardController extends Controller
         return redirect('/home');
     }
 
+    public function boardComplete()
+    {
+        if (!Auth::check()) return redirect("/");
+
+        $board = Board::find(session()->get('Board'));
+        $board->status_complete = 1;
+        $board->save();
+
+    }
+
+
     public function getDataMember()
     {
         if (!Auth::check()) return redirect("/");

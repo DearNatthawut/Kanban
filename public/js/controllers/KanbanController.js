@@ -9,12 +9,11 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
         var self = this;
         self.date = new Date();
-        console.log(self.date);
+        self.checkComplete = 0;
+        //console.log(self.date);
 
-        self.isOvertime = function(x,y){
-            var dx = new Date(x);
-            return dx < y;
-        }
+       
+
 
         function getDataMember() {
             $http({
@@ -24,7 +23,8 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
             }).success(function (r) {
                 self.DataMember = r;
-                // console.log(self.DataMember);
+                console.log((self.DataMember.user.Level_id == 1 || self.DataMember.user.id == self.DataMember.board.manager_id )&&
+                    self.DataMember.board.status_complete != 1);
             })
         }
 
@@ -34,7 +34,12 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
         BoardDataFactory.getKanban().success(function (r) {  //------
             // console.log(r);
             self.kanbanBoard = BoardService.kanbanBoard(r);
-            console.log(self.kanbanBoard)
+            if ((self.kanbanBoard.columns[0].cards.length == 0) && (self.kanbanBoard.columns[2].cards.length == 0)
+                && (self.kanbanBoard.columns[2].cards.length == 0) && (self.kanbanBoard.columns[3].cards.length != 0)) {
+                self.checkComplete = 1;
+            }else {
+                self.checkComplete = 0;
+            }
 
         });
 
@@ -55,11 +60,11 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
                 if (event.dest.sortableScope.$parent.column.name == "Backlog") {
                     AfterID = 1;
                 } else if (event.dest.sortableScope.$parent.column.name == "Ready") {
-                    AfterID = 2 ;
+                    AfterID = 2;
                 } else if (event.dest.sortableScope.$parent.column.name == "Doing") {
                     AfterID = 3;
-                } else if (event.dest.sortableScope.$parent.column.name == "Done"){
-                    AfterID =4;
+                } else if (event.dest.sortableScope.$parent.column.name == "Done") {
+                    AfterID = 4;
                 }
 
 
@@ -74,15 +79,22 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
                             // console.log(r);
                             self.kanbanBoard = BoardService.kanbanBoard(r);
                             // console.log(self.kanbanBoard)
-                           
-                            if (BeforeID - AfterID < 0){           //----------------------- After Moved
+
+                            if (BeforeID - AfterID < 0) {           //----------------------- After Moved
                                 BoardService.afterMove();
-                            }else {
+                            } else {
                                 BoardService.afterMoveBack(event.source.itemScope.modelValue.id)
                             }
 
 
                         });
+
+                        if ((self.kanbanBoard.columns[0].cards.length == 0) && (self.kanbanBoard.columns[2].cards.length == 0)
+                            && (self.kanbanBoard.columns[2].cards.length == 0) && (self.kanbanBoard.columns[3].cards.length != 0)) {
+                            self.checkComplete = 1;
+                        }else {
+                            self.checkComplete = 0;
+                        }
                     });
             },
             accept: function (event) {
@@ -114,6 +126,15 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
         self.detailCard = function (card) {
             BoardService.detailCard(card);
+        };
+
+        self.boardComplete = function () {
+            BoardService.boardComplete();
+        };
+
+        self.isOvertime = function (x, y) {
+            var dx = new Date(x);
+            return dx < y;
         };
 
 

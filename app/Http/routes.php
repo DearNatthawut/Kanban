@@ -45,6 +45,8 @@ Route::get('/restoreBoard/{id}','BoardController@restoreBoard'); // กู้ค
 
 Route::get('/getDataMember', 'BoardController@getDataMember' );
 
+Route::post('/boardComplete','BoardController@boardComplete');// แก้ไข ข้อมูล
+
 //---------------------------------------------------------------------------------------- Card
 
 Route::get('/cards', 'CardController@getCard'); // get card data main
@@ -82,6 +84,8 @@ Route::post('/removeChecklist/{cardID}/{checklistID}','CardController@removeChec
 Route::post('/addNewComment/{id}','CardController@addNewComment');// เพิ่ม comment
 
 Route::post('/commentMoveBack/{id}','CardController@addNewCommentMoveBack');// เพิ่ม comment Move Back
+
+Route::post('/commentMoveAllBack/{id}','CardController@addNewCommentMoveAllBack');// เพิ่ม comment Move Back
 
 Route::post('/updateChecklist/{id}','CardController@updateChecklist');// แก้ไข comment
 

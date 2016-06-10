@@ -1,4 +1,4 @@
-<div class="modal-header">
+<div class="modal-header" style="background: #00ca6d">
 
     <h2 class="modal-title">Alert!!</h2>
 
@@ -11,7 +11,10 @@
     <input class="form-control"  ng-model="commentData" placeholder="Post Comment"  required="required">
     <div class="modal-footer">
 
+
         <button class="btn btn-primary pull-right" ng-click="commentMoveBack(commentData)" >Submit</button>
+        <button class="btn btn-danger pull-right" ng-click="commentMoveAllBack(commentData)" >Move All Cards and Submit</button>
+
     </div>
 </div>
 

@@ -4,7 +4,7 @@
 'use strict';
 
 angular.module('kanban').controller('MoveBackCardController',
-    ['$scope', '$modalInstance', 'card', '$http', function ($scope, $modalInstance, card, $http) {
+    ['$scope', '$modalInstance', 'card', '$http','$route', function ($scope, $modalInstance, card, $http,$route) {
 
         function initScope(card) {
             $scope.cardID = card;
@@ -22,10 +22,26 @@ angular.module('kanban').controller('MoveBackCardController',
                 url: '/commentMoveBack/' + $scope.cardID,
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data : $.param($addCom)
-                
+            }).success(function (r) {
+                $route.reload();
+                $modalInstance.close();
+            })
+        };
+
+        $scope.commentMoveAllBack = function (comment) {
+            var $addCom = {
+                detail : comment
+            };
+            $http({
+                method: 'POST',
+                url: '/commentMoveAllBack/' + $scope.cardID,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data : $.param($addCom)
             }).success(function (r) {
                 
+                $route.reload();
                 $modalInstance.close();
+
             })
         };
 

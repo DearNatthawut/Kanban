@@ -34,9 +34,8 @@ angular.module('kanban').controller('DetailCardController',
         }
 
         $scope.close = function () {
-
-            $modalInstance.close();
             $route.reload();
+            $modalInstance.close();
             
         };
         

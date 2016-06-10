@@ -2,6 +2,7 @@
 <div ng-model="kanbanBoard" id="board" ng-controller="KanbanController as self">
 
 
+    <button type="submit" ng-click="self.boardComplete()" ng-show="self.checkComplete == 1" class="btn btn-primary">Project Complete ?</button>
 
     <div id="columns" class="row">
 

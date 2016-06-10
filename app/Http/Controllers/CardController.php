@@ -251,6 +251,18 @@ class CardController extends Controller
         }
         $move->save();
 
+        $getCheckPre = Card::where('child_id','=',$cardId)
+        ->get();
+        foreach ($getCheckPre as $getPre){
+             if ($getPre->status_complete == 1){
+                 $getPre->status_complete = 0;
+             }
+            if ($getPre->status_id != 1){
+                $getPre->status_id =1 ;
+            }
+            $getPre->save();
+        }
+
         $card = Card::with(['checklists', 'memberCard.member', 'color', 'comments.memberComment', 'preCard'])
             ->find($cardId);
 
@@ -397,6 +409,37 @@ class CardController extends Controller
 
     }
 
+    public function addNewCommentMoveAllBack($id)  // ----------------------------- Add Comment event Move Card Back
+    {
+
+        if (!Auth::check()) return redirect("/");
+
+        $newComment = new Comment();
+        $newComment->detail = "(แก้ไข) " . Input::get('detail');
+        $newComment->Card_id = $id;
+        $newComment->User_id = Auth::user()->id;
+        $newComment->save();
+
+        $card = Card::find($id);
+        $card->type_id = 2 ;
+        $card->status_complete = 0;
+        $card->save();
+
+        $card->Board_id;
+        $getAllCards = Card::where('Board_id','=',$card->Board_id)
+            ->get();
+
+        foreach ($getAllCards as $getCard){
+            if ( $getCard->status_id != 1){
+                $getCard->status_id = 1;
+                $getCard->type_id = 2 ;
+                $getCard->save();
+            }
+
+        }
+
+    }
+
     public function addNewCommentMoveBack($id)  // ----------------------------- Add Comment event Move Card Back
     {
 
@@ -412,6 +455,8 @@ class CardController extends Controller
         $card->type_id = 2 ;
         $card->status_complete = 0;
         $card->save();
+
+
 
     }
 

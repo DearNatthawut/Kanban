@@ -37,6 +37,8 @@
 {{--<script type="text/javascript" src="/js/controllers/NewCardController.js"></script>--}}
 <script type="text/javascript" src="/js/controllers/DetailCardController.js"></script>
 <script type="text/javascript" src="/js/controllers/MoveBackCardController.js"></script>
+<script type="text/javascript" src="/js/controllers/BoardCompleteController.js"></script>
+
 
 
 
