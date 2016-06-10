@@ -127,6 +127,14 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 backdrop: 'static'
 
             });
+        },
+        boardInComplete: function () {
+            var show = $modal.open({
+                templateUrl: '/views/partials/boardInComplete.html',
+                controller: 'BoardCompleteController',
+                backdrop: 'static'
+
+            });
         }
 
 

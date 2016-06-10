@@ -23,8 +23,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
             }).success(function (r) {
                 self.DataMember = r;
-                console.log((self.DataMember.user.Level_id == 1 || self.DataMember.user.id == self.DataMember.board.manager_id )&&
-                    self.DataMember.board.status_complete != 1);
+
             })
         }
 
@@ -34,7 +33,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
         BoardDataFactory.getKanban().success(function (r) {  //------
             // console.log(r);
             self.kanbanBoard = BoardService.kanbanBoard(r);
-            if ((self.kanbanBoard.columns[0].cards.length == 0) && (self.kanbanBoard.columns[2].cards.length == 0)
+            if ((self.kanbanBoard.columns[0].cards.length == 0) && (self.kanbanBoard.columns[1].cards.length == 0)
                 && (self.kanbanBoard.columns[2].cards.length == 0) && (self.kanbanBoard.columns[3].cards.length != 0)) {
                 self.checkComplete = 1;
             }else {
@@ -89,7 +88,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
                         });
 
-                        if ((self.kanbanBoard.columns[0].cards.length == 0) && (self.kanbanBoard.columns[2].cards.length == 0)
+                        if ((self.kanbanBoard.columns[0].cards.length == 0) && (self.kanbanBoard.columns[1].cards.length == 0)
                             && (self.kanbanBoard.columns[2].cards.length == 0) && (self.kanbanBoard.columns[3].cards.length != 0)) {
                             self.checkComplete = 1;
                         }else {
@@ -130,6 +129,10 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
         self.boardComplete = function () {
             BoardService.boardComplete();
+        };
+
+        self.boardInComplete = function () {
+            BoardService.boardInComplete();
         };
 
         self.isOvertime = function (x, y) {

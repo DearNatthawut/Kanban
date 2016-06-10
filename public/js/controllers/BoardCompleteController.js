@@ -19,6 +19,18 @@ angular.module('kanban').controller('BoardCompleteController',
                 method: 'POST',
                 url: '/boardComplete'
             }).success(function (t) {
+                $route.reload();
+                $modalInstance.close();
+            })
+        }
+
+        $scope.boardInComplete = function () {
+
+            return $http({
+                method: 'POST',
+                url: '/boardInComplete'
+            }).success(function (t) {
+                $route.reload();
                 $modalInstance.close();
             })
         }

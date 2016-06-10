@@ -214,8 +214,31 @@ class BoardController extends Controller
 
         $board = Board::find(session()->get('Board'));
         $board->status_complete = 1;
+        $board->end_date = date('Y-m-d');
         $board->save();
 
+    }
+
+    public function boardPostInComplete()
+    {
+        if (!Auth::check()) return redirect("/");
+
+        $board = Board::find(session()->get('Board'));
+        $board->status_complete = 0;
+        $board->end_date = null;
+        $board->save();
+
+    }
+
+    public function boardGetInComplete()
+    {
+        if (!Auth::check()) return redirect("/");
+
+        $board = Board::find(session()->get('Board'));
+        $board->status_complete = 0;
+        $board->end_date = null;
+        $board->save();
+        return redirect('/home');
     }
 
 

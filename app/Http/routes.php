@@ -47,6 +47,10 @@ Route::get('/getDataMember', 'BoardController@getDataMember' );
 
 Route::post('/boardComplete','BoardController@boardComplete');// แก้ไข ข้อมูล
 
+Route::post('/boardInComplete','BoardController@boardPostInComplete');// แก้ไข ข้อมูล
+
+Route::get('/boardInComplete','BoardController@boardGetInComplete');// แก้ไข ข้อมูล
+
 //---------------------------------------------------------------------------------------- Card
 
 Route::get('/cards', 'CardController@getCard'); // get card data main

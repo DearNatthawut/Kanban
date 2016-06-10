@@ -53,6 +53,7 @@
                             function deleteBoard(id) {
 
                                 if (confirm("Confirm Delete this Board!") == true) {
+
                                     document.location.href = "/deleteBoard/" + id;
                                 }
                             }

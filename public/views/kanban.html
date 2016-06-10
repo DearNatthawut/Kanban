@@ -2,7 +2,15 @@
 <div ng-model="kanbanBoard" id="board" ng-controller="KanbanController as self">
 
 
-    <button type="submit" ng-click="self.boardComplete()" ng-show="self.checkComplete == 1" class="btn btn-primary">Project Complete ?</button>
+    <button type="submit" ng-click="self.boardComplete()"
+            ng-show="self.checkComplete == 1 && ( self.DataMember.user.Level_id == 1 ||
+            self.DataMember.user.id == self.DataMember.board.manager_id )&& self.DataMember.board.status_complete != 1"
+            class="btn btn-primary">Project Complete ?</button>
+
+    <button type="submit" ng-click="self.boardInComplete()"
+            ng-show="( self.DataMember.user.Level_id == 1 ||
+            self.DataMember.user.id == self.DataMember.board.manager_id )&& self.DataMember.board.status_complete == 1"
+            class="btn btn-danger">Project Incomplete ?</button>
 
     <div id="columns" class="row">
 
