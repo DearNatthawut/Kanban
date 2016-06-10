@@ -18,17 +18,7 @@
             </div>
         </div>
     </nav>
-    <script type="text/javascript">
-        var verifyCallback = function(response) {
-            alert(response);
-        };
-        var onloadCallback = function() {
-            widgetId1 = grecaptcha.render('g-recaptcha', {
-                'sitekey': '6LdDAiITAAAAAAjt0ATo045kGSuV-2-S11evj4wZ',
-                'callback': verifyCallback,
-            });
-        };
-    </script>
+
 </head>
 <body>
 <br><br><br>
@@ -78,6 +68,6 @@
         </div>
 
         <div class="panel-footer"></div>
-        
+
     </div>
 </div>

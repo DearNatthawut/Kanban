@@ -83,7 +83,7 @@ Route::post('/addNewComment/{id}','CardController@addNewComment');// เพิ�
 
 Route::post('/commentMoveBack/{id}','CardController@addNewCommentMoveBack');// เพิ่ม comment Move Back
 
-Route::post('/updateComment/{id}','CardController@updateComment');// แก้ไข comment
+Route::post('/updateChecklist/{id}','CardController@updateChecklist');// แก้ไข comment
 
 Route::post('/removeComment/{commentID}/{cardID}','CardController@removeComment');// ลบ comment
 
@@ -101,6 +101,11 @@ Route::post('/addMember/{id}','MemberController@addMember');
 Route::post('/delMember/{id}','MemberController@delMember');
 Route::post('/getBackMember/{id}','MemberController@getbackMember');
 
+//------------------------------------------------------------------------------------------------Help
+Route::get('/help', function () {
+    return view('pages.board.help');
+});
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -109,6 +114,7 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
 
 // use for @break in blade 
 Blade::extend(function($value)

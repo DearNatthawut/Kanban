@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
+    use \App\Traits\CaptchaTrait;
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -45,6 +46,7 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:4',
+            'g-recaptcha-response'  => 'required'
         ]);
     }
 

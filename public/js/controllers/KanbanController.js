@@ -8,7 +8,13 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
 
         var self = this;
-        self.date = new Date('yyyy-MM-dd');
+        self.date = new Date();
+        console.log(self.date);
+
+        self.isOvertime = function(x,y){
+            var dx = new Date(x);
+            return dx < y;
+        }
 
         function getDataMember() {
             $http({
@@ -28,7 +34,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
         BoardDataFactory.getKanban().success(function (r) {  //------
             // console.log(r);
             self.kanbanBoard = BoardService.kanbanBoard(r);
-            //console.log(self.kanbanBoard)
+            console.log(self.kanbanBoard)
 
         });
 

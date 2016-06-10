@@ -49,7 +49,14 @@
                         <i class="fa fa-cogs"></i> <span>Edit</span>
                     </a>
                 </li>
+
             @endif
+            <li>
+                <a href="/help">
+                    <i class="glyphicon glyphicon-info-sign"></i> <span>Help</span>
+                    <small class="label pull-right bg-red"></small>
+                </a>
+            </li>
 
 
         </ul>

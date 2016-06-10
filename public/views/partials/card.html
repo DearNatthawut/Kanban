@@ -36,7 +36,7 @@
             <span class="glyphicon glyphicon-edit" ng-show="card.type_id == 2"></span>
 
             <!-- Time -->
-             <span class="label label-danger"   ng-show="card.estimate_end < self.date"> <span class="glyphicon glyphicon-time"></span> Over time  </span>
+             <span class="label label-danger"   ng-show="self.isOvertime(card.estimate_end,self.date)"> <span class="glyphicon glyphicon-time"></span> Over time  </span>
 
             <!--General -->
             <span class="card-title">Name : {{card.name }}</span>

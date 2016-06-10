@@ -64,15 +64,15 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>NameCard</th>
+                                <th>Work activities</th>
+                                <th>Responsible person</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($Card as $Card)
                                 <tr>
-                                    <td>{{$Card['memberCard']['member']->name}}</td>
                                     <td> {{$Card->name}}</td>
+                                    <td>{{$Card['memberCard']['member']->name}}</td>
                                 </tr>
                             @endforeach
                             </tbody>
