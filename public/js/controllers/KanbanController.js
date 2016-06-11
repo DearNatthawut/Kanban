@@ -74,15 +74,17 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
                 BoardService.cardMove($MoveEvent)
                     .success(function (r) {
+                        var beforeStatus = event.source.itemScope.modelValue.status;
+                        var afterStatus = event.dest.sortableScope.$parent.column.name;
                         BoardDataFactory.getKanban().success(function (r) {  //------
                             // console.log(r);
                             self.kanbanBoard = BoardService.kanbanBoard(r);
                             // console.log(self.kanbanBoard)
 
                             if (BeforeID - AfterID < 0) {           //----------------------- After Moved
-                                BoardService.afterMove();
+                                BoardService.afterMove(beforeStatus,afterStatus);
                             } else {
-                                BoardService.afterMoveBack(event.source.itemScope.modelValue.id)
+                                BoardService.afterMoveBack(event.source.itemScope.modelValue.id,beforeStatus,afterStatus)
                             }
 
 

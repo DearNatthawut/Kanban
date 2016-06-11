@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Board;
 use App\Models\Color;
+use App\Models\Comment;
 use App\Models\Member;
 use App\Models\Membermanagement;
 use App\Models\Card;
@@ -172,27 +173,42 @@ class BoardController extends Controller
     {
 
         if (!Auth::check()) return redirect("/");
-        /*   $cards = Card::where('Boards_id', '=', $id)
-           ->get();
 
-           $ids = [];
-           foreach ($cards as $cards){
-               $ids[] = $cards['id'];
-           }
-
-           $checklist = Checklist::whereIn('Cards_id',$ids)
-               ->delete();
-
-           $cards = Card::where('Boards_id', '=', $id)
-               ->delete();
-
-           $membermana = Membermanagement::where('Boards_id', '=', $id)->delete();
-
-
-           $board = \App\Models\Board::find($id)->delete();*/
         $board = Board::find($id);
         $board->board_hide = 1;
         $board->save();
+
+        return redirect('/home');
+    }
+
+    //ลบ Baord
+    public function hardDeleteBoard($id)
+    {
+
+        if (!Auth::check()) return redirect("/");
+
+        $cards = Card::where('Board_id', '=', $id)
+            ->get();
+
+        $ids = [];
+        foreach ($cards as $cards) {
+            $ids[] = $cards['id'];
+        }
+
+        Checklist::whereIn('Card_id', $ids)
+            ->delete();
+
+        Comment::whereIn('Card_id', $ids)
+            ->delete();
+
+        Card::where('Board_id', '=', $id)
+            ->delete();
+
+       Membermanagement::where('Board_id', '=', $id)
+           ->delete();
+
+
+        Board::find($id)->delete();
 
         return redirect('/home');
     }

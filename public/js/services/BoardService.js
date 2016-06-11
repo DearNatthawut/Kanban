@@ -100,11 +100,25 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 }
             });
         },
-        afterMove: function () {
+        afterMove: function (beforeStatus,afterStatus) {
             var show = $modal.open({
-                templateUrl: '/views/partials/afterMove.html'
+                templateUrl: '/views/partials/afterMove.html',
+                controller: 'MoveCardController',
+              
+                resolve: {
+                    statusMove: function () {
+                        
+                        var $status = {
+                            before: beforeStatus,
+                            after: afterStatus
+                            
+                        };
+                        return $status;
+                    }
+                }
+                        
             });
-        }, afterMoveBack: function (cardID) {
+        }, afterMoveBack: function (cardID,beforeStatus,afterStatus) {
 
             var show = $modal.open({
                 templateUrl: '/views/partials/afterMoveBack.html',
@@ -112,8 +126,14 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 backdrop: 'static',
                 resolve: {
                     card: function () {
+                        
+                        var $data = {
+                            cardID:cardID,
+                            before: beforeStatus,
+                            after: afterStatus
+                        }
 
-                        return cardID;
+                        return $data;
 
                     }
                 }

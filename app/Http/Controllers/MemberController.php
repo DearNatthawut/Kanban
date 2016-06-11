@@ -10,6 +10,8 @@ namespace App\Http\Controllers;
 use App\Models\Board;
 use App\Models\Card;
 use App\Models\Membermanagement;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 use DB;
 use App\Models\Member;
 
@@ -17,6 +19,7 @@ class MemberController extends Controller
 {
     public function showMember($id)
     {
+        if (!Auth::check()) return redirect("/");
         $idBoard = $id;
         $data = DB::table('membermanagement')
             ->join('users', 'membermanagement.User_id', '=', 'users.id')
@@ -46,6 +49,7 @@ class MemberController extends Controller
     public function addMember($id)
     {
 
+        if (!Auth::check()) return redirect("/");
         if (\Input::get('member')) {
             $member = new Membermanagement();
             $member->User_id = \Input::get('member');
@@ -60,6 +64,7 @@ class MemberController extends Controller
     public function delMember($id)
     {
 
+        if (!Auth::check()) return redirect("/");
         $memberID = \Input::get('memberID');
         $member = Membermanagement::find($memberID);
         $member->active = 1;
@@ -88,7 +93,7 @@ class MemberController extends Controller
     }
     public function getBackMember($id)
     {
-
+        if (!Auth::check()) return redirect("/");
         $memberID = \Input::get('memberID');
         $member = Membermanagement::find($memberID);
         $member->active = 0;

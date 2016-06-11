@@ -415,7 +415,8 @@ class CardController extends Controller
         if (!Auth::check()) return redirect("/");
 
         $newComment = new Comment();
-        $newComment->detail = "(แก้ไข) " . Input::get('detail');
+        $newComment->detail = "(แก้ไข)(".Input::get('before')."  To  ".Input::get('before').") " . Input::get('detail');
+        $newComment->edit_status = 1 ;
         $newComment->Card_id = $id;
         $newComment->User_id = Auth::user()->id;
         $newComment->save();
@@ -430,10 +431,17 @@ class CardController extends Controller
             ->get();
 
         foreach ($getAllCards as $getCard){
-            if ( $getCard->status_id != 1){
+            if ( $getCard->status_id != 1 && $getCard->id != $id){
                 $getCard->status_id = 1;
                 $getCard->type_id = 2 ;
                 $getCard->save();
+
+                $newComment = new Comment();
+                $newComment->detail = "(แก้ไข โดย ".$card->name.")(".Input::get('before')."  To  ".Input::get('before').") " . Input::get('detail');
+                $newComment->edit_status = 1 ;
+                $newComment->Card_id = $getCard->id;
+                $newComment->User_id = Auth::user()->id;
+                $newComment->save();
             }
 
         }
@@ -446,7 +454,8 @@ class CardController extends Controller
         if (!Auth::check()) return redirect("/");
 
         $newComment = new Comment();
-        $newComment->detail = "(แก้ไข) " . Input::get('detail');
+        $newComment->detail = "(แก้ไข)(".Input::get('before')."  To  ".Input::get('after').") " . Input::get('detail');
+        $newComment->edit_status = 1 ;
         $newComment->Card_id = $id;
         $newComment->User_id = Auth::user()->id;
         $newComment->save();

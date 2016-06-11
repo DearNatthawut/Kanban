@@ -17,7 +17,7 @@
 
                         @if(Auth::user()->Level_id == 1)
                             <a href="/createBoard">
-                                <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-plus">
+                                <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus">
                                         Create
                                         Board</i></button>
                             </a>
@@ -28,14 +28,14 @@
 
                     <ul class="nav nav-tabs ">
                         <li role="presentation" class="active">
-                            <a href="#board-gen" data-toggle="tab">Doing</a>
+                            <a href="#board-gen" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> Doing</a>
                         </li>
                         <li role="presentation">
-                            <a href="#board-done" data-toggle="tab">Done</a>
+                            <a href="#board-done" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span> Done</a>
                         </li>
                         @if(Auth::user()->Level_id == 1)
                             <li role="presentation">
-                                <a href="#board-bin" data-toggle="tab">Bin</a>
+                                <a href="#board-bin" data-toggle="tab"><span class="glyphicon glyphicon-trash"></span> Bin</a>
                             </li>
                         @endif
                     </ul>

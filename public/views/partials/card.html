@@ -11,7 +11,7 @@
             <!--<span class="btn-link"><a data-no-drag target=_top href="https://github.com/a5hik/ng-sortable">test no-drag href</a></span>-->
 
             <!--  Color -->
-            <span class="label" style="background-color: whitesmoke; border: solid"
+            <span class="label" style="background-color: whitesmoke; border: solid;width:42px"
                   ng-show="card.color.name == 'whitesmoke'">   </span>
 
             <span class="label" style="background-color: red;border: solid"
@@ -31,17 +31,20 @@
 
 
             <!-- High Priority -->
-             <span class="glyphicon glyphicon-star" style="color: gold;" ng-show="card.priority_id == 2" ></span>
+            <span class="glyphicon glyphicon-star card-icon" style="color: gold;"
+                  ng-show="card.priority_id == 2"></span>
 
             <!-- edit -->
-            <span class="glyphicon glyphicon-edit" ng-show="card.type_id == 2"></span>
+             <span class="label label-default card-icon"  ng-show="card.type_id == 2   ">
+                 <span class="glyphicon glyphicon-edit " ></span> {{(card.comments | filter:"(แก้ไข").length }}</span>
 
             <!-- Time -->
-             <span class="label label-danger"   ng-show="self.isOvertime(card.estimate_end,self.date)"> <span class="glyphicon glyphicon-time"></span> Over time  </span>
+             <span class="label label-danger card-icon" ng-show="self.isOvertime(card.estimate_end,self.date)">
+                 <span class="glyphicon glyphicon-time"></span> Over time  </span>
 
             <!--General -->
-            <span class="card-title">Name : {{card.name }}</span>
-            <hr ng-show="card.pre_card.name != null">
+            <span class="card-title">{{card.name }}</span>
+            <!--<hr ng-show="card.pre_card.name != null">-->
             <span class="card-title" ng-show="card.pre_card.name != null">Pre Card :  {{card.pre_card.name}} </span>
 
         </div>
@@ -90,15 +93,16 @@
             <span class="label" style="background-color: orange;border: solid"
                   ng-show="card.color.name == 'orange'">   </span>
 
-
             <!-- High Priority -->
-            <span class="glyphicon glyphicon-star" style="color: gold;" ng-show="card.priority_id == 2" ></span>
+            <span class="glyphicon glyphicon-star card-icon" style="color: gold;"
+                  ng-show="card.priority_id == 2"></span>
 
             <!-- edit -->
-            <span class="glyphicon glyphicon-edit" ng-show="card.type_id == 2"></span>
+            <span class="glyphicon glyphicon-edit card-icon" ng-show="card.type_id == 2"></span>
 
             <!-- Time -->
-            <span class="label label-danger"   ng-show="card.estimate_end < self.date"> <span class="glyphicon glyphicon-time"></span> Over time  </span>
+             <span class="label label-danger card-icon" ng-show="self.isOvertime(card.estimate_end,self.date)">
+                 <span class="glyphicon glyphicon-time"></span> Over time  </span>
 
             <!--General -->
             <span class="card-title">Name : {{card.name }}</span>
@@ -154,13 +158,15 @@
 
 
             <!-- High Priority -->
-            <span class="glyphicon glyphicon-star" style="color: gold;" ng-show="card.priority_id == 2" ></span>
+            <span class="glyphicon glyphicon-star card-icon" style="color: gold;"
+                  ng-show="card.priority_id == 2"></span>
 
             <!-- edit -->
-            <span class="glyphicon glyphicon-edit" ng-show="card.type_id == 2"></span>
+            <span class="glyphicon glyphicon-edit card-icon" ng-show="card.type_id == 2"></span>
 
             <!-- Time -->
-            <span class="label label-danger"   ng-show="card.estimate_end < self.date"> <span class="glyphicon glyphicon-time"></span> Over time  </span>
+             <span class="label label-danger card-icon" ng-show="self.isOvertime(card.estimate_end,self.date)">
+                 <span class="glyphicon glyphicon-time"></span> Over time  </span>
 
             <!--General -->
             <span class="card-title">Name : {{card.name }}</span>

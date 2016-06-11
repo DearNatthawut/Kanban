@@ -12,8 +12,8 @@
     <div class="modal-footer">
 
 
-        <button class="btn btn-primary pull-right" ng-click="commentMoveBack(commentData)" >Submit</button>
-        <button class="btn btn-danger pull-right" ng-click="commentMoveAllBack(commentData)" >Move All Cards and Submit</button>
+        <button class="btn btn-primary pull-right" ng-click="commentMoveBack(commentData)" ng-show="commentData != null" >Move Only Card</button>
+        <button class="btn btn-danger pull-right" ng-click="commentMoveAllBack(commentData)" ng-show="commentData != null" >Move All Cards</button>
 
     </div>
 </div>

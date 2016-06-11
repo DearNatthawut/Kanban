@@ -52,7 +52,7 @@
                         <script>
                             function deleteBoard(id) {
 
-                                if (confirm("Confirm Delete this Board!") == true) {
+                                if (confirm("Confirm move this board to bin!") == true) {
 
                                     document.location.href = "/deleteBoard/" + id;
                                 }

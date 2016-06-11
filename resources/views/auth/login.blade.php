@@ -11,15 +11,15 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">
-                    <span class="logo-lg"><b>KANBAN</b></span>
+                    <span class="logo-lg"><b>KANBAN</b></span> </a>
 
-                </a>
             </div>
         </div>
     </nav>
 </head>
 <body>
-<br><br><br><br><br><br><br>
+<br><br><br><br>
+
 
 <div class="col-md-6 col-md-offset-3">
     <div class="panel panel-default">
@@ -48,8 +48,8 @@
                     </div>
                     <br>
 
-                    <button type="submit" class="btn btn-defaul pull-right" value="LOGIN"><span class="glyphicon glyphicon-log-in"></span> Login</button>
-                    <button type="button" class="btn btn-defaul pull-left" onclick='location.replace("/auth/register")' >Register</button>
+                    <button type="submit" class="btn btn-defaul pull-right" value="LOGIN"><span class="glyphicon glyphicon-log-in"></span> Sign in</button>
+
                 </form>
 
             </div>
@@ -58,4 +58,11 @@
         <div class="panel-footer"></div>
 
     </div>
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+            <div class="box-body">
+               <center><p>How to Project Mangement With Kanban Board ? <a href="/auth/register" class="navbar-link">Create an account</a></p></center>
+                </div>
+            </div>
+        </div>
 </div>

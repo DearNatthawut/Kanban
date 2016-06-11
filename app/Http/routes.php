@@ -39,17 +39,19 @@ Route::post('/editBoard','BoardController@editBoard');// แก้ไข ข้�
 
 Route::get('/home','BoardController@showAllBoard'); // แสดง ทุก board
 
-Route::get('/deleteBoard/{id}','BoardController@deleteBoard'); // ลบ board
+Route::get('/deleteBoard/{id}','BoardController@deleteBoard'); // board To Bin
+
+Route::get('/hardDeleteBoard/{id}','BoardController@hardDeleteBoard'); // ลบ board
 
 Route::get('/restoreBoard/{id}','BoardController@restoreBoard'); // กู้คืน board
 
 Route::get('/getDataMember', 'BoardController@getDataMember' );
 
-Route::post('/boardComplete','BoardController@boardComplete');// แก้ไข ข้อมูล
+Route::post('/boardComplete','BoardController@boardComplete');// เปลี่ยนสถานะ เสร็จ
 
-Route::post('/boardInComplete','BoardController@boardPostInComplete');// แก้ไข ข้อมูล
+Route::post('/boardInComplete','BoardController@boardPostInComplete');// เปลี่ยนสถานะ ไม่เสร็จ
 
-Route::get('/boardInComplete','BoardController@boardGetInComplete');// แก้ไข ข้อมูล
+Route::get('/boardInComplete','BoardController@boardGetInComplete');// เปลี่ยนสถานะ ไม่เสร็จ
 
 //---------------------------------------------------------------------------------------- Card
 

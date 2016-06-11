@@ -7,15 +7,19 @@ angular.module('kanban').controller('MoveBackCardController',
     ['$scope', '$modalInstance', 'card', '$http','$route', function ($scope, $modalInstance, card, $http,$route) {
 
         function initScope(card) {
-            $scope.cardID = card;
+            $scope.cardID = card.cardID;
+            $scope.before = card.before;
+            $scope.after = card.after;
         }
 
         initScope(card);
-        
+      
         
         $scope.commentMoveBack = function (comment) {
             var $addCom = {
-                detail : comment
+                detail : comment,
+                before : $scope.before,
+                after : $scope.after
             };
             $http({
                 method: 'POST',
@@ -30,7 +34,9 @@ angular.module('kanban').controller('MoveBackCardController',
 
         $scope.commentMoveAllBack = function (comment) {
             var $addCom = {
-                detail : comment
+                detail : comment,
+                before : $scope.before,
+                after : $scope.after
             };
             $http({
                 method: 'POST',
@@ -38,7 +44,6 @@ angular.module('kanban').controller('MoveBackCardController',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data : $.param($addCom)
             }).success(function (r) {
-                
                 $route.reload();
                 $modalInstance.close();
 
