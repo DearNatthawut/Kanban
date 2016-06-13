@@ -40,26 +40,35 @@
 
                     <div>
                         <label for="username">Name</label>
-                        <input type="text" name="name" class="form-control" value="{{ old('name') }}" id="username" required>
+                        <input type="text" name="name" class="form-control" value="{{ old('name') }}" id="username"
+                               placeholder="Full name" required>
                     </div>
 
                     <div>
                         <label for="InputEmail1">Email address</label>
-                        <input type="email" name="email"class="form-control" value="{{ old('email') }}" id="InputEmail1" required>
+                        <input type="email" name="email" class="form-control" value="{{ old('email') }}"
+                               id="InputEmail1" placeholder="Email address" required>
                     </div>
 
                     <div>
                         <label for="password">Password</label>
-                        <input type="password"class="form-control" name="password" id="password" pattern="[A-Za-z0-9]{4,}" title="Use password at least  letter 4" required>
+                        <input type="password" class="form-control" name="password" id="password"
+                               pattern="[A-Za-z0-9]{4,}" title="Use password at least 4 letter " placeholder="Password"
+                               required>
                     </div>
 
                     <div>
                         <label for="Confirm Password">Confirm Password</label>
-                        <input type="password" class="form-control"name="password_confirmation" id="Confirm Password" pattern="[A-Za-z0-9]{4,}" title="Use password at least  letter 4 "required>
+                        <input type="password" class="form-control" name="password_confirmation" id="Confirm Password"
+                               pattern="[A-Za-z0-9]{4,}" title="Use password at least  4 letter  "
+                               placeholder="Re-enter password" required>
                     </div>
-                    <h5> <font color="red">Use password at least  letter 4</font></h5>
+                    <h5><font color="red">*Use password at least 4 letter</font></h5>
                     <br>
-                    <center><div class="g-recaptcha " data-sitekey="6LdDAiITAAAAAAjt0ATo045kGSuV-2-S11evj4wZ" async defer></div></center>
+                    <center>
+                        <div class="g-recaptcha " data-sitekey="6LdDAiITAAAAAAjt0ATo045kGSuV-2-S11evj4wZ" async
+                             defer></div>
+                    </center>
                     <br>
                     <button type="submit" class="btn btn-defaul pull-right"> Register</button>
 

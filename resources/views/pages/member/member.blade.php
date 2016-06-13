@@ -35,7 +35,7 @@
                                     </select>
 
                     <span class="input-group-btn">
-                      <button class="btn btn-info btn-flat" type="submit">add</button>
+                      <button class="btn btn-primary btn-flat" type="submit">add</button>
                     </span>
 
                                 </div><!-- /input-group -->

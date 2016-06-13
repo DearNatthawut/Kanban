@@ -251,11 +251,11 @@ class BoardController extends Controller
 
     }
 
-    public function boardGetInComplete()
+    public function boardGetInComplete($id)
     {
         if (!Auth::check()) return redirect("/");
 
-        $board = Board::find(session()->get('Board'));
+        $board = Board::find($id);
         $board->status_complete = 0;
         $board->end_date = null;
         $board->save();

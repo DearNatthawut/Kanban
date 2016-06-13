@@ -60,7 +60,7 @@
                             function inCompleteBoard() {
 
                                 if (confirm("Confirm Change Status  Board To InComplete ?") == true) {
-                                    document.location.href = "/boardInComplete";
+                                    document.location.href = "/boardInComplete/{{$Board->id}}";
                                 }
                             }
                         </script>

@@ -51,7 +51,7 @@ Route::post('/boardComplete','BoardController@boardComplete');// เปลี่
 
 Route::post('/boardInComplete','BoardController@boardPostInComplete');// เปลี่ยนสถานะ ไม่เสร็จ
 
-Route::get('/boardInComplete','BoardController@boardGetInComplete');// เปลี่ยนสถานะ ไม่เสร็จ
+Route::get('/boardInComplete/{id}','BoardController@boardGetInComplete');// เปลี่ยนสถานะ ไม่เสร็จ
 
 //---------------------------------------------------------------------------------------- Card
 
