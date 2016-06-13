@@ -36,10 +36,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="reservation" class="col-sm-2 control-label" required>Estimate Date</label>
+                                    <label for="reservation" class="col-sm-2 control-label" >Estimate Date</label>
                                     <div class="col-sm-10 ">
                                         <input type="text" name="date" class="form-control " id="reservation"
-                                               placeholder="Estimate Date">
+                                               placeholder="Estimate Date" required>
                                     </div>
                                     <!-- /.input group -->
 

@@ -137,15 +137,15 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
             BoardService.boardInComplete();
         };
 
-        self.isOvertime = function (x, y,z) {
-            var dx = new Date(x);
-            if (z == null){
+        self.isOvertime = function (estimate, now, end) {  //--- เช็ค Over time
+            var estimateDate = new Date(estimate);
+            if (end == null){
 
-                return dx < y;
+                return estimateDate < now;
 
             }else {
-                var dz = new Date(z);
-                return dz > dx;
+                var endA = new Date(end);
+                return endA > estimateDate;
             }
 
 

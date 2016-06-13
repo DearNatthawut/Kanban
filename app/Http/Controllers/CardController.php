@@ -256,9 +256,16 @@ class CardController extends Controller
         foreach ($getCheckPre as $getPre){
              if ($getPre->status_complete == 1){
                  $getPre->status_complete = 0;
+
              }
             if ($getPre->status_id != 1){
                 $getPre->status_id =1 ;
+                $newComment = new Comment();
+                $newComment->detail = "(แก้ไข โดย ".$getPre->name.")";
+                $newComment->edit_status = 1 ;
+                $newComment->Card_id = $getPre->id;
+                $newComment->User_id = Auth::user()->id;
+                $newComment->save();
             }
             $getPre->save();
         }

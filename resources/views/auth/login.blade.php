@@ -59,4 +59,12 @@
 
     </div>
 
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+            <div class="box-body">
+                <center><p> <a href="/auth/register" class="navbar-link">Create an account</a></p></center>
+            </div>
+        </div>
+    </div>
+
 </div>

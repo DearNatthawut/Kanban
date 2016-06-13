@@ -59,7 +59,6 @@
                             </tr>
                             </thead>
                             <tbody>
-
                             @foreach($members as $member)
 
 
@@ -67,7 +66,7 @@
                                 <tr>
                                     <td> {{$member->member}}</td>
                                     <td> {{$member->email}}</td>
-                                    @if( $member->id == $Board->manager_id)
+                                    @if( $member->User_id == $Board->manager_id)
                                     <td>Project Manament This Project</td>
                                     @else
                                         <td>{{$member->level}}</td>
@@ -75,7 +74,7 @@
 
                                     @if(Auth::user()->Level_id == 1 || Auth::user()->id == $Board->manager_id) <!--    if  remove member -->
                                     <td>
-                                        @if($member->Level_id != 1  &&  $member->id != $Board->manager_id)
+                                        @if($member->Level_id != 1  &&  $member->User_id != $Board->manager_id)
 
                                             @if($member->active == 1 )
                                                 <form class="form-horizontal" method="post" action="/getBackMember/{{$id}}">

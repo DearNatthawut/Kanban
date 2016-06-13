@@ -196,7 +196,13 @@
 
 
                             <!-- function update checklist by  "onaftersave"  in libary xeditable-->
-                            <a href="#" editable-text="checklist.name"  onaftersave="updateChecklist(checklist)">{{checklist.name}}</a>
+                            <a href="#"  ng-show="DataEdit.user.Level_id == 1
+                                   || DataEdit.user.id == cardData.member_card.Members_id
+                                   || DataEdit.boardManager.manager_id == DataEdit.user.id "
+                               editable-text="checklist.name"  onaftersave="updateChecklist(checklist)">{{checklist.name}}</a>
+                            <span  ng-show="DataEdit.user.Level_id != 1
+                                   && DataEdit.user.id != cardData.member_card.Members_id
+                                   && DataEdit.boardManager.manager_id != DataEdit.user.id ">{{checklist.name}}</span>
 
                             <div class="tools">
 
@@ -263,7 +269,14 @@
                             </div>
 
                         <a href="#" editable-text="comment.detail" onaftersave="updateComment(comment)"
-                           ng-show="comment.edit_status == 0"  style="word-wrap: break-word;"> {{comment.detail}}</a>
+                           ng-show="comment.edit_status == 0  && DataEdit.user.Level_id == 1"  style="word-wrap: break-word;"> {{comment.detail}}</a>
+
+                        <span ng-show="comment.edit_status ==  0 &&  DataEdit.user.Level_id != 1 && DataEdit.user.id ==comment.member_comment.id"
+                              editable-text="comment.detail" style="word-wrap: break-word;">{{comment.detail}}</span>
+
+                         <span ng-show="comment.edit_status ==  0 &&  DataEdit.user.Level_id != 1 && DataEdit.user.id != comment.member_comment.id"
+                                style="word-wrap: break-word;">{{comment.detail}}</span>
+
                         <span ng-show="comment.edit_status == 1" style="word-wrap: break-word;">{{comment.detail}}</span>
                         </p>
                         <hr>
