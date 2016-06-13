@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Request;
 use App\Models\Board;
 use App\Models\Card;
 use App\Models\Membermanagement;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use App\Models\Member;
+use App\Models\User;
 
 class MemberController extends Controller
 {
@@ -24,7 +26,7 @@ class MemberController extends Controller
         $data = DB::table('membermanagement')
             ->join('users', 'membermanagement.User_id', '=', 'users.id')
             ->join('level', 'users.Level_id', '=', 'level.id')
-            ->select('users.*', 'users.name as member ', 'level.name as level','membermanagement.*','membermanagement.id as MM')
+            ->select('users.*', 'users.name as member ', 'level.name as level', 'membermanagement.*', 'membermanagement.id as MM')
             ->where('membermanagement.Board_id', '=', $id)
             ->get();
         $id = [];
@@ -74,16 +76,15 @@ class MemberController extends Controller
         $board = Board::find($id);
         $boardManager = $board->manager_id;
 
-        $MemMa =  Membermanagement::where('User_id', '=',$boardManager)
-            ->where('Board_id', '=' ,$id)
-        ->get();
-
+        $MemMa = Membermanagement::where('User_id', '=', $boardManager)
+            ->where('Board_id', '=', $id)
+            ->get();
 
 
         $cards = Card::
-        where('MemberManagement_id','=',$member->id)
-        ->get();
-        foreach ($cards as $card){
+        where('MemberManagement_id', '=', $member->id)
+            ->get();
+        foreach ($cards as $card) {
             $card->MemberManagement_id = $MemMa[0]->id;
             $card->save();
         }
@@ -91,6 +92,7 @@ class MemberController extends Controller
         return redirect("member/$id");
 
     }
+
     public function getBackMember($id)
     {
         if (!Auth::check()) return redirect("/");
@@ -101,6 +103,56 @@ class MemberController extends Controller
 
         return redirect("member/$id");
 
+    }
+
+    public function viewPassword()
+    {
+        return view("auth.view-edit");
+    }
+    
+    public function viewChangePassword()
+    {
+        return view("auth.changepassword");
+    }
+
+    public function changePassword( $id)
+    {
+        $password = \Input::get('password');
+        $password_confirmation = \Input::get('password_confirmation');
+
+        $newpassword = User::find($id);
+        $newpassword->password = bcrypt($password);
+        if ($password ==$password_confirmation){
+            $newpassword->save();
+        }else{
+            return back()->withErrors('Password dose not  match');
+        }
+        return redirect("auth/logout");
+    }
+    
+    public function viewName()
+    {
+        return view("auth.changename");
+    }
+    public function changeName ($id){
+        $name = \Input::get('name');
+
+        $newname = User::find($id);
+        $newname->name = $name;
+        $newname->save();
+        return redirect("auth/logout");
+    }
+    public function viewEmail()
+    {
+        return view("auth.change-email");
+    }
+    public function changeEmail ($id){
+        $email = \Input::get('email');
+
+        $newemail = User::find($id);
+        $newemail->email = $email;
+        $newemail->save();
+        return redirect("auth/logout");
     }
 
 }

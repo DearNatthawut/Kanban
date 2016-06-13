@@ -6,7 +6,6 @@
 
     @extends('layouts.css')
 
-    @extends('layouts.scriptNG')
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -51,13 +50,14 @@
 
                     <div>
                         <label for="password">Password</label>
-                        <input type="password"class="form-control" name="password" id="password" required>
+                        <input type="password"class="form-control" name="password" id="password" pattern="[A-Za-z0-9]{4,}" title="Use password at least  letter 4" required>
                     </div>
 
                     <div>
                         <label for="Confirm Password">Confirm Password</label>
-                        <input type="password" class="form-control"name="password_confirmation" id="Confirm Password" required>
+                        <input type="password" class="form-control"name="password_confirmation" id="Confirm Password" pattern="[A-Za-z0-9]{4,}" title="Use password at least  letter 4 "required>
                     </div>
+                    <h5> <font color="red">Use password at least  letter 4</font></h5>
                     <br>
                     <center><div class="g-recaptcha " data-sitekey="6LdDAiITAAAAAAjt0ATo045kGSuV-2-S11evj4wZ" async defer></div></center>
                     <br>

@@ -24,8 +24,20 @@
                 </a>
             </li>
             <li>
+                <a href="/view-edit">
+                    <i class="glyphicon glyphicon-wrench"></i><span>Management account</span>
+                    <small class="label pull-right bg-red"></small>
+                </a>
+            </li>
+            <li>
                 <a href="/help">
                     <i class="glyphicon glyphicon-info-sign"></i> <span>Help</span>
+                    <small class="label pull-right bg-red"></small>
+                </a>
+            </li>
+            <li>
+                <a href="/contact">
+                    <i class="glyphicon glyphicon-phone-alt"></i> <span>Contact</span>
                     <small class="label pull-right bg-red"></small>
                 </a>
             </li>

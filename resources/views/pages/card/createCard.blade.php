@@ -109,7 +109,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="preCard" class="col-sm-2 control-label">Pre Card</label>
+                                    <label for="preCard" class="col-sm-2 control-label">Pre Card*</label>
                                     <div class="col-sm-10">
                                         <select class="form-control" name="preCard">
                                             <div class="col-sm-10">
@@ -125,7 +125,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="reservation" class="col-sm-2 control-label">Estimate Date</label>
+                                    <label for="reservation" class="col-sm-2 control-label">Estimate Date*</label>
                                     <div class="col-sm-10 ">
                                         <div class="input-group">
                                             <div class="input-group-addon">
@@ -136,9 +136,10 @@
                                         </div>
                                     </div>
                                     <!-- /.input group -->
+
                                 </div>
 
-
+                                <p class="margin pull-right"> <code>*Can't Edit 'Pre Card' and 'Estimate Date' After Submit</code></p>
                             </div><!-- /.box-body -->
 
                             <div class="box-footer">

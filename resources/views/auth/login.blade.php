@@ -58,11 +58,5 @@
         <div class="panel-footer"></div>
 
     </div>
-    <div class="col-md-6 col-md-offset-3">
-        <div class="panel panel-default">
-            <div class="box-body">
-               <center><p>How to Project Mangement With Kanban Board ? <a href="/auth/register" class="navbar-link">Create an account</a></p></center>
-                </div>
-            </div>
-        </div>
+
 </div>

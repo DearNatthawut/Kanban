@@ -113,8 +113,23 @@ Route::post('/getBackMember/{id}','MemberController@getbackMember');
 
 //------------------------------------------------------------------------------------------------Help
 Route::get('/help', function () {
-    return view('pages.board.help');
+    return view('pages.help');
 });
+Route::get('/contact', function () {
+    return view('pages.contact');
+});
+//---------------------------------------------------------------------------------------------------Edit
+Route::get('/view-edit', 'MemberController@viewPassword');
+Route::get('/changepassword', 'MemberController@viewChangePassword');
+Route::get('/changename', 'MemberController@viewName');
+Route::get('/change-email', 'MemberController@viewEmail');
+
+Route::post('/changePassword/{id}', 'MemberController@changePassword');
+Route::post('/changeName/{id}', 'MemberController@changeName');
+Route::post('/changeEmail/{id}', 'MemberController@changeEmail');
+
+
+//---------------------------------------------------------------------------------------
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

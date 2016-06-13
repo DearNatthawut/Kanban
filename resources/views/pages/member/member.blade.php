@@ -17,7 +17,7 @@
 
 
                         <br>
-                        @if(Auth::user()->Level_id == 1) <!--    if  Add member -->
+                        @if(Auth::user()->Level_id == 1  || Auth::user()->id == $Board->manager_id) <!--    if  Add member -->
                         <div class="col-xs-5">
 
                             <form class="form-horizontal" method="post" action="/addMember/{{$id}}">
@@ -53,7 +53,7 @@
                                 <th>Name</th>
                                 <th>E-mail</th>
                                 <th>Position</th>
-                                @if(Auth::user()->Level_id == 1)
+                                @if(Auth::user()->Level_id == 1 || Auth::user()->id == $Board->manager_id)
                                     <th style="width: 10px"></th>
                                 @endif
                             </tr>
@@ -62,16 +62,21 @@
 
                             @foreach($members as $member)
 
-                                @if(Auth::user()->Level_id == 1 ||  $member->active == 0)
+
 
                                 <tr>
                                     <td> {{$member->member}}</td>
                                     <td> {{$member->email}}</td>
-                                    <td>{{$member->level}}</td>
+                                    @if( $member->id == $Board->manager_id)
+                                    <td>Project Manament This Project</td>
+                                    @else
+                                        <td>{{$member->level}}</td>
+                                    @endif
 
-                                    @if(Auth::user()->Level_id == 1) <!--    if  remove member -->
+                                    @if(Auth::user()->Level_id == 1 || Auth::user()->id == $Board->manager_id) <!--    if  remove member -->
                                     <td>
-                                        @if($member->Level_id != 1 )
+                                        @if($member->Level_id != 1  &&  $member->id != $Board->manager_id)
+
                                             @if($member->active == 1 )
                                                 <form class="form-horizontal" method="post" action="/getBackMember/{{$id}}">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -88,7 +93,7 @@
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <input type="hidden" name="memberID" value="{{$member->MM}}">
                                                     <button type="submit" class="btn btn-info"
-                                                            onclick="return confirm('Are You sure to Delete?')">
+                                                            onclick="return confirm('Are You sure to inactive?')">
                                                         <i class="glyphicon glyphicon-minus"></i>
                                                     </button>
                                                 </form>
@@ -99,7 +104,7 @@
                                     @endif
                                 </tr>
 
-                                @endif
+
                             @endforeach
 
                             </tbody>

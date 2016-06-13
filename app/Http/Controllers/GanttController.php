@@ -37,9 +37,9 @@ class GanttController extends Controller
     $boardCards = Board::with(['members'])
         ->find(session()->get('idForGantt'));
 
-    $cards = $boardCards->cards()->with(['memberCard.member'])->get();
-
-
+    $cards = $boardCards->cards()->with(['memberCard.member','comments'])->get();
+       
+       
     return  view('pages.gantt.ganttChart')
         ->with('Board', $Board)
         ->with('Card', $cards);

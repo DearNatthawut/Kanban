@@ -137,9 +137,18 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
             BoardService.boardInComplete();
         };
 
-        self.isOvertime = function (x, y) {
+        self.isOvertime = function (x, y,z) {
             var dx = new Date(x);
-            return dx < y;
+            if (z == null){
+
+                return dx < y;
+
+            }else {
+                var dz = new Date(z);
+                return dz > dx;
+            }
+
+
         };
 
 

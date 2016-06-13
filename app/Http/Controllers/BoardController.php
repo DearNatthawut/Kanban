@@ -202,6 +202,11 @@ class BoardController extends Controller
             ->delete();
 
         Card::where('Board_id', '=', $id)
+            ->whereNotNull('child_id')
+            ->delete();
+
+
+        Card::where('Board_id', '=', $id)
             ->delete();
 
        Membermanagement::where('Board_id', '=', $id)
