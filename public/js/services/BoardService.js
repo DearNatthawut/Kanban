@@ -118,7 +118,8 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 }
                         
             });
-        }, afterMoveBack: function (cardID,beforeStatus,afterStatus) {
+        },
+        afterMoveBack: function (cardID,beforeStatus,afterStatus) {
 
             var show = $modal.open({
                 templateUrl: '/views/partials/afterMoveBack.html',
