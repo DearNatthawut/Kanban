@@ -5,75 +5,240 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b74d2af-41df-4bba-b0b4-7ba9eeb68fce" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/az.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/bg.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/ca.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/cs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/da.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/de.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/en.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/es.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/et.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/eu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/fa.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/fi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/fr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/gl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/he.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/hi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/hr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/hu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/id.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/is.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/it.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/ko.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/lt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/lv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/mk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/nb.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/nl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/pl.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/pt-BR.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/pt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/ro.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/ru.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/sk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/sr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/sv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/th.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/tr.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/uk.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/vi.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/zh-CN.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/i18n/zh-TW.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/select2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/select2.full.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/select2.full.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/select2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/select2.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/select2/select2.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/pages/board/help.blade.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/views/auth/view-edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/managementAccount.blade.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/CHANGES.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/LICENSE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/adapters/jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/build-config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/ckeditor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/contents.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/af.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/ar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/bg.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/bn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/bs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/ca.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/cs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/cy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/da.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/de.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/el.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/en-au.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/en-ca.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/en-gb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/en.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/eo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/es.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/et.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/eu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/fa.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/fi.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/fo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/fr-ca.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/fr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/gl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/gu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/he.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/hi.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/hr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/hu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/id.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/is.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/it.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/ja.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/ka.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/km.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/ko.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/ku.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/lt.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/lv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/mk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/mn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/ms.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/nb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/nl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/no.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/pl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/pt-br.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/pt.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/ro.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/ru.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/si.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/sk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/sl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/sq.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/sr-latn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/sr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/sv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/th.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/tr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/ug.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/uk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/vi.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/zh-cn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/lang/zh.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/a11yhelp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/ar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/bg.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/ca.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/cs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/cy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/da.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/de.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/el.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/en.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/eo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/es.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/et.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/fa.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/fi.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/fr-ca.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/fr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/gl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/gu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/he.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/hi.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/hr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/hu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/id.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/it.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/ja.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/km.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/ko.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/ku.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/lt.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/lv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/mk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/mn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/nb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/nl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/no.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/pl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/pt-br.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/pt.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/ro.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/ru.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/si.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/sk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/sl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/sq.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/sr-latn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/sr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/sv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/th.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/tr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/ug.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/uk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/vi.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/zh-cn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/a11yhelp/dialogs/lang/zh.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/about/dialogs/about.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/about/dialogs/hidpi/logo_ckeditor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/about/dialogs/logo_ckeditor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/clipboard/dialogs/paste.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/dialog/dialogDefinition.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/fakeobjects/images/spacer.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/icons.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/icons_hidpi.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/image/dialogs/image.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/image/images/noimage.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/link/dialogs/anchor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/link/dialogs/link.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/link/images/anchor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/link/images/hidpi/anchor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/magicline/images/hidpi/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/magicline/images/icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/pastefromword/filter/default.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/scayt/LICENSE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/scayt/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/scayt/dialogs/options.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/scayt/dialogs/toolbar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/_translationstatus.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/ar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/bg.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/ca.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/cs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/cy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/de.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/el.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/en.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/eo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/es.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/et.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/fa.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/fi.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/fr-ca.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/fr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/gl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/he.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/hr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/hu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/id.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/it.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/ja.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/km.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/ku.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/lv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/nb.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/nl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/no.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/pl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/pt-br.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/pt.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/ru.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/si.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/sk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/sl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/sq.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/sv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/th.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/tr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/ug.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/uk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/vi.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/zh-cn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/lang/zh.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/specialchar/dialogs/specialchar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/table/dialogs/table.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/tabletools/dialogs/tableCell.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/wsc/LICENSE.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/wsc/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/wsc/dialogs/ciframe.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/wsc/dialogs/tmp.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/wsc/dialogs/tmpFrameset.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/wsc/dialogs/wsc.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/wsc/dialogs/wsc.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/plugins/wsc/dialogs/wsc_ie.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/dialog.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/dialog_ie.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/dialog_ie7.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/dialog_ie8.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/dialog_iequirks.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/dialog_opera.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/editor.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/editor_gecko.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/editor_ie.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/editor_ie7.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/editor_ie8.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/editor_iequirks.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/icons.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/icons_hidpi.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/images/arrow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/images/close.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/images/hidpi/close.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/images/hidpi/lock-open.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/images/hidpi/lock.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/images/hidpi/refresh.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/images/lock-open.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/images/lock.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/images/refresh.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/skins/moono/readme.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/packages/ckeditor/styles.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/MemberController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/MemberController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/controllers/DetailCardController.js" afterPath="$PROJECT_DIR$/public/js/controllers/DetailCardController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/partials/detailCard.html" afterPath="$PROJECT_DIR$/public/views/partials/detailCard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/change-email.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/change-email.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/changename.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/changename.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/changepassword.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/changepassword.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/adminside.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/adminside.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/css.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/css.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/script.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/script.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/board/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/board/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/board/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/board/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/card/createCard.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/card/createCard.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/contact.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/contact.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/gantt/ganttChart.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/gantt/ganttChart.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/help.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/help.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/pages/member/member.blade.php" afterPath="$PROJECT_DIR$/resources/views/pages/member/member.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CardController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CardController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/partials/card.html" afterPath="$PROJECT_DIR$/public/views/partials/card.html" />
     </list>
     <ignored path="kanban.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,50 +259,7 @@
     <favorites_list name="kanban" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="109" column="12" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MemberController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MemberController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="69" column="83" selection-start-line="69" selection-start-column="83" selection-end-line="69" selection-end-column="83" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="member.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/pages/member/member.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="32" column="129" selection-start-line="32" selection-start-column="129" selection-end-line="32" selection-end-column="129" />
-              <folding>
-                <element signature="n#style#0;n#label#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="31" column="74" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="74" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -177,8 +299,6 @@
         <option value="$PROJECT_DIR$/resources/views/auth/change-email.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/change-emai.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/view-edit.blade.php" />
-        <option value="$PROJECT_DIR$/public/views/partials/card.html" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CardController.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/board/createBoard.blade.php" />
         <option value="$PROJECT_DIR$/public/js/controllers/KanbanController.js" />
         <option value="$PROJECT_DIR$/resources/views/pages/board/boardDone.blade.php" />
@@ -204,6 +324,8 @@
         <option value="$PROJECT_DIR$/resources/views/layouts/script.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/member/member.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MemberController.php" />
+        <option value="$PROJECT_DIR$/public/views/partials/card.html" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CardController.php" />
       </list>
     </option>
   </component>
@@ -227,6 +349,22 @@
     <option name="y" value="2" />
     <option name="width" value="1364" />
     <option name="height" value="721" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>CSS</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -284,90 +422,6 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kanban" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kanban" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kanban" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kanban" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kanban" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kanban" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auth" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kanban" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kanban" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -393,6 +447,46 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kanban" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kanban" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kanban" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kanban" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -412,54 +506,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kanban" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kanban" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kanban" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kanban" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Auth" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -472,7 +518,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
@@ -601,19 +647,19 @@
       <workItem from="1465878787376" duration="7172000" />
       <workItem from="1466091401226" duration="4362000" />
       <workItem from="1466136866118" duration="10000" />
-      <workItem from="1466137812283" duration="15427000" />
+      <workItem from="1466137812283" duration="16811000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="533246000" />
+    <option name="totallyTimeSpent" value="534630000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="2" width="1364" height="721" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22418879" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22418879" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -762,20 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/partials/card.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="122" selection-start-line="41" selection-start-column="122" selection-end-line="41" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CardController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="263" column="69" selection-start-line="263" selection-start-column="69" selection-end-line="263" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pages/board/createBoard.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -801,13 +833,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="97" column="20" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/partials/detailCard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="141" column="54" selection-start-line="141" selection-start-column="54" selection-end-line="141" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -963,14 +988,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="109" column="12" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/script.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -983,22 +1000,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="42" column="30" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BoardController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="712">
-          <caret line="257" column="32" selection-start-line="257" selection-start-column="32" selection-end-line="257" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="31" column="74" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="74" />
           <folding />
         </state>
       </provider>
@@ -1025,6 +1026,59 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="69" column="83" selection-start-line="69" selection-start-column="83" selection-end-line="69" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/partials/detailCard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2091">
+          <caret line="141" column="54" selection-start-line="141" selection-start-column="54" selection-end-line="141" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BoardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2771">
+          <caret line="257" column="32" selection-start-line="257" selection-start-column="32" selection-end-line="257" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/partials/card.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1941">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="109" column="12" selection-start-line="109" selection-start-column="12" selection-end-line="109" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="31" column="74" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="74" />
           <folding />
         </state>
       </provider>

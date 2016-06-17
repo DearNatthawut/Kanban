@@ -49,6 +49,7 @@ class CardController extends Controller
 
         $cards = Card::with(['checklists', 'memberCard.member', 'comments.memberComment', 'color','preCard'])
             ->where('Board_id', '=', session()->get('Board'))
+            ->orderBy('id', 'desc')
             ->get();
 
         $status = \App\Models\Status::all('id', 'name')
