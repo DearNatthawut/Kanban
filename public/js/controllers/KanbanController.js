@@ -25,7 +25,19 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
             })
         }
 
+        function getDataBoard() {
+            $http({
+                method: 'GET',
+                url: "/board",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+            }).success(function (r) {
+                self.dataBoard = r;
+            })
+        }
+
         getDataMember();
+        getDataBoard();
 
 
         BoardDataFactory.getKanban().success(function (r) {  //------
@@ -49,9 +61,9 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
              },*/
             itemMoved: function (event) {
 
-               console.log(event.source.index);
 
-                if (event.dest.sortableScope.$parent.column.name == "Doing" && event.dest.sortableScope.$parent.column.cards.length == 6){
+                if ((event.dest.sortableScope.$parent.column.name == "Doing" &&
+                    event.dest.sortableScope.$parent.column.cards.length >= self.dataBoard.worklimit+1) && self.dataBoard.worklimit != 0  ){
 
                     event.dest.sortableScope.removeItem(event.dest.index);
                     event.source.itemScope.sortableScope.insertItem(event.source.index, event.source.itemScope.modelValue);

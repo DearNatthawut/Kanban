@@ -22,7 +22,8 @@
                 <div class="columnHeader"  >
                     <!--<a title="Add card to column" ng-click="self.addNewCard(column)">
                     <i class="glyphicon glyphicon-plus addNewCard"></i></a>-->
-                    <span ng-show="column.name == 'Doing'">{{column.name}} ({{column.cards.length}} / 5)</span>
+                    <span ng-show="column.name == 'Doing' && self.dataBoard.worklimit==0">{{column.name}} ({{column.cards.length}} )</span>
+                    <span ng-show="column.name == 'Doing' && self.dataBoard.worklimit!=0">{{column.name}} ({{column.cards.length}} /  {{self.dataBoard.worklimit}})</span>
                     <span ng-show="column.name != 'Doing'">{{column.name}} ({{column.cards.length}})</span>
                 </div>
 
