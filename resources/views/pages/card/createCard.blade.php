@@ -68,7 +68,9 @@
                                                   placeholder="Detail"></textarea>
                                     </div>
                                 </div>
-                                <div class="form-group">
+
+                                <input type="hidden"  id="status" name="status" value="1">
+                               {{-- <div class="form-group">
                                     <label for="status" class="col-sm-2 control-label">Status</label>
                                     <div class="col-sm-10">
                                         <select class="form-control" name="status">
@@ -79,7 +81,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                </div>
+                                </div>--}}
                                 <div class="form-group">
                                     <label for="color" class="col-sm-2 control-label">Color</label>
                                     <div class="col-sm-10">

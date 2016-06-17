@@ -11,29 +11,32 @@
 
                 <div class="panel-body">
                     <div class="page-header">
-                        <h2>Member Management
+                        <h2><i class="fa  fa-user"></i> Member
                             <small>( {{$Board->name}} )</small>
                         </h2>
 
 
-                        <br>
-                        @if(Auth::user()->Level_id == 1  || Auth::user()->id == $Board->manager_id) <!--    if  Add member -->
+
+                    </div>
+                    <div class="box-body">
+
+                    @if(Auth::user()->Level_id == 1  || Auth::user()->id == $Board->manager_id) <!--    if  Add member -->
                         <div class="col-xs-5">
+
+
 
                             <form class="form-horizontal" method="post" action="/addMember/{{$id}}">
 
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                                <div class="input-group ">
-                                    <select class="form-control" name="member">
-                                        @foreach($addmembers as $add)
-                                            <div class="col-sm-10">
-                                                <option value="{{$add->id}}">{{$add->name}} ( {{$add->email}})
-                                                </option>
-                                            </div>
-                                        @endforeach
-                                    </select>
+                                @if(session()->has('error'))
+                                <label for="user" style="color: red"><i class="fa fa-times-circle-o"></i> {{session()->get('error')}}</label>
+                                @endif
 
+                                <div class="input-group ">
+
+                                    <input type="text" class="form-control" name="user" id="autocomplete" required/>
+                                    <input type="hidden" id="index" name="idUser"/>
                     <span class="input-group-btn">
                       <button class="btn btn-primary btn-flat" type="submit">add</button>
                     </span>
@@ -42,11 +45,13 @@
                             </form>
                         </div>
                         <br>
+
                         @endif
 
+                        <br>
+                        <br>
+                        <br>
 
-                    </div>
-                    <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
@@ -67,7 +72,7 @@
                                     <td> {{$member->member}}</td>
                                     <td> {{$member->email}}</td>
                                     @if( $member->User_id == $Board->manager_id)
-                                    <td>Project Manament This Project</td>
+                                        <td>Project Manament This Project</td>
                                     @else
                                         <td>{{$member->level}}</td>
                                     @endif
@@ -77,7 +82,8 @@
                                         @if($member->Level_id != 1  &&  $member->User_id != $Board->manager_id)
 
                                             @if($member->active == 1 )
-                                                <form class="form-horizontal" method="post" action="/getBackMember/{{$id}}">
+                                                <form class="form-horizontal" method="post"
+                                                      action="/getBackMember/{{$id}}">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <input type="hidden" name="memberID" value="{{$member->MM}}">
                                                     <button type="submit" class="btn btn-danger"

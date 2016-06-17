@@ -19,12 +19,12 @@
                 <div class="panel-body">
                     <div class="page-header">
                         <h2>
-                            Forgotten account
+                            Change Name
                         </h2>
 
                     </div>
 
-                    <form method="post" action="/changeName/{{Auth::user()->id}}">
+                    <form method="post" action="/managementAccount/changeName/{{Auth::user()->id}}">
                         {!! csrf_field() !!}
                         @if (count($errors) > 0)
                             <div class="alert alert-danger alert-dismissible">
@@ -37,12 +37,13 @@
                         @endif
 
                         <div>
-                            <h3>Name</h3>
+                            <h3>New Name</h3>
                             <input type="text" name="name" placeholder="Name" class="form-control"
                                    value="{{Auth::user()->name}}" id="name" required>
                         </div>
                         <hr>
-                        <button type="submit" class="btn btn-success pull-right"><span
+                        <button type="submit" class="btn btn-success pull-right"
+                                onclick="return confirm('Confirm save new name')"><span
                                     class="glyphicon glyphicon-floppy-save"></span> Save
                         </button>
                     </form>
@@ -55,6 +56,8 @@
 </div>
 
 </body>
+
+
 
 @include('layouts.script')
 

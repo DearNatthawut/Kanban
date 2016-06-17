@@ -33,7 +33,9 @@
                 <br>
                 <div class="form-horizontal">
                     <div class="box-body">
+                        <p class="" style="background-color: #00a65a;color: white;font-size: 16px;" ng-show="saveSuccess == 1">Save Success</p>
                         <div class="form-group">
+
                             <label for="Name" class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="Name" placeholder="Card Name"
@@ -137,7 +139,7 @@
 
                         <button ng-click="saveEditCard(cardData)"
                                 ng-show="DataEdit.user.Level_id == 1 || DataEdit.boardManager.manager_id == DataEdit.user.id "
-                                class="btn btn-default pull-right">SAVE
+                                class="btn btn-success pull-right">SAVE
                         </button>
 
 

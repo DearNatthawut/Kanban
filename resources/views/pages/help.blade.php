@@ -19,11 +19,11 @@
                 <div class="panel-body">
                     <div class="page-header">
                         <h2>
-                            HELP
+                            <i class="glyphicon glyphicon-info-sign"></i>  HELP
                         </h2>
                     </div>
                     <table class="table table-bordered">
-                        <tbody>
+                        <tbody >
                         <tr>
                             <td>
                                 <i class="glyphicon glyphicon-blackboard"></i> <span>List of Boards </span>

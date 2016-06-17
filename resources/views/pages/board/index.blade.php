@@ -11,7 +11,7 @@
 
                 <div class="panel-body">
                     <div class="page-header">
-                        <h2>Project List
+                        <h2> <i class="glyphicon glyphicon-blackboard"></i> List of Boards
                             {{--<small> ( {{$countProject}} Projects )</small>--}}
                         </h2>
 

@@ -13,7 +13,59 @@
 <div class="content-wrapper">
 
     <section class="content">
+        <div class="col-md-12 col-sm-4">
+            <div class="panel panel-default">
 
+                <div class="panel-body">
+                    <div class="page-header">
+                        <h2>
+                            <i class="fa  fa-bar-chart"></i> Gantt
+                        </h2>
+                    </div>
+                    <table class="table table-bordered">
+                        <tbody>
+
+                        <tr>
+                            <td>
+                                <center><span class="badge" style="background-color:#2196F3">Activities</span></center>
+                            </td>
+                            <td><label>เวลากิจกรรมหรือการ์ดที่ได้วางแผนไว้</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center><span class="badge" style="background-color:#008000">Activities</span></center>
+                            </td>
+                            <td><label>กิจกรรมหรือการ์ดนั้นเสร็จในเวลาที่กำหนด</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center><span class="badge" style="background-color:#FFA500">Activities</span></center>
+                            </td>
+                            <td><label> กิจกรรมหรือการ์ดนั้นเสร็จแล้วแต่เกินเวลาที่กำหนด</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center><span class="badge" style="background-color:#FF0000">Activities</span></center>
+                            </td>
+                            <td><label> กิจกรรมหรือการ์ดนั้นยังไม่เสร็จและเกินเวลาที่กำหนด</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center><span class="badge" style="background-color:#00CCFF">Activities</span></center>
+                            </td>
+                            <td><label> กิจกรรมหรือการ์ดนั้นยังไม่เสร็จแล้วยังทำต่อภายในเวลาที่กำหนด</label>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+<!---------------------------------------------------------------------------ตารางบอกสีแก้น-------------------------->
         <div class="col-md-12 col-sm-4">
             <div class="panel panel-default">
 
@@ -64,12 +116,13 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th>Work activities</th>
-                                <th>Owner</th>
-                                <th>Plan Start-End</th>
-                                <th>Actual Start-End</th>
-                                <th>Times editor</th>
-                                <th>Complete Status</th>
+                                <center> <th>Work activities</th></center>
+                                <center> <th>Owner</th></center>
+                                <center><th>Plan Start-End</th></center>
+                                <center><th>Actual Start-End</th></center>
+                                <center> <th>Times editor</th></center>
+                                <center><th>Complete Status</th></center>
+                                <center><th>Time</th></center>
                             </tr>
                             </thead>
                             <tbody>
@@ -90,6 +143,17 @@
                                         <td><center><span class="glyphicon glyphicon-ok"></span></center> </td>
                                         @else
                                         <td><center><span class="glyphicon glyphicon-remove"></span></center></td>
+                                    @endif
+                                    @if($Card->status_complete == 1)
+                                        @if($Card->date_end <= $Card->estimate_end)
+                                            <td>
+                                                <center>On Time</center>
+                                            </td>
+                                        @else
+                                            <td>
+                                                <center>Over Time</center>
+                                            </td>
+                                        @endif
                                     @endif
                                 </tr>
                             @endforeach

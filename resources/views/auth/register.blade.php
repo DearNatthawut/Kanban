@@ -25,7 +25,7 @@
     <div class="panel panel-default">
         <div class="box-body">
             <div class="form-group">
-
+                <center><h1>Register</h1></center>
                 <form method="POST" action="/auth/register">
                     {!! csrf_field() !!}
                     @if (count($errors) > 0)
@@ -70,7 +70,7 @@
                              defer></div>
                     </center>
                     <br>
-                    <button type="submit" class="btn btn-defaul pull-right"> Register</button>
+                    <button type="submit" class="btn btn-success pull-right"> Register</button>
 
                 </form>
             </div>

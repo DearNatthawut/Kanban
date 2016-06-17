@@ -10,7 +10,7 @@
 
                 <div class="panel-body">
                     <div class="page-header">
-                        <h2>Edit
+                        <h2><i class="fa fa-cogs"></i> Edit
                             <small>( {{$Board->name}} )</small>
                         </h2>
                         <br>

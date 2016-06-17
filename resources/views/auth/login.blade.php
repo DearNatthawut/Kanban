@@ -25,6 +25,7 @@
     <div class="panel panel-default">
         <div class="box-body">
             <div class="form-group">
+                <center><h1>Login</h1></center>
                 <form method="post" action="/auth/login">
                     {!! csrf_field() !!}
                     @if (count($errors) > 0)
@@ -48,7 +49,7 @@
                     </div>
                     <br>
 
-                    <button type="submit" class="btn btn-defaul pull-right" value="LOGIN"><span class="glyphicon glyphicon-log-in"></span> Sign in</button>
+                    <button type="submit" class="btn btn-success pull-right" value="LOGIN"><span class="glyphicon glyphicon-log-in"></span> Sign in</button>
 
                 </form>
 
@@ -62,7 +63,7 @@
     <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default">
             <div class="box-body">
-                <center><p> <a href="/auth/register" class="navbar-link">Create an account</a></p></center>
+                <center><button type="button" class="btn btn-primary "onclick="window.location.href='/auth/register'"><span>Create an account</span></button></center>
             </div>
         </div>
     </div>

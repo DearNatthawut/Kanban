@@ -19,7 +19,7 @@
                 <div class="panel-body">
                     <div class="page-header">
                         <h2>
-                            Forgotten account
+                            Change Email
                         </h2>
 
                     </div>
@@ -37,12 +37,13 @@
                         @endif
 
                         <div>
-                            <h3>Email address</h3>
+                            <h3>New Email</h3>
                             <input type="text" name="email" placeholder="E-Mail" class="form-control"
                                    value="{{Auth::user()->email}}" id="username" required>
                         </div>
                         <hr>
-                        <button type="submit" class="btn btn-success pull-right"><span
+                        <button type="submit" class="btn btn-success pull-right"
+                                onclick="return confirm('Confirm save new email')"><span
                                 class="glyphicon glyphicon-floppy-save"></span> Save
                         </button>
                     </form>

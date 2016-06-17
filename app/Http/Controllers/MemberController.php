@@ -19,6 +19,7 @@ use App\Models\User;
 
 class MemberController extends Controller
 {
+
     public function showMember($id)
     {
         if (!Auth::check()) return redirect("/");
@@ -30,6 +31,7 @@ class MemberController extends Controller
             ->where('membermanagement.Board_id', '=', $id)
             ->get();
         $id = [];
+
         foreach ($data as $Adata) {
             $id[] = $Adata->User_id;
         }
@@ -48,20 +50,34 @@ class MemberController extends Controller
 
     }
 
+
     public function addMember($id)
     {
 
         if (!Auth::check()) return redirect("/");
-        if (\Input::get('member')) {
-            $member = new Membermanagement();
-            $member->User_id = \Input::get('member');
-            $member->Board_id = $id;
-            $member->save();
+
+        if (!empty(\Input::get('idUser'))) {
+            $check = Membermanagement::where('User_id', '=', \Input::get('idUser'))
+                ->where('Board_id', '=', $id)
+                ->get();
+
+            if (count($check) == 0) {
+                $member = new Membermanagement();
+                $member->User_id = \Input::get('idUser');
+                $member->Board_id = $id;
+                $member->save();
+            }else {
+                return  redirect()->back()->with('error', 'User is already a member');
+            }
+
+        } else {
+            return  redirect("member/$id");
         }
 
         return redirect("member/$id");
 
     }
+
 
     public function delMember($id)
     {
@@ -80,9 +96,7 @@ class MemberController extends Controller
             ->where('Board_id', '=', $id)
             ->get();
 
-
-        $cards = Card::
-        where('MemberManagement_id', '=', $member->id)
+        $cards = Card::where('MemberManagement_id', '=', $member->id)
             ->get();
         foreach ($cards as $card) {
             $card->MemberManagement_id = $MemMa[0]->id;
@@ -92,6 +106,7 @@ class MemberController extends Controller
         return redirect("member/$id");
 
     }
+
 
     public function getBackMember($id)
     {
@@ -105,36 +120,51 @@ class MemberController extends Controller
 
     }
 
-    public function viewPassword()
+
+    public function managementAccount()
     {
-        return view("auth.view-edit");
+
+        if (!Auth::check()) return redirect("/");
+
+        return view("auth.managementAccount");
     }
-    
+
+
     public function viewChangePassword()
     {
+        if (!Auth::check()) return redirect("/");
+
         return view("auth.changepassword");
     }
 
-    public function changePassword( $id)
+    public function changePassword($id)
     {
+        if (!Auth::check()) return redirect("/");
+
         $password = \Input::get('password');
         $password_confirmation = \Input::get('password_confirmation');
 
         $newpassword = User::find($id);
         $newpassword->password = bcrypt($password);
-        if ($password ==$password_confirmation){
+        if ($password == $password_confirmation) {
             $newpassword->save();
-        }else{
+        } else {
             return back()->withErrors('Password dose not  match');
         }
         return redirect("auth/logout");
     }
-    
+
     public function viewName()
     {
+        if (!Auth::check()) return redirect("/");
+
         return view("auth.changename");
     }
-    public function changeName ($id){
+
+    public function changeName($id)
+    {
+        if (!Auth::check()) return redirect("/");
+
         $name = \Input::get('name');
 
         $newname = User::find($id);
@@ -142,11 +172,18 @@ class MemberController extends Controller
         $newname->save();
         return redirect("auth/logout");
     }
+
     public function viewEmail()
     {
+        if (!Auth::check()) return redirect("/");
+
         return view("auth.change-email");
     }
-    public function changeEmail ($id){
+
+    public function changeEmail($id)
+    {
+        if (!Auth::check()) return redirect("/");
+
         $email = \Input::get('email');
 
         $newemail = User::find($id);

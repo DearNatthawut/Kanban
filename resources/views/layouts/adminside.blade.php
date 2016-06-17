@@ -24,7 +24,7 @@
                 </a>
             </li>
             <li>
-                <a href="/view-edit">
+                <a href="/managementAccount">
                     <i class="glyphicon glyphicon-wrench"></i><span>Management account</span>
                     <small class="label pull-right bg-red"></small>
                 </a>

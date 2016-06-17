@@ -19,7 +19,7 @@
                 <div class="panel-body">
                     <div class="page-header">
                         <h2>
-                            Contact
+                            <i class="glyphicon glyphicon-phone-alt"></i>  Contact
                         </h2>
                     </div>
                     <a href="https://www.facebook.com/natthawut.jantapoon"

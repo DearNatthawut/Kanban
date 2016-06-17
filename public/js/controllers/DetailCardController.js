@@ -5,8 +5,8 @@
 'use strict';
 
 angular.module('kanban').controller('DetailCardController',
-    ['$scope', '$modalInstance', 'card', '$http','$route',
-        function ($scope, $modalInstance, card, $http,$route) {
+    ['$scope', '$modalInstance', 'card', '$http','$route','$timeout',
+        function ($scope, $modalInstance, card, $http,$route,$timeout) {
 
 
         //console.log(card)
@@ -15,6 +15,7 @@ angular.module('kanban').controller('DetailCardController',
             $scope.cardData = [];
             $scope.cardData = card.data;
            //console.log($scope.cardData)
+            $scope.saveSuccess = 0;
 
         }
 
@@ -32,6 +33,7 @@ angular.module('kanban').controller('DetailCardController',
 
             })
         }
+
 
         $scope.close = function () {
             $route.reload();
@@ -89,6 +91,11 @@ angular.module('kanban').controller('DetailCardController',
                 }
                 $scope.cardData = r;
                 card = $scope.cardData;
+                $scope.saveSuccess = 1;
+                $timeout(function() {
+                    $scope.saveSuccess = 0;
+
+                }, 3000);
             })
         };
 
