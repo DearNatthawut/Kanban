@@ -12,6 +12,20 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
         self.checkComplete = 0;
         //console.log(self.date);
 
+        function getBoard(boardID) {
+            $scope.ID = boardID;
+            return $scope.ID
+
+        }
+
+        self.setBoard = function (boardID) {
+            self.boardID = boardID;
+            getBoard(self.boardID);
+        };
+
+
+
+
         
         function getDataMember() {
             $http({
