@@ -14,9 +14,7 @@ angular.module('kanban').controller('DetailCardController',
         function initScope(card) {
             $scope.cardData = [];
             $scope.cardData = card.data;
-           //console.log($scope.cardData)
             $scope.saveSuccess = 0;
-
         }
 
         function getDataCard(){
@@ -43,22 +41,7 @@ angular.module('kanban').controller('DetailCardController',
         
         initScope(card);
         getDataCard();
-
-       
-
-     /*   $scope.getDataCardKanban = function () {
-            $http({
-                method: 'GET',
-                url : "http://localhost:8000/getCardEditData",
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-
-            }).success(function (r) {
-
-                $scope.DataEdit = r;
-                console.log($scope.DataEdit)
-
-            })
-        };*/    //เก็บไว้สำหรับดึกหลังย้าย
+            
 
         $scope.detailCard = function () {
             var buffer = [];
@@ -70,6 +53,18 @@ angular.module('kanban').controller('DetailCardController',
              ,estimateStart: this.estimateStart,estimateEnd: this.estimateEnd});*/
         };
 
+
+            $scope.getPriority = function (level) {
+
+                if (level == 1) {
+                    return "Normal";
+                }else if (level == 2){
+                    return "High";
+                }
+
+                /* $modalInstance.close({title: this.title, column: card, details: this.details
+                 ,estimateStart: this.estimateStart,estimateEnd: this.estimateEnd});*/
+            };
 
        /* edit card */
         $scope.saveEditCard = function (cardData) {
@@ -112,7 +107,7 @@ angular.module('kanban').controller('DetailCardController',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data : $.param($addCheck)
             }).success(function (r) {
-               // console.log(r);
+
                 if(r.status_id == 1){
                     r.status = "Backlog"
                 }else if(r.status_id == 2){

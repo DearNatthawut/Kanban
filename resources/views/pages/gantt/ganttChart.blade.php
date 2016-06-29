@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-<!---------------------------------------------------------------------------ตารางบอกสีแก้น-------------------------->
+        <!---------------------------------------------------------------------------ตารางบอกสีแก้น-------------------------->
         <div class="col-md-12 col-sm-4">
             <div class="panel panel-default">
 
@@ -78,7 +78,7 @@
                         <h2>Plan</h2>
 
                     </div>
-                    <div  ng-controller="GanttCtrlEstimate as vmEstimate">
+                    <div ng-controller="GanttCtrlEstimate as vmEstimate">
                         <div gantt data=vmEstimate.dataEstimate>
 
                             <gantt-table></gantt-table>
@@ -91,12 +91,13 @@
                 </div>
             </div>
 
-        </div><div class="col-md-12 col-sm-4">
+        </div>
+        <div class="col-md-12 col-sm-4">
             <div class="panel panel-default">
 
                 <div class="panel-body">
                     <h2>Actual</h2>
-                    <div  ng-controller="GanttCtrlActual as vmActual">
+                    <div ng-controller="GanttCtrlActual as vmActual">
                         <div gantt data=vmActual.dataActual>
                             <gantt-table></gantt-table>
                             {{--<gantt-movable></gantt-movable>
@@ -116,46 +117,83 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <center> <th>Work activities</th></center>
-                                <center> <th>Owner</th></center>
-                                <center><th>Plan Start-End</th></center>
-                                <center><th>Actual Start-End</th></center>
-                                <center> <th>Times editor</th></center>
-                                <center><th>Complete Status</th></center>
-                                <center><th>Time</th></center>
+                                <center>
+                                    <th>Work activities</th>
+                                </center>
+                                <center>
+                                    <th>Owner</th>
+                                </center>
+                                <center>
+                                    <th>Plan Start-End</th>
+                                </center>
+                                <center>
+                                    <th>Actual Start-End</th>
+                                </center>
+                                <center>
+                                    <th>Times editor</th>
+                                </center>
+                                <center>
+                                    <th>Complete Status</th>
+                                </center>
+                                <center>
+                                    <th>Time</th>
+                                </center>
                             </tr>
                             </thead>
+
                             <tbody>
-                            @foreach($Card as $Card)
-                                  <?php $count = 0 ; ?>
-                                @foreach($Card['comments'] as $Comments)
-                                    @if($Comments->edit_status == 1)
-                                        <?php $count++ ; ?>
-                                    @endif
-                                @endforeach
-                                <tr>
-                                    <td> {{$Card->name}}</td>
-                                    <td>{{$Card['memberCard']['member']->name}}</td>
-                                    <td> {{$Card->estimate_start}}---{{$Card->estimate_end}}</td>
-                                    <td> {{$Card->date_start}}---{{$Card->date_end}}</td>
-                                    <td><center>{{$count}}</center></td>
+
+                            @foreach($Card as $Card) {{--time of edit card--}}
+                            <?php $count = 0; ?>
+                            @foreach($Card['comments'] as $Comments)
+                                @if($Comments->edit_status == 1)
+                                    <?php $count++; ?>
+                                @endif
+                            @endforeach
+
+                            <tr>
+                                <td> {{$Card->name}}</td>
+
+                                <td>{{$Card['memberCard']['member']->name}}</td>
+
+                                <td> {{$Card->estimate_start}}---{{$Card->estimate_end}}</td>
+
+                                <td> {{$Card->date_start}}---{{$Card->date_end}}</td>
+
+                                <td>
+                                    <center>{{$count}}</center>
+                                </td>
+
+                                @if($Card->status_complete == 1)
+                                    <td>
+                                        <center><span class="glyphicon glyphicon-ok"></span></center>
+                                    </td>
+                                @else
+                                    <td>
+                                        <center><span class="glyphicon glyphicon-remove"></span></center>
+                                    </td>
+                                @endif
+                                <td>
                                     @if($Card->status_complete == 1)
-                                        <td><center><span class="glyphicon glyphicon-ok"></span></center> </td>
-                                        @else
-                                        <td><center><span class="glyphicon glyphicon-remove"></span></center></td>
-                                    @endif
-                                    @if($Card->status_complete == 1)
+
                                         @if($Card->date_end <= $Card->estimate_end)
-                                            <td>
-                                                <center>On Time</center>
-                                            </td>
+                                            <center>On Time</center>
                                         @else
-                                            <td>
-                                                <center>Over Time</center>
-                                            </td>
+                                            <center>Over Time</center>
                                         @endif
+
+                                    @elseif($Card->status_complete == 0)
+
+                                        @if( date('Y-m-d') <= $Card->estimate_end)
+                                            <center>On Time</center>
+                                        @else
+                                            <center>Over Time</center>
+                                        @endif
+
+
                                     @endif
-                                </tr>
+                                </td>
+                            </tr>
                             @endforeach
                             </tbody>
                         </table>
@@ -235,19 +273,19 @@
 
                         r[i].to = r[i].date_end;
 
-                        if (r[i].date_end > r[i].estimate_end){ //date_end เกิน estimate_end
+                        if (r[i].date_end > r[i].estimate_end) { //date_end เกิน estimate_end
                             r[i].color = '#FFA500';       // เสร็จแล้วแต่เวลาเกิน  //--สีเป็นสีส้ม
-                        }else  r[i].color = '#008000';    //เสร็จตามเวลาที่กำหนด //--เป็นสีเขียว
+                        } else  r[i].color = '#008000';    //เสร็จตามเวลาที่กำหนด //--เป็นสีเขียว
 
                     } else {
 
                         r[i].to = Date.now();
 
-                        if (Date.now() > r[i].estimate_end){ // -------------งานที่ยังไม่เสร็จและเวลาเกิน
+                        if (Date.now() > r[i].estimate_end) { // -------------งานที่ยังไม่เสร็จและเวลาเกิน
 
                             r[i].color = '#FF0000'; //งานยังไม่เสร็จและเกินเวลา สีแดง
 
-                        }else  r[i].color = '#00CCFF'; //งานยังไม่เสร็จและเวลาเกินกำหนดแต่ยังทำต่อ สีนาวี่
+                        } else  r[i].color = '#00CCFF'; //งานยังไม่เสร็จและเวลาเกินกำหนดแต่ยังทำต่อ สีนาวี่
 
 
                     }
@@ -263,7 +301,8 @@
 </script>
 
 
+</div>
 
-
-
+</body>
+@include('layouts.script')
 </html>

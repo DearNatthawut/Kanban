@@ -8,13 +8,22 @@
 
     <h4>Move Back Successfully</h4>
     <br>
-    <input class="form-control"  ng-model="commentData" placeholder="Post Comment"  required="required">
-    <div class="modal-footer">
+    <form>
+
+        <input class="form-control" ng-model="commentData" placeholder="Post Comment" required="required">
 
 
-        <button class="btn btn-primary pull-right" ng-click="commentMoveBack(commentData)" ng-show="commentData != null" >Move Only Card</button>
-        <button class="btn btn-danger pull-right" ng-click="commentMoveAllBack(commentData)" ng-show="commentData != null" >Move All Cards</button>
+        <div class="modal-footer">
+            <button class="btn btn-primary pull-right" ng-click="commentMoveBack(commentData)"
+                    ng-show="commentData != null">Move Only Card
+            </button>
+            <button class="btn btn-danger pull-right" ng-click="commentMoveAllBack(commentData)"
+                    ng-show="commentData != null">Move All Cards
+            </button>
+        </div>
 
-    </div>
+    </form>
+
+
 </div>
 

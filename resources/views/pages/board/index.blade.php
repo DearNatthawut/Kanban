@@ -11,8 +11,8 @@
 
                 <div class="panel-body">
                     <div class="page-header">
-                        <h2> <i class="glyphicon glyphicon-blackboard"></i> List of Boards
-                            {{--<small> ( {{$countProject}} Projects )</small>--}}
+                        <h2>
+                            <i class="glyphicon glyphicon-blackboard"></i> List of Boards
                         </h2>
 
                         @if(Auth::user()->Level_id == 1)
@@ -28,14 +28,17 @@
 
                     <ul class="nav nav-tabs ">
                         <li role="presentation" class="active">
-                            <a href="#board-gen" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span> Doing</a>
+                            <a href="#board-gen" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"></span>
+                                Doing</a>
                         </li>
                         <li role="presentation">
-                            <a href="#board-done" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span> Done</a>
+                            <a href="#board-done" data-toggle="tab"><span class="glyphicon glyphicon-ok"></span>
+                                Done</a>
                         </li>
                         @if(Auth::user()->Level_id == 1)
                             <li role="presentation">
-                                <a href="#board-bin" data-toggle="tab"><span class="glyphicon glyphicon-trash"></span> Bin</a>
+                                <a href="#board-bin" data-toggle="tab"><span class="glyphicon glyphicon-trash"></span>
+                                    Bin</a>
                             </li>
                         @endif
                     </ul>

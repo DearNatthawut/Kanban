@@ -14,16 +14,13 @@ use Illuminate\Database\Eloquent\Model;
 class Card extends Model
 {
     protected $table = 'cards';
-    protected $fillable = ['name','detail','MemberManagement_id','priority_id','color_id'];
+    protected $fillable = ['name','detail','MemberManagement_id','priority_id','color'];
 
     public function checklists(){
         return $this->hasMany(\App\Models\Checklist::class,"Card_id");
     }
 
-   /* public function preCards(){
-        return $this->hasMany(\App\Models\PreCard::class,"Cards_id");
-    }*/
-
+  
     public function comments(){
         return $this->hasMany(\App\Models\Comment::class,"Card_id");
     }
@@ -35,11 +32,7 @@ class Card extends Model
 
     }
 
-    public function color()
-    {
-        return $this->belongsTo(\App\Models\Color::class,"color_id","id" );
 
-    }
 
     public function preCard()
     {

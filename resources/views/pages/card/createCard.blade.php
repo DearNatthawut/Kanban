@@ -70,29 +70,11 @@
                                 </div>
 
                                 <input type="hidden"  id="status" name="status" value="1">
-                               {{-- <div class="form-group">
-                                    <label for="status" class="col-sm-2 control-label">Status</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-control" name="status">
-                                            @foreach($status as $status)
-                                                <div class="col-sm-10">
-                                                    <option value="{{$status['id']}}">{{$status['name']}}</option>
-                                                </div>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>--}}
+
                                 <div class="form-group">
                                     <label for="color" class="col-sm-2 control-label">Color</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="color">
-                                            @foreach($color as $color)
-                                                <div class="col-sm-10">
-                                                    <option value="{{$color['id']}}">{{$color['name']}}</option>
-                                                </div>
-                                            @endforeach
-
-                                        </select>
+                                       <input type="color" name="color" style="width:30%;">
                                     </div>
                                 </div>
                                 <div class="form-group">

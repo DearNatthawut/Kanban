@@ -8,21 +8,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Board;
-use App\Models\Color;
 use App\Models\Comment;
-use App\Models\Member;
 use App\Models\Membermanagement;
 use App\Models\Card;
-use App\Models\Priority;
-use App\Models\Status;
 use App\Models\Checklist;
 use App\Models\User;
-
 use DB;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Http\Request;
 use Input;
 use Validator;
 

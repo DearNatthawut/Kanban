@@ -49,14 +49,9 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
              },*/
             itemMoved: function (event) {
 
-               console.log(event.source.index);
 
-                if (event.dest.sortableScope.$parent.column.name == "Doing" && event.dest.sortableScope.$parent.column.cards.length == 6){
 
-                    event.dest.sortableScope.removeItem(event.dest.index);
-                    event.source.itemScope.sortableScope.insertItem(event.source.index, event.source.itemScope.modelValue);
 
-                }else {
 
 
                 var AfterID;
@@ -104,7 +99,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
                             self.checkComplete = 0;
                         }
                     });
-                }
+                
             },
             accept: function (event) {
                 //console.log(event.itemScope.$parent.card.pre_card);
