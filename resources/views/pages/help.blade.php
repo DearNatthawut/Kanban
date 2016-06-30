@@ -194,20 +194,6 @@
                             <td><label>ลบกิจกรรมหรือการ์ดใบนั้น</label>
                             </td>
                         </tr>
-
-                        <tr>
-                            <td>
-                                <center><span class="badge bg-rad">Card</span></center>
-                                <center><span class="badge bg-red">Card</span></center>
-                                <center><span class="badge bg-blue">Card</span></center>
-                                <center><span class="badge bg-green">Card</span></center>
-                                <center><span class="badge bg-yellow">Card</span></center>
-                                <center><span class="badge bg-orange">Card</span></center>
-                            </td>
-                            <td><label>สีภายในการ์ด</label>
-                            </td>
-
-                        </tr>
                         <tr>
                             <td>
                                 <center><span class="label label-danger"> <span class="glyphicon glyphicon-time"></span> Over time  </span>

@@ -8,21 +8,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Board;
-use App\Models\Color;
 use App\Models\Comment;
-use App\Models\Member;
 use App\Models\Membermanagement;
 use App\Models\Card;
-use App\Models\Priority;
-use App\Models\Status;
 use App\Models\Checklist;
 use App\Models\User;
-
 use DB;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Http\Request;
 use Input;
 use Validator;
 
@@ -41,6 +34,14 @@ class BoardController extends Controller
         return $data;
     }
 
+    public function getBoard()
+    {
+        if (!Auth::check()) return redirect("/");
+
+        $data = Board::find(session()->get('Board'));
+        
+        return $data;
+    }
     //แสดงข้อมูลบอร์ดในหน้าแรก
     public function showAllBoard()
     {
@@ -111,6 +112,7 @@ class BoardController extends Controller
         $edit = Board::find(\Input::get('id'));
         $edit->name = \Input::get('name');
         $edit->detail = \Input::get('detail');
+        $edit->worklimit = \Input::get('worklimit');
         $edit->manager_id = \Input::get('manager');
         $edit->estimate_start = $dateEs[0];
         $edit->estimate_end = $dateEs[1];
@@ -138,6 +140,7 @@ class BoardController extends Controller
         $Board = new Board();
         $Board->name = \Input::get('name');
         $Board->detail = \Input::get('detail');
+        $Board->worklimit = \Input::get('worklimit');
         $Board->estimate_start = $dateEs[0];
         $Board->estimate_end = $dateEs[1];
         $Board->manager_id = \Input::get('manager');
