@@ -39,6 +39,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
         }
 
         getDataMember();
+        getBoard();
 
 
         BoardDataFactory.getKanban().success(function (r) {  //------
