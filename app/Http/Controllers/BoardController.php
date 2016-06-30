@@ -104,6 +104,7 @@ class BoardController extends Controller
         $edit = Board::find(\Input::get('id'));
         $edit->name = \Input::get('name');
         $edit->detail = \Input::get('detail');
+        $edit->worklimit = \Input::get('worklimit');
         $edit->manager_id = \Input::get('manager');
         $edit->estimate_start = $dateEs[0];
         $edit->estimate_end = $dateEs[1];
@@ -131,6 +132,7 @@ class BoardController extends Controller
         $Board = new Board();
         $Board->name = \Input::get('name');
         $Board->detail = \Input::get('detail');
+        $Board->worklimit = \Input::get('worklimit');
         $Board->estimate_start = $dateEs[0];
         $Board->estimate_end = $dateEs[1];
         $Board->manager_id = \Input::get('manager');

@@ -49,56 +49,60 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
              },*/
             itemMoved: function (event) {
 
+                if (event.dest.sortableScope.$parent.column.name == "Doing" && event.dest.sortableScope.$parent.column.cards.length == 6){
+
+                    event.dest.sortableScope.removeItem(event.dest.index);
+                    event.source.itemScope.sortableScope.insertItem(event.source.index, event.source.itemScope.modelValue);
+
+                }else {
 
 
+                    var AfterID;
+                    var BeforeID = event.source.itemScope.modelValue.status_id;
 
 
-
-                var AfterID;
-                var BeforeID = event.source.itemScope.modelValue.status_id;
-
-
-                if (event.dest.sortableScope.$parent.column.name == "Backlog") {
-                    AfterID = 1;
-                } else if (event.dest.sortableScope.$parent.column.name == "Ready") {
-                    AfterID = 2;
-                } else if (event.dest.sortableScope.$parent.column.name == "Doing") {
-                    AfterID = 3;
-                } else if (event.dest.sortableScope.$parent.column.name == "Done") {
-                    AfterID = 4;
-                }
+                    if (event.dest.sortableScope.$parent.column.name == "Backlog") {
+                        AfterID = 1;
+                    } else if (event.dest.sortableScope.$parent.column.name == "Ready") {
+                        AfterID = 2;
+                    } else if (event.dest.sortableScope.$parent.column.name == "Doing") {
+                        AfterID = 3;
+                    } else if (event.dest.sortableScope.$parent.column.name == "Done") {
+                        AfterID = 4;
+                    }
 
 
-                var $MoveEvent = {
-                    cardId: event.source.itemScope.modelValue.id,
-                    columnName: event.dest.sortableScope.$parent.column.name
-                };
+                    var $MoveEvent = {
+                        cardId: event.source.itemScope.modelValue.id,
+                        columnName: event.dest.sortableScope.$parent.column.name
+                    };
 
-                BoardService.cardMove($MoveEvent)
-                    .success(function (r) {
-                        var beforeStatus = event.source.itemScope.modelValue.status;
-                        var afterStatus = event.dest.sortableScope.$parent.column.name;
-                        BoardDataFactory.getKanban().success(function (r) {  //------
-                            // console.log(r);
-                            self.kanbanBoard = BoardService.kanbanBoard(r);
-                            // console.log(self.kanbanBoard)
+                    BoardService.cardMove($MoveEvent)
+                        .success(function (r) {
+                            var beforeStatus = event.source.itemScope.modelValue.status;
+                            var afterStatus = event.dest.sortableScope.$parent.column.name;
+                            BoardDataFactory.getKanban().success(function (r) {  //------
+                                // console.log(r);
+                                self.kanbanBoard = BoardService.kanbanBoard(r);
+                                // console.log(self.kanbanBoard)
 
-                            if (BeforeID - AfterID < 0) {           //----------------------- After Moved
-                                BoardService.afterMove(beforeStatus,afterStatus);
+                                if (BeforeID - AfterID < 0) {           //----------------------- After Moved
+                                    BoardService.afterMove(beforeStatus, afterStatus);
+                                } else {
+                                    BoardService.afterMoveBack(event.source.itemScope.modelValue.id, beforeStatus, afterStatus)
+                                }
+
+
+                            });
+
+                            if ((self.kanbanBoard.columns[0].cards.length == 0) && (self.kanbanBoard.columns[1].cards.length == 0)
+                                && (self.kanbanBoard.columns[2].cards.length == 0) && (self.kanbanBoard.columns[3].cards.length != 0)) {
+                                self.checkComplete = 1;
                             } else {
-                                BoardService.afterMoveBack(event.source.itemScope.modelValue.id,beforeStatus,afterStatus)
+                                self.checkComplete = 0;
                             }
-
-
                         });
-
-                        if ((self.kanbanBoard.columns[0].cards.length == 0) && (self.kanbanBoard.columns[1].cards.length == 0)
-                            && (self.kanbanBoard.columns[2].cards.length == 0) && (self.kanbanBoard.columns[3].cards.length != 0)) {
-                            self.checkComplete = 1;
-                        }else {
-                            self.checkComplete = 0;
-                        }
-                    });
+                }
                 
             },
             accept: function (event) {

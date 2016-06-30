@@ -9,7 +9,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Board;
-use App\Models\Member;
 use App\Models\Membermanagement;
 use App\Models\Card;
 use App\Models\Priority;
@@ -52,6 +51,7 @@ class CardController extends Controller
         $status = \App\Models\Status::all('id', 'name')
             ->sortBy('id')
             ->toArray();
+        
 //-- สร้างรูปแบบ ข้อมูล
         $kanban = [];
         $kanban['columns'] = [];
