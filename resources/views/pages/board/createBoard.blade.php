@@ -24,7 +24,7 @@
                                 <div class="form-group">
                                     <label for="name" class="col-sm-2 control-label">Name</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="name" name="name"   placeholder="Name"
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name"
                                                required>
                                     </div>
                                 </div>
@@ -33,13 +33,6 @@
                                     <div class="col-sm-10">
                                         <textarea id="detail" name="detail" class="form-control" rows="5"
                                                   placeholder="Detail"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="worklimit" class="col-sm-2 control-label">Work limit</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" id="worklimit" name="worklimit" class="form-control"
-                                               min="0" max="10" placeholder="Work limit" />
                                     </div>
                                 </div>
                                 <div class="form-group">

@@ -15,9 +15,13 @@
            </div>
 
 
+        {{--  <ol class="breadcrumb">
+              <li><a href="/home"> Home</a></li>
+              <li class="active">Board</li>
+          </ol>--}}
     </section>
-    <section class="content" ng-controller="KanbanController as self">
-        <div ng-view ></div>
+    <section class="content">
+        <div ng-view></div>
         </nav>
 
     </section>

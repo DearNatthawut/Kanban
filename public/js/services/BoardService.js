@@ -8,7 +8,6 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
     return {
 
         kanbanBoard: function (board) {
-            
             var kanbanBoard = new Board(board.name, board.numberOfColumns);
             angular.forEach(board.columns, function (column) {
                 BoardManipulator.addColumn(kanbanBoard, column.name);
@@ -33,7 +32,6 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
         },
 
         removeCard: function (board, column, card) {
-            
             if (confirm('Are You sure to Delete?')) {
                 var $DeCard = {
                     card: card.id
@@ -66,7 +64,6 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                     }
                 }
             });
-            
             modalInstance.result.then(function (cardDetails) {
                 if (cardDetails) {
 
@@ -121,8 +118,7 @@ angular.module('kanban').service('BoardService', ['$modal', 'BoardManipulator', 
                 }
                         
             });
-        },
-        afterMoveBack: function (cardID,beforeStatus,afterStatus) {
+        }, afterMoveBack: function (cardID,beforeStatus,afterStatus) {
 
             var show = $modal.open({
                 templateUrl: '/views/partials/afterMoveBack.html',
