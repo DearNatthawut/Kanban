@@ -39,13 +39,6 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="worklimit" class="col-sm-2 control-label">Work limit</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" id="worklimit" name="worklimit" class="form-control"
-                                               min="0" max="10" placeholder="Work limit" value="{{$Board->worklimit}}" />
-                                    </div>
-                                </div>
-                                <div class="form-group">
                                     <label for="reservation" class="col-sm-2 control-label">Estimate Date</label>
                                     <div class="col-sm-10 ">
                                         <input type="text" name="date" class="form-control " id="reservation"
