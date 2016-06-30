@@ -34,6 +34,14 @@ class BoardController extends Controller
         return $data;
     }
 
+    public function getBoard()
+    {
+        if (!Auth::check()) return redirect("/");
+
+        $data = Board::find(session()->get('Board'));
+        
+        return $data;
+    }
     //แสดงข้อมูลบอร์ดในหน้าแรก
     public function showAllBoard()
     {

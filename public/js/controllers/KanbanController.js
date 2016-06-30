@@ -9,18 +9,31 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
         var self = this;
         self.date = new Date();
+
         self.checkComplete = 0;
-        //console.log(self.date);
+        
 
         
         function getDataMember() {
             $http({
                 method: 'GET',
-                url: "http://localhost:8000/getDataMember",
+                url: "/getDataMember",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
             }).success(function (r) {
                 self.DataMember = r;
+
+            })
+        }
+
+        function getBoard() {
+            $http({
+                method: 'GET',
+                url: "/board",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+            }).success(function (r) {
+                self.Board = r;
 
             })
         }
@@ -152,9 +165,11 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
                 return estimateDate < now;
 
+
             }else {
                 var endA = new Date(end);
                 return endA > estimateDate;
+
             }
 
 
