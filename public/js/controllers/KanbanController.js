@@ -12,9 +12,21 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
         self.checkComplete = 0;
         //console.log(self.date);
 
-       
+        function getBoard(boardID) {
+            $scope.ID = boardID;
+            return $scope.ID
+
+        }
+
+        self.setBoard = function (boardID) {
+            self.boardID = boardID;
+            getBoard(self.boardID);
+        };
 
 
+
+
+        
         function getDataMember() {
             $http({
                 method: 'GET',
@@ -27,7 +39,19 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
             })
         }
 
+        function getDataBoard() {
+            $http({
+                method: 'GET',
+                url: "/board",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+            }).success(function (r) {
+                self.dataBoard = r;
+            })
+        }
+
         getDataMember();
+        getDataBoard();
 
 
         BoardDataFactory.getKanban().success(function (r) {  //------
@@ -50,7 +74,16 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
              return sourceItemHandleScope.itemScope.sortableScope.$id !== destSortableScope.$id;
              },*/
             itemMoved: function (event) {
-                //event.source.itemScope.modelValue.status = event.dest.sortableScope.$parent.column.name;
+
+
+                if ((event.dest.sortableScope.$parent.column.name == "Doing" &&
+                    event.dest.sortableScope.$parent.column.cards.length >= self.dataBoard.worklimit+1) && self.dataBoard.worklimit != 0  ){
+
+                    event.dest.sortableScope.removeItem(event.dest.index);
+                    event.source.itemScope.sortableScope.insertItem(event.source.index, event.source.itemScope.modelValue);
+
+                }else {
+
 
                 var AfterID;
                 var BeforeID = event.source.itemScope.modelValue.status_id;
@@ -97,18 +130,21 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
                             self.checkComplete = 0;
                         }
                     });
+                }
             },
             accept: function (event) {
                 //console.log(event.itemScope.$parent.card.pre_card);
                 if (event.itemScope.$parent.card.pre_card != null) {
                     var check = (event.itemScope.$parent.card.pre_card.status_id == 4);
                 } else var check = true;
+
+
                 return check;
 
             },
 
             orderChanged: function (event) {
-                console.log(event.source.itemScope.modelValue.status_id)
+                console.log(event)
             },
             dragStart: function (event) {
                 //console.log(event)
