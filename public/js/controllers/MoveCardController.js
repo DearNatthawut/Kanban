@@ -15,6 +15,6 @@ angular.module('kanban').controller('MoveCardController',
 
         $timeout(function() {
             $modalInstance.close();
-        }, 3000);
+        }, 2000);
 
     }]);

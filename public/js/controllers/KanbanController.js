@@ -62,16 +62,14 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
              },*/
             itemMoved: function (event) {
 
-                console.log((event.dest.sortableScope.$parent.column.name == "Doing" &&
-                    event.dest.sortableScope.$parent.column.cards.length > self.Board.worklimit) && self.Board.worklimit != 0);
-
+/*              ส่วน worklimit ของ New Req
                 if ((event.dest.sortableScope.$parent.column.name == "Doing" &&
                     event.dest.sortableScope.$parent.column.cards.length > self.Board.worklimit) && self.Board.worklimit != 0) {
 
                     event.dest.sortableScope.removeItem(event.dest.index);
                     event.source.itemScope.sortableScope.insertItem(event.source.index, event.source.itemScope.modelValue);
 
-                } else {
+                } else {*/
 
 
                     var AfterID;
@@ -119,7 +117,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
                                 self.checkComplete = 0;
                             }
                         });
-                }
+               /* }*/
 
             },
             accept: function (event) {
