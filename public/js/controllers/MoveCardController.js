@@ -5,14 +5,16 @@
 'use strict';
 
 angular.module('kanban').controller('MoveCardController',
-    ['$scope', '$modalInstance', 'statusMove', '$http','$route', function ($scope, $modalInstance, statusMove, $http,$route) {
+    ['$scope', '$modalInstance', 'statusMove', '$http','$route','$timeout', function ($scope, $modalInstance, statusMove, $http,$route,$timeout) {
 
         function initScope(statusMove) {
             $scope.status = statusMove;
         }
 
         initScope(statusMove);
-        
 
+        $timeout(function() {
+            $modalInstance.close();
+        }, 3000);
 
     }]);

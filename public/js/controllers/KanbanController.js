@@ -11,9 +11,8 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
         self.date = new Date();
 
         self.checkComplete = 0;
-        
 
-        
+
         function getDataMember() {
             $http({
                 method: 'GET',
@@ -48,7 +47,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
             if ((self.kanbanBoard.columns[0].cards.length == 0) && (self.kanbanBoard.columns[1].cards.length == 0)
                 && (self.kanbanBoard.columns[2].cards.length == 0) && (self.kanbanBoard.columns[3].cards.length != 0)) {
                 self.checkComplete = 1;
-            }else {
+            } else {
                 self.checkComplete = 0;
             }
 
@@ -63,12 +62,16 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
              },*/
             itemMoved: function (event) {
 
-                if (event.dest.sortableScope.$parent.column.name == "Doing" && event.dest.sortableScope.$parent.column.cards.length == 6){
+                console.log((event.dest.sortableScope.$parent.column.name == "Doing" &&
+                    event.dest.sortableScope.$parent.column.cards.length > self.Board.worklimit) && self.Board.worklimit != 0);
+
+                if ((event.dest.sortableScope.$parent.column.name == "Doing" &&
+                    event.dest.sortableScope.$parent.column.cards.length > self.Board.worklimit) && self.Board.worklimit != 0) {
 
                     event.dest.sortableScope.removeItem(event.dest.index);
                     event.source.itemScope.sortableScope.insertItem(event.source.index, event.source.itemScope.modelValue);
 
-                }else {
+                } else {
 
 
                     var AfterID;
@@ -117,7 +120,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
                             }
                         });
                 }
-                
+
             },
             accept: function (event) {
                 //console.log(event.itemScope.$parent.card.pre_card);
@@ -162,12 +165,12 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
         self.isOvertime = function (estimate, now, end) {  //--- เช็ค Over time
             var estimateDate = new Date(estimate);
-            if (end == null){
+            if (end == null) {
 
                 return estimateDate < now;
 
 
-            }else {
+            } else {
                 var endA = new Date(end);
                 return endA > estimateDate;
 
