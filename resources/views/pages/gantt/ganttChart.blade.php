@@ -210,6 +210,11 @@
 
 @include('layouts.script')
 
+<style>
+    .gantt-green {
+        color: white;
+    }
+</style>
 
 <script type="text/javascript">
     // dataEstimate
@@ -275,7 +280,10 @@
 
                         if (r[i].date_end > r[i].estimate_end) { //date_end เกิน estimate_end
                             r[i].color = '#FFA500';       // เสร็จแล้วแต่เวลาเกิน  //--สีเป็นสีส้ม
-                        } else  r[i].color = '#008000';    //เสร็จตามเวลาที่กำหนด //--เป็นสีเขียว
+                        } else  {
+                            r[i].color = '#008000';
+                            r[i].classes= 'gantt-green';
+                        }    //เสร็จตามเวลาที่กำหนด //--เป็นสีเขียว
 
                     } else {
 
