@@ -61,21 +61,7 @@
                                                disabled>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="manager" class="col-sm-2 control-label">Manager</label>
-                                    <div class="col-sm-10 ">
-                                        <select class="form-control" name="manager">
-                                            @foreach($members as $member)
-                                                <div class="col-sm-10">
-                                                    <option value="{{$member['member']->id}}"
-                                                            @if($Board->manager_id == $member['member']->id) selected @endif >
-                                                        {{$member['member']->name}}( {{$member['member']->email}})
-                                                    </option>
-                                                </div>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+                              
 
 
                             </div><!-- /.box-body -->

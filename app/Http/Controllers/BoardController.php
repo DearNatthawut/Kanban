@@ -39,7 +39,7 @@ class BoardController extends Controller
         if (!Auth::check()) return redirect("/");
 
         $data = Board::find(session()->get('Board'));
-        
+
         return $data;
     }
     //แสดงข้อมูลบอร์ดในหน้าแรก
@@ -113,7 +113,7 @@ class BoardController extends Controller
         $edit->name = \Input::get('name');
         $edit->detail = \Input::get('detail');
        /* $edit->worklimit = \Input::get('worklimit');*/
-        $edit->manager_id = \Input::get('manager');
+        $edit->manager_id = Auth::user()->id;
         $edit->estimate_start = $dateEs[0];
         $edit->estimate_end = $dateEs[1];
         $edit->save();
@@ -124,10 +124,7 @@ class BoardController extends Controller
     {
 
         if (!Auth::check()) return redirect("/");
-
-        $members = User::all();
-        return view('pages.board.createBoard')
-            ->with('members', $members);
+        return view('pages.board.createBoard');
     }
 
     //สร้าง Bord
@@ -143,28 +140,16 @@ class BoardController extends Controller
      /*   $Board->worklimit = \Input::get('worklimit');*/
         $Board->estimate_start = $dateEs[0];
         $Board->estimate_end = $dateEs[1];
-        $Board->manager_id = \Input::get('manager');
+        $Board->manager_id = Auth::user()->id;
         $Board->save();
 
 
         $id = $Board['id'];
-        $managerID = $Board['manager_id'];
-        if (Auth::user()->id == $managerID) {
-            $Manager = new Membermanagement();
-            $Manager->Board_id = $id;
-            $Manager->User_id = $managerID;
-            $Manager->save();
-        } else {
-            $Manager = new Membermanagement();
-            $Manager->Board_id = $id;
-            $Manager->User_id = $managerID;
-            $Manager->save();
 
             $Manager = new Membermanagement();
             $Manager->Board_id = $id;
             $Manager->User_id = Auth::user()->id;
             $Manager->save();
-        }
 
 
         return redirect('/home');

@@ -10,6 +10,8 @@
     @include('layouts.scriptNG')
 
     <meta charset="utf-8">
+    <link rel="icon" href="/favicon.ico"/>
+    <link  rel="shortcut icon" href="/favicon.ico" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Project Management With Kanban Borad</title>
     <!-- Tell the browser to be responsive to screen width -->
@@ -35,7 +37,7 @@
 
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
-                           <a><span class="hidden-xs">{{Auth::user()->name}} ( @if(Auth::user()->Level_id == 1) Project Manager ) @elseif(Auth::user()->Level_id == 2) Member ) @endif</span></a>
+                           <a><span class="hidden-xs">{{Auth::user()->name}} ( @if(Auth::user()->Level_id == 1) admin ) @elseif(Auth::user()->Level_id == 2) Member ) @elseif(Auth::user()->Level_id == 3) Project manager ) @endif</span></a>
                     </li>
 
                     <li class="dropdown user user-menu">

@@ -129,6 +129,38 @@ class MemberController extends Controller
         return view("auth.managementAccount");
     }
 
+    public function allMember()
+    {
+       if (!Auth::check()) return redirect("/");
+        $all = User::with(['levelUser'])->get();
+        return view("auth.permissions")
+        ->with('members', $all);
+    }
+
+    public function addManager()
+    {
+        if (!Auth::check()) return redirect("/");
+
+        $memberID = \Input::get('memberID');
+
+        $user = User::find($memberID);
+        $user->Level_id = 3;
+        $user->save();
+
+        return back();
+    }
+
+    public function delManager()
+    {
+        if (!Auth::check()) return redirect("/");
+
+        $memberID = \Input::get('memberID');
+
+        $user = User::find($memberID);
+        $user->Level_id = 2;
+        $user->save();
+        return back();
+    }
 
     public function viewChangePassword()
     {

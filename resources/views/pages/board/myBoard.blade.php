@@ -11,11 +11,9 @@
 <table class="table table-striped table-hover">
     <tbody>
 
-    @foreach($allBoards as $Board) <!-- loop Board-->
-        @foreach($Board->members as $memManager => $mem) <!-- loop member-->
-            @if(($mem->id == Auth::user()->id || Auth::user()->Level_id == 1 )
-              && Auth::user()->id != $Board->manager['id']
-            &&  $Board->membersManager[$memManager]->active == 0
+    @foreach($allBoards as $Board)
+
+            @if($Board->manager['id'] == Auth::user()->id
             && $Board->status_complete == 0 && $Board->board_hide == 0)
 
                 <tr>
@@ -40,12 +38,31 @@
                         </a>
 
 
+                        <a href="/editBoard/{{$Board->id}}">
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+                        </a>
+
+                        <button type="button" class="btn btn-danger" onclick="deleteBoard(<?php echo(json_encode($Board->id)); ?>)">
+                            <span class="glyphicon glyphicon-trash"></span>  Delete
+                        </button>
+
+
+
+                        <script>
+                            function deleteBoard(id) {
+
+                                if (confirm("Confirm move this board to bin!") == true) {
+
+                                    document.location.href = "/deleteBoard/" + id;
+                                }
+                            }
+                        </script>
                     </td>
                 </tr>
 
-                @break
+                
             @endif
-        @endforeach
+
     @endforeach
 
 

@@ -129,6 +129,7 @@ Route::group(['prefix' => 'managementAccount'], function () {
     Route::get('/changepassword', 'MemberController@viewChangePassword');
     Route::get('/changename', 'MemberController@viewName');
     Route::get('/change-email', 'MemberController@viewEmail');
+    Route::get('/permissions', 'MemberController@allMember');
 
     //- send data
     Route::post('/changePassword/{id}', 'MemberController@changePassword');
@@ -137,12 +138,16 @@ Route::group(['prefix' => 'managementAccount'], function () {
 
 });
 
+Route::post('/addManager', 'MemberController@addManager');
+Route::post('/delManager', 'MemberController@delManager');
 
 
 //------------------------------------------------------------Auto
 Route::get('/autocomplete/member', function()
 {
-    $user =Models\User::select('id','email','name')->get();
+    $user =Models\User::select('id','email','name')
+    ->where('level_id','!=',1)
+    ->get();
     $allUser = [];
     $allUser['users'] = $user;
     return Response::json($user);
@@ -160,7 +165,7 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
-// use for @break in blade 
+// use for @break in blade
 Blade::extend(function ($value) {
     return preg_replace('/(\s*)@(break|continue)(\s*)/', '$1<?php $2; ?>$3', $value);
 });

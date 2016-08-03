@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <!---------------------------------------------------------------------------ตารางบอกสีแก้น-------------------------->
+        <!---ตารางบอกสีแก้น-------------------------->
         <div class="col-md-12 col-sm-4">
             <div class="panel panel-default">
 
@@ -78,8 +78,8 @@
                         <h2>Plan</h2>
 
                     </div>
-                    <div ng-controller="GanttCtrlEstimate as vmEstimate">
-                        <div gantt data=vmEstimate.dataEstimate>
+                    <div ng-controller="GanttCtrlEstimate as vmEstimate" >
+                        <div gantt data=vmEstimate.dataEstimate column-width="40"  current-date="column" current-date-value="vmEstimate.newDate">
 
                             <gantt-table></gantt-table>
                             {{--<gantt-movable></gantt-movable>
@@ -98,7 +98,7 @@
                 <div class="panel-body">
                     <h2>Actual</h2>
                     <div ng-controller="GanttCtrlActual as vmActual">
-                        <div gantt data=vmActual.dataActual>
+                        <div gantt data=vmActual.dataActual  column-width="40" current-date="column" >
                             <gantt-table></gantt-table>
                             {{--<gantt-movable></gantt-movable>
                             <gantt-tooltips></gantt-tooltips>--}}
@@ -222,11 +222,12 @@
     myApp.controller('GanttCtrlEstimate', ['$scope', '$http', function ($scope, $http) {
         var self = this;
 
+        self.newDate = Date.now();
+
         $http({
             method: 'GET',
             url: '/current-board/cards'
         }).success(function (r) {
-            console.log(r);
 
             { // dataEstimate
                 var row = [];
@@ -256,7 +257,7 @@
     //dataActual
     myApp.controller('GanttCtrlActual', ['$scope', '$http', function ($scope, $http) {
         var self = this;
-
+        self.newDate = Date.now();
         $http({
             method: 'GET',
             url: '/current-board/cards'

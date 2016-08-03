@@ -20,10 +20,8 @@
                     </div>
                     <div class="box-body">
 
-                    @if(Auth::user()->Level_id == 1  || Auth::user()->id == $Board->manager_id) <!--    if  Add member -->
+                    @if( Auth::user()->id == $Board->manager_id) <!--    if  Add member -->
                         <div class="col-xs-5">
-
-
 
                             <form class="form-horizontal" method="post" action="/addMember/{{$id}}">
 
@@ -58,7 +56,7 @@
                                 <th>Name</th>
                                 <th>E-mail</th>
                                 <th>Position</th>
-                                @if(Auth::user()->Level_id == 1 || Auth::user()->id == $Board->manager_id)
+                                @if( Auth::user()->id == $Board->manager_id)
                                     <th style="width: 10px"></th>
                                 @endif
                             </tr>
@@ -66,18 +64,13 @@
                             <tbody>
                             @foreach($members as $member)
 
-
-
                                 <tr>
                                     <td> {{$member->member}}</td>
                                     <td> {{$member->email}}</td>
-                                    @if( $member->User_id == $Board->manager_id)
-                                        <td>Project Manament This Project</td>
-                                    @else
-                                        <td>{{$member->level}}</td>
-                                    @endif
+                                    <td>{{$member->level}}</td>
 
-                                    @if(Auth::user()->Level_id == 1 || Auth::user()->id == $Board->manager_id) <!--    if  remove member -->
+
+                                    @if( Auth::user()->id == $Board->manager_id) <!--    if  remove member -->
                                     <td>
                                         @if($member->Level_id != 1  &&  $member->User_id != $Board->manager_id)
 

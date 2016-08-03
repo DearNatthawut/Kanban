@@ -34,7 +34,7 @@
                             <button type="button" class="btn btn-default"> <i class="fa  fa-bar-chart"> Gantt Chart</i></button>
                         </a>
 
-                        @if(Auth::user()->Level_id == 1) <!--            เงื่อนไข แก้ไข และ ลบ -->
+                        @if(Auth::user()->id == $Board->manager['id']) <!--            เงื่อนไข แก้ไข และ ลบ -->
 
                             <a href="/editBoard/{{$Board->id}}">
                                 <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span> Edit</button>
@@ -75,4 +75,3 @@
 
     </tbody>
 </table>
-

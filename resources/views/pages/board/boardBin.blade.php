@@ -11,8 +11,7 @@
     <tbody>
 
     @foreach($allBoards as $Board)
-        @foreach($Board->members as $mem)
-            @if(($mem->id == Auth::user()->id || Auth::user()->Level_id == 1) &&  $Board->board_hide == 1)
+            @if($Board->manager['id'] == Auth::user()->id  &&  $Board->board_hide == 1)
 
                 <tr>
                     <td>
@@ -39,8 +38,6 @@
                             </button>
                         </a>
 
-                    @if(Auth::user()->Level_id == 1) <!--            เงื่อนไข แก้ไข และ ลบ -->
-
                         <a href="/editBoard/{{$Board->id}}">
                             <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span>Edit
                             </button>
@@ -56,7 +53,7 @@
                             <span class="glyphicon glyphicon-remove-circle"></span> Delete
                         </button>
 
-                        @endif
+
 
                         <script>
                             function restoreBoard(id) {
@@ -79,10 +76,9 @@
 
                 @break
             @endif
-        @endforeach
+
     @endforeach
 
 
     </tbody>
 </table>
-
