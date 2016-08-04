@@ -30,8 +30,8 @@ class MemberController extends Controller
             ->select('users.*', 'users.name as member ', 'level.name as level', 'membermanagement.*', 'membermanagement.id as MM')
             ->where('membermanagement.Board_id', '=', $id)
             ->get();
+          
         $id = [];
-
         foreach ($data as $Adata) {
             $id[] = $Adata->User_id;
         }
@@ -41,7 +41,6 @@ class MemberController extends Controller
 
         $Board = Board::all()
             ->find($idBoard);
-
         return view('pages.member.member')
             ->with('id', $idBoard)
             ->with('members', $data)

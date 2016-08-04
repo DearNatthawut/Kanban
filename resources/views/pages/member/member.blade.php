@@ -67,7 +67,11 @@
                                 <tr>
                                     <td> {{$member->member}}</td>
                                     <td> {{$member->email}}</td>
+                                    @if($member->User_id == $Board->manager_id)
                                     <td>{{$member->level}}</td>
+                                    @else
+                                      <td>Member</td>
+                                    @endif
 
 
                                     @if( Auth::user()->id == $Board->manager_id) <!--    if  remove member -->

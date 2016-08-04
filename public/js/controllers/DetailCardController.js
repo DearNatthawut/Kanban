@@ -36,12 +36,12 @@ angular.module('kanban').controller('DetailCardController',
         $scope.close = function () {
             $route.reload();
             $modalInstance.close();
-            
+
         };
-        
+
         initScope(card);
         getDataCard();
-            
+
 
         $scope.detailCard = function () {
             var buffer = [];
@@ -126,7 +126,7 @@ angular.module('kanban').controller('DetailCardController',
         };
 
         $scope.changeCheckStatus = function (checklist) {
-           
+
             $http({
                 method: 'POST',
                 url: '/changeCheckStatus/' + checklist.id,
@@ -205,7 +205,7 @@ angular.module('kanban').controller('DetailCardController',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data : $.param($addCom)
             }).success(function (r) {
-                
+
                 if(r.status_id == 1){
                     r.status = "Backlog"
                 }else if(r.status_id == 2){
@@ -268,7 +268,7 @@ angular.module('kanban').controller('DetailCardController',
         };
 
 
-        
+
 
 
     }]);

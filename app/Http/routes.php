@@ -95,7 +95,7 @@ Route::post('/commentMoveBack/{id}', 'CardController@addNewCommentMoveBack');// 
 
 Route::post('/commentMoveAllBack/{id}', 'CardController@addNewCommentMoveAllBack');// เพิ่ม comment Move Back
 
-Route::post('/updateChecklist/{id}', 'CardController@updateChecklist');// แก้ไข comment
+Route::post('/updateComment/{id}', 'CardController@updateComment');// แก้ไข comment
 
 Route::post('/removeComment/{commentID}/{cardID}', 'CardController@removeComment');// ลบ comment
 

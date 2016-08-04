@@ -37,16 +37,13 @@ class BoardController extends Controller
     public function getBoard()
     {
         if (!Auth::check()) return redirect("/");
-
         $data = Board::find(session()->get('Board'));
-
         return $data;
     }
     //แสดงข้อมูลบอร์ดในหน้าแรก
     public function showAllBoard()
     {
         if (!Auth::check()) return redirect("/");
-
         $data = Board::with(['members', 'manager', 'membersManager'])
             ->select('boards.*')
             ->orderBy('created_at', 'desc')
@@ -145,18 +142,14 @@ class BoardController extends Controller
 
 
         $id = $Board['id'];
-
-            $Manager = new Membermanagement();
-            $Manager->Board_id = $id;
-            $Manager->User_id = Auth::user()->id;
-            $Manager->save();
-
-
+        $Manager = new Membermanagement();
+        $Manager->Board_id = $id;
+        $Manager->User_id = Auth::user()->id;
+        $Manager->save();
         return redirect('/home');
-
     }
 
-    //ลบ Baord
+    //ซ่อน Baord
     public function deleteBoard($id)
     {
 
