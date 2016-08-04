@@ -16,13 +16,14 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-
+ @if(Auth::user()->Level_id != 1)
             <li>
                 <a href="/home">
                     <i class="glyphicon glyphicon-blackboard"></i> <span>List of Boards </span>
                     <small class="label pull-right bg-red"></small>
                 </a>
             </li>
+  @endif
             <li>
                 <a href="/managementAccount">
                     <i class="glyphicon glyphicon-wrench"></i><span>Management account</span>

@@ -44,12 +44,6 @@
                 </li>
 
 
-                <!-- <li>
-                    <a href="/editBoard/{{$Board->id}}">
-                        <i class="fa fa-cogs"></i> <span>Edit</span>
-                    </a>
-                </li> -->
-
                 <li>
                     <a href="/help">
                         <i class="glyphicon glyphicon-info-sign"></i> <span>Help</span>

@@ -68,7 +68,7 @@
                                     <td> {{$member->member}}</td>
                                     <td> {{$member->email}}</td>
                                     @if($member->User_id == $Board->manager_id)
-                                    <td>{{$member->level}}</td>
+                                    <td>Project manager</td>
                                     @else
                                       <td>Member</td>
                                     @endif

@@ -19,7 +19,7 @@ angular.module('kanban').controller('DetailCardController',
 
         function getDataCard(){
             $http({
-                method: 'GET',
+                method: 'POST',
                 url : "/getCardEditData",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 

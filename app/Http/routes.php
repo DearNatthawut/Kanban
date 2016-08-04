@@ -13,13 +13,13 @@
 
 use App\Models;
 
-Route::get('/test', 'BoardController@test');
-
 Route::get('/ganttGet', 'CardController@getCard');
 //--------------------------------------------------------------------------------------Login
 Route::get('/', function () {
 
     if (!Auth::check()) return view('auth/login');
+
+    if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
 
     return redirect('/home');
 
@@ -29,7 +29,6 @@ Route::get('/', function () {
 
 Route::get('/board/{id}', 'BoardController@showBoard');// get ข้อมูล
 
-Route::get('/board', 'BoardController@getBoard');// get ข้อมูล
 
 Route::get('/createBoard', 'BoardController@formCreateBoard');
 
@@ -47,23 +46,21 @@ Route::get('/hardDeleteBoard/{id}', 'BoardController@hardDeleteBoard'); // ล�
 
 Route::get('/restoreBoard/{id}', 'BoardController@restoreBoard'); // กู้คืน board
 
-Route::get('/getDataMember', 'BoardController@getDataMember');
+Route::post('/getDataMember', 'BoardController@getDataMember');
 
 Route::post('/boardComplete', 'BoardController@boardComplete');// เปลี่ยนสถานะ เสร็จ
 
 Route::post('/boardInComplete', 'BoardController@boardPostInComplete');// เปลี่ยนสถานะ ไม่เสร็จ
 
-Route::get('/boardInComplete/{id}', 'BoardController@boardGetInComplete');// เปลี่ยนสถานะ ไม่เสร็จ
 
 //---------------------------------------------------------------------------------------- Card
 
 Route::get('/cards', 'CardController@getCard'); // get card data main
 
-Route::get('/getCardEditData', 'CardController@getCardEditData');
+Route::POST('/getCardEditData', 'CardController@getCardEditData');
 
 Route::get('/createCard/{id}', 'CardController@formNewCard');//สร้าง form card
 
-Route::get('/delCard/{id}', 'CardController@delCard');//สร้าง ลบ card Detail
 
 Route::post('/createCard', 'CardController@createCard');// สร้าง card
 

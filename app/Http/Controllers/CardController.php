@@ -16,7 +16,6 @@ use App\Models\Status;
 use App\Models\Checklist;
 use App\Models\Comment;
 use App\Models\User;
-
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Input;
@@ -26,15 +25,8 @@ date_default_timezone_set('Asia/Bangkok');
 
 class CardController extends Controller
 {
-    public function getCurrentBoardCards()
-{
-    if (!Auth::check()) return redirect("/");
-    $board = Board::with(['members'])
-        ->find(session()->get('Board'));
 
-    return $board->cards()->with([])->get();
-}
-    
+
 // get ข้อมูลการ์ดทั้งหมด ของ Board
     public function getCard()
     {
@@ -51,7 +43,6 @@ class CardController extends Controller
         $status = \App\Models\Status::all('id', 'name')
             ->sortBy('id')
             ->toArray();
-        
 //-- สร้างรูปแบบ ข้อมูล
         $kanban = [];
         $kanban['columns'] = [];
@@ -70,7 +61,7 @@ class CardController extends Controller
     }
 
 
-    
+
     public function getOneCard()
     {
         if (!Auth::check()) return redirect("/");
@@ -87,10 +78,12 @@ class CardController extends Controller
     {
 
         if (!Auth::check()) return redirect("/");
+        if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
+
         //return \Input::get();
         $dateEscard = preg_split('[-]', \Input::get('date'));
         $BoardId = session()->get('Board');
-       
+
         $Card = new Card();
         $Card->name = \Input::get('name');
         $Card->detail = \Input::get('detail');
@@ -138,7 +131,13 @@ class CardController extends Controller
     public function formNewCard($id)
     {
 
-        if (!Auth::check()) return redirect("/");
+      if (!Auth::check()) return redirect("/");
+      if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
+
+      $Board = Board::all()
+          ->find($id);
+
+         if (Auth::user()->id != $Board->manager_id) return redirect("/");
 
         $status = Status::all('id', 'name')
             ->sortBy('id')
@@ -146,16 +145,15 @@ class CardController extends Controller
         $prior = Priority::all('id', 'name')
             ->sortBy('id')
             ->toArray();
-      
+
         $member = Membermanagement::with(['member'])
             ->where('Board_id', '=', session()->get('Board'))
             ->get();
-        $Board = Board::all()
-            ->find($id);
+
         $getcard = Card::
             where('Board_id', '=', session()->get('Board'))
             ->get();
-        
+
         return view('pages.card.createCard')
             ->with('piority', $prior)
             ->with('member', $member)
@@ -169,14 +167,16 @@ class CardController extends Controller
     {
 
         if (!Auth::check()) return redirect("/");
-        
+        if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
+
         $Board = Board::all()
             ->find($id);
+        if (Auth::user()->id != $Board->manager_id) return redirect("/");
 
         $prior = Priority::all('id', 'name')
             ->sortBy('id')
             ->toArray();
-        
+
         $member = Membermanagement::with(['member'])
             ->where('Board_id', '=', $id)
             ->get();
@@ -184,8 +184,8 @@ class CardController extends Controller
         $getcard = Card::with(['checklist', 'memberCard.member'])
             ->where('id', '=', $card)
             ->get();
-        
-        
+
+
         return view('pages.card.editCard')
             ->with('Board', $Board)
             ->with('piority', $prior)
@@ -197,12 +197,10 @@ class CardController extends Controller
     {
 
         if (!Auth::check()) return redirect("/");
-        /*$card = Card::find($id);*/
         $card = Card::with(['checklists', 'memberCard.member', 'comments.memberComment'])
             ->find($id);
         $card->fill(Input::all());
         $card->save();
-
 
         $card = Card::with(['checklists', 'memberCard.member', 'comments.memberComment','preCard'])
             ->find($id);
@@ -217,18 +215,18 @@ class CardController extends Controller
     {
 
         if (!Auth::check()) return redirect("/");
-        
+
         $cardId = Input::get('cardId');
         $columnName = Input::get('columnName');
-        
+
         if (strcmp($columnName, "Backlog") == 0) $column = 1;
         else if (strcmp($columnName, "Ready") == 0) $column = 2;
         else if (strcmp($columnName, "Doing") == 0) $column = 3;
         else if (strcmp($columnName, "Done") == 0) $column = 4;
-        
+
         $move = Card::find($cardId);
         $move->status_id = $column;
-        
+
         if ($move->date_start == null) {
             $move->date_start = date('Y-m-d');
         }
@@ -269,7 +267,7 @@ class CardController extends Controller
         if (!Auth::check()) return redirect("/");
 
         $prior = Priority::all('id', 'name');
-      
+
         $member = Membermanagement::with(['member'])
             ->where('Board_id', '=', session()->get('Board'))
             ->get();
@@ -281,6 +279,7 @@ class CardController extends Controller
         $data['manager'] = $member;
         $data['user'] = $user;
         $data['boardManager'] = $boardManager;
+
         return $data;
     }
 
@@ -290,33 +289,19 @@ class CardController extends Controller
     {
 
         if (!Auth::check()) return redirect("/");
-        
+
+        $reCard = Card::find($cardId);
+        $board = Board::find($reCard->Board_id);
+      if (Auth::user()->id != $Board->manager_id) return redirect("/");
+
         $cardId = Input::get('card');
         $check = Checklist::where('Card_id', '=', $cardId);
         $check->delete();
         $com = Comment::where('Card_id', '=', $cardId);
         $com->delete();
-        $reCard = Card::find($cardId);
+
         $reCard->delete();
         return $cardId;
-    }
-
-    //  ลบ Card
-    public function delCard($id)
-    {
-
-        if (!Auth::check()) return redirect("/");
-        
-        $check = Checklist::where('Card_id', '=', $id);
-        $check->delete();
-        $com = Comment::where('Card_id', '=', $id);
-        $com->delete();
-        $reCard = Card::find($id);
-        $reCard->delete();
-        $card = Card::with(['checklists', 'memberCard.member', 'comments.memberComment', 'preCards.preCard'])
-            ->find($id);
-
-        return $card;
     }
 
 //-------------------------------------------------------------------Checklist
@@ -388,7 +373,7 @@ class CardController extends Controller
     {
 
         if (!Auth::check()) return redirect("/");
-        
+
         $newComment = new Comment();
         $newComment->detail = Input::get('detail');
         $newComment->Card_id = $id;

@@ -24,13 +24,17 @@ class MemberController extends Controller
     {
         if (!Auth::check()) return redirect("/");
         $idBoard = $id;
+
+          $Board = Board::find($idBoard);
+  if (Auth::user()->id != $Board->manager_id) return redirect("/");
+
         $data = DB::table('membermanagement')
             ->join('users', 'membermanagement.User_id', '=', 'users.id')
             ->join('level', 'users.Level_id', '=', 'level.id')
             ->select('users.*', 'users.name as member ', 'level.name as level', 'membermanagement.*', 'membermanagement.id as MM')
             ->where('membermanagement.Board_id', '=', $id)
             ->get();
-          
+
         $id = [];
         foreach ($data as $Adata) {
             $id[] = $Adata->User_id;
@@ -39,8 +43,6 @@ class MemberController extends Controller
         $member = DB::table('users')
             ->whereNotIn('id', $id)->get();
 
-        $Board = Board::all()
-            ->find($idBoard);
         return view('pages.member.member')
             ->with('id', $idBoard)
             ->with('members', $data)
