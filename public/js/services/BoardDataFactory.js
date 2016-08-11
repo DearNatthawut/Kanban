@@ -11,12 +11,10 @@ angular.module('kanban').service('BoardDataFactory', function ($http) {
         getKanban : function(){
             return $http({
                 method: 'GET',
-                url : "http://localhost:8000/cards"
+                url : "/cards"
             })
         },
 
 
     };
 });
-
-

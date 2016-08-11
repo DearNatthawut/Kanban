@@ -24,28 +24,11 @@ date_default_timezone_set('Asia/Bangkok');
 class BoardController extends Controller
 {
 
-
-    public function test()
-    {
-        $data = Card::
-        where('Board_id', '=', session()->get('Board'))
-            ->select('id', 'name', 'estimate_start', 'estimate_end', 'date_start', 'date_end')
-            ->get();
-        return $data;
-    }
-
-    public function getBoard()
-    {
-        if (!Auth::check()) return redirect("/");
-
-        $data = Board::find(session()->get('Board'));
-        
-        return $data;
-    }
     //แสดงข้อมูลบอร์ดในหน้าแรก
     public function showAllBoard()
     {
         if (!Auth::check()) return redirect("/");
+        if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
 
         $data = Board::with(['members', 'manager', 'membersManager'])
             ->select('boards.*')
@@ -59,20 +42,74 @@ class BoardController extends Controller
     public function showBoard($id)
     {
         if (!Auth::check()) return redirect("/");
+        if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
 
         $data = Board::find($id);
         session::put("Board", $id);  //--------------------------------------- CreateSession
         session::put("Manager", $data->manager_id);
 
+        $memberOfBoard = Membermanagement::where('User_id','=',Auth::user()->id)
+        ->where('Board_id','=',$data->id)
+        ->get();
+        if (count($memberOfBoard) == 0) {
+          return redirect("/");
+        }elseif (Auth::user()->id != $data->manager_id && $data->status_complete == 1) {
+             return redirect("/");
+        }
+
         return view('pages.board.board')->with('Board', $data);
+    }
+
+
+    public function formCreateBoard()
+    {
+
+      if (!Auth::check()) return redirect("/");
+      if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
+      if (Auth::user()->Level_id != 3) return redirect('/');
+
+        return view('pages.board.createBoard');
+    }
+
+    //สร้าง Bord
+    public function createBoard()
+    {
+
+        if (!Auth::check()) return redirect("/");
+        if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
+        if (Auth::user()->Level_id != 3) return redirect('/');
+
+        $dateEs = preg_split('[-]', \Input::get('date'));
+
+        $Board = new Board();
+        $Board->name = \Input::get('name');
+        $Board->detail = \Input::get('detail');
+     /*   $Board->worklimit = \Input::get('worklimit');*/
+        $Board->estimate_start = $dateEs[0];
+        $Board->estimate_end = $dateEs[1];
+        $Board->manager_id = Auth::user()->id;
+        $Board->save();
+
+
+        $id = $Board['id'];
+        $Manager = new Membermanagement();
+        $Manager->Board_id = $id;
+        $Manager->User_id = Auth::user()->id;
+        $Manager->save();
+        return redirect('/home');
     }
 
     //แก้ไขบอร์ด
     public function formEditBoard($id)
     {
         if (!Auth::check()) return redirect("/");
+        if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
 
         $data = Board::all()->find($id);
+
+        if (Auth::user()->id != $data->manager_id) return redirect("/");
+
+
         $dateFormatStart = preg_split('[-]', $data->estimate_start);
         $dateFormatStart = $dateFormatStart[0] . "/" . $dateFormatStart[1] . "/" . $dateFormatStart[2];
         $dateFormatEnd = preg_split('[-]', $data->estimate_end);
@@ -105,79 +142,34 @@ class BoardController extends Controller
     public function editBoard()
     {
 
-        if (!Auth::check()) return redirect("/");
+      if (!Auth::check()) return redirect("/");
+      if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
 
         $dateEs = preg_split('[-]', \Input::get('date'));
 
         $edit = Board::find(\Input::get('id'));
+        if (Auth::user()->id != $edit->manager_id) return redirect("/");
+
         $edit->name = \Input::get('name');
         $edit->detail = \Input::get('detail');
        /* $edit->worklimit = \Input::get('worklimit');*/
-        $edit->manager_id = \Input::get('manager');
+        $edit->manager_id = Auth::user()->id;
         $edit->estimate_start = $dateEs[0];
         $edit->estimate_end = $dateEs[1];
         $edit->save();
         return redirect('/home');
     }
 
-    public function formCreateBoard()
-    {
 
-        if (!Auth::check()) return redirect("/");
-
-        $members = User::all();
-        return view('pages.board.createBoard')
-            ->with('members', $members);
-    }
-
-    //สร้าง Bord
-    public function createBoard()
-    {
-        if (!Auth::check()) return redirect("/");
-
-        $dateEs = preg_split('[-]', \Input::get('date'));
-
-        $Board = new Board();
-        $Board->name = \Input::get('name');
-        $Board->detail = \Input::get('detail');
-     /*   $Board->worklimit = \Input::get('worklimit');*/
-        $Board->estimate_start = $dateEs[0];
-        $Board->estimate_end = $dateEs[1];
-        $Board->manager_id = \Input::get('manager');
-        $Board->save();
-
-
-        $id = $Board['id'];
-        $managerID = $Board['manager_id'];
-        if (Auth::user()->id == $managerID) {
-            $Manager = new Membermanagement();
-            $Manager->Board_id = $id;
-            $Manager->User_id = $managerID;
-            $Manager->save();
-        } else {
-            $Manager = new Membermanagement();
-            $Manager->Board_id = $id;
-            $Manager->User_id = $managerID;
-            $Manager->save();
-
-            $Manager = new Membermanagement();
-            $Manager->Board_id = $id;
-            $Manager->User_id = Auth::user()->id;
-            $Manager->save();
-        }
-
-
-        return redirect('/home');
-
-    }
-
-    //ลบ Baord
+    //ซ่อน Baord
     public function deleteBoard($id)
     {
 
-        if (!Auth::check()) return redirect("/");
+      if (!Auth::check()) return redirect("/");
+      if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
 
         $board = Board::find($id);
+        if (Auth::user()->id != $board->manager_id) return redirect("/");
         $board->board_hide = 1;
         $board->save();
 
@@ -188,7 +180,11 @@ class BoardController extends Controller
     public function hardDeleteBoard($id)
     {
 
-        if (!Auth::check()) return redirect("/");
+      if (!Auth::check()) return redirect("/");
+      if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
+
+         $data = Board::find($id);
+       if (Auth::user()->id != $data->manager_id) return redirect("/");
 
         $cards = Card::where('Board_id', '=', $id)
             ->get();
@@ -216,16 +212,19 @@ class BoardController extends Controller
            ->delete();
 
 
-        Board::find($id)->delete();
+        $data->delete();
 
         return redirect('/home');
     }
 
     public function restoreBoard($id)
     {
-        if (!Auth::check()) return redirect("/");
+      if (!Auth::check()) return redirect("/");
+      if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
 
         $board = Board::find($id);
+        if (Auth::user()->id != $board->manager_id) return redirect("/");
+
         $board->board_hide = 0;
         $board->save();
 
@@ -235,8 +234,11 @@ class BoardController extends Controller
     public function boardComplete()
     {
         if (!Auth::check()) return redirect("/");
+        if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
+        if (Auth::user()->Level_id != 3) return redirect('/');
 
         $board = Board::find(session()->get('Board'));
+        if (Auth::user()->id != $board->manager_id) return redirect("/");
         $board->status_complete = 1;
         $board->end_date = date('Y-m-d');
         $board->save();
@@ -245,24 +247,16 @@ class BoardController extends Controller
 
     public function boardPostInComplete()
     {
-        if (!Auth::check()) return redirect("/");
+      if (!Auth::check()) return redirect("/");
+      if (Auth::user()->Level_id == 1) return redirect('/managementAccount');
+
 
         $board = Board::find(session()->get('Board'));
+        if (Auth::user()->id != $board->manager_id) return redirect("/");
         $board->status_complete = 0;
         $board->end_date = null;
         $board->save();
 
-    }
-
-    public function boardGetInComplete($id)
-    {
-        if (!Auth::check()) return redirect("/");
-
-        $board = Board::find($id);
-        $board->status_complete = 0;
-        $board->end_date = null;
-        $board->save();
-        return redirect('/home');
     }
 
 
@@ -278,4 +272,5 @@ class BoardController extends Controller
         return $data;
 
     }
+
 }

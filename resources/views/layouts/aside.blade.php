@@ -43,14 +43,6 @@
                     </a>
                 </li>
 
-            @if(Auth::user()->Level_id == 1) <!-- hide form Member -->
-                <li>
-                    <a href="/editBoard/{{$Board->id}}">
-                        <i class="fa fa-cogs"></i> <span>Edit</span>
-                    </a>
-                </li>
-
-                @endif
 
                 <li>
                     <a href="/help">

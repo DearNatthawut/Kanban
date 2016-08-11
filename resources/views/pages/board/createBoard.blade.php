@@ -51,20 +51,7 @@
                                     <!-- /.input group -->
 
                                 </div>
-                                <div class="form-group">
-                                    <label for="manager" class="col-sm-2 control-label">Manager Board</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-control" name="manager">
-                                            @foreach($members as $member)
-                                                <div class="col-sm-10">
-                                                    <option value="{{$member->id}}">{{$member->name}}
-                                                        ( {{$member->email}})
-                                                    </option>
-                                                </div>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+                            
 
 
                             </div><!-- /.box-body -->

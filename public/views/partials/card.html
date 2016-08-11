@@ -1,18 +1,14 @@
 <!-- Item template -->
 
-<!--                                       Admin-->
+<!--  Admin-->
 <div as-sortable-item-handle
-     ng-if="(self.DataMember.user.Level_id == 1 || self.DataMember.user.id == self.DataMember.board.manager_id )&&
-                    self.DataMember.board.status_complete != 1">
-
+     ng-if=" self.DataMember.user.id == self.DataMember.board.manager_id
+      &&  self.DataMember.board.status_complete != 1">
 
     <div class="row">
         <div class="col-sm-10">
-            <!--<span class="btn-link"><a data-no-drag target=_top href="https://github.com/a5hik/ng-sortable">test no-drag href</a></span>-->
-
             <!--  Color -->
             <span class="label" style="background-color: {{card.color}}; border: solid;width:42px">   </span>
-
 
             <!-- High Priority -->
             <span class="glyphicon glyphicon-star card-icon" style="color: gold;"
@@ -41,7 +37,7 @@
 
         <div class="col-sm-2">
             <a data-no-drag class=" removeCard pull-right btn btn-xs" ng-click="self.removeCard(column, card)"
-               ng-if="self.DataMember.user.Level_id == 1 || self.DataMember.user.id == self.DataMember.board.manager_id">
+               ng-if="elf.DataMember.user.id == self.DataMember.board.manager_id">
                 <span class="glyphicon glyphicon-remove"></span></a>
         </div>
     </div>
@@ -51,9 +47,9 @@
 
 
 <!--  manager Card-->
-<div as-sortable-item-handle ng-if="(self.DataMember.user.Level_id == 2 && self.DataMember.user.id == card.member_card.member.id
-     && self.DataMember.user.id != self.DataMember.board.manager_id) && self.DataMember.board.status_complete != 1">
-
+<div as-sortable-item-handle ng-if="( self.DataMember.user.id == card.member_card.member.id
+     && self.DataMember.user.id != self.DataMember.board.manager_id)
+     && self.DataMember.board.status_complete != 1">
 
     <div class="row">
 
@@ -86,13 +82,6 @@
         <div class="col-sm-2">
             <a data-no-drag class=" removeCard pull-right btn btn-xs" ng-click="self.detailCard(card)">
                 <span class="glyphicon  glyphicon-cog"></span></a>
-        </div>
-
-        <div class="col-sm-2">
-            <a data-no-drag class=" removeCard pull-right btn btn-xs" ng-click="self.removeCard(column, card)"
-               ng-if="self.DataMember.user.Level_id == 1 || self.DataMember.user.id == self.DataMember.board.manager_id">
-                <span class="glyphicon glyphicon-remove"></span></a>
-
         </div>
 
     </div>
@@ -102,16 +91,15 @@
 
 
 <!--  member -->
-<div ng-if="self.DataMember.user.Level_id == 2 && self.DataMember.user.id != card.member_card.member.id &&  self.DataMember.user.id != self.DataMember.board.manager_id
-|| self.DataMember.board.status_complete == 1">
-
+<div ng-if="(self.DataMember.user.id != card.member_card.member.id
+&& self.DataMember.user.id != self.DataMember.board.manager_id)
+ ||  self.DataMember.board.status_complete == 1">
 
     <div class="row">
         <div class="col-sm-10">
 
             <!--  Color -->
             <span class="label" style="background-color: {{card.color}}; border: solid;width:42px">   </span>
-
 
             <!-- High Priority -->
             <span class="glyphicon glyphicon-star card-icon" style="color: gold;"
@@ -136,11 +124,7 @@
             <a data-no-drag class=" removeCard pull-right btn btn-xs" ng-click="self.detailCard(card)">
                 <span class="glyphicon  glyphicon-cog"></span></a>
         </div>
-        <div class="col-sm-2">
-            <a data-no-drag class=" removeCard pull-right btn btn-xs" ng-click="self.removeCard(column, card)"
-               ng-if="self.DataMember.user.Level_id == 1 || self.DataMember.user.id == self.DataMember.board.manager_id">
-                <span class="glyphicon glyphicon-remove"></span></a>
-        </div>
+
     </div>
 
 

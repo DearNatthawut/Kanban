@@ -24,23 +24,24 @@ class MemberController extends Controller
     {
         if (!Auth::check()) return redirect("/");
         $idBoard = $id;
+
+          $Board = Board::find($idBoard);
+  if (Auth::user()->id != $Board->manager_id) return redirect("/");
+
         $data = DB::table('membermanagement')
             ->join('users', 'membermanagement.User_id', '=', 'users.id')
             ->join('level', 'users.Level_id', '=', 'level.id')
             ->select('users.*', 'users.name as member ', 'level.name as level', 'membermanagement.*', 'membermanagement.id as MM')
             ->where('membermanagement.Board_id', '=', $id)
             ->get();
-        $id = [];
 
+        $id = [];
         foreach ($data as $Adata) {
             $id[] = $Adata->User_id;
         }
 
         $member = DB::table('users')
             ->whereNotIn('id', $id)->get();
-
-        $Board = Board::all()
-            ->find($idBoard);
 
         return view('pages.member.member')
             ->with('id', $idBoard)
@@ -129,6 +130,38 @@ class MemberController extends Controller
         return view("auth.managementAccount");
     }
 
+    public function allMember()
+    {
+       if (!Auth::check()) return redirect("/");
+        $all = User::with(['levelUser'])->get();
+        return view("auth.permissions")
+        ->with('members', $all);
+    }
+
+    public function addManager()
+    {
+        if (!Auth::check()) return redirect("/");
+
+        $memberID = \Input::get('memberID');
+
+        $user = User::find($memberID);
+        $user->Level_id = 3;
+        $user->save();
+
+        return back();
+    }
+
+    public function delManager()
+    {
+        if (!Auth::check()) return redirect("/");
+
+        $memberID = \Input::get('memberID');
+
+        $user = User::find($memberID);
+        $user->Level_id = 2;
+        $user->save();
+        return back();
+    }
 
     public function viewChangePassword()
     {

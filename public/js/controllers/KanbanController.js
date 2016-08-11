@@ -15,7 +15,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
 
         function getDataMember() {
             $http({
-                method: 'GET',
+                method: 'POST',
                 url: "/getDataMember",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
@@ -25,21 +25,7 @@ angular.module('kanban').controller('KanbanController', ['$scope', 'BoardService
             })
         }
 
-        function getBoard() {
-            $http({
-                method: 'GET',
-                url: "/board",
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-
-            }).success(function (r) {
-                self.Board = r;
-
-            })
-        }
-
         getDataMember();
-        getBoard();
-
 
         BoardDataFactory.getKanban().success(function (r) {  //------
             // console.log(r);

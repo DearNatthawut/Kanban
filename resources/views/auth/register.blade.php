@@ -3,7 +3,7 @@
 <head>
     <title>Project Management With Kanban Borad</title>
     <meta charset="utf-8">
-
+    <link rel="icon" href="/favicon.ico"/>
     @extends('layouts.css')
 
     <script src='https://www.google.com/recaptcha/api.js'></script>

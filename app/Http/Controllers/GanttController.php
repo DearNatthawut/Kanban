@@ -30,21 +30,30 @@ class GanttController extends Controller
 
     if (!Auth::check()) return redirect("/");
 
+    $memberOfBoard = Membermanagement::where('User_id','=',Auth::user()->id)
+    ->where('Board_id','=',$id)
+    ->get();
+    if (count($memberOfBoard) == 0) {
+      return redirect("/");
+    }
+
     $Board = Board::all()
         ->find($id);
     session::put("idForGantt", $id);
 
+
     $boardCards = Board::with(['members'])
         ->find(session()->get('idForGantt'));
 
+
     $cards = $boardCards->cards()->with(['memberCard.member','comments'])->get();
-       
-       
+
+
     return  view('pages.gantt.ganttChart')
         ->with('Board', $Board)
         ->with('Card', $cards);
 }
-    
+
     public function getCurrentBoardCards()
     {
         $board = Board::with(['members'])

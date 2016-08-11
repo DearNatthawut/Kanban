@@ -20,39 +20,7 @@
 
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                           {{-- <!-- -------------------------------------------------------------------------------- Nav Menu -->
-                                    <div >
-                                        <ul class="nav nav-tabs"  id="myTab">
-                                            <li role="presentation" class="active">
-                                                <a href="#card-detail" data-toggle="tab">General</a>
-                                            </li>
-                                            <li role="presentation">
-                                                <a href="#card-date" data-toggle="tab">Date</a>
-                                            </li>
-
-                                            <li role="presentation">
-                                                <a href="#card-checklist" data-toggle="tab">Checklist</a>
-                                            </li>
-                                        </ul>
-
-                                        <!-------------------------------------------------------------------------------- Tab panes -->
-                                        <div class="tab-content">
-                                            <div class="tab-pane fade in active" id="card-detail">
-                                                @include("pages.card.general")
-                                            </div>
-
-                                            <div class="tab-pane fade" id="card-date">
-                                                @include("pages.card.cardDate")
-                                            </div>
-
-                                    <div class="tab-pane fade" id="card-checklist">
-                                        @include("pages.card.checklist")
-                                    </div>
-
-                                </div>
-                            </div>--}}
-                            <!--     ---------------------------------------------------------------------------------- Foot -->
-
+                      
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="name" class="col-sm-2 control-label">Name</label>

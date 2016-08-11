@@ -29,6 +29,10 @@
                             <span>Change Email</span></button>
                         <button type="button" class="btn btn-default " onclick="window.location.href='/managementAccount/changepassword'">
                             <span>Change Password</span></button>
+                             @if(Auth::user()->Level_id == 1)
+                            <button type="button" class="btn btn-default " onclick="window.location.href='/managementAccount/permissions'">
+                                <span>Permissions</span></button>
+                                @endif
                     </center>
                     <br>
                 </div>
